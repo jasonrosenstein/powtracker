@@ -260,14 +260,23 @@ export interface OpeningLine {
  */
 export function openingLine(op: Opening | undefined, nowMs = Date.now()): OpeningLine | null {
   if (!op) return null
+  // Announcements move with the weather, so the day this one was read goes with it.
+  const read = op.at ? new Date(`${op.at}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' }) : null
+  const detail = op.says ? `The announcement${read ? `, as read on ${read}` : ''}: “${op.says}”.` : read ? `Read on ${read}.` : ''
+  const rest = { detail, source: op.src }
+  if (op.s === 'closed') return { text: 'Not opening this season', short: 'Not opening this season', ...rest }
+  if (op.s === 'tba') return { text: 'No opening date set', short: 'No opening date set', ...rest }
   const day = op.d ? new Date(`${op.d}T12:00:00Z`) : null
   const long = day?.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' })
   const brief = day?.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' })
-  const ahead = day != null && op.d! > new Date(nowMs).toISOString().slice(0, 10)
-  const rest = { detail: op.says ? `The announcement: “${op.says}”.` : '', source: op.src }
-  if (op.s === 'open' && !ahead) return { text: long ? `Open for the season since ${long}` : 'Open for the season', short: 'Open for the season', ...rest }
+  // The reader's own calendar day: "today" is theirs, and most look at mountains near them.
+  const now = new Date(nowMs)
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
+  const weather = op.s === 'tentative' ? ', weather permitting' : ''
+  if (op.s === 'open' && (!op.d || op.d <= today)) return { text: long ? `Open for the season since ${long}` : 'Open for the season', short: 'Open for the season', ...rest }
   if (!day) return { text: 'Not open yet', short: 'Not open yet', ...rest }
-  if (ahead) return { text: `Opens ${long}${op.s === 'tentative' ? ', weather permitting' : ''}`, short: `Opens ${brief}`, ...rest }
+  if (op.d === today) return { text: `Opens today, ${long}${weather}`, short: 'Opens today', ...rest }
+  if (op.d! > today) return { text: `Opens ${long}${weather}`, short: `Opens ${brief}`, ...rest }
   return { text: `Planned opening day was ${long}`, short: `Due to open ${brief}`, ...rest }
 }
 

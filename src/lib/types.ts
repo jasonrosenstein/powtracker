@@ -109,14 +109,19 @@ export interface ObservationsFile {
 
 /** When a mountain opens for the season, as the resort or its pass announced it. */
 export interface Opening {
-  /** open: already open for the season. planned: a date is announced. tentative: weather permitting. */
-  s: 'open' | 'planned' | 'tentative'
+  /**
+   * open: already open for the season. planned: a date is announced. tentative: weather
+   * permitting. tba: the resort says no date is set. closed: it says it will not open this season.
+   */
+  s: 'open' | 'planned' | 'tentative' | 'tba' | 'closed'
   /** Opening day (or the day it opened), "YYYY-MM-DD"; absent when only wording was given. */
   d?: string
   /** The source's own short wording. */
   says: string
   /** The page that states it. */
   src: string
+  /** The day that page was read, "YYYY-MM-DD". */
+  at?: string
 }
 
 export interface OpeningsFile {

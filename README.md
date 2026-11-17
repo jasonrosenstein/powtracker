@@ -82,10 +82,12 @@ Each mountain has a second tab for the day on the hill:
   number, then by name; where most are found, colour on the trail map means "reported open
   today" and everything else is grey. Every other mountain says that its live status is on the
   resort's site, and links to it.
-- **Opening dates.** `data/openings/*.json` holds each mountain's announced season opening with
-  the page that states it, collected by research on the date in the file;
-  `npm run data:openings` builds `public/data/openings.json` from them. A planned date that has
-  passed is shown as planned, never as "open".
+- **Opening dates.** `data/openings/*.json` holds what each mountain has announced for the
+  season (open since a day, a set opening day, a hoped-for one, no date yet, or not opening)
+  in the source's own words, with the page that states it and the day it was read;
+  `npm run data:openings` builds `public/data/openings.json` from them. The app shows the
+  announcement, its source and that day. A planned date that has passed is shown as planned,
+  never as "open". Only mountains with a page that states something are listed.
 - **On the mountain.** Summit temperature and wind chill, wind and gusts with a lift-hold
   warning, visibility, sunrise and sunset, hour by hour for a day and a half (Open-Meteo).
 - **Avalanche danger** beyond the ski-area boundary, from avalanche.org (United States) and

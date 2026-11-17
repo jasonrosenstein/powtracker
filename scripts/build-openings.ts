@@ -15,9 +15,15 @@ interface Research {
 }
 
 const DIR = 'data/openings'
+const STATES = new Set(['open', 'planned', 'tentative', 'tba', 'closed'])
+/** A quote short enough for a card, cut between words. */
+const clip = (s: string, max = 220) => (s.length <= max ? s : `${s.slice(0, s.lastIndexOf(' ', max - 1))}…`)
 const resorts = new Map((JSON.parse(readFileSync('public/data/resorts.json', 'utf8')) as ResortsFile).resorts.map((r) => [r.id, r]))
 const out: OpeningsFile = { season: '', compiled: '', resorts: {} }
 const problems: string[] = []
+const conflicts: string[] = []
+/** How definite a statement is: a season called off, open, a set date, a hoped-for date, wording only, no date. */
+const strength = (o: Opening) => (o.s === 'closed' ? 6 : o.s === 'open' ? (o.d ? 5 : 4) : o.s === 'planned' && o.d ? 3 : o.s === 'tentative' && o.d ? 2 : o.s === 'tba' ? 0 : 1)
 
 for (const file of existsSync(DIR) ? readdirSync(DIR).filter((f) => f.endsWith('.json')) : []) {
   const research = JSON.parse(readFileSync(`${DIR}/${file}`, 'utf8')) as Research
@@ -30,7 +36,10 @@ for (const file of existsSync(DIR) ? readdirSync(DIR).filter((f) => f.endsWith('
       problems.push(`${file}: ${o.name} has id ${o.id}, which is not a tracked mountain`)
       continue
     }
-    if (o.state !== 'open' && o.state !== 'planned' && o.state !== 'tentative') continue
+    // "unknown" in the research means the source says no date is set; that is worth showing in
+    // the resort's words, and nothing without them.
+    const state = o.state === 'unknown' ? 'tba' : o.state
+    if (!STATES.has(state) || (state === 'tba' && !o.says?.trim())) continue
     if (!o.source || !/^https?:\/\//.test(o.source)) {
       problems.push(`${file}: ${o.name} has no source page`)
       continue
@@ -39,15 +48,24 @@ for (const file of existsSync(DIR) ? readdirSync(DIR).filter((f) => f.endsWith('
       problems.push(`${file}: ${o.name} has an implausible date ${o.date}`)
       continue
     }
-    const entry: Opening = { s: o.state, says: (o.says ?? '').trim().slice(0, 220), src: o.source }
-    if (o.date) entry.d = o.date
+    const entry: Opening = { s: state as Opening['s'], says: clip((o.says ?? '').replace(/\s+/g, ' ').trim()), src: o.source }
+    if (o.date && state !== 'tba' && state !== 'closed') entry.d = o.date
+    if (/^\d{4}-\d{2}-\d{2}$/.test(research.compiled ?? '')) entry.at = research.compiled
+    // Two files can cover one mountain. The more definite statement wins; two equally definite
+    // ones that disagree are reported, and the first is kept until someone reads both pages.
+    const prior = out.resorts[o.id]
+    if (prior && strength(prior) >= strength(entry)) {
+      if (strength(prior) === strength(entry) && prior.d !== entry.d) conflicts.push(`${o.name} (${o.id}): kept ${prior.d} from ${prior.src}, not ${entry.d} from ${entry.src}`)
+      continue
+    }
     out.resorts[o.id] = entry
     kept++
   }
   console.log(`${file}: ${kept} of ${research.openings.length} entries kept`)
 }
 
-for (const p of problems.slice(0, 20)) console.warn(`  skipped ${p}`)
+for (const p of problems) console.warn(`  skipped ${p}`)
+for (const c of conflicts) console.warn(`  disagreement ${c}`)
 writeFileSync('public/data/openings.json', JSON.stringify(out))
 const states = Object.values(out.resorts).reduce<Record<string, number>>((m, o) => ((m[o.s] = (m[o.s] ?? 0) + 1), m), {})
 console.log(`wrote public/data/openings.json: ${Object.keys(out.resorts).length} mountains ${JSON.stringify(states)}, collected ${out.compiled || 'never'}`)

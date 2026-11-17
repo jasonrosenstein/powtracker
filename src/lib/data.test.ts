@@ -92,8 +92,16 @@ describe('measured snow', () => {
 })
 
 describe('openingLine', () => {
-  const NOW = Date.parse('2026-11-17T15:00:00Z')
+  // Midday UTC: the same calendar day in every time zone the tests run in.
+  const NOW = Date.parse('2026-11-17T12:00:00Z')
   const src = 'https://example.org/opening'
+  it('says so when the opening day is today', () => {
+    expect(openingLine({ s: 'planned', d: '2026-11-17', says: '', src }, NOW)).toMatchObject({ text: 'Opens today, Tuesday 17 November', short: 'Opens today' })
+  })
+  it('reports a resort that has set no date, or will not open, in those words', () => {
+    expect(openingLine({ s: 'tba', says: 'Opening Day TBD', src }, NOW)).toMatchObject({ text: 'No opening date set', detail: 'The announcement: “Opening Day TBD”.' })
+    expect(openingLine({ s: 'closed', says: 'Will not open for 2026–27', src }, NOW)?.text).toBe('Not opening this season')
+  })
   it('announces a planned opening that is still ahead', () => {
     expect(openingLine({ s: 'planned', d: '2026-11-21', says: 'Opening day Saturday', src }, NOW)).toMatchObject({ text: 'Opens Saturday 21 November', short: 'Opens 21 Nov', source: src })
   })
@@ -108,6 +116,10 @@ describe('openingLine', () => {
   it('reports a mountain that is open, with the day it opened when known', () => {
     expect(openingLine({ s: 'open', d: '2026-11-07', says: '', src }, NOW)?.text).toBe('Open for the season since Saturday 7 November')
     expect(openingLine({ s: 'open', says: '', src }, NOW)?.text).toBe('Open for the season')
+  })
+  it('dates the announcement with the day it was read', () => {
+    expect(openingLine({ s: 'planned', d: '2026-11-21', says: 'Opening day Saturday', src, at: '2026-11-17' }, NOW)?.detail).toBe('The announcement, as read on 17 November: “Opening day Saturday”.')
+    expect(openingLine({ s: 'open', says: '', src, at: '2026-11-17' }, NOW)?.detail).toBe('Read on 17 November.')
   })
   it('falls back to the announcement when there is no date, and to nothing without an announcement', () => {
     const line = openingLine({ s: 'tentative', says: 'Opening as conditions allow', src }, NOW)!

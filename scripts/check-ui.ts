@@ -271,6 +271,23 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     await back()
     await page.locator('#f-q').fill('')
   })
+
+  await check('mountain: an announced opening day is shown with the page that states it', async () => {
+    const openings = await fetch(new URL('data/openings.json', base)).then((r) => (r.ok ? r.json() : null))
+    const resorts = (await fetch(new URL('data/resorts.json', base)).then((r) => r.json())).resorts as { id: string; n: string }[]
+    // A mountain with a dated opening whose name finds it alone, so the search cannot land elsewhere.
+    const pick = resorts.find((r) => openings?.resorts[r.id]?.d && resorts.filter((o) => o.n.toLowerCase().includes(r.n.toLowerCase())).length === 1)
+    if (!pick) throw new Error('no dated opening in data/openings.json to check')
+    const opening = openings.resorts[pick.id]
+    await page.locator('#f-q').fill(pick.n)
+    const tag = (await page.locator('.tag.is-season').first().textContent())!
+    expect(/^(Opens|Due to open|Open for the season)/.test(tag), `${pick.n} is tagged "${tag}"`)
+    await openMountain(pick.n)
+    const source = page.locator('.detail-body').getByRole('link', { name: 'Source' }).first()
+    expect((await source.getAttribute('href')) === opening.src, `${pick.n} should link to ${opening.src}`)
+    await back()
+    await page.locator('#f-q').fill('')
+  })
   await page.context().close()
 }
 
