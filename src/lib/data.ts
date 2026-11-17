@@ -3,7 +3,7 @@
 import { type Level } from './models.ts'
 import { regionOf, type Region } from './regions.ts'
 import { modelSpread } from './snow.ts'
-import type { ForecastFile, Observation, ObservationsFile, PassDef, Resort, ResortForecast, ResortsFile } from './types.ts'
+import type { ForecastFile, Observation, ObservationsFile, Opening, OpeningsFile, PassDef, Resort, ResortForecast, ResortsFile } from './types.ts'
 
 export interface Row {
   r: Resort
@@ -11,6 +11,8 @@ export interface Row {
   f: ResortForecast | undefined
   /** Readings from snow stations near the resort; undefined where no source covers it. */
   o: Observation[] | undefined
+  /** The announced opening of its season; undefined where none was found. */
+  op: Opening | undefined
   vert: number
   region: Region | null
   /** Lower-cased text the search box matches against. */
@@ -37,15 +39,18 @@ export async function loadDataset(): Promise<Dataset> {
   }
   // Measurements are a bonus: the tracker still works when that file is missing.
   const noObs: ObservationsFile = { generated: '', sources: [], resorts: {} }
-  const [resorts, forecast, obs] = await Promise.all([
+  const noOpenings: OpeningsFile = { season: '', compiled: '', resorts: {} }
+  const [resorts, forecast, obs, openings] = await Promise.all([
     get<ResortsFile>('resorts.json'),
     get<ForecastFile>('forecast.json'),
     get<ObservationsFile>('observations.json').catch(() => noObs),
+    get<OpeningsFile>('openings.json').catch(() => noOpenings),
   ])
   const rows: Row[] = resorts.resorts.map((r) => ({
     r,
     f: forecast.resorts[r.id],
     o: obs.resorts[r.id],
+    op: openings.resorts[r.id],
     vert: r.t - r.b,
     region: regionOf(r.cc),
     search: `${r.n} ${r.rg} ${r.co}`.toLowerCase(),
@@ -237,6 +242,33 @@ export function sortRows(rows: readonly Row[], key: SortKey, desc: boolean, metr
       return dir * (a.v - b.v) || tie(a.row, b.row)
     })
     .map((x) => x.row)
+}
+
+export interface OpeningLine {
+  /** The headline, e.g. "Opens Saturday 21 November". */
+  text: string
+  /** A few words for a list, e.g. "Opens 21 Nov". */
+  short: string
+  /** The announcement in the source's own words. */
+  detail: string
+  source: string
+}
+
+/**
+ * How to say where a mountain's season stands, from its announced opening. A planned date that
+ * has passed is reported as planned, not as open: nobody has confirmed that it happened.
+ */
+export function openingLine(op: Opening | undefined, nowMs = Date.now()): OpeningLine | null {
+  if (!op) return null
+  const day = op.d ? new Date(`${op.d}T12:00:00Z`) : null
+  const long = day?.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' })
+  const brief = day?.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' })
+  const ahead = day != null && op.d! > new Date(nowMs).toISOString().slice(0, 10)
+  const rest = { detail: op.says ? `The announcement: “${op.says}”.` : '', source: op.src }
+  if (op.s === 'open' && !ahead) return { text: long ? `Open for the season since ${long}` : 'Open for the season', short: 'Open for the season', ...rest }
+  if (!day) return { text: 'Not open yet', short: 'Not open yet', ...rest }
+  if (ahead) return { text: `Opens ${long}${op.s === 'tentative' ? ', weather permitting' : ''}`, short: `Opens ${brief}`, ...rest }
+  return { text: `Planned opening day was ${long}`, short: `Due to open ${brief}`, ...rest }
 }
 
 export interface Storm {

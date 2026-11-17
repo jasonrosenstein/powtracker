@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { applyFilters, biggestStorm, confidenceOf, distanceKm, measuredDepth, measuredFall, snowOf, sortRows, spreadOf, valueOf, type Filters, type Row } from './data.ts'
+import { applyFilters, biggestStorm, confidenceOf, distanceKm, measuredDepth, measuredFall, openingLine, snowOf, sortRows, spreadOf, valueOf, type Filters, type Row } from './data.ts'
 import { snowClass, snowColor, snowRadius, snowScale } from './scale.ts'
 import type { Observation, ResortForecast } from './types.ts'
 
@@ -23,6 +23,7 @@ function row(n: string, b: number, t: number, opts: { f?: ResortForecast; p?: st
     r: { id: n, n, cc: opts.cc ?? 'US', co: 'United States', rg: 'Utah', la: 0, lo: 0, b, t, km: 10, li: 3, p: opts.p ?? [] },
     f: opts.f,
     o: undefined,
+    op: undefined,
     vert: t - b,
     region: opts.region ?? 'North America',
     search: `${n} utah united states`.toLowerCase(),
@@ -87,6 +88,32 @@ describe('measured snow', () => {
     expect(measuredDepth(deep)?.v).toBe(120)
     expect(measuredDepth(none)).toBeNull()
     expect(sortRows([none, shallow, deep], 'depth', true, 'w7', 'mid').map((r) => r.r.n)).toEqual(['Deep', 'Shallow', 'None'])
+  })
+})
+
+describe('openingLine', () => {
+  const NOW = Date.parse('2026-11-17T15:00:00Z')
+  const src = 'https://example.org/opening'
+  it('announces a planned opening that is still ahead', () => {
+    expect(openingLine({ s: 'planned', d: '2026-11-21', says: 'Opening day Saturday', src }, NOW)).toMatchObject({ text: 'Opens Saturday 21 November', short: 'Opens 21 Nov', source: src })
+  })
+  it('says when a date depends on the weather', () => {
+    expect(openingLine({ s: 'tentative', d: '2026-12-05', says: '', src }, NOW)?.text).toBe('Opens Saturday 5 December, weather permitting')
+  })
+  it('does not claim a mountain is open because its planned day has passed', () => {
+    const line = openingLine({ s: 'planned', d: '2026-11-14', says: '', src }, NOW)!
+    expect(line.text).toBe('Planned opening day was Saturday 14 November')
+    expect(line.short).toBe('Due to open 14 Nov')
+  })
+  it('reports a mountain that is open, with the day it opened when known', () => {
+    expect(openingLine({ s: 'open', d: '2026-11-07', says: '', src }, NOW)?.text).toBe('Open for the season since Saturday 7 November')
+    expect(openingLine({ s: 'open', says: '', src }, NOW)?.text).toBe('Open for the season')
+  })
+  it('falls back to the announcement when there is no date, and to nothing without an announcement', () => {
+    const line = openingLine({ s: 'tentative', says: 'Opening as conditions allow', src }, NOW)!
+    expect(line.text).toBe('Not open yet')
+    expect(line.detail).toContain('Opening as conditions allow')
+    expect(openingLine(undefined, NOW)).toBeNull()
   })
 })
 

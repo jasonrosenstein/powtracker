@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { fmtDate } from '../charts/base.tsx'
 import { AccumulationChart, ElevationChart, ModelChart, SnowLineChart } from '../charts/charts.tsx'
 import { DayStrip } from '../charts/DayStrip.tsx'
-import { biggestStorm, CONFIDENCE_LABEL, LEVEL_INDEX, rateSpread, type Metric, type Row } from '../lib/data.ts'
+import { biggestStorm, CONFIDENCE_LABEL, LEVEL_INDEX, openingLine, rateSpread, type Metric, type Row } from '../lib/data.ts'
 import { fmtAgo } from '../lib/hooks.ts'
 import { elevationProfile, fetchLive, levelView, meteogram, snapshotDays, type DayTotal, type Live } from '../lib/live.ts'
 import { LEVEL_LABELS, LEVELS, MODELS, WINDOW_LABELS, WINDOWS_H, type Level } from '../lib/models.ts'
@@ -144,6 +144,7 @@ export function Detail({ row, obs, passes, units, dark, metric, level: initialLe
           <p className="detail-sub">
             {[r.rg, r.co].filter(Boolean).join(', ')}
             {r.p.map((slug) => <span key={slug} className="tag">{passes.find((x) => x.slug === slug)?.label ?? slug}</span>)}
+            {row.op && <span className="tag is-season">{openingLine(row.op)?.short}</span>}
             {r.w && <a href={r.w} target="_blank" rel="noreferrer">Resort site</a>}
           </p>
 

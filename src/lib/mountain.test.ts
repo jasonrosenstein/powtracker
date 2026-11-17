@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { inPolygon } from './avalanche.ts'
 import { compass, parseMountainWeather, skyOf, windAdvice } from './mountain-weather.ts'
-import { liveFeedFor, openState, parseFeed, tally } from './status.ts'
-import { classOf, decodeLine, decodeTrails, difficultyClasses, encodeLine, lineLength, nameKey, simplify, type LonLat } from './trails.ts'
+import { LIVE_FEED_COUNT, liveFeedFor, openState, parseFeed, parseIntermaps, tally } from './status.ts'
+import { classOf, decodeLine, decodeTrails, difficultyClasses, encodeLine, liftKey, lineLength, nameKey, runLabel, simplify, type LonLat } from './trails.ts'
 import { RUN_FLAGS } from './types.ts'
 
 describe('trail lines', () => {
@@ -54,8 +54,11 @@ describe('difficulty by convention', () => {
     expect(difficultyClasses(jp)[classOf(2, jp)].label).toBe('Red')
   })
   it('decodes a mountain file into runs, lifts and their bounds', () => {
-    const t = decodeTrails({ r: [['Parkway', 2, RUN_FLAGS.groomed | RUN_FLAGS.lit, 1200, 300, encodeLine([[1, 2], [1.01, 2.02]])]], l: [['Gondola', 'gondola', 2000, 600, encodeLine([[0.99, 1.98], [1.02, 2.01]])]] }, { rc: 'n' })
-    expect(t.runs[0]).toMatchObject({ name: 'Parkway', cls: 1, groomed: true, lit: true, gladed: false, area: false })
+    const t = decodeTrails({ r: [['Parkway', 2, RUN_FLAGS.groomed | RUN_FLAGS.lit, 1200, 300, encodeLine([[1, 2], [1.01, 2.02]]), 0, '12']], l: [['Gondola', 'gondola', 2000, 600, encodeLine([[0.99, 1.98], [1.02, 2.01]])]] }, { rc: 'n' })
+    expect(t.runs[0]).toMatchObject({ name: 'Parkway', ref: '12', cls: 1, groomed: true, lit: true, gladed: false, area: false })
+    expect(runLabel(t.runs[0])).toBe('12 Parkway')
+    expect(runLabel({ name: '', ref: '7' })).toBe('Run 7')
+    expect(runLabel({ name: 'Kandahar', ref: '' })).toBe('Kandahar')
     expect(t.lifts[0]).toMatchObject({ name: 'Gondola', type: 'gondola', verticalM: 600 })
     expect(t.bounds).toEqual([0.99, 1.98, 1.02, 2.02])
   })
@@ -73,6 +76,20 @@ describe('nameKey', () => {
   })
 })
 
+describe('liftKey', () => {
+  it('sees through the codes resorts put on lift names', () => {
+    expect(liftKey('B1 Fleckalmbahn')).toBe(liftKey('Fleckalmbahn'))
+    expect(liftKey('10EUB Giggijoch')).toBe(liftKey('Giggijochbahn'))
+    expect(liftKey('TD6 LAC-INTRETS')).toBe(liftKey('Lac-Intrêts'))
+    expect(liftKey('6er Sommerberg')).toBe(liftKey('Sommerbergbahn'))
+    expect(liftKey('Headwall Express')).toBe(liftKey('Headwall'))
+  })
+  it('keeps numbered lifts apart', () => {
+    expect(liftKey('Lac des Vaux 1')).not.toBe(liftKey('Lac des Vaux 2'))
+    expect(liftKey('Galzigbahn')).not.toBe(liftKey('Gampenbahn'))
+  })
+})
+
 describe('live status', () => {
   it('reduces the resort wording to four states', () => {
     expect(openState('Open')).toBe('open')
@@ -80,7 +97,47 @@ describe('live status', () => {
     expect(openState('On Hold')).toBe('hold')
     expect(openState('Wind Hold')).toBe('hold')
     expect(openState('Scheduled')).toBe('scheduled')
+    expect(openState('in_preparation')).toBe('scheduled')
+    expect(openState('closed_outoforder')).toBe('closed')
+    expect(openState('unknown')).toBe('unknown')
     expect(openState('something new')).toBe('closed')
+  })
+  it('reads an Alpine feed: lifts, numbered pistes and ski routes', () => {
+    const s = parseIntermaps(
+      {
+        lifts: [
+          { status: 'open', popup: { title: 'Galzigbahn', subtitle: 'Funitel' } },
+          { status: 'closed_outoforder', popup: { title: 'Schindlergratbahn', subtitle: 'Chairlift' } },
+        ],
+        slopes: [
+          { status: 'open', popup: { title: '50 Zammermoos - St. Anton', number: '50', difficulty: 'easy' } },
+          { status: 'closed', popup: { title: '2 Tobel', number: '2', difficulty: 'medium' } },
+          { status: 'unknown', popup: { title: 'Kandahar', number: null, difficulty: 'difficult' } },
+          // Some resorts leave the difficulty out and give only a category code or wording.
+          { status: 'open', type: 2615, popup: { title: '7 Parsenn', number: '7' } },
+          { status: 'open', type: '2617', popup: { title: 'Drostobel', number: null } },
+          { status: 'open', subtitle: 'Slopes, Easy', popup: { title: '3 Gotschna', number: '3' } },
+        ],
+        routes: [{ status: 'in_preparation', popup: { title: '90 Schindlerkar', number: '90' } }],
+      },
+      'skiarlberg',
+    )
+    expect(s.operating).toBe('Open')
+    expect(s.updated).toBeNull()
+    expect(s.lifts.map((l) => [l.name, l.type, l.state])).toEqual([['Galzigbahn', 'Funitel', 'open'], ['Schindlergratbahn', 'Chairlift', 'closed']])
+    expect(s.trails.map((t) => [t.number, t.name, t.rating, t.state])).toEqual([
+      ['50', 'Zammermoos - St. Anton', 'Blue', 'open'],
+      ['2', 'Tobel', 'Red', 'closed'],
+      ['', 'Kandahar', 'Black', 'unknown'],
+      ['7', 'Parsenn', 'Red', 'open'],
+      ['', 'Drostobel', 'Ski route', 'open'],
+      ['3', 'Gotschna', 'Blue', 'open'],
+      ['90', 'Schindlerkar', 'Ski route', 'scheduled'],
+    ])
+    expect(tally(s.lifts)).toEqual({ open: 1, total: 2 })
+  })
+  it('calls an Alpine mountain closed when no lift is running', () => {
+    expect(parseIntermaps({ lifts: [{ status: 'closed', popup: { title: 'A' } }], slopes: [] }, 'x').operating).toBe('Closed')
   })
   it('reads lifts, trails, snow and notices from a feed', () => {
     const s = parseFeed(
@@ -111,10 +168,12 @@ describe('live status', () => {
     expect(s.alert).toBe('Opening day Saturday')
     expect(s.parking).toEqual(['G Lot'])
   })
-  it('knows which mountains have a feed', () => {
-    expect(liveFeedFor({ id: 'eac3283b' })).toBe(5)
-    expect(liveFeedFor({ id: 'eac3283b9f' })).toBe(5)
+  it('knows which mountains have a feed, and whose', () => {
+    expect(liveFeedFor({ id: 'eac3283b' })).toEqual({ provider: 'mtnpowder', id: 5 })
+    expect(liveFeedFor({ id: 'eac3283b9f' })).toEqual({ provider: 'mtnpowder', id: 5 })
+    expect(liveFeedFor({ id: '66e67247' })).toEqual({ provider: 'intermaps', slug: 'skiarlberg' })
     expect(liveFeedFor({ id: '00000000' })).toBeNull()
+    expect(LIVE_FEED_COUNT).toBeGreaterThan(100)
   })
 })
 

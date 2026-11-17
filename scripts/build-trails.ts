@@ -71,8 +71,7 @@ for await (const f of features(`${RAW}/runs.geojson`)) {
   const groomed = p.grooming != null && /classic|skating/.test(p.grooming)
   const flags =
     (groomed ? RUN_FLAGS.groomed : 0) | (p.lit ? RUN_FLAGS.lit : 0) | (p.gladed ? RUN_FLAGS.gladed : 0) | (p.grooming === 'mogul' || p.grooming === 'backcountry' ? RUN_FLAGS.ungroomed : 0)
-  const entry: TrailsFile['r'][number] = [(p.name ?? p.ref ?? '').trim(), difficulty < 0 ? 7 : difficulty, flags, Math.round(lineLength(line)), drop(pts), encodeLine(line)]
-  if (area) entry.push(1)
+  const entry: TrailsFile['r'][number] = [(p.name ?? '').trim(), difficulty < 0 ? 7 : difficulty, flags, Math.round(lineLength(line)), drop(pts), encodeLine(line), area ? 1 : 0, (p.ref ?? '').trim()]
   for (const t of to) t.r.push(entry)
   runs++
 }

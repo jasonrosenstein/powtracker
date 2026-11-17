@@ -18,6 +18,7 @@
     "data:skiareas": "node scripts/fetch-skiareas.ts",
     "data:trailsource": "node scripts/fetch-skiareas.ts --trails",
     "data:trails": "node scripts/build-trails.ts",
+    "data:openings": "node scripts/build-openings.ts",
     "data:index": "node scripts/build-index.ts",
     "data:resorts": "node scripts/build-resorts.ts",
     "data:forecast": "node scripts/ingest.ts",

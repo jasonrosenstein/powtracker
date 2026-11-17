@@ -1,30 +1,36 @@
-// The "Mountain" side of a resort: what a skier needs on the day. Whether it is open, the trail
-// map, the weather at the summit, every lift and trail, avalanche danger beyond the ropes, and
-// how to get there. Live lift and trail status appears where the resort publishes it.
+// The "Mountain" side of a resort: what a skier needs on the day. Whether it is open and when
+// it opens, the trail map, the weather at the summit, every lift and trail, avalanche danger
+// beyond the ropes, and how to get there. Live lift and trail status appears where the resort
+// publishes it.
 import { lazy, Suspense, useCallback, useMemo, useState } from 'react'
 import { fetchAvalancheDanger, hasAvalancheService } from '../lib/avalanche.ts'
-import type { Row } from '../lib/data.ts'
+import { openingLine, type Row } from '../lib/data.ts'
 import { fmtAgo, useAsync } from '../lib/hooks.ts'
 import { fetchMountainWeather, SKY_WORDS, windAdvice } from '../lib/mountain-weather.ts'
 import { fetchLiveStatus, liveFeedFor, tally, type LiveStatus, type LiveTrail, type OpenState } from '../lib/status.ts'
-import { decodeTrails, difficultyClasses, liftTypeName, nameKey, type Trails } from '../lib/trails.ts'
+import { decodeTrails, difficultyClasses, liftKey, liftTypeName, nameKey, runLabel, type Trails } from '../lib/trails.ts'
 import type { TrailsFile } from '../lib/types.ts'
 import { fmtDistance, fmtElev, fmtSnow, fmtTemp, fmtWind, type Units } from '../lib/units.ts'
 import { DifficultyMark, SkyIcon } from './icons.tsx'
 
 const TrailMap = lazy(() => import('./TrailMap.tsx'))
 
-const STATE_WORD: Record<OpenState, string> = { open: 'Open', closed: 'Closed', hold: 'On hold', scheduled: 'Scheduled' }
-const RATING_ORDER = ['Green', 'Blue', 'Blue-black', 'Black', 'Double black', 'Extreme', 'Park']
-const RATING_MARK: Record<string, { color: string; shape: string }> = {
-  Green: { color: '#2f9e52', shape: 'circle' },
-  Blue: { color: '#2a78d6', shape: 'square' },
-  'Blue-black': { color: '#2a78d6', shape: 'diamond' },
-  Black: { color: '#15181e', shape: 'diamond' },
-  'Double black': { color: '#15181e', shape: 'double' },
-  Extreme: { color: '#e07b1a', shape: 'diamond' },
-  Park: { color: '#8792a3', shape: 'square' },
-}
+const STATE_WORD: Record<OpenState, string> = { open: 'Open', closed: 'Closed', hold: 'On hold', scheduled: 'In preparation', unknown: 'Not reported' }
+/** The resorts' own ratings, easiest first, with the colour each is signed in. */
+const RATINGS: [string, string][] = [
+  ['Green', '#2f9e52'],
+  ['Blue', '#2a78d6'],
+  ['Blue-black', '#2a78d6'],
+  ['Red', '#d6403a'],
+  ['Black', '#15181e'],
+  ['Double black', '#15181e'],
+  ['Extreme', '#e07b1a'],
+  ['Ski route', '#e07b1a'],
+  ['Park', '#8792a3'],
+  ['Unrated', '#8792a3'],
+]
+/** North American signs pair each rating with a shape; elsewhere a rating is a coloured disc. */
+const NA_SHAPE: Record<string, string> = { Blue: 'square', 'Blue-black': 'diamond', Black: 'diamond', 'Double black': 'double', Extreme: 'diamond', Park: 'square' }
 
 function State({ state, text }: { state: OpenState; text?: string }) {
   return <span className={`state is-${state}`}><i aria-hidden="true" />{text ?? STATE_WORD[state]}</span>
@@ -35,7 +41,8 @@ const clock = (hour: number) => (hour === 0 ? '12 AM' : hour === 12 ? '12 PM' : 
 export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: boolean }) {
   const { r } = row
   const classes = difficultyClasses(r)
-  const feedId = liveFeedFor(r)
+  const feed = liveFeedFor(r)
+  const feedKey = feed ? (feed.provider === 'mtnpowder' ? `m${feed.id}` : `i${feed.slug}`) : ''
   const [openOnly, setOpenOnly] = useState(false)
 
   const trails = useAsync<Trails | null>(
@@ -47,33 +54,39 @@ export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: b
     },
     [r.id],
   )
-  const live = useAsync<LiveStatus | null>((signal) => (feedId == null ? Promise.resolve(null) : fetchLiveStatus(feedId, signal)), [feedId])
+  const live = useAsync<LiveStatus | null>((signal) => (feed ? fetchLiveStatus(feed, signal) : Promise.resolve(null)), [feedKey])
   const weather = useAsync((signal) => fetchMountainWeather(r, signal), [r.id])
   const danger = useAsync((signal) => (hasAvalancheService(r) ? fetchAvalancheDanger(r, signal) : Promise.resolve(null)), [r.id])
 
   const map = trails.status === 'ready' ? trails.data : null
   const status = live.status === 'ready' ? live.data : null
+  const opening = openingLine(row.op)
 
-  // The resort's status, looked up by a name both sources would agree on.
-  const liveByName = useMemo(() => {
-    if (!status) return null
-    const index = <T extends { name: string; state: OpenState }>(items: T[]) => {
-      const m = new Map<string, T>()
-      for (const item of items) {
-        const key = nameKey(item.name)
-        // A name used twice (upper and lower sections folded together) counts as open if either is.
-        if (!m.has(key) || item.state === 'open') m.set(key, item)
-      }
-      return m
+  // The resort's status for each mapped run and lift: by sign number where both sides have one
+  // (how European resorts name runs), otherwise by a name both sources would agree on.
+  const matched = useMemo(() => {
+    if (!status || !map) return null
+    const byNumber = new Map<string, LiveTrail | null>()
+    const byName = new Map<string, LiveTrail>()
+    for (const t of status.trails) {
+      // A number used for two runs with different states cannot be trusted to identify either.
+      if (t.number) byNumber.set(t.number, byNumber.has(t.number) && byNumber.get(t.number)?.state !== t.state ? null : t)
+      const key = nameKey(t.name)
+      // A name used twice (upper and lower sections) counts as open if either is.
+      if (key && (!byName.has(key) || t.state === 'open')) byName.set(key, t)
     }
-    return { trails: index(status.trails), lifts: index(status.lifts) }
-  }, [status])
-  const runLive = useCallback((i: number) => (map && liveByName && map.runs[i].name ? liveByName.trails.get(nameKey(map.runs[i].name)) : undefined), [map, liveByName])
-  const liftLive = useCallback((i: number) => (map && liveByName && map.lifts[i].name ? liveByName.lifts.get(nameKey(map.lifts[i].name)) : undefined), [map, liveByName])
-  const runState = useCallback((i: number) => runLive(i)?.state, [runLive])
-  const liftState = useCallback((i: number) => liftLive(i)?.state, [liftLive])
-  const runNote = useCallback((i: number) => { const t = runLive(i); return t ? `${t.statusText}${t.groomed ? ', groomed' : ''} (resort report)` : '' }, [runLive])
-  const liftNote = useCallback((i: number) => { const l = liftLive(i); return l ? `${l.statusText}${l.hours ? `, ${l.hours}` : ''} (resort report)` : '' }, [liftLive])
+    const liftByName = new Map(status.lifts.map((l) => [liftKey(l.name), l]))
+    const runs = map.runs.map((run) => (run.ref && byNumber.get(run.ref)) || (run.name ? byName.get(nameKey(run.name)) : undefined))
+    const lifts = map.lifts.map((lift) => (lift.name && liftKey(lift.name) ? liftByName.get(liftKey(lift.name)) : undefined))
+    const identifiable = map.runs.filter((run) => run.name || run.ref).length
+    // Colouring the map by status is only honest when most of its runs were found in the report.
+    return { runs, lifts, usable: identifiable > 0 && runs.filter(Boolean).length / identifiable >= 0.4 }
+  }, [status, map])
+  const runState = useCallback((i: number) => matched?.runs[i]?.state, [matched])
+  const liftState = useCallback((i: number) => matched?.lifts[i]?.state, [matched])
+  const runNote = useCallback((i: number) => { const t = matched?.runs[i]; return t ? `${t.statusText}${t.groomed ? ', groomed' : ''} (resort report)` : '' }, [matched])
+  const liftNote = useCallback((i: number) => { const l = matched?.lifts[i]; return l ? `${l.statusText}${l.hours ? `, ${l.hours}` : ''} (resort report)` : '' }, [matched])
+  const mapLive = matched?.usable === true
 
   // Kilometres of mapped run in each difficulty class, and the named runs within it.
   const byClass = useMemo(() => {
@@ -83,13 +96,14 @@ export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: b
         const runs = map.runs.filter((run) => run.cls === ci && !run.area)
         const named = new Map<string, { name: string; lengthM: number; verticalM: number }>()
         for (const run of runs) {
-          if (!run.name) continue
-          const seen = named.get(run.name)
+          const label = runLabel(run)
+          if (!label) continue
+          const seen = named.get(label)
           // Maps often split one run into sections: add them up under its name.
           if (seen) {
             seen.lengthM += run.lengthM
             seen.verticalM = Math.max(seen.verticalM, run.verticalM)
-          } else named.set(run.name, { name: run.name, lengthM: run.lengthM, verticalM: run.verticalM })
+          } else named.set(label, { name: label, lengthM: run.lengthM, verticalM: run.verticalM })
         }
         return { cls, km: runs.reduce((m, run) => m + run.lengthM, 0) / 1000, named: [...named.values()].sort((a, b) => b.lengthM - a.lengthM) }
       })
@@ -103,23 +117,25 @@ export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: b
   const lifts = status ? tally(status.lifts) : null
   const trailTally = status ? tally(status.trails) : null
   const shownTrails = (list: LiveTrail[]) => (openOnly ? list.filter((t) => t.state === 'open') : list)
+  const groomed = status ? status.trails.filter((t) => t.groomed).length : 0
 
   return (
     <>
-      {/* Is it open? ------------------------------------------------------------------------- */}
-      {feedId != null && live.status === 'loading' && <p className="status">Checking the resort's live status…</p>}
-      {feedId != null && live.status === 'error' && <p className="status is-error">The resort's live status could not be read just now ({live.message}).</p>}
+      {/* Is it open, and if not, when? --------------------------------------------------------- */}
+      {feed && live.status === 'loading' && <p className="status">Checking the resort's live status…</p>}
+      {feed && live.status === 'error' && <p className="status is-error">The resort's live status could not be read just now ({live.message}).</p>}
       {status && lifts && trailTally && (
         <section className="chart-card live">
           <header>
             <h3>{status.operating === 'Open' ? 'Open today' : status.operating === 'Closed' ? 'Closed today' : status.operating}</h3>
-            <p>Reported by the resort, updated {fmtAgo(status.updated)}.</p>
+            <p>Reported by the resort, {status.updated ? `updated ${fmtAgo(status.updated)}` : 'read just now'}.</p>
           </header>
           <div className="live-tiles">
             <div><strong className="num">{lifts.open}<small> of {lifts.total}</small></strong><span>lifts open</span></div>
             <div><strong className="num">{trailTally.open}<small> of {trailTally.total}</small></strong><span>trails open</span></div>
-            <div><strong className="num">{status.trails.filter((t) => t.groomed).length}</strong><span>groomed</span></div>
+            {groomed > 0 && <div><strong className="num">{groomed}</strong><span>groomed</span></div>}
           </div>
+          {opening && status.operating !== 'Open' && <p className="notice"><b>{opening.text}</b> {opening.detail} <a href={opening.source} target="_blank" rel="noreferrer">Source</a></p>}
           {status.alert && <p className="notice">{status.alert}</p>}
           {status.snow && (
             <dl className="facts num">
@@ -133,11 +149,17 @@ export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: b
           {status.snow && <p className="hint">The resort's own snow report{status.snow.at ? `, taken at ${status.snow.at}` : ''}.</p>}
         </section>
       )}
-      {feedId == null && (
-        <p className="status is-error">
-          This resort does not publish its live lift and trail status for other sites to show.{' '}
-          {r.w ? <a href={r.w} target="_blank" rel="noreferrer">Check today's status on the resort's site.</a> : 'Check with the resort for today\'s status.'}
-        </p>
+      {!feed && (
+        <section className="chart-card live">
+          <header>
+            <h3>{opening ? opening.text : 'Open or closed today?'}</h3>
+            <p>
+              {opening && <>{opening.detail} <a href={opening.source} target="_blank" rel="noreferrer">Source</a>. </>}
+              This resort shows which lifts and trails are running only on its own site.
+            </p>
+          </header>
+          {r.w && <div className="links"><a className="ghost-btn" href={r.w} target="_blank" rel="noreferrer">Today's lifts and trails on the resort's site</a></div>}
+        </section>
       )}
 
       {/* Trail map --------------------------------------------------------------------------- */}
@@ -146,7 +168,7 @@ export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: b
           <h3>Trail map</h3>
           <p>
             {map ? `${fmtDistance(totalKm * 1000, units)} of runs and ${map.lifts.length} lifts, as mapped in OpenStreetMap. Tap a run or lift for its length and drop.` : 'Runs and lifts as mapped in OpenStreetMap.'}
-            {status ? ' Colour means the resort reports it open today; everything else is grey.' : ''}
+            {mapLive ? ' Colour means the resort reports it open today; everything else is grey.' : status ? ' Open and closed status is in the lists below.' : ''}
           </p>
         </header>
         {trails.status === 'loading' && <p className="status">Loading the trail map…</p>}
@@ -155,12 +177,12 @@ export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: b
         {map && (
           <>
             <Suspense fallback={<div className="trailmap"><div className="map-loading">Loading the trail map…</div></div>}>
-              <TrailMap trails={map} classes={classes} runState={status ? runState : undefined} liftState={status ? liftState : undefined} runNote={runNote} liftNote={liftNote} units={units} dark={dark} />
+              <TrailMap trails={map} classes={classes} runState={mapLive ? runState : undefined} liftState={mapLive ? liftState : undefined} runNote={runNote} liftNote={liftNote} units={units} dark={dark} />
             </Suspense>
             <div className="legend">
               {byClass.map(({ cls }) => <span key={cls.id}><DifficultyMark color={cls.color} shape={cls.shape} />{cls.label}</span>)}
               <span><i className="key key-lift" />Lift</span>
-              {status && <span><i className="key key-closed" />Closed, or not in the resort's report</span>}
+              {mapLive && <span><i className="key key-closed" />Closed, or not in the resort's report</span>}
             </div>
             {totalKm > 0 && (
               <div className="mix" role="img" aria-label={`Runs by difficulty: ${byClass.map((c) => `${c.cls.label} ${Math.round((c.km / totalKm) * 100)} percent`).join(', ')}`}>
@@ -219,12 +241,12 @@ export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: b
         <section className="chart-card">
           <header>
             <h3>Lifts</h3>
-            <p>{status && lifts ? `${lifts.open} of ${lifts.total} open, as the resort reports.` : 'Every lift mapped on the mountain. Live status is on the resort\'s site.'}</p>
+            <p>{status && lifts ? `${lifts.open} of ${lifts.total} open, as the resort reports.` : 'Every lift mapped on the mountain.'}</p>
           </header>
           <ul className="rows">
             {status
-              ? status.lifts.map((l) => (
-                  <li key={`${l.area}/${l.name}`}>
+              ? status.lifts.map((l, i) => (
+                  <li key={i}>
                     <div><b>{l.name}</b><span>{[l.type, l.hours, l.wait && `wait ${l.wait}`].filter(Boolean).join(' · ')}</span></div>
                     <State state={l.state} text={l.statusText} />
                   </li>
@@ -240,23 +262,22 @@ export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: b
       )}
 
       {/* Trails ------------------------------------------------------------------------------ */}
-      {status && trailTally ? (
+      {status && trailTally && status.trails.length > 0 ? (
         <section className="chart-card">
           <header>
             <h3>Trails</h3>
             <p>{trailTally.open} of {trailTally.total} open, as the resort reports.</p>
           </header>
           <label className="check"><input type="checkbox" checked={openOnly} onChange={(e) => setOpenOnly(e.target.checked)} /> Show open trails only</label>
-          {RATING_ORDER.filter((rating) => status.trails.some((t) => t.rating === rating)).map((rating) => {
+          {RATINGS.filter(([rating]) => status.trails.some((t) => t.rating === rating)).map(([rating, color]) => {
             const all = status.trails.filter((t) => t.rating === rating)
-            const mark = RATING_MARK[rating]
             return (
               <details key={rating} className="group" open={openOnly}>
-                <summary><DifficultyMark color={mark.color} shape={mark.shape} /><b>{rating}</b><span className="num">{all.filter((t) => t.state === 'open').length} of {all.length} open</span></summary>
+                <summary><DifficultyMark color={color} shape={r.rc === 'n' ? (NA_SHAPE[rating] ?? 'circle') : rating === 'Ski route' ? 'diamond' : 'circle'} /><b>{rating}</b><span className="num">{all.filter((t) => t.state === 'open').length} of {all.length} open</span></summary>
                 <ul className="rows">
-                  {shownTrails(all).map((t) => (
-                    <li key={`${t.area}/${t.name}`}>
-                      <div><b>{t.name}</b><span>{[t.area, t.groomed && 'groomed'].filter(Boolean).join(' · ')}</span></div>
+                  {shownTrails(all).map((t, i) => (
+                    <li key={i}>
+                      <div><b>{[t.number, t.name].filter(Boolean).join(' ')}</b><span>{[t.area, t.groomed && 'groomed'].filter(Boolean).join(' · ')}</span></div>
                       <State state={t.state} text={t.statusText} />
                     </li>
                   ))}
@@ -271,7 +292,7 @@ export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: b
           <section className="chart-card">
             <header>
               <h3>Trails</h3>
-              <p>Named runs by difficulty, longest first. Live open and closed status is on the resort's site.</p>
+              <p>Named runs by difficulty, longest first.</p>
             </header>
             {byClass.map(({ cls, km, named }) => (
               <details key={cls.id} className="group">

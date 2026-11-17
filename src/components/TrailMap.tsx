@@ -6,7 +6,7 @@ import { Map as MlMap, NavigationControl, Popup, setWorkerUrl, type GeoJSONSourc
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import { useEffect, useRef, useState } from 'react'
 import type { OpenState } from '../lib/status.ts'
-import { liftTypeName, type DifficultyClass, type Trails } from '../lib/trails.ts'
+import { liftTypeName, runLabel, type DifficultyClass, type Trails } from '../lib/trails.ts'
 import { fmtElev, type Units } from '../lib/units.ts'
 
 setWorkerUrl(workerUrl)
@@ -108,7 +108,7 @@ export default function TrailMap(p: TrailMapProps) {
         if (!run) return
         const u = latest.current.units
         const traits = [run.groomed ? 'groomed' : run.ungroomed ? 'ungroomed' : '', run.gladed ? 'glades' : '', run.lit ? 'lit at night' : ''].filter(Boolean).join(', ')
-        popup(e, [run.name || 'Unnamed run', `${latest.current.classes[run.cls].label}${traits ? `, ${traits}` : ''}`, `${fmtElev(run.verticalM, u)} of drop over ${fmtElev(run.lengthM, u)}`, latest.current.runNote?.(i) ?? ''])
+        popup(e, [runLabel(run) || 'Unnamed run', `${latest.current.classes[run.cls].label}${traits ? `, ${traits}` : ''}`, `${fmtElev(run.verticalM, u)} of drop over ${fmtElev(run.lengthM, u)}`, latest.current.runNote?.(i) ?? ''])
       })
       for (const layer of ['run-hit', 'lift-hit']) {
         map.on('mouseenter', layer, () => (map.getCanvas().style.cursor = 'pointer'))
@@ -134,7 +134,7 @@ export default function TrailMap(p: TrailMapProps) {
     const live = (state: OpenState | undefined, has: boolean) => (!has ? 'none' : state === 'open' ? 'open' : 'closed')
     const runs = p.trails.runs.map((run, i) => {
       const state = live(p.runState?.(i), p.runState != null)
-      return { type: 'Feature' as const, geometry: line(run.line, run.area), properties: { i, name: run.name, area: run.area, state, color: state === 'closed' ? CLOSED : p.classes[run.cls].color } }
+      return { type: 'Feature' as const, geometry: line(run.line, run.area), properties: { i, name: runLabel(run), area: run.area, state, color: state === 'closed' ? CLOSED : p.classes[run.cls].color } }
     })
     // Easier classes are drawn last so a green is never hidden under a black.
     runs.sort((a, b) => p.trails.runs[b.properties.i].cls - p.trails.runs[a.properties.i].cls)

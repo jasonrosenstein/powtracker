@@ -73,12 +73,19 @@ Each mountain has a second tab for the day on the hill:
   (Mapzen terrain tiles on AWS Open Data), coloured by the difficulty convention of the region:
   green, blue, black and double black in North America; green, blue, red and black in Europe;
   green, red and black in Japan. A 3D button tilts the map onto real terrain.
-- **Live lifts and trails.** Where the resort's operator publishes a status feed that any
-  website may read (the Alterra feed at mtnpowder.com: 16 resorts, listed in
-  `src/lib/status.ts`), the browser reads it when the mountain is opened: lifts and trails open
-  and closed, grooming, lift hours, and the resort's own snow report. On the trail map, colour
-  then means "reported open today" and everything else is grey. Every other mountain says
-  plainly that its live status is on the resort's site.
+- **Live lifts and trails.** Where the resort publishes a status feed that any website may read,
+  the browser reads it when the mountain is opened. Two feeds are read, both listed in
+  `src/lib/status.ts`: Alterra's (mtnpowder.com; 16 North American resorts, with grooming, lift
+  hours and the resort's own snow report) and Intermaps' (winter.intermaps.com; 85 mountains in
+  Austria, Switzerland, Germany, Italy and France, including Ski Arlberg, Sölden, Kitzbühel,
+  Ischgl, Davos, Verbier and Portes du Soleil). Mapped runs are matched to the report by sign
+  number, then by name; where most are found, colour on the trail map means "reported open
+  today" and everything else is grey. Every other mountain says that its live status is on the
+  resort's site, and links to it.
+- **Opening dates.** `data/openings/*.json` holds each mountain's announced season opening with
+  the page that states it, collected by research on the date in the file;
+  `npm run data:openings` builds `public/data/openings.json` from them. A planned date that has
+  passed is shown as planned, never as "open".
 - **On the mountain.** Summit temperature and wind chill, wind and gusts with a lift-hold
   warning, visibility, sunrise and sunset, hour by hour for a day and a half (Open-Meteo).
 - **Avalanche danger** beyond the ski-area boundary, from avalanche.org (United States) and
@@ -118,10 +125,12 @@ allows commercial use, and makes tracking every ski area in OpenSkiMap (about 4,
   directly (its server was down when this was built; many of its stations arrive through
   NOAA), Météo-France's live observations (free key required; its open daily files run days
   behind), MET Norway (free key required).
-- Station measurements are not the resorts' own snow reports. Resort-reported snow, and live
-  lift and trail status, are shown only for the 16 resorts whose operator publishes an open
-  feed; other operators (Vail Resorts, Boyne, Powdr, most of Europe and Japan) publish theirs
-  only on their own sites or through licensed feeds.
+- Station measurements are not the resorts' own snow reports. Live lift and trail status is
+  shown for about 100 mountains whose feed is open to other sites. The rest (Vail Resorts'
+  mountains, Boyne, Powdr, most independents, Japan) publish theirs only on their own sites or
+  through licensed data feeds: covering every mountain needs one of those feeds (OnTheSnow,
+  SnoCountry, Skiresort.info), which is a paid agreement.
+- Opening dates are announcements collected on one day; resorts move them with the weather.
 - Trail maps are as complete as OpenStreetMap's mapping of each mountain. Live status is matched
   to mapped runs by name, so a run the resort names differently shows grey.
 - Pass rosters are a snapshot of each pass's own listing for the season named in the file, and
@@ -137,4 +146,4 @@ Avalanche Research SLF; GeoSphere Austria (CC BY 4.0); the avalanche warning ser
 South Tyrol and Trentino via avalanche.report (CC BY 4.0); Government of British Columbia (Open
 Government Licence). Trail maps: OpenSkiMap, OpenStreetMap contributors (ODbL); terrain: Mapzen
 terrain tiles, AWS Open Data. Live resort status: each resort, through Alterra Mountain
-Company's public feed. Avalanche danger: avalanche.org and Avalanche Canada.
+Company's and Intermaps' public feeds. Avalanche danger: avalanche.org and Avalanche Canada.

@@ -155,6 +155,8 @@ export function classOf(difficulty: number, resort: Pick<Resort, 'rc'>): number 
 
 export interface Run {
   name: string
+  /** The run's sign number, where it has one. */
+  ref: string
   /** Index into difficultyClasses(). */
   cls: number
   groomed: boolean
@@ -184,8 +186,9 @@ export interface Trails {
 }
 
 export function decodeTrails(file: TrailsFile, resort: Pick<Resort, 'rc'>): Trails {
-  const runs: Run[] = file.r.map(([name, d, flags, lengthM, verticalM, packed, area]) => ({
+  const runs: Run[] = file.r.map(([name, d, flags, lengthM, verticalM, packed, area, ref]) => ({
     name,
+    ref: ref ?? '',
     cls: classOf(d, resort),
     groomed: (flags & RUN_FLAGS.groomed) !== 0,
     ungroomed: (flags & RUN_FLAGS.ungroomed) !== 0,
@@ -209,6 +212,12 @@ export function decodeTrails(file: TrailsFile, resort: Pick<Resort, 'rc'>): Trai
   return { runs, lifts, bounds: Number.isFinite(w) ? [w, s, e, n] : null }
 }
 
+/** What to call a run: its name, with its number in front where it has one. */
+export function runLabel(run: Pick<Run, 'name' | 'ref'>): string {
+  if (run.name && run.ref && !run.name.startsWith(run.ref)) return `${run.ref} ${run.name}`
+  return run.name || (run.ref ? `Run ${run.ref}` : '')
+}
+
 const LIFT_NAMES: Record<string, string> = {
   chair_lift: 'Chairlift',
   gondola: 'Gondola',
@@ -226,6 +235,31 @@ const LIFT_NAMES: Record<string, string> = {
 
 export function liftTypeName(type: string): string {
   return LIFT_NAMES[type] ?? type.replace(/[_-]/g, ' ').replace(/^./, (c) => c.toUpperCase())
+}
+
+/** Lift-type abbreviations resorts put in front of a lift's name (German, French and English). */
+const LIFT_CODES = new Set(['eub', 'sk', 'sb', 'ksb', 'dsb', 'esl', 'sl', 'ub', 'gub', 'pb', 'dl', 'td', 'tsd', 'tsdb', 'tsf', 'ts', 'tk', 'tc', 'tph', 'tb', 'tsl', 'mgd'])
+
+/**
+ * A lift name reduced to the place it is named after, so "B1 Fleckalmbahn", "Fleckalmbahn" and
+ * "10EUB Fleckalm" agree. Dropped: codes that mix letters and digits (A1, 10EUB, TD6, 6er),
+ * lift-type abbreviations, and the words and endings that only say it is a lift. A bare number
+ * stays: it tells "Lac des Vaux 1" from "Lac des Vaux 2".
+ */
+export function liftKey(name: string): string {
+  return name
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/ß/g, 'ss')
+    .replace(/['’`.]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .split(' ')
+    .filter((w) => w && !(/\d/.test(w) && /[a-z]/.test(w)) && !LIFT_CODES.has(w))
+    .map((w) => w.replace(/(sesselbahn|kabinenbahn|gondelbahn|seilbahn|bahn|lift)$/, ''))
+    .filter((w) => w && !['the', 'lift', 'chair', 'chairlift', 'express', 'gondola', 'gondel', 'quad', 'triple', 'double', 'telesiege', 'telecabine', 'teleski', 'funitel'].includes(w))
+    .sort()
+    .join(' ')
 }
 
 /**

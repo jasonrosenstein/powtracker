@@ -2,7 +2,7 @@
 // phone never lays out two thousand of them at once.
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Spark } from '../charts/charts.tsx'
-import { CONFIDENCE_LABEL, confidenceOf, distanceKm, LEVEL_INDEX, measuredDepth, measuredFall, METRICS, spreadOf, valueOf, type LatLon, type Metric, type Row, type SortKey } from '../lib/data.ts'
+import { CONFIDENCE_LABEL, confidenceOf, distanceKm, LEVEL_INDEX, measuredDepth, measuredFall, METRICS, openingLine, spreadOf, valueOf, type LatLon, type Metric, type Row, type SortKey } from '../lib/data.ts'
 import { LEVEL_LABELS, type Level } from '../lib/models.ts'
 import { snowClass, snowScale, type SnowScale } from '../lib/scale.ts'
 import type { PassDef } from '../lib/types.ts'
@@ -125,6 +125,7 @@ export function Rankings(p: RankingsProps) {
                     <span className="place">
                       {[row.r.rg, row.r.co].filter(Boolean).join(', ')}
                       {row.r.p.map((slug) => <span key={slug} className="tag">{passShort(slug)}</span>)}
+                      {row.op && <span className="tag is-season">{openingLine(row.op)?.short}</span>}
                     </span>
                     <span className="fact num">
                       <span className={f.strong ? 'is-strong' : undefined}>{f.text}</span>
@@ -204,6 +205,7 @@ function WideTable(p: RankingsProps & { visible: Row[]; passShort: (slug: string
                       <div className="place">
                         {[row.r.rg, row.r.co].filter(Boolean).join(', ')}
                         {row.r.p.map((slug) => <span key={slug} className="tag">{p.passShort(slug)}</span>)}
+                        {row.op && <span className="tag is-season">{openingLine(row.op)?.short}</span>}
                       </div>
                     </div>
                   </div>

@@ -42,8 +42,12 @@ export interface Resort {
  * degrees, the first pair absolute and each later pair the step from the one before.
  */
 export interface TrailsFile {
-  /** Runs: [name, difficulty 0..6 (see DIFFICULTIES), flags, length m, vertical m, line, area?]. */
-  r: [string, number, number, number, number, number[], (1 | 0)?][]
+  /**
+   * Runs: [name, difficulty 0..7 (see DIFFICULTIES), flags, length m, vertical m, line, 1 when the
+   * line outlines an area, number]. The number is the run's sign number where it has one ("50"),
+   * which is how European resorts name a run.
+   */
+  r: [string, number, number, number, number, number[], (1 | 0)?, string?][]
   /** Lifts: [name, type, length m, vertical m, line]. */
   l: [string, string, number, number, number[]][]
 }
@@ -101,6 +105,25 @@ export interface ObservationsFile {
   generated: string
   sources: string[]
   resorts: Record<string, Observation[]>
+}
+
+/** When a mountain opens for the season, as the resort or its pass announced it. */
+export interface Opening {
+  /** open: already open for the season. planned: a date is announced. tentative: weather permitting. */
+  s: 'open' | 'planned' | 'tentative'
+  /** Opening day (or the day it opened), "YYYY-MM-DD"; absent when only wording was given. */
+  d?: string
+  /** The source's own short wording. */
+  says: string
+  /** The page that states it. */
+  src: string
+}
+
+export interface OpeningsFile {
+  season: string
+  /** The day the announcements were collected, "YYYY-MM-DD". */
+  compiled: string
+  resorts: Record<string, Opening>
 }
 
 export interface ForecastFile {

@@ -84,6 +84,8 @@ const openMountain = async (page: Page, query: string) => {
 }
 await shot('phone-mountain-live', { ...PHONE, height: 3600 }, 'light', (page) => openMountain(page, 'winter park resort'))
 await shot('phone-mountain-europe', { ...PHONE, height: 3000 }, 'dark', (page) => openMountain(page, 'st. anton'))
+await shot('phone-mountain-alps-live', { ...PHONE, height: 2400 }, 'light', (page) => openMountain(page, 'sölden'))
+await shot('phone-mountain-nofeed', { ...PHONE, height: 1500 }, 'light', (page) => openMountain(page, 'vail'))
 await shot('phone-trailmap', PHONE, 'light', async (page) => {
   await openMountain(page, 'winter park resort')
   await page.locator('.trailmap').scrollIntoViewIfNeeded()

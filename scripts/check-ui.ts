@@ -247,11 +247,25 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     await back()
   })
 
-  await check('mountain: a resort without a live feed says so, and lists its mapped runs by difficulty', async () => {
-    await openMountain('st. anton')
-    expect((await page.locator('.detail-body').textContent())!.includes('does not publish its live lift and trail status'), 'the missing live status should be stated')
+  await check('mountain: an Alpine resort shows live lifts and numbered pistes by colour', async () => {
+    await openMountain('sölden')
+    await page.waitForSelector('.live-tiles', { timeout: 30_000 })
+    const [liftsOpen, liftsTotal] = ((await page.locator('.live-tiles div').first().textContent()) ?? '').match(/\d+/g)!.map(Number)
+    expect(liftsTotal >= 20 && liftsOpen <= liftsTotal, `lifts ${liftsOpen} of ${liftsTotal}`)
     const groups = await page.locator('.group summary').allTextContents()
     expect(groups.some((g) => g.startsWith('Red')) && groups.some((g) => g.startsWith('Blue')), `groups: ${groups.join(' | ')}`)
+    await page.locator('.group summary').first().click()
+    const first = (await page.locator('.group[open] .rows li b').first().textContent())!
+    expect(/^\d/.test(first), `pistes should lead with their number, got "${first}"`)
+    await back()
+  })
+
+  await check('mountain: a resort without a live feed says where to look, and lists its mapped runs', async () => {
+    await openMountain('vail')
+    expect((await page.locator('.detail-body').textContent())!.includes('only on its own site'), 'the missing live status should be stated')
+    expect((await page.getByRole('link', { name: /on the resort's site/ }).count()) > 0, 'a link to the resort is expected')
+    const groups = await page.locator('.group summary').allTextContents()
+    expect(groups.some((g) => g.startsWith('Green')) && groups.some((g) => g.startsWith('Black')), `groups: ${groups.join(' | ')}`)
     await page.locator('.group summary').first().click()
     expect((await page.locator('.group[open] .rows li').count()) > 3, 'named runs should be listed')
     await back()
