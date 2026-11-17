@@ -1,0 +1,427 @@
+{
+  "pass": "mountain-collective",
+  "label": "Mountain Collective Pass",
+  "season": "2026/27",
+  "sources": [
+    {
+      "url": "https://mountaincollective.com/",
+      "kind": "official"
+    },
+    {
+      "url": "https://mountaincollective.com/2026-27-mountain-collective-passes-now-on-sale/",
+      "kind": "official"
+    },
+    {
+      "url": "https://mountaincollective.com/how-to-use-my-pass/",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.montblancnaturalresort.com/en/mountain-collective-chamonix",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://forfait.megeve.com/hiver/en/our-skipass/",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://forfait.megeve.com/hiver/en/mountain-collective-pass/",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://www.sunvalley.com/mountain-collective/",
+      "kind": "secondary"
+    }
+  ],
+  "destinations": [
+    {
+      "name": "Alta Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/alta/",
+      "ids": [
+        "317407e2fb14035f61d6d927530f04e42b3a277b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Aspen Snowmass",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/aspen-snowmass/",
+      "ids": [
+        "03b56bd47b26c384d82474a2fb4b3fbc3a0c4a31",
+        "2a2d5ad1138c3aac0abe644e073bee96589412d4",
+        "0469463129ab65721499780f98a6394662564f32",
+        "aecc514c89c8ea9a6b3b8bac5e7468ef23917b60"
+      ],
+      "idsVerified": true,
+      "note": "Four mountains on one lift ticket: Aspen Mountain, Aspen Highlands, Buttermilk, Snowmass. The index row named 'Aspen Snowmass' is the Snowmass mountain."
+    },
+    {
+      "name": "Big Sky Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/big-sky-resort/",
+      "ids": [
+        "d4086b2e9d44022ca27bde811816b5a4fc859c87"
+      ],
+      "idsVerified": true,
+      "note": "Lone Peak Tram access is not included."
+    },
+    {
+      "name": "Grand Targhee Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/grand-targhee-resort/",
+      "ids": [
+        "84ddf46f67c0fca577dc969188dc189f1c7a040f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Jackson Hole Mountain Resort",
+      "country": "US",
+      "access": "2 days, reservations required, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/jackson-hole-mountain-resort/",
+      "ids": [
+        "2b812055300b5107fc2ffed8f5ae27a4c4f94f0a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Snowbasin",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/snowbasin/",
+      "ids": [
+        "423504a1fa53bcfbe5bf956f0cd48c12868c7f06"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Snowbird",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/snowbird/",
+      "ids": [
+        "8cbbb46cdace32e91492bfe6abd8014ed16328e6"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Sugar Bowl",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/sugar-bowl/",
+      "ids": [
+        "fa95641c38a689ebebd96aa62b6ee049115fbeee"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Sugarloaf",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/sugarloaf/",
+      "ids": [
+        "ba6f009c039cdf1008684fbf790a3fef14ec068a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Sun Valley",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/sun-valley/",
+      "ids": [
+        "b9ec1edd75823059c063c7c7b2a4078cf82542ab",
+        "1c76331ece5818c80d76890bc674c6687e89474d"
+      ],
+      "idsVerified": true,
+      "note": "Bald Mountain and Dollar Mountain rows. sunvalley.com/mountain-collective: 'two days at Sun Valley'; 'Bald Mountain Lift Tickets include same day skiing at Dollar Mountain'."
+    },
+    {
+      "name": "Sunday River",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/sunday-river/",
+      "ids": [
+        "54bceeb62ccd2209e50b8dc7e06b8daa1727ce34"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Taos Ski Valley",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/taos-ski-valley/",
+      "ids": [
+        "8faa21d51bf5725e795c0972acbe92178a458347"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Whiteface",
+      "country": "US",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/whiteface/",
+      "ids": [
+        "d8b3d7d48706c9ce19bd6ba147c156ae89574ad8"
+      ],
+      "idsVerified": true,
+      "note": "New this season."
+    },
+    {
+      "name": "Banff Sunshine",
+      "country": "CA",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/banff-sunshine/",
+      "ids": [
+        "7df6d649ccd61056844b92208038a03c0d6c6091"
+      ],
+      "idsVerified": true,
+      "note": "50%-off additional days here can also be used at Mt. Norquay (SkiBig3 window rate)."
+    },
+    {
+      "name": "Bromont",
+      "country": "CA",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/bromont/",
+      "ids": [
+        "a87ccf8c2949bc2ea5db0cf94c7c95fa6da0c874"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Lake Louise",
+      "country": "CA",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/lake-louise-ski-resort/",
+      "ids": [
+        "a29f5a7e7e0f4ce37aa98e1335aa75d994b791f8"
+      ],
+      "idsVerified": true,
+      "note": "50%-off additional days here can also be used at Mt. Norquay (SkiBig3 window rate)."
+    },
+    {
+      "name": "Le Massif de Charlevoix",
+      "country": "CA",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/le-massif/",
+      "ids": [
+        "ef6c8dc160b9330d799cf95bf76ae29b58d33c5c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Marmot Basin",
+      "country": "CA",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/marmot-basin/",
+      "ids": [
+        "5e819ebcf0e2f7b4cee8123304ed019d6eff2e59"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Panorama Mountain Resort",
+      "country": "CA",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/panorama-mountain-resort/",
+      "ids": [
+        "7f0f9748509826cf58fa1961ee12560933bbf7ab"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Revelstoke Mountain Resort",
+      "country": "CA",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/revelstoke/",
+      "ids": [
+        "f2df72ab0a583e1183c56c0a84810bf686d2eb9c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Sun Peaks Resort",
+      "country": "CA",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/sun-peaks-resort/",
+      "ids": [
+        "9f1d79969a331ae7d0969bf41f5d4910c7d07a0d"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Niseko United",
+      "country": "JP",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/niseko-united/",
+      "ids": [
+        "7467b4b92b34f135e5a3258eee64b992f39c95f0"
+      ],
+      "idsVerified": true,
+      "note": "All four Niseko United resorts (Grand Hirafu, Niseko Village, Hanazono, Annupuri); one index row."
+    },
+    {
+      "name": "Chamonix",
+      "country": "FR",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/chamonix-france/",
+      "ids": [
+        "529fcab6ce37f59505fcbd53b7904688bc4b635f",
+        "c2fba992cc1711880d5f8d8ffa661f71eab950cf",
+        "ea9dfe26da36c33e8cf007b22b628c153ac69ab4",
+        "3f17bde187966cb8ca14255520bda39eb25e5baa",
+        "37d45663d79ce1f32acb7ac14362de6210de3bbb",
+        "d762c4dccef598aa44826f873182a1dd4db55af3"
+      ],
+      "idsVerified": true,
+      "note": "Holders receive the 'Chamonix Valley' pass. mountaincollective.com names Grands-Montets, Flégère, Brévent and Les Houches (plus sightseeing lifts). Balme - Vallorcine, Vormaine and Les Planards are added from the lift company's Mountain Collective page (montblancnaturalresort.com/en/mountain-collective-chamonix), whose validity list is dated winter 2025/26."
+    },
+    {
+      "name": "Megève",
+      "country": "FR",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/megeve/",
+      "ids": [
+        "97a14cedc5b0e781e9bd9857df1426b9376c7462",
+        "ab64447adfc4646992e5e055f531038d949a74b2",
+        "aa87548d9445d366123e7ef7aee40af9d4a78dff",
+        "10f2ef5a778b65fdea26f0662b08e83c8b979356"
+      ],
+      "idsVerified": true,
+      "note": "Holders receive the Evasion Mont Blanc pass. Per megeve.com that pass covers Megève (Rochebrune, Cote 2000, Mont d'Arbois, Princesse, Jaillet), Saint Gervais, Saint Nicolas de Véroce, Combloux, La Giettaz and Les Contamines / Hauteluce; hence the Evasion Mont Blanc, Megève, Les Portes du Mont-Blanc (Jaillet, Combloux, La Giettaz) and Les Contamines rows."
+    },
+    {
+      "name": "Mt Buller",
+      "country": "AU",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/mt-buller-australia/",
+      "ids": [
+        "fa08874099e7e3e2ae78ebd0e5a4c842d080d7e9"
+      ],
+      "idsVerified": true,
+      "note": "Southern hemisphere: use the 2 days in the season before or after the pass (not both)."
+    },
+    {
+      "name": "Coronet Peak + The Remarkables",
+      "country": "NZ",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/coronet-peak-the-remarkables-new-zealand/",
+      "ids": [
+        "8d51d2e1d9edbc3ea557af7bf0ebaba02c7f7ef8",
+        "976d9a75995718d0e06985401b49091331695b48"
+      ],
+      "idsVerified": true,
+      "note": "Southern hemisphere: use the 2 days in the season before or after the pass (not both). Mt Hutt is 'not officially a Mountain Collective partner' (the page says NZSki honors it anyway, in a paragraph still dated 23/24); left out."
+    },
+    {
+      "name": "Valle Nevado",
+      "country": "CL",
+      "access": "2 days, no blackout dates, half off additional days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/valle-nevado-chile/",
+      "ids": [
+        "5599f5c55105bf3996fec9a4e6f309e1a79e421d"
+      ],
+      "idsVerified": true,
+      "note": "Southern hemisphere: use the 2 days in the season before or after the pass (not both)."
+    },
+    {
+      "name": "Mt. Norquay",
+      "country": "CA",
+      "access": "50% off days only, no included days",
+      "kind": "discount",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://mountaincollective.com/resort/banff-sunshine/",
+      "ids": [
+        "aedc10b0b4b20c17f083be799be906cc5fdb41ac"
+      ],
+      "idsVerified": true,
+      "note": "Not one of the 27 destinations and no free days. The Banff Sunshine and Lake Louise pages say 50%-off ski days 'are available for use at your choice of Banff Sunshine, Lake Louise and/or Mt. Norquay'."
+    }
+  ]
+}

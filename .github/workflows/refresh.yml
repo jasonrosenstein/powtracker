@@ -1,0 +1,56 @@
+# Twice a day: pull the latest run of every weather model, rebuild the site with the fresh
+# snapshot, and publish it to GitHub Pages. Nothing is committed back, so the repository does not
+# grow with every refresh.
+#
+# The schedule follows ECMWF, the last of the big models to land: its 00Z run is on Open-Meteo by
+# about 08:00 UTC and its 12Z run by about 20:00 UTC.
+name: Refresh snow data and publish
+
+on:
+  schedule:
+    - cron: '30 8,20 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      # Free tier: paced to stay inside Open-Meteo's limits (about 10 minutes). With the
+      # OPEN_METEO_API_KEY secret set, the commercial endpoint is used and the pacing is dropped.
+      # If this step fails the job stops here and the published site keeps its last snapshot.
+      - name: Forecast snapshot
+        run: node scripts/ingest.ts
+        env:
+          OPEN_METEO_API_KEY: ${{ secrets.OPEN_METEO_API_KEY }}
+      # Station measurements are a bonus: a source being down must not block the forecast.
+      - name: Station measurements
+        run: node scripts/ingest-obs.ts
+        continue-on-error: true
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,988 @@
+{
+  "pass": "epic",
+  "label": "Epic Pass",
+  "season": "2026/27",
+  "lowerTier": "Epic Local Pass",
+  "sources": [
+    {
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/passes/epic-local-pass.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/partner-resorts.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/europe.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/japan.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/canada.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/australia.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/europe/switzerland/andermatt-sedrun-disentis.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/europe/switzerland/crans-montana.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/europe/switzerland/verbier-4-vallees.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/europe/italy/skirama-dolomiti.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/europe/france/les-3-vallees.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/europe/austria/ski-arlberg.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/europe/austria/alpin-card-resorts.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/europe/austria/zillertal.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/europe/austria/silvretta-montafon.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.epicpass.com/regions/europe/austria/soelden.aspx",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.zillertalarena.com/en/winter/ski-area/tickets-prices/epic-pass/",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://www.zillertal.at/en/winter/holidays/ski-areas/zillertal-arena.html",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://www.mayrhofen.at/en/pages/epic-pass",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://www.skiarlberg.at/en/Ski-Arlberg",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://www.skiarlberg.at/en/lech-zuers/tickets-season-times/prices-tickets-winter",
+      "kind": "secondary"
+    }
+  ],
+  "destinations": [
+    {
+      "name": "Vail",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "10 total days combined at Vail, Beaver Creek and Whistler Blackcomb, excludes peak dates",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "88a22ba23468cf120025366ef40f004c9043546e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Beaver Creek",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "10 total days combined at Vail, Beaver Creek and Whistler Blackcomb, excludes peak dates",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "1185f0916cf0cbf03f6b75c9d1449b86afb1516d"
+      ],
+      "idsVerified": true,
+      "note": "Index row is named 'Beaver Creek Resort (Arrowhead Mountain)' (Avon, CO; beavercreek.com)."
+    },
+    {
+      "name": "Breckenridge",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "27206747b07d41c64659c2ffd8753c554127752d"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Keystone",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "7d855b81e131f7cb7bdbc7b55e47a18d3ccb5e67"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Crested Butte",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "c7ba44969ddc615ea94968125fc96d9b584c388f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Park City",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access, excludes peak dates",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "3dad9d62b112c018cb658fd1eb49bcd41c96f257"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Heavenly",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access, excludes peak dates",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "3f61859b47be735a77df9b1b9e102edbeb529286"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Northstar",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access, excludes peak dates",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "717fe0e81e226ce0361fb10dc24e9f863eeda6ba"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Kirkwood",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access, excludes peak dates",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "718db266e6e9ec76a5003a404aec69a657b3ab33"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Stevens Pass",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "53a4f73effb0655bdb69989c1fb297c8206d04dc"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Whistler Blackcomb",
+      "country": "CA",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "10 total days combined at Vail, Beaver Creek and Whistler Blackcomb, excludes peak dates",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "19291bcc85a3b6bda5a0817e6a20bf8b8b71a5c0"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Stowe",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access, excludes peak dates",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "1688ce1f44c0112805d9755f31a8e82283162cfb"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Okemo",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "f6908eabbb258d109d1b4c9f86f83620dcd69380"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mount Snow",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "74dd4473e21693f4e2d2fdfb66ed5eee9493d4cc"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mount Sunapee",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "8107ea0d4b45b275d05b6566e2cf37be111e1ff7"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Attitash Mountain Resort",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "513237f93d127ca8e5cdbcd527ac3c99cef7c6ed"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Wildcat Mountain",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "0df6f2636ac79f4cfabf19a4d6954d6b8e00d01a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Crotched Mountain",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "414efa2c476272bdab8a3fa83688a01a1b3b3600"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hunter Mountain",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "0220b9172bf819d9b5fbd07c2f2218a8cfabb864"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Liberty Mountain Resort",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "6fab99ca0f48e48b41acc39f35e85a4cc88c672a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Roundtop Mountain Resort",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "67139981d789d29cdb4da8f3c4818ab3b10e579e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Whitetail Resort",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "97655053adc3665312bf8601a0a73ac25fc9bb38"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Jack Frost",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "4fbb65912b802e995555462c3a3952bce5cce852"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Big Boulder",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "d80406be9f977e44ccd65c57449b9ec22da23855"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Seven Springs",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "58ebc9836ec25e4498e8608b3a078c918ed1ce69"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Laurel Mountain",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "c4e2d22a88c1e1bf40138fece3f03c1b6fcda84b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hidden Valley PA",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "04a5001a288a997399f4bca3661a2ee0d26e17e3"
+      ],
+      "idsVerified": true,
+      "note": "Pennsylvania row (Donegal, hiddenvalleyresort.com), not the Missouri one."
+    },
+    {
+      "name": "Afton Alps",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "37f4ea452662caed6a34272742ddce97f1a4734a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mt Brighton",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "eb22337964133d173cab93b1b85b22a41b27b611"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Wilmot",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "5a1a80c1675044a1264bf0701081f570067d0251"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Alpine Valley",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "209437aa417a69f51e4b5c8b4f7b96e7d1d816c0"
+      ],
+      "idsVerified": true,
+      "note": "The Ohio Alpine Valley (Munson, alpinevalleyohio.com), which epicpass.com lists as 'Alpine Valley, OH'. The Wisconsin and Michigan areas of the same name are not on the pass."
+    },
+    {
+      "name": "Boston Mills",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "cd7f28de9a4b85aff0761e9af449c5e6c9626168"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Brandywine",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "abc97db78f6238663faf95a23b1bce2f4f6bf1c6"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mad River Mountain",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "305c84e41152110f9e0e01dc6cc33932fc1579b7"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hidden Valley MO",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "05913b1b97919918fed5906bd52fa995e42a2acf"
+      ],
+      "idsVerified": true,
+      "note": "Missouri row (Wildwood, hiddenvalleyski.com), not the Pennsylvania one."
+    },
+    {
+      "name": "Snow Creek",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "88471079dc1586673396596c0f03e3c66ad128ba"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Paoli Peaks",
+      "country": "US",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "Unlimited access",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "a3712cf80065932887fd5e1c84ea6a51c02a2e99"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Andermatt-Sedrun-Disentis",
+      "country": "CH",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "5 days",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "79c0a83a43fb28c85dd99af59db0b39659473142",
+        "989d5aae8c00edda3ff072decccdba8c17251be0",
+        "d49fb763370f4ddb93f355430d537911de694958",
+        "144ac3c35cbc18c87d2075dc6f5b3b4c7112e201"
+      ],
+      "idsVerified": true,
+      "note": "Four index rows: Skiarena Andermatt-Sedrun, Gemsstock - Andermatt, Disentis/Muster, and Valtgeva (Druni KidsArena) at Sedrun. The epicpass.com resort page names Andermatt, Sedrun and Disentis ('Epic Pass Holders also get unlimited access to Disentis'); three of the four rows carry the resort's own website, the Disentis row has none. The Realp village lift (836fb883671e82d5d95e736971c53a4fef2e562b, 96 m vertical) is not named by the pass and is left out. Epic Local wording: '5 days each at Andermatt-Sedrun-Disentis and Crans-Montana'."
+    },
+    {
+      "name": "Crans-Montana",
+      "country": "CH",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "5 days",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "7764d597cda909bb1bc7fd66a07bbfa6bb8ab695"
+      ],
+      "idsVerified": true,
+      "note": "Epic Local wording: '5 days each at Andermatt-Sedrun-Disentis and Crans-Montana'."
+    },
+    {
+      "name": "Perisher",
+      "country": "AU",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "562a20a601646b66731b356f79d1bcdd26a6e280"
+      ],
+      "idsVerified": true,
+      "note": "Access is for the Southern Hemisphere winter after the pass season: 2026/27 Epic Pass holders ski here in the 2027 Australian winter (epicpass.com/regions/australia.aspx). Epic Local Pass is not among the passes that page lists with access. The index row's website column shows charlottepass.com.au, but the OpenSkiMap record also carries perisher.com.au and Charlotte Pass has its own separate row."
+    },
+    {
+      "name": "Falls Creek",
+      "country": "AU",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "a280690db943a1192a5e92c81707f6ab19b037ec"
+      ],
+      "idsVerified": true,
+      "note": "Access is for the Southern Hemisphere winter after the pass season: 2026/27 Epic Pass holders ski here in the 2027 Australian winter (epicpass.com/regions/australia.aspx). Epic Local Pass is not among the passes that page lists with access."
+    },
+    {
+      "name": "Hotham",
+      "country": "AU",
+      "access": "Unlimited access, every day of the season, including peak dates",
+      "kind": "unlimited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "aea2abf24d2ee29ac2721b3053ab816c21bb39ae"
+      ],
+      "idsVerified": true,
+      "note": "Access is for the Southern Hemisphere winter after the pass season: 2026/27 Epic Pass holders ski here in the 2027 Australian winter (epicpass.com/regions/australia.aspx). Epic Local Pass is not among the passes that page lists with access."
+    },
+    {
+      "name": "Telluride",
+      "country": "US",
+      "access": "7 total days",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "c036edc54d4fe7d4c6f93de5b9f3dcaff34a5a64"
+      ],
+      "idsVerified": true,
+      "note": "After the seven days: 50% off lift tickets. A physical pass card is required (no Mobile Pass)."
+    },
+    {
+      "name": "Fernie Alpine Resort",
+      "country": "CA",
+      "access": "7 total days at Resorts of the Canadian Rockies",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "ecea3ea316650e534c05c56dca021977818dc214"
+      ],
+      "idsVerified": true,
+      "note": "Pass wording: 'A total of seven days of skiing and snowboarding at Resorts of the Canadian Rockies', listed against six resorts (Fernie, Kicking Horse, Kimberley, Nakiska, Mont-Sainte-Anne, Stoneham): one allotment for the group, not seven days at each. 50% off additional lift tickets after all 7 days are used."
+    },
+    {
+      "name": "Kicking Horse Mountain Resort",
+      "country": "CA",
+      "access": "7 total days at Resorts of the Canadian Rockies",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "64e116daf22181604ec3123222b9e6757d0d6ebb"
+      ],
+      "idsVerified": true,
+      "note": "Pass wording: 'A total of seven days of skiing and snowboarding at Resorts of the Canadian Rockies', listed against six resorts (Fernie, Kicking Horse, Kimberley, Nakiska, Mont-Sainte-Anne, Stoneham): one allotment for the group, not seven days at each. 50% off additional lift tickets after all 7 days are used."
+    },
+    {
+      "name": "Kimberley Alpine Resort",
+      "country": "CA",
+      "access": "7 total days at Resorts of the Canadian Rockies",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "14471d68a332d98392513ac010a190fe8d0ed3f4"
+      ],
+      "idsVerified": true,
+      "note": "Pass wording: 'A total of seven days of skiing and snowboarding at Resorts of the Canadian Rockies', listed against six resorts (Fernie, Kicking Horse, Kimberley, Nakiska, Mont-Sainte-Anne, Stoneham): one allotment for the group, not seven days at each. 50% off additional lift tickets after all 7 days are used."
+    },
+    {
+      "name": "Nakiska Ski Area",
+      "country": "CA",
+      "access": "7 total days at Resorts of the Canadian Rockies",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "629f41736fe9e223bb92ecae332e0d736721da14"
+      ],
+      "idsVerified": true,
+      "note": "Pass wording: 'A total of seven days of skiing and snowboarding at Resorts of the Canadian Rockies', listed against six resorts (Fernie, Kicking Horse, Kimberley, Nakiska, Mont-Sainte-Anne, Stoneham): one allotment for the group, not seven days at each. 50% off additional lift tickets after all 7 days are used."
+    },
+    {
+      "name": "Mont-Sainte-Anne",
+      "country": "CA",
+      "access": "7 total days at Resorts of the Canadian Rockies",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "3785c88c5ad57290cf36584e82109a458c554a54"
+      ],
+      "idsVerified": true,
+      "note": "Pass wording: 'A total of seven days of skiing and snowboarding at Resorts of the Canadian Rockies', listed against six resorts (Fernie, Kicking Horse, Kimberley, Nakiska, Mont-Sainte-Anne, Stoneham): one allotment for the group, not seven days at each. 50% off additional lift tickets after all 7 days are used."
+    },
+    {
+      "name": "Stoneham",
+      "country": "CA",
+      "access": "7 total days at Resorts of the Canadian Rockies",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "baa17f751db10c008667bd32ac5a284689e8e857"
+      ],
+      "idsVerified": true,
+      "note": "Pass wording: 'A total of seven days of skiing and snowboarding at Resorts of the Canadian Rockies', listed against six resorts (Fernie, Kicking Horse, Kimberley, Nakiska, Mont-Sainte-Anne, Stoneham): one allotment for the group, not seven days at each. 50% off additional lift tickets after all 7 days are used. Index row is named 'Station touristique Stoneham'."
+    },
+    {
+      "name": "Hakuba Valley",
+      "country": "JP",
+      "access": "5 consecutive days",
+      "kind": "limited",
+      "lower": "5 consecutive days",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "a49c1598156961b75dba1bdd98423521965cfe64",
+        "351e73f443295e581a711c45d697a82006f24352",
+        "ece5006c66d60ddde5df1f6ccf9d2f6a3e8bcb52",
+        "c841118d2b5eed99ac5e30f569bb0f2e6ba7892a",
+        "6d8c8a9a4114428e603d1c434b147d1217879f85",
+        "2badaaea50fcf2640ddea5311798bbd7e2c17b7c",
+        "18cba9125586b2701f80908d351556655f8f6c80",
+        "0cbcc6a3e3481cdc6750911f4cfe7c412563905f",
+        "9e9a84ef97c366ed523b405845fa42051c9d578d",
+        "b602362c1e045f1cdc1c5aa731c1ee2224205518"
+      ],
+      "idsVerified": true,
+      "note": "Pass wording: 'Five consecutive days of skiing and snowboarding at Hakuba Valley's ten ski resorts'. The ten are named on epicpass.com/regions/japan.aspx: Jigatake, Kashimayari, Hakuba Sanosaka, ABLE Hakuba Goryu, Hakuba 47, Hakuba Happo-one, Hakuba Iwatake, Tsugaike, Hakuba Norikura Onsen, Hakuba Cortina; ids are in that order. Hakuba Norikura Onsen is the Hakuba row, not 'Blue Resort Norikura' near Matsumoto."
+    },
+    {
+      "name": "Rusutsu",
+      "country": "JP",
+      "access": "5 consecutive days",
+      "kind": "limited",
+      "lower": "5 consecutive days",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/passes/epic-pass.aspx",
+      "ids": [
+        "24ee51415a84a991406320a88bd1bd2e7aa81030"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Verbier 4 Vallées",
+      "country": "CH",
+      "access": "5 consecutive days of unrestricted access",
+      "kind": "limited",
+      "lower": "5 consecutive days, excludes peak dates",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/regions/europe/switzerland/verbier-4-vallees.aspx",
+      "ids": [
+        "fa9477e20c9caa871737f7a1348b911870394799"
+      ],
+      "idsVerified": true,
+      "note": "One index row covers the whole 4 Vallées; the pass page names Verbier, Nendaz, Veysonnaz, La Tzoumaz, Bruson and Thyon. Epic Local adds a restricted period of February 6-20, 2027 on top of its peak dates."
+    },
+    {
+      "name": "Skirama Dolomiti",
+      "country": "IT",
+      "access": "7 consecutive days",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/regions/europe/italy/skirama-dolomiti.aspx",
+      "ids": [
+        "fd830ae87b04dcc7ab252d9b7f21cb21029dd61f",
+        "6bce0c5b4378d80172a8f1e44252244e65530be2",
+        "29b30f99e12f6399919a7bbd34ab3ad948bf6ede",
+        "bffad13dcc96a8c292c819dc670726b0be3a7f5d",
+        "d2e1e84c6527c29dc0f4fbd22c9f7fd34bd61480",
+        "64aee63c9ac051c8e37df33f4bc3e5549876880d",
+        "aeb21ce1142007da7831ecfa92e398ced3f4db59",
+        "712f8e147bed9e60894d62fb3dad2619ac81966a",
+        "9e5f29a0cf4edfbfbbc5e6128608038e537fc4f3"
+      ],
+      "idsVerified": true,
+      "note": "Eight resorts named on the pass page: Madonna di Campiglio, Pinzolo, Folgarida-Marilleva, Pontedilegno-Tonale, Pejo, Paganella Ski, Monte Bondone, Alpe Cimbra: Folgaria-Lavarone. Ids are in that order; Alpe Cimbra is two index rows (Folgaria and Ski Center Lavarone)."
+    },
+    {
+      "name": "Les 3 Vallées",
+      "country": "FR",
+      "access": "7 consecutive days",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/regions/europe/france/les-3-vallees.aspx",
+      "ids": [
+        "68b126bc3175516c9263aed7635d14e37ff360dc",
+        "23365b5cea5dad5b58d9ffc5506ff573f96cb70b",
+        "e13d9d82f727b3101571e54b9aeeb900a8286337",
+        "075db540453d13b0e660135085f40523940b95ba",
+        "b66cd0bd82cf0860c0b65dbe7ba26066f8463554",
+        "13ba869607d22e177654c6366ae9dc746b8db0f2",
+        "3ab7375c4734163405f0f77a7c5a6afdfd600b73"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has an umbrella row (Les Trois Vallées) plus overlapping component rows (Courchevel, Méribel, Les Ménuires, Val Thorens, Orelle, Val Thorens - Orelle); all are listed so every row a tracker shows is flagged. The pass page names Courchevel, Méribel, Brides-les-Bains, Les Menuires, Saint-Martin-de-Belleville, Val Thorens and Orelle."
+    },
+    {
+      "name": "Ski Arlberg",
+      "country": "AT",
+      "access": "3 consecutive days with a minimum-night stay at a participating Arlberg lodging property",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/regions/europe/austria/ski-arlberg.aspx",
+      "ids": [
+        "53410fc611922a26e32535c74bb1d9364cef4ecd",
+        "66e672470add74c3e6a2bd8d4c1bb07cc4721728",
+        "c5107fc2eb3f59b23211a3251a229b06d36f765c"
+      ],
+      "idsVerified": true,
+      "note": "Conditional access: the three lift tickets are handed over by a participating hotel booked directly (minimum 3 nights, varies by property), once per winter season; without that stay the pass gives nothing here. Ids: the Ski Arlberg umbrella row plus its St. Anton/St. Christoph/Stuben and Lech/Zürs component rows; the pass page says 'Eligible resorts include St Anton, St Christoph, Lech, Zurs, and Stuben'. Left out: Warth-Schröcken (29248afecbb89253d31145bb08025956c1bfb71a), which skiarlberg.at counts as part of Ski Arlberg and whose ski passes it says are valid throughout the area, but which the pass does not name; Sonnenkopf (listed by skiarlberg.at under other ski resorts); and a second row named 'Ski Arlberg' (1dc7dcce3657b7b83a9395ed3bdfaf16986c8432) that has no lifts and is mostly nordic trails near Pettneu."
+    },
+    {
+      "name": "Saalbach & Zell am See-Kaprun",
+      "country": "AT",
+      "access": "5 days of unrestricted access across the ALPIN CARD resorts",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/regions/europe/austria/alpin-card-resorts.aspx",
+      "ids": [
+        "180faeea32aba7b22fbe1438b0a3a82f6a2a4ad8",
+        "6ecf3eac97891cee8e38aa2e836e878db6ebe5a3",
+        "bc0361849d0e6e33ef5d9cd035522200a3125df1"
+      ],
+      "idsVerified": true,
+      "note": "Three resorts named: Skicircus Saalbach Hinterglemm Leogang Fieberbrunn, Schmittenhöhe (Zell am See), Kitzsteinhorn (Kaprun; the index row also includes Maiskogel). Access window October 10, 2026 - May 2, 2027. The Lechnerberg beginner lifts in Kaprun (4873cce0505b1f0ae19b312116de4795cabec0e7, same operator) are not named by the pass or the ALPIN CARD pages fetched and are left out."
+    },
+    {
+      "name": "Zillertal",
+      "country": "AT",
+      "access": "5 total consecutive days of unrestricted access across Zillertal",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/regions/europe/austria/zillertal.aspx",
+      "ids": [
+        "69931ad5166c6a605bdbc8cb48fde87b78117576",
+        "99cef648d8c6f7231b60448092fb29de26069d0f",
+        "bbbfaa27816f58cfdfecc5b692b0ee59dde891f5",
+        "5372192bd888c8a51229656860a694f038692eef",
+        "0e7ba1fd10a2afbc6e188d1f9936f843cc665583",
+        "fd2502303c53c45c2a6c5dd332f5105bb3c95179"
+      ],
+      "idsVerified": true,
+      "note": "One 5-consecutive-day allotment for the whole valley, not 5 days per area. The pass page names Spieljoch, Hochfügen-Hochzillertal, Zillertal Arena, Mayrhofen and Hintertux; access window October 1, 2026 - May 15, 2027. Gerlosstein/Hainzenberg (5372192b...) is included by inference: zillertalarena.com says the Epic Pass is 'valid in all Zillertal ski resorts' and zillertal.at lists the Gerlossteinbahn among the Zillertal Arena lifts, but no page names it for the Epic Pass. New for 2026/27: last season's partner was Mayrhofen & Hintertux only, and an FAQ on the Epic Pass page still uses that older name."
+    },
+    {
+      "name": "Silvretta Montafon",
+      "country": "AT",
+      "access": "5 days of access",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/regions/europe/austria/silvretta-montafon.aspx",
+      "ids": [
+        "e61adbd637839187e907618f82887995b324f482"
+      ],
+      "idsVerified": true,
+      "note": "Silvretta Montafon only; the neighbouring Montafon areas (Golm, Gargellen, Kristberg) are not named by the pass."
+    },
+    {
+      "name": "Sölden",
+      "country": "AT",
+      "access": "5 days of access",
+      "kind": "limited",
+      "lower": "not included",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.epicpass.com/regions/europe/austria/soelden.aspx",
+      "ids": [
+        "78e5f98d8527df7216b08962f372659abcd4f711"
+      ],
+      "idsVerified": true,
+      "note": "Sölden only (not Obergurgl-Hochgurgl). Access window October 1, 2026 - May 2, 2027."
+    }
+  ]
+}

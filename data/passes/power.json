@@ -1,0 +1,191 @@
+{
+  "pass": "power",
+  "label": "Power Pass",
+  "season": "2026/27",
+  "sources": [
+    { "url": "https://www.thepowerpass.ski/power-pass", "kind": "official" },
+    { "url": "https://www.thepowerpass.ski/benefits", "kind": "official" },
+    { "url": "https://www.thepowerpass.ski/all-passes", "kind": "official" },
+    { "url": "https://www.thepowerpass.ski/hesperus-passes", "kind": "official" },
+    { "url": "https://www.mcp.ski/our-mountains-skiing", "kind": "official" },
+    { "url": "https://skiloveland.com/the-mountain/basin-vs-valley/", "kind": "secondary" },
+    { "url": "https://skiloveland.com/lift-tickets/", "kind": "secondary" }
+  ],
+  "destinations": [
+    {
+      "name": "Purgatory",
+      "country": "US",
+      "access": "Unlimited skiing and riding, no blackout dates",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/power-pass",
+      "ids": ["66ebd7d72089d0697f49126b4fe6bfadbb08f9e0"],
+      "idsVerified": true
+    },
+    {
+      "name": "Snowbowl",
+      "country": "US",
+      "access": "Unlimited skiing and riding, no blackout dates",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/power-pass",
+      "ids": ["baea9cfef6687ce48eab4290f136798ab2791ea9"],
+      "idsVerified": true,
+      "note": "The pass says \"Snowbowl\"; its resort list links it as Arizona Snowbowl (Flagstaff), which is the index row. Not Montana Snowbowl."
+    },
+    {
+      "name": "Brian Head",
+      "country": "US",
+      "access": "Unlimited skiing and riding, no blackout dates",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/power-pass",
+      "ids": ["d17554e2aaa5a02bbc98023dd1f5cf4e17c6107e"],
+      "idsVerified": true
+    },
+    {
+      "name": "Sipapu",
+      "country": "US",
+      "access": "Unlimited skiing and riding, no blackout dates",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/power-pass",
+      "ids": ["66934016f836f00b8955a87aedd5b2713603fdf2"],
+      "idsVerified": true
+    },
+    {
+      "name": "Sandia Peak",
+      "country": "US",
+      "access": "Unlimited skiing and riding, no blackout dates",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/power-pass",
+      "ids": ["c3bdf2365be8731aa6cb20ce76de31e246dfab57"],
+      "idsVerified": true
+    },
+    {
+      "name": "Nordic Valley",
+      "country": "US",
+      "access": "Unlimited skiing and riding, no blackout dates",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/power-pass",
+      "ids": ["ea9d33fa9e878e325e20d33e6ae1b855ef51eade"],
+      "idsVerified": true
+    },
+    {
+      "name": "Pajarito",
+      "country": "US",
+      "access": "Unlimited skiing and riding, no blackout dates",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/power-pass",
+      "ids": ["6113e90989ba3b057fdba6366e2e48ada9428ecc"],
+      "idsVerified": true
+    },
+    {
+      "name": "Lee Canyon",
+      "country": "US",
+      "access": "Unlimited skiing and riding, no blackout dates",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/power-pass",
+      "ids": ["96ac5982fa49d8689d466c77db58aeecf3ae3784"],
+      "idsVerified": true
+    },
+    {
+      "name": "Willamette Pass",
+      "country": "US",
+      "access": "Unlimited skiing and riding, no blackout dates",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/power-pass",
+      "ids": ["926bbb0835ac3d008a9b5a4c718c9dd6c7fcf3d3"],
+      "idsVerified": true
+    },
+    {
+      "name": "Valle Nevado",
+      "country": "CL",
+      "access": "10 FREE interconnected days at Valle Nevado & La Parva for the 2026 season, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/power-pass",
+      "ids": ["5599f5c55105bf3996fec9a4e6f309e1a79e421d"],
+      "idsVerified": true,
+      "note": "The 10 days are one pool shared with La Parva. The 2026/27 pass states this benefit for the 2026 Chilean winter only, which has already ended (checked 2026-11-16); the pass site says nothing about the 2027 Chilean winter."
+    },
+    {
+      "name": "La Parva",
+      "country": "CL",
+      "access": "10 FREE interconnected days at Valle Nevado & La Parva for the 2026 season, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/power-pass",
+      "ids": ["82dc09affb379bc9f88a1fc518ac2ded2508f9da"],
+      "idsVerified": true,
+      "note": "The 10 days are one pool shared with Valle Nevado. The 2026/27 pass states this benefit for the 2026 Chilean winter only, which has already ended (checked 2026-11-16); the pass site says nothing about the 2027 Chilean winter."
+    },
+    {
+      "name": "Monarch Mountain",
+      "country": "US",
+      "access": "3 FREE days (no blackout dates)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/benefits",
+      "ids": ["cbf5bcc5f265cec9368d353e2ab6ecb6c9e41a4c"],
+      "idsVerified": true,
+      "note": "Partner mountain, not an MCP resort."
+    },
+    {
+      "name": "Sundance Resort",
+      "country": "US",
+      "access": "3 FREE days (no blackout dates)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/benefits",
+      "ids": ["745a3b9611363f0f1ca4f55e5403f39dede94ebb"],
+      "idsVerified": true,
+      "note": "Partner mountain, not an MCP resort."
+    },
+    {
+      "name": "Loveland Ski Area",
+      "country": "US",
+      "access": "3 FREE days (no blackout dates)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/benefits",
+      "ids": [
+        "1dd2321e1ddaeaba8ad3d040cd145bd2ad08c028",
+        "e0538ef0f9aa7a9d8b5f5efbb289419018cb0ebc"
+      ],
+      "idsVerified": false,
+      "note": "Partner mountain, on the top-tier Power Pass only. OpenSkiMap splits it into Loveland Basin and Loveland Valley. Loveland's own pages say the ski area is made up of those two base areas and sell an all-mountain ticket next to a Valley-only one, but no page fetched says which ticket a Power Pass free day is, so the Valley id rests on inference. The Basin id is safe."
+    },
+    {
+      "name": "Hesperus",
+      "country": "US",
+      "access": "not stated",
+      "kind": "unknown",
+      "confirmed": false,
+      "source": "official",
+      "url": "https://www.thepowerpass.ski/hesperus-passes",
+      "ids": ["d0b74dba1347b773c1512a6d8b8ce0e5d4dfe299"],
+      "idsVerified": true,
+      "note": "Not on the 2026/27 roster as far as the pass site shows: absent from the 2026/27 Power Pass access list and from the site's resort list. The only pass-site page that names it is a stale 2023/2024 page still in the sitemap. MCP's own site still lists Hesperus as one of its ski areas, and secondary reports say the hill has not run since 2023. Kept so it is not silently dropped; do not show it as covered."
+    }
+  ]
+}

@@ -1,0 +1,1319 @@
+{
+  "pass": "magic",
+  "label": "Magic Pass",
+  "season": "2026/27",
+  "sources": [
+    {
+      "url": "https://www.magicpass.ch/en/stations",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.magicpass.ch/en/page/the-pass-5445",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.magicpass.ch/en/page/the-magic-pass-2642",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.magicpass.ch/en/faq",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.magicpass.ch/media/document/0/magicpass-2026-communique-de-presse-en.pdf",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.paysdegex-montsjura.com/station-monts-jura/acheter-son-forfait/magic-pass/",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://www.jurasurleman.com/en/",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://www.moosalpregion.ch/",
+      "kind": "secondary"
+    }
+  ],
+  "destinations": [
+    {
+      "name": "Aeschiallmend",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/aeschiallmend-1805",
+      "ids": [
+        "cdae8f15a1a4998399e9242698f79fa7feab135b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Anzère",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/anzere-4",
+      "ids": [
+        "5715439988a962bab375e89d7fcaa86583215933"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Axalp",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/axalp-1800",
+      "ids": [
+        "e0683a5fb859192c48db792baa445ef24b238036"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Balmberg",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/balmberg-4444",
+      "ids": [
+        "4add9c391fb15cef817112a39974847f8e0a4ba4"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap names it Oberbalmberg (same website, balmberg.ch)."
+    },
+    {
+      "name": "Beatenberg-Hohwald",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/beatenberg-hohwald-1799",
+      "ids": [
+        "e875d3c5adf4188fb7bed263f97f1460bff54804"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bergbahnen Gstaad",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/bergbahnen-gstaad-4447",
+      "ids": [
+        "7512fc8f0f012bbc88e7e68cb48fdf60b8053429",
+        "6706227f52c321acb67f28aea019d52a65fdbeb0",
+        "c822724e8cea27504e4e84768f0d33ad41cae877"
+      ],
+      "idsVerified": true,
+      "note": "Gsteig-Sanetsch cable car not included. Expanded to the three OpenSkiMap areas whose sectors the pass page lists by name: Saanenmöser/Schönried/Zweisimmen/St. Stephan (Saanersloch, Hornberg, Horneggli, Rinderberg, Parwengesattel), Gstaad-Saanen-Rougemont (Eggli, La Videmanette) and Wispile. Wasserngrat and the Heiti lift at Gsteig are separate OpenSkiMap rows the pass page does not name; left out. The pass site tags it Summer/Winter destination but not Ski resort; its page lists winter opening dates for every sector and describes the skiing, so it is kept as a winter destination."
+    },
+    {
+      "name": "Bernex",
+      "country": "FR",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/bernex-5567",
+      "ids": [
+        "19b6e308caa6766b21cb00e4fb40a82c4ee1f95b"
+      ],
+      "idsVerified": true,
+      "note": "New destination for 2026/27."
+    },
+    {
+      "name": "Blatten-Belalp",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/blatten-belalp-4445",
+      "ids": [
+        "e9c0a197353bef2c6ed47d85c268582cae8ad8ea"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bugnenets-Savagnières",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/bugnenets-savagnieres-12",
+      "ids": [
+        "06b6a1bf1760e0705bf964f0a5d4e410de20f279"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bumbach Schangnau",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/bumbach-schangnau-2765",
+      "ids": [
+        "dd96ad5d5d027fdc26aa2a86716dfbb71a813cd1"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Charmey",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/charmey-14",
+      "ids": [
+        "a10f881088e5a0f7f638228f6be67fcfa2eec94a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Crêt-du-Puy",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/cret-du-puy-17",
+      "ids": [
+        "2220c1fa41c7444045df8f2d333fca7aca8a3cf7"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Devero",
+      "country": "IT",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/devero-3614",
+      "ids": [
+        "57efd51e547ce58c39dd45053fd694c74096df90"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap names it Alpe Devero."
+    },
+    {
+      "name": "Domobianca",
+      "country": "IT",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/domobianca-5520",
+      "ids": [
+        "d9332bf3676666dc7fb5749ff99faf2f6edc0d59"
+      ],
+      "idsVerified": true,
+      "note": "New destination for 2026/27."
+    },
+    {
+      "name": "Eischoll",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/eischoll-2766",
+      "ids": [
+        "0ed67f04f2e5d0f8e1b8be3507c577fcfcb60215"
+      ],
+      "idsVerified": true,
+      "note": "Raron-Eischoll cable car not included. OpenSkiMap has one combined row, Unterbäch - Eischoll, which is also the row for the Unterbäch destination."
+    },
+    {
+      "name": "Eriz",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/eriz-1797",
+      "ids": [
+        "7608d7db48ec93b3b0d08898a19cc6d573273f92"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Espace Dent-Blanche (Arolla)",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/espace-dent-blanche-arolla-118",
+      "ids": [
+        "0ae05d0db0046278c433fc2f19c026e1431d613e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Espace Dent-Blanche (Evolène)",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/espace-dent-blanche-evolene-88",
+      "ids": [
+        "da74e2b80c8a6a2a6ecfb6190149a23002b3868b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Espace Dent-Blanche (La Forclaz)",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/espace-dent-blanche-la-forclaz-117",
+      "ids": [
+        "7764bdb01f8f2597020eabfe93298922a87544f1"
+      ],
+      "idsVerified": true,
+      "note": "The Valais La Forclaz (Val d'Hérens), not the Vaud lift of the same name."
+    },
+    {
+      "name": "Faltschen",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/faltschen-1804",
+      "ids": [
+        "acf498aaae3fcc01d9d302f0053ce7804361abde"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Gantrisch Gurnigel",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/gantrisch-gurnigel-2767",
+      "ids": [
+        "d011cfc746e834321d4c8f8fd4ffdb21ce106805"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap also has an umbrella row named plain \"Gantrisch\" (no lifts of its own); not attached."
+    },
+    {
+      "name": "Glacier 3000",
+      "country": "CH",
+      "access": "Included in the 26/27 Magic Pass from 01.11.26 to 30.04.27",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/glacier-3000-85",
+      "ids": [
+        "de62da63231c90907f454ddbd3d8f4a280e219d4"
+      ],
+      "idsVerified": true,
+      "note": "Winter only: not accessible with the Magic Pass from 01.05.26 to 31.10.26."
+    },
+    {
+      "name": "Grenchenberg",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/grenchenberg-4446",
+      "ids": [
+        "d5e325660c2f2b3075b253f460170d38b500d0e4"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Grimentz-Zinal",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/grimentz-zinal-18",
+      "ids": [
+        "7fda1758b582daf60bb505e31bc3b7d5e4ce009b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Grimmialp",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/grimmialp-1382",
+      "ids": [
+        "e9db6a1814c7a0ef68420aad334a2a5f6f2de862"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Gspon",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/gspon-2768",
+      "ids": [
+        "b609f3d86efe3e3420439e1e1298a4fd0faaf8d7"
+      ],
+      "idsVerified": true,
+      "note": "Stalden-Gspon cable car not included."
+    },
+    {
+      "name": "Gurnigelbad",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/gurnigelbad-2769",
+      "ids": [
+        "29763f0996578d2d703b41341d6d9a7266918901"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Habkern",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/habkern-1798",
+      "ids": [
+        "a9c334332416f4de546acbe9bd29444aea3abfbd"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Heimenschwand",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/heimenschwand-1795",
+      "ids": [
+        "8c8a9c4d39a5fd71db816b5498b2f1b1f4bd56f1"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hirmentaz",
+      "country": "FR",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/hirmentaz-3590",
+      "ids": [
+        "28bc6b32b26b2c57edacb1c31e4ebdc1ec6e518f"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has one combined row, Hirmentaz - Les Habères, which is also the row for the Les Habères destination."
+    },
+    {
+      "name": "Hohe Winde",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/hohe-winde-5569",
+      "ids": [
+        "d007ecfc82d38110b74f5dc8015df97eefb8fa6b"
+      ],
+      "idsVerified": true,
+      "note": "New destination for 2026/27. Available from winter 2026."
+    },
+    {
+      "name": "Homberg",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/homberg-3589",
+      "ids": [
+        "420cb003b9f612520eb8abda212a52c282a49523"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Jaun",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/jaun-19",
+      "ids": [
+        "4e5142c99424c78912f24890c8a3b827ade3c82b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Jaunpass",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/jaunpass-1802",
+      "ids": [
+        "37c497392c43bcd2ddd57b50c81eac60ee83385e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Jeizinen",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/jeizinen-1381",
+      "ids": [
+        "83e87ebe8a1f1de9592841d5a224edcb53916952"
+      ],
+      "idsVerified": true,
+      "note": "Gampel-Jeizinen cable car not included."
+    },
+    {
+      "name": "Jura-sur-Léman (Transfrontalier)",
+      "country": "FR",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/jura-sur-leman-transfrontalier-3608",
+      "ids": [
+        "c4b221a54713b4e084b5bae02668c68dfaf6c1e3",
+        "2f49ef262294472419cb8c3af34f11a5160091f4",
+        "7f293fdd1091ea96836de3d9f9772056587e5b60"
+      ],
+      "idsVerified": true,
+      "note": "Cross-border area (FR/CH); the pass page says it consists of the Dôle (CH) - Tuffes (F) and Serra (F) massifs. OpenSkiMap has no row of that name: it has La Serra plus two overlapping rows both named \"Les Rousses\" (the parent resort; the index labels them Switzerland). Checked against OpenStreetMap: the lifts in the larger one are the Dôle, Dappes, Tuffes and Jouvencelles lifts, and the smaller one covers the Jouvencelles/Tuffes base lifts, so all three rows are this destination."
+    },
+    {
+      "name": "Kiental",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/kiental-2770",
+      "ids": [
+        "8ba639921edb07a13271bc563475506a4e5e3d9f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Klewenalp-Stockhütte",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/klewenalp-stockhutte-5500",
+      "ids": [
+        "cc230857c5e1b30400e87df6ecaaf2c47e02aebe"
+      ],
+      "idsVerified": true,
+      "note": "New destination for 2026/27."
+    },
+    {
+      "name": "La Berra",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/la-berra-20",
+      "ids": [
+        "06d3de5fdf75d4c67dc8555d73c2238ea97d4a5a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Lauchernalp",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/lauchernalp-2771",
+      "ids": [
+        "76fbc6ed10135d6683a91a5b89dbf01fa757b80b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Le Grand-Bornand",
+      "country": "FR",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/le-grand-bornand-4448",
+      "ids": [
+        "8af93a64c41b59fca4705d30c106ef29fb24e042"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Les Diablerets",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/les-diablerets-22",
+      "ids": [
+        "b63d5d59b7283cde4430ef60dc439bd31b07214d"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has one combined row, Villars/Gryon/Les Diablerets, which is also the row for the Villars-Gryon destination. Glacier 3000 is a separate destination and row."
+    },
+    {
+      "name": "Les Habères",
+      "country": "FR",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/les-haberes-3607",
+      "ids": [
+        "28bc6b32b26b2c57edacb1c31e4ebdc1ec6e518f"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has one combined row, Hirmentaz - Les Habères, which is also the row for the Hirmentaz destination."
+    },
+    {
+      "name": "Les Marécottes",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/les-marecottes-23",
+      "ids": [
+        "ca6edf6b8029a5937ebdf4eac9107cae9cea16da"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Les Mosses-La Lécherette",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/les-mosses-la-lecherette-24",
+      "ids": [
+        "a0ff12f1c7e58784375a6532825f9383cdf75715"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Les Paccots",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/les-paccots-25",
+      "ids": [
+        "294f61ad7fdee39ceb26c78317c2606ecea844d0"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Les Pléiades",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/les-pleiades-89",
+      "ids": [
+        "eb95f5e3fc5020f839667d5f228a0468841c3ea0",
+        "c733395ff9ebf5eb574c0cd839b2bf206e49dd02"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has two rows both named Les Pléiades (the north-side lifts and the lifts by the summit station); the pass page says the lifts are on both the south and north sides of the mountain."
+    },
+    {
+      "name": "Les Rochers - de - Naye",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/les-rochers--de--naye-90",
+      "ids": [
+        "abe78a3dbf0434ee19dc6857b1ad64c114652010"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Leukerbad (Torrent & Gemmi)",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/leukerbad-torrent-gemmi-602",
+      "ids": [
+        "cecc6336ead1c4d3fd9e805c04004885f10e32f2",
+        "8262bac3124d8ac783dcde253f95e68b3de93a5a"
+      ],
+      "idsVerified": true,
+      "note": "The pass names both sectors; OpenSkiMap has them as Leukerbad (Torrent) and Leukerbad - Gemmipass."
+    },
+    {
+      "name": "Leysin",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/leysin-26",
+      "ids": [
+        "9d79e5920594df28c0b7622a17041a3c9bad89aa"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Linden",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/linden-4449",
+      "ids": [
+        "9623bdf4344f0c21c58de78e38eb14b60bc3405c"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap names it Schindelberg Linden."
+    },
+    {
+      "name": "Marbachegg",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/marbachegg-2773",
+      "ids": [
+        "1a0552c150a12e05420e272e4a600cb4e34044ae"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Massif des Brasses",
+      "country": "FR",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/massif-des-brasses-4450",
+      "ids": [
+        "45a940355cca76e598e2a54c273e06cd0916e04f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mayens de Conthey",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/mayens-de-conthey-27",
+      "ids": [
+        "5a2c897a676522a6ab44d7679c213deac097dd64"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Meiringen-Hasliberg",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/meiringen-hasliberg-4451",
+      "ids": [
+        "73a929fdb6f99344480b7fc4e7f2e457e444b217"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Melchsee-Frutt",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/melchsee-frutt-4452",
+      "ids": [
+        "f04f5c36668c9ba4e5256ccbd611698f3df75688"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Métabief",
+      "country": "FR",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/metabief-1794",
+      "ids": [
+        "f8a135103929215d692c27c3b10670b5b8ff1e7b"
+      ],
+      "idsVerified": true,
+      "note": "Jura Kid Park and rail sledding not included."
+    },
+    {
+      "name": "Moléson",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/moleson-28",
+      "ids": [
+        "29034ce295ebfee69385df760fb334123e724fe0"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Monts Jura",
+      "country": "FR",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/monts-jura-3609",
+      "ids": [
+        "f9ee86349de47cdb81618bb6ba19b5e9f2bcf752",
+        "870ba2799629a9b757d90966aa64908a3ce22f70"
+      ],
+      "idsVerified": true,
+      "note": "The resort's own Magic Pass page says winter access is to the Lélex-Crozet and Mijoux-La Faucille alpine areas; its third area, Menthières, is not named there and is left out."
+    },
+    {
+      "name": "Moosalp",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/moosalp-2774",
+      "ids": [
+        "e876d1a921e6e04fed57331a03f9f5298a20e069"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has no row named Moosalp; matched to its Bürchen - Törbel row. The destination website (moosalpregion.ch) gives Moosalp Bergbahnen AG a Bürchen address and names Bürchen and Törbel as villages of the Moosalp region; that row is the only lift area there."
+    },
+    {
+      "name": "Mörlialp Giswil",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/morlialp-giswil-4453",
+      "ids": [
+        "3bb19df73ba6222a3b117dd6a20a92bfb851b5ab"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Nax - Mt-Noble",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/nax--mt-noble-29",
+      "ids": [
+        "2443e6d5755d0c52af63db1476e83f4f6dee52ac"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Niederhorn",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/niederhorn-1796",
+      "ids": [
+        "6dd4003a0a39fd53c0390b203617c60845f92d6a"
+      ],
+      "idsVerified": true,
+      "note": "The Beatenbucht-Beatenberg section is only valid when traveling onward to Vorsass or Niederhorn."
+    },
+    {
+      "name": "Ottenleue",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/ottenleue-2775",
+      "ids": [
+        "7277bf74f039a04436b31319dea2f6d3ee519172"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Ovronnaz",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/ovronnaz-30",
+      "ids": [
+        "a2b33899f2bfeab7e6f73d80520d0bfd5b27a514"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Praz de Lys – Sommand",
+      "country": "FR",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/praz-de-lys-sommand-4454",
+      "ids": [
+        "17a2aed27cfa6b593c5df9770900555623db6adf"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Prés-d'Orvin",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/pres-d-orvin-601",
+      "ids": [
+        "303fa1bee41d54b4efd2f4699b3f7fcd31819e5d"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Rathvel",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/rathvel-31",
+      "ids": [
+        "78f4bcb9d9f709618fa42afb442c8ff72668e6d5"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Riffenmatt",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/riffenmatt-2776",
+      "ids": [],
+      "idsVerified": false,
+      "note": "No OpenSkiMap row. Searched the index for Riffenmatt (name, locality, website skilift-riffenmatt.ch): the only hit is the Selital row, which is a different destination that merely has Riffenmatt as its locality. OpenStreetMap has no lift mapped at Riffenmatt, so there is nothing to match."
+    },
+    {
+      "name": "Robella Val-de-Travers",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/robella-val-de-travers-937",
+      "ids": [
+        "df6e1e712f83ac6851095e4d138acbc5e8512129"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap names it La Robella."
+    },
+    {
+      "name": "Rossberg",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/rossberg-1801",
+      "ids": [
+        "43e1ed5dd83021e09ce0acebf02eb2365118c39c",
+        "6b9a60e7b6f3d6631a72b95a3098d88788166866"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap carries this area twice (Oberwil Rossberg and Rossberg Oberwil, identical lift and position); both attached."
+    },
+    {
+      "name": "Rosswald",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/rosswald-1803",
+      "ids": [
+        "0ea9d5ed4b60480e75ece5c35ec3086c8d502076"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Rüschegg",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/ruschegg-2777",
+      "ids": [
+        "a75ba724521506bc66cf2665ccd6cce9cb07c627"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Saas-Almagell",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/saas-almagell-5714",
+      "ids": [
+        "3a47b82d85b0253cfe4ee7f14743d03076a7c32a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Saas-Fee",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/saas-fee-600",
+      "ids": [
+        "fc37a3084eeca48d1ce164dc7a5862723aaf2013"
+      ],
+      "idsVerified": true,
+      "note": "Metro Alpin not included in summer. The pass FAQ says Saas-Grund and Saas-Balen are not included (summer or winter); their OpenSkiMap rows are left out."
+    },
+    {
+      "name": "Saint-Cergue",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/saint-cergue-3611",
+      "ids": [
+        "782ff266d7645a719f98204a3d02f44b4a5c7489"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "San Domenico",
+      "country": "IT",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/san-domenico-3613",
+      "ids": [
+        "85720b1495a8fdf4dd29a0e6d7eacb42fb241c29"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Sattel-Hochstuckli",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/sattel-hochstuckli-5568",
+      "ids": [
+        "04363b99935eba601ebcb4260527765fd732ebd6"
+      ],
+      "idsVerified": true,
+      "note": "New destination for 2026/27."
+    },
+    {
+      "name": "Schwanden",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/schwanden-3587",
+      "ids": [
+        "e410120f5240ca332675de666e3f19f08bdc04a5"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has one combined row, Sigriswill-Schwanden, which is also the row for the Wilerallmi destination."
+    },
+    {
+      "name": "Schwarzsee",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/schwarzsee-32",
+      "ids": [
+        "e5f2ecffbec19f6ada9be3680c33c156b3795b68"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Selital",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/selital-2778",
+      "ids": [
+        "d134dedf981a206dc73049f1efbaa71d98b35cf7"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Sörenberg",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/sorenberg-4455",
+      "ids": [
+        "6fc2b7bd9404c7cf68e49ca9fd83600e3de149d4"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Springenboden",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/springenboden-1360",
+      "ids": [
+        "03afb38e0ea197ad18a15fb38a24df3725d8f0ad"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "St-Luc / Chandolin",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/st-luc--chandolin-33",
+      "ids": [
+        "170c8c0d276b50ceeb50658829c7dcd487fcd18c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Ste-Croix/Les Rasses",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/ste-croix-les-rasses-2772",
+      "ids": [
+        "59d4e1dfdffd83d31578d19a47f3af38fb7f1e3e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Thollon-les-Mémises",
+      "country": "FR",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/thollon-les-memises-3610",
+      "ids": [
+        "d3c7b897d3dac0b590961eb352677d3070e52fe1"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Tramelan",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/tramelan-34",
+      "ids": [
+        "729325c8f4c2fc43ce10e54f63a079089116196b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Unterbäch",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/unterbach-2779",
+      "ids": [
+        "0ed67f04f2e5d0f8e1b8be3507c577fcfcb60215"
+      ],
+      "idsVerified": true,
+      "note": "Raron-Unterbäch cable car not included. OpenSkiMap has one combined row, Unterbäch - Eischoll, which is also the row for the Eischoll destination."
+    },
+    {
+      "name": "Valbirse",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/valbirse-5521",
+      "ids": [
+        "84b542cdb25becc8e7e7704caa796625915ca227"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap names it Malleray - Les Orvalles (the Orvales lift the pass page describes; same website, bikeparkvalbirse.ch). New destination for 2026/27."
+    },
+    {
+      "name": "Vallée de Joux",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/vallee-de-joux-87",
+      "ids": [
+        "23aa5ae86ebe9c27b11a7f6d48600f29922ba198",
+        "ecaa20e8812d816c6405c37c6c28bf7e30e55bdc",
+        "4284b8c91f35f6378fa013f4e91b41693510922b"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has no Vallée de Joux row; the pass page names the three lift sites L'Abbaye, Le Brassus and L'Orient (seven lifts in all, which is what those three rows add up to), each a separate row."
+    },
+    {
+      "name": "Vercorin",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/vercorin-35",
+      "ids": [
+        "d6582b43907eabfba13b7f54f9c96dc569d64e62"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Villars-Gryon",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/villars-gryon-37",
+      "ids": [
+        "b63d5d59b7283cde4430ef60dc439bd31b07214d"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has one combined row, Villars/Gryon/Les Diablerets, which is also the row for the Les Diablerets destination."
+    },
+    {
+      "name": "Visperterminen",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/visperterminen-2780",
+      "ids": [
+        "0c827a420edfb4e2372113eea954115ebd9f0af4"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Wilerallmi",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/wilerallmi-3588",
+      "ids": [
+        "e410120f5240ca332675de666e3f19f08bdc04a5"
+      ],
+      "idsVerified": true,
+      "note": "No row of its own: the Wilerallmi lift is a member of OpenSkiMap's combined Sigriswill-Schwanden area (checked in the OpenStreetMap relation), which is also the row for the Schwanden destination."
+    },
+    {
+      "name": "Wiriehorn",
+      "country": "CH",
+      "access": "Free and unlimited access to all facilities in partner resorts; valid 1 May 2026 - 30 April 2027",
+      "kind": "unlimited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.magicpass.ch/en/ski-resorts/wiriehorn-1383",
+      "ids": [
+        "143bc287b54d322b788c8099bfb0b664cfa2678a"
+      ],
+      "idsVerified": true
+    }
+  ]
+}

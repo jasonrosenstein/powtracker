@@ -1,0 +1,3430 @@
+{
+  "pass": "indy",
+  "label": "Indy Pass",
+  "season": "2026/27",
+  "sources": [
+    {
+      "url": "https://www.indyskipass.com/our-resorts",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.indyskipass.com/this-is-indy/how-it-works",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.indyskipass.com/blackout-dates-reservations",
+      "kind": "official"
+    },
+    {
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTUXA5uhe2QwuQvCTpaSpIQmNNWIAp4gADGo5DIUeDwMOfgg9a8nEMU2K_4J9_24E2dGaLgbBnplpqg/pubhtml?gid=1360740952&single=true",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.indyskipass.com/shop",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.indyskipass.com/this-is-indy/news/whiteface-gore-and-belleayre-join-allied-program-as-indy-pass-announces-15-additional-resorts-for",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.indyskipass.com/this-is-indy/news/indy-pass-launches-destination-upgrade-allowing-up-to-five-days-at-select-resorts",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.indyskipass.com/this-is-indy/news/update-2627-indy-pass-fall-public-sale",
+      "kind": "official"
+    },
+    {
+      "url": "https://www.ok-bergbahnen.com/",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://beito.com/en/beitostolen-ski-center/",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://skiloveland.com/the-mountain/basin-vs-valley/",
+      "kind": "secondary"
+    },
+    {
+      "url": "https://www.kandatsu.com/",
+      "kind": "secondary"
+    }
+  ],
+  "destinations": [
+    {
+      "name": "49 Degrees North",
+      "country": "US",
+      "access": "2 days, blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/49-degrees-north",
+      "ids": [
+        "714edf91084f6337747764d63aa21f3381be33e2"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Amihari Onsen Ski Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/amihari-onsen-ski-resort",
+      "ids": [
+        "1f9e24e6c637609b0f42742006ebff26ecf75b2d"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Andes Tower Hills",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/andes-tower-hills",
+      "ids": [
+        "39c5dcf5f3908d22a1547f155a27dee9bde0a1f7"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Antelope Butte",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/antelope-butte",
+      "ids": [
+        "10f9e2368b6a3bccf932b35063bbb01f5cf5f9a3"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Aomori Spring Ski Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/aomori-spring-ski-resort",
+      "ids": [
+        "e0494e78dbf7a68f9f2df5e72370b0797b4f282c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Apex Mountain Resort",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/apex-mountain-resort",
+      "ids": [
+        "5f1f624e6535fdea28612a24b96567a8cf82fa15"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Arctic Valley",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/arctic-valley",
+      "ids": [
+        "28f11df51cf3800a3fe86da47247893af7283859"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bad Kleinkirchheim",
+      "country": "AT",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/bad-kleinkirchheim",
+      "ids": [
+        "b0a93ffd62df6dae4750a71875f77e24250d4169"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Baldy Mountain Resort",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/baldy-mountain-resort",
+      "ids": [
+        "eb636736e58ffb00dd988a59ea0a428e541fc6b2"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap names it \"Mt. Baldy Family Ski Area\" (same website, baldyresort.com)."
+    },
+    {
+      "name": "Baqueira/Beret",
+      "country": "ES",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/baqueiraberet",
+      "ids": [
+        "125d02338620dc079d5d635595a099370161bf83"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bear Creek",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/bear-creek",
+      "ids": [
+        "3078e997deb12b6686a9f0db8a3865acd3c0b733"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bear Valley Mountain Resort",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/bear-valley-mountain-resort",
+      "ids": [
+        "f357cc18ead38a393c55cf27921fe05913dc33e1"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Beaver Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/beaver-mountain",
+      "ids": [
+        "c3bb5fd130638c068edb6cd5198a50f113be4425"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Beito Resort",
+      "country": "NO",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/beito-resort",
+      "ids": [
+        "63a16704ef88cc64ec56bf3c96af61911ababfff",
+        "8e91d398380195a4f46e731dba6d3c6bdaa260ee"
+      ],
+      "idsVerified": false,
+      "note": "Beitostølen Skisenter matches the pass page (900-1101 m, Beitostølen). Alpinsenteret i Raudalen is added because beito.com/en/beitostolen-ski-center/ says the same lift card is valid in Raudalen; the pass page itself does not name Raudalen, hence idsVerified false."
+    },
+    {
+      "name": "Belleayre",
+      "country": "US",
+      "access": "allied discount: up to 2 daily lift tickets at 25% off the daily window rate",
+      "kind": "discount",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/belleayre",
+      "ids": [
+        "f16be64558f5124a26f4797260671c96ad2fde8b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bergbahnen Hohsaas",
+      "country": "CH",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/bergbahnen-hohsaas",
+      "ids": [
+        "8556f7c962b73f8cca10ac4ef41b9e40a5d5ae23"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap names this area \"Saas Grund\" (the pass places Bergbahnen Hohsaas in Saas-Grund); it is not the separate Saas Fee row, although the pass links to saas-fee.ch."
+    },
+    {
+      "name": "Berkshire East Mountain Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates, reservations required",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/berkshire-east-mountain-resort",
+      "ids": [
+        "67e7df96a02813bdeb573bf9e852ab856505192e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Big Moose",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/big-moose",
+      "ids": [
+        "01a2c20b6b73ef0dfd7aab4197302672ba34ef0c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Big Powderhorn",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/big-powderhorn",
+      "ids": [
+        "8c33304ed70a4ebdf6fe537e495e8d48c83cb58b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Big Rock Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/big-rock-mountain",
+      "ids": [
+        "ebca2bf5e94a323dbf7032c08f0cc1a6bde2fb60"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Big White Ski Resort",
+      "country": "CA",
+      "access": "2 days, blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/big-white-ski-resort",
+      "ids": [
+        "f3592759a147841bcd9a939f6ce75e8ecf30433c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Björkliden",
+      "country": "SE",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/bjorkliden",
+      "ids": [
+        "f09b2df684ab0fac8edae2fe546f7cada93f72b8"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Black Mountain of Maine",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/black-mountain-of-maine",
+      "ids": [
+        "3e195ef86e8d0357faac23bea3775f9af661d8d5"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Black Mountain Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/black-mountain-ski-area",
+      "ids": [
+        "79a1ebea9bb231f8530b4764afc74ab3ef061c24"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Blue Knob All Season Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/blue-knob-all-season-resort",
+      "ids": [
+        "bb999437b96b0531dd23d01aff6bf9462cf94e3c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bolton Valley Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/bolton-valley-resort",
+      "ids": [
+        "185277c7c66ee582fb01243753ecfe25aa3ea215"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bottineau Winter Park",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/bottineau-winter-park",
+      "ids": [
+        "1a93522062fa2f33fa7a694c8389abecbe18815e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bousquet Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/bousquet-mountain-0",
+      "ids": [
+        "031a23bc9ebb837beed75b7c4237a2d966bb1684"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bruce Mound Winter Sports Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/bruce-mound-winter-sports-area",
+      "ids": [
+        "54680712c4fb637352edec617e99b708be94d052"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Brundage Mountain Resort",
+      "country": "US",
+      "access": "2 days, blackout dates, reservations required; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/brundage-mountain-resort",
+      "ids": [
+        "9173efad0a9aad95e9b478bb91a640ea237d284f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Bryce Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/bryce-resort",
+      "ids": [
+        "03e8538093aa18eebbfc0cc34aea9e72737a5567"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Buffalo Ski Club",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/buffalo-ski-club",
+      "ids": [
+        "1b3cf146441575653e9139beba2f246baa5a1ee8"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Burke Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/burke-mountain",
+      "ids": [
+        "78dff31bfb6ad8ca4aff38c381f44a301e7e765b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Calabogie Peaks Resort",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/calabogie-peaks-resort",
+      "ids": [
+        "f6950418728474f314474e4a9f083b8928636181"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Camden Snow Bowl",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/camden-snow-bowl",
+      "ids": [
+        "217767f4b5f73eb3d4c1ab7f5084952516bf912e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Camp 10 Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/camp-10-ski-area",
+      "ids": [
+        "6db1a4ad11e1d42338fde31178a62414cba62161"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Camp Fortune",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/camp-fortune",
+      "ids": [
+        "99d183d639efdd0bbec46e0d9acf125ad46d6bdb"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Canaan Valley",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/canaan-valley",
+      "ids": [
+        "231b2f98395106bbc077717ef2b1a25d22383c4a",
+        "aae8e9bd7f7b8221f855873cd973e4efce368dea"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has two rows for this one resort (both canaanresort.com, same skimap.org id)."
+    },
+    {
+      "name": "Canmore Ski Village",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/canmore-ski-village",
+      "ids": [
+        "5c741ffb667ae43a6d26d369c3d276872fdeaf69"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Cannon Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates, reservations required",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/cannon-mountain",
+      "ids": [
+        "fc60aa0866f0d633caaf1891d089663d53d43ab4"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Castle Mountain Resort",
+      "country": "CA",
+      "access": "2 days, no blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/castle-mountain-resort",
+      "ids": [
+        "578c669494c02e675c7ad8d418a14acc5d7d6f68"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Cataloochee Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/cataloochee-ski-area",
+      "ids": [
+        "652698804287694a17b8250681e7a5080e4f4f4d"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Catamount Mountain Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates, reservations required",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/catamount-mountain-resort",
+      "ids": [
+        "cb083bf97c150cb981c781367693cfc615b98d51"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Cazenovia Ski Club",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/cazenovia-ski-club",
+      "ids": [
+        "0575eec7c7053baf19513b47ffce202a3f246f73"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Centre Vorlage",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/centre-vorlage",
+      "ids": [
+        "fe2866748ad2d4d5363fc65ebf6d1a0f5395cd53"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Cherry Peak",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/cherry-peak",
+      "ids": [
+        "42f02a37e6d5cf0a434b48baefa3745574a5067f"
+      ],
+      "idsVerified": true,
+      "note": "Pass map pin is roughly 40 km off; matched on name, state and locality (Richmond, UT). Pass page: \"New for 26/27: Cherry Peak is a full Indy Pass partner.\""
+    },
+    {
+      "name": "Chestnut Mountain Resort",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/chestnut-mountain-resort",
+      "ids": [
+        "0616e43c11b30eff017588df1476d152509dd952"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "China Peak",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/china-peak",
+      "ids": [
+        "9e118f4eb36fb34e987c7a3ddd7f2d976b6a7443"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Christie Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/christie-mountain",
+      "ids": [
+        "c502761d70a50d4fefeb3ccf6214a3179e465bb8"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Coffee Mill Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/coffee-mill-ski-area",
+      "ids": [
+        "4698a2814f1374dddd210b42649757ebf99ede87"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Cooper Spur Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/cooper-spur-ski-area",
+      "ids": [
+        "5e705498886c5c3b9698153a72f06a1ce7cb034a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Corralco Resort de Montaña",
+      "country": "CL",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/corralco-resort-de-montana",
+      "ids": [
+        "9aee4431102b1627a8858024851c278685391aca"
+      ],
+      "idsVerified": true,
+      "note": "Southern hemisphere: the pass says 26/27 passholders could ski Corralco from June 2026."
+    },
+    {
+      "name": "Crystal Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/crystal-mountain",
+      "ids": [
+        "ab5c2ccfc1422ef1a91107df398e4978671a445f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Cuchara",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/cuchara",
+      "ids": [
+        "c926104036fbc68ab48437c3df843c92650ab967"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Cupid Valley",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/cupid-valley",
+      "ids": [
+        "478e51619873590eebcaf4ac02d10f75a3460524"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Dartmouth Skiway",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/dartmouth-skiway",
+      "ids": [
+        "85d62e305294135550ef07bdfbb7094ec1d9862c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Destination Owls Head",
+      "country": "CA",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/destination-owls-head",
+      "ids": [
+        "bf2acdeaa2a1f3d3bd04ac406819c73b6165a33c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Detroit Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates, reservations required",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/detroit-mountain",
+      "ids": [
+        "7291db4e62e14b70ce9d3feb274a8b787c78a882"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Dodge Ridge",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/dodge-ridge",
+      "ids": [
+        "162525ff9a2a65810a602b74f338303d1bb9ea38"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Domaine skiable des Contamines",
+      "country": "FR",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/domaine-skiable-des-contamines",
+      "ids": [
+        "10f2ef5a778b65fdea26f0662b08e83c8b979356"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap names it \"Les Contamines\" (Les Contamines-Hauteluce); the larger \"Evasion Mont Blanc\" combined row is not included."
+    },
+    {
+      "name": "Donner Ski Ranch",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/donner-ski-ranch",
+      "ids": [
+        "84db3d46c08242d898d537d328001c23e2a47df8"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Dry Hill Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/dry-hill-ski-area",
+      "ids": [
+        "3fb23f87d6ef57e78baa11cce0d3bf8945e945d4"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Dynaland",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/dynaland",
+      "ids": [
+        "37743c0eb90f720f91c5b52ca96a60ad4e6fa4f0"
+      ],
+      "idsVerified": true,
+      "note": "Pass page: the ticket issued to Indy Pass holders is also valid at the linked Takasu Snow Park (itself a partner with its own entry)."
+    },
+    {
+      "name": "Eagle Point",
+      "country": "US",
+      "access": "2 days; closed for 26/27",
+      "kind": "limited",
+      "confirmed": false,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/eagle-point",
+      "ids": [
+        "72510c18b4eb758d0daab8290bda044c27c5405f"
+      ],
+      "idsVerified": true,
+      "note": "Still on the pass list, but the pass page says \"Eagle Point Resort is closed for the current season following significant damage from the Cottonwood Fire and subsequent flooding\" and the 26/27 blackout sheet says \"CLOSED FOR 26/27 DUE TO WILDFIRE\". Set confirmed false because no pass days can be used there this season."
+    },
+    {
+      "name": "Eaglecrest",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/eaglecrest",
+      "ids": [
+        "2820cb0c70bf04efad30d45b4e2f15538927bdd9"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Echo Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/echo-mountain",
+      "ids": [
+        "8a520d95771de3f652a03bdfd44e003b8d8b506a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Elm Creek Park Reserve",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/elm-creek-park-reserve",
+      "ids": [],
+      "idsVerified": true,
+      "note": "No OpenSkiMap downhill row: searched \"Elm Creek\", \"Three Rivers\", Maple Grove and a 20 km radius. OpenSkiMap has Elm Creek Park Reserve only as a nordic area (id 147dd35f...), so it is not in the index. 80 ft beginner hill."
+    },
+    {
+      "name": "Engstligenalp",
+      "country": "CH",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/engstligenalp",
+      "ids": [
+        "74b11097056348d4cf78c158c5ecec65a67ed4c6"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Fairmont Hot Springs",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/fairmont-hot-springs",
+      "ids": [
+        "2d18333956794a17b18acdc7c2bbafe63e79ab1b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Frost Fire Park",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/frost-fire-park",
+      "ids": [
+        "eff00078aeb870520d245b8206c0eec0c842c092"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Geto Kogen",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/geto-kogen",
+      "ids": [
+        "f1abda339137027416ba37a0de3d2801246ef9a6"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Glencoe Mountain Resort",
+      "country": "GB",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/glencoe-mountain-resort",
+      "ids": [
+        "fafa43aac37c73502229a75ea9bd44ad2c66dcba"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Glenshee Ski Centre",
+      "country": "GB",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/glenshee-ski-centre",
+      "ids": [
+        "92ec4cdfb514f61000d0f4c9344fc1484d452901"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Gore",
+      "country": "US",
+      "access": "allied discount: up to 2 daily lift tickets at 25% off the daily window rate",
+      "kind": "discount",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/gore",
+      "ids": [
+        "e1f84d1db6400792fab6a62ebce29f661bc4a128"
+      ],
+      "idsVerified": true,
+      "note": "Alpine area is Allied only; the separate Gore Mountain Nordic Center is a full cross-country partner (not listed here)."
+    },
+    {
+      "name": "Granby Ranch",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/granby-ranch",
+      "ids": [
+        "9153444372de6ac1b7b4c41695defb5ee00eff1c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Great Bear Ski Valley",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/great-bear-ski-valley",
+      "ids": [
+        "809a4c2de36f03cff92fbad4c790974fae0b9e78"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap names it \"Great Bear Recreation Park\"."
+    },
+    {
+      "name": "Greek Peak Mountain Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates, reservations required",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/greek-peak-mountain-resort",
+      "ids": [
+        "7562c396d81596d2faea3f12adbb2ca323603642"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hafjell",
+      "country": "NO",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hafjell",
+      "ids": [
+        "58c88c13884c54c2d81a7d45f8afd901a66cace0"
+      ],
+      "idsVerified": true,
+      "note": "Pass map pin is wrong (it points at New Hampshire); matched on name and country (Hafjell, Øyer, Norway)."
+    },
+    {
+      "name": "Hatley Pointe",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hatley-pointe",
+      "ids": [
+        "a067d2fb98def060789478950c0589f624cbfc5d"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hilltop Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hilltop-ski-area",
+      "ids": [
+        "774b18efe7a402bcde03e8f5071d3bd0043d9e84"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hirugano Kogen Ski Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hirugano-kogen-ski-resort",
+      "ids": [
+        "480cfebb3173d2206cd0a52595d0e76eec07ef50"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hochzeiger Bergbahnen Pitztal AG",
+      "country": "AT",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hochzeiger-bergbahnen-pitztal-ag",
+      "ids": [
+        "f3b4e79c767462bfb7b253fd94d2840cc52d7e1a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hockley Valley Resort",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hockley-valley-resort",
+      "ids": [
+        "c734de639710750e1b338f9d173779f6224e56a2"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hodaigi Mountain Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hodaigi-mountain-resort",
+      "ids": [
+        "e68137ff7e6ad28d28c8260d2a455171182224b1"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hoodoo",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hoodoo",
+      "ids": [
+        "acd006bbb7f5cc2bb54086eb2f4ff8475af88e28"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Howelsen Hill",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/howelsen-hill",
+      "ids": [
+        "eab18a57c052bcafbf57e634afd881a21f0d683e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hudson Bay Mountain",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hudson-bay-mountain",
+      "ids": [
+        "3bb5825af05cc8cbb080ac4209e4d37b3e4c0452"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Huff Hills Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/huff-hills-ski-area",
+      "ids": [
+        "42d033204c78068e53d11d5473da35e2f068c3fb"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hunt Hollow Ski Club",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hunt-hollow-ski-club",
+      "ids": [
+        "7aea477834febc46e7505d1bc249d8824b9b2b13"
+      ],
+      "idsVerified": true,
+      "note": "Pass page: semi-private club that welcomes non-members during the week and reserves weekends for members."
+    },
+    {
+      "name": "Hurricane Ridge",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hurricane-ridge",
+      "ids": [
+        "bf82f552ab48d4702e6bdad8a1e127618388e99c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Hyland Hills",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/hyland-hills",
+      "ids": [
+        "a4b2e6e563a17bc1740865e14b41af17782f3354"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Innsbruck Region",
+      "country": "AT",
+      "access": "2 days total via SKI plus CITY Pass resorts, two consecutive days; no blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/innsbruck-region",
+      "ids": [
+        "99f28adeace732787655c845a53fcce7ab4b8129",
+        "4d065e674fc26a1c1142f9449bee9528e741468b",
+        "222578468bd24884d04bf5d8d29f7e2fe76a5198",
+        "a12bb085d8e841022904dbed3e471f4088c8caff",
+        "3eb5b182edb85657752ccb4f91dcfd07bff2b122",
+        "ac19567d24dc4579c52d9eeef24309e3665dfa89",
+        "05f2a87af29f8bfb62a2f603adca4b58fd9bc94b",
+        "fea767bea99cf55ec9f8d38639d9f916bab9c9cd",
+        "14e44f003d9b6e9b2b4b0558cb95b247b4008b3c",
+        "739e56f4ddfccf3bd929635d4e743ebc5e417b35",
+        "46d0076014305c7df44c33a71384aea5eaac5cd5",
+        "66e1d0ae483a9bd09595416815d2a6cecfede47f",
+        "60bf2e0677cb20240633a22d4f82730130629872"
+      ],
+      "idsVerified": true,
+      "note": "Pass page lists the 12 SKI plus CITY areas: Stubai Glacier, Axamer Lizum, Schlick 2000, Kühtai, Hochoetz, Muttereralm, Nordkette, Serlesbahnen, Elferbahnen, Patscherkofel, Rangger Köpfl, Glungezer. Ids also include the OpenSkiMap combined rows \"Stubai\" and \"Hochoetz-Kühtai\", whose components are all on that list. The 2 days are issued once as two consecutive lift-ticket days; no third-day offer here. Not included: the Krößbach practice lift (not named by the pass)."
+    },
+    {
+      "name": "Jay Peak Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/jay-peak-resort",
+      "ids": [
+        "e1a32fce69402dd1c018c22b0216990d077531fa"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Kamui Ski Links",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/kamui-ski-links",
+      "ids": [
+        "0e314e146549ce5cb2ba2514fa6b0630757aa0f6"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Kandatsu Snow Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/kandatsu-snow-resort",
+      "ids": [
+        "04c79ac88a7f8a3980dcffa7e5d1933dc2862e2f"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap still uses the older name \"Kandatsu Kogen Ski Resort\" (kandatsu.com now reads Kandatsu Snow Resort). Pass map pin sits ~3 km away at Echigo-Yuzawa."
+    },
+    {
+      "name": "Kaunertal Glacier",
+      "country": "AT",
+      "access": "2 days, no blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/kaunertal-glacier",
+      "ids": [
+        "1bba0722fca7212bd8f83bb2be93a17087299287",
+        "93f78af003dfe7aa2efa72fb091e67828d5ff77c"
+      ],
+      "idsVerified": false,
+      "note": "Fendels is added because the pass page says it is \"included in the glacier ski pass\"; the page does not say outright that the Indy ticket is valid there, hence idsVerified false. OpenSkiMap places the glacier row in Italy (border artefact); it is in Tyrol, Austria."
+    },
+    {
+      "name": "Kelly Canyon",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/kelly-canyon",
+      "ids": [
+        "404f9961432a5c4db64c85b97591e6bbe7c7f8fc"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Kendall Mountain Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/kendall-mountain-ski-area",
+      "ids": [
+        "e5f4b1bcc8fd4f5b7eb5d83f200efe20530a0a88"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "King Pine",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/king-pine",
+      "ids": [
+        "686d876607619cc6e0181728511173270b7429c8"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Kvitfjell",
+      "country": "NO",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/kvitfjell",
+      "ids": [
+        "701abcf5a82c654d69e2984d3f65003e3aff6230"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Le Relais",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/le-relais",
+      "ids": [
+        "4ed8e1c251b61aa53aa56d61f9bd2b2ad57db8d2"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Leavenworth Winter Sports Club",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/leavenworth-winter-sports-club",
+      "ids": [
+        "47402b3aa14b940312ff13e2c43999173f4c0818"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Les 7 Laux",
+      "country": "FR",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/les-7-laux",
+      "ids": [
+        "c349bb235a74def4c527ddf3fdb200ce99c18fe2"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Leukerbad Torrent Ski Resort & Gemmi Resort",
+      "country": "CH",
+      "access": "2 days, no blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/leukerbad-torrent-ski-resort-gemmi-resort",
+      "ids": [
+        "cecc6336ead1c4d3fd9e805c04004885f10e32f2",
+        "8262bac3124d8ac783dcde253f95e68b3de93a5a"
+      ],
+      "idsVerified": true,
+      "note": "Two OpenSkiMap rows, both named by the pass: Leukerbad (Torrent) and Leukerbad - Gemmipass. No third-day offer here."
+    },
+    {
+      "name": "Levi, Finland",
+      "country": "FI",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/levi-finland",
+      "ids": [
+        "6ff3d800655f463f2ea8d24980630b01000c8c49"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Little Ski Hill",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/little-ski-hill",
+      "ids": [
+        "495dcdfe0af083de093aae64616588ed36e8ca87"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Loch Lomond",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/loch-lomond",
+      "ids": [
+        "5795ddd47e05fd5a3d36ff4d9f8ae27b95c3efe1"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Lost Trail Powder Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/lost-trail-powder-mountain",
+      "ids": [
+        "4451d38d77aaff6785c0c786ef45e58f1729e0be"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Lost Valley",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/lost-valley",
+      "ids": [
+        "d6a722d4a7962b1014b2c3ba86fe813a9e423162"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Loup Loup Ski Bowl",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/loup-loup-ski-bowl",
+      "ids": [
+        "6f2e7781d5e962a308f9cb0261b09b937ffc06cc"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Loveland Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/loveland-ski-area",
+      "ids": [
+        "1dd2321e1ddaeaba8ad3d040cd145bd2ad08c028",
+        "e0538ef0f9aa7a9d8b5f5efbb289419018cb0ebc"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap splits the resort into Loveland Basin and Loveland Valley; skiloveland.com/the-mountain/basin-vs-valley/ says Loveland Ski Area is made up of these two base areas."
+    },
+    {
+      "name": "Magic Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates, reservations required",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/magic-mountain",
+      "ids": [
+        "b46091ab4d973392d23af15f0bd86f684c91bae2"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Magic Mountain Idaho",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/magic-mountain-idaho",
+      "ids": [
+        "26eda109442576aa257d97624b341a941867f96e"
+      ],
+      "idsVerified": true,
+      "note": "Pass page says \"No Blackout Dates\" but the 26/27 blackout sheet lists dates for the Indy Base Pass."
+    },
+    {
+      "name": "Maiko Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/maiko-resort",
+      "ids": [
+        "0758851e7566cebfd9801159688e5c39562cb46e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Malá Úpa",
+      "country": "CZ",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mala-upa",
+      "ids": [
+        "08d4ac312d1e23ecbec6df4238207d4fe15f4ce3"
+      ],
+      "idsVerified": true,
+      "note": "Pass map pin is ~19 km off (near Špindlerův Mlýn); matched on name and website (skimu.cz)."
+    },
+    {
+      "name": "Manning Park",
+      "country": "CA",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/manning-park",
+      "ids": [
+        "c9f7365319aa26d62a211024a89021514dd7f64f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Maple Ski Ridge",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/maple-ski-ridge",
+      "ids": [
+        "d2a1487e12b6070aa90b7b76966675e9498fe0e3"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Marble Mountain",
+      "country": "CA",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/marble-mountain",
+      "ids": [
+        "3cd3dae98351a0c8d84257d5263926e5d557b028"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Marquette Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/marquette-mountain",
+      "ids": [
+        "f218c6daf69d83a994d908c198b7d651ca105994"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Massanutten Resort",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/massanutten-resort",
+      "ids": [
+        "08bcd7a173c04efe03440e2dde2cb71e48c06bf8"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Massif du Sud",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/massif-du-sud",
+      "ids": [
+        "7ac7509f0329dd89bb3912b2456e3178a52f2e8b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "McIntyre Ski Area",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mcintyre-ski-area",
+      "ids": [
+        "e7bdf3f0770b5330ef22f507b3c5b445550bd296"
+      ],
+      "idsVerified": true,
+      "note": "Pass page says \"No Blackout Dates\" but the 26/27 blackout sheet lists dates for the Indy Base Pass."
+    },
+    {
+      "name": "Middlebury Snowbowl",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/middlebury-snowbowl",
+      "ids": [
+        "0589077799a0fce5af4bc382569b143114eafd5f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mohawk Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mohawk-mountain",
+      "ids": [
+        "6092f3086c206feb2645543b0e5283b23754e8b8"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mont Edouard",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mont-edouard",
+      "ids": [
+        "376ba1fb724275ccb68f0e6871c6fd0c9cfe97c0"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mont Rigaud",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mont-rigaud",
+      "ids": [
+        "a960ae1969b583612b9bc118612c69c83bdbfb0b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mont Ripley Ski Area",
+      "country": "US",
+      "access": "allied discount: 25% off lift tickets on weekends and holidays Dec. 23 through March 10, 50% off all other days",
+      "kind": "discount",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mont-ripley-ski-area",
+      "ids": [
+        "af975d2da6cc5807757e938661e9894ae228718d"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mont Sutton",
+      "country": "CA",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mont-sutton",
+      "ids": [
+        "67b5c6852f920dd04961d91ab13aa83a9b47c255"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mont-Kanasuta",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mont-kanasuta",
+      "ids": [
+        "381c03a5b99ba84aec5abd3c81d01ee1d3b49e10"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Montage Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/montage-mountain",
+      "ids": [
+        "a81d1a654cb6d27a2c57ab333b861e73cab51385"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Montana Snowbowl",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/montana-snowbowl",
+      "ids": [
+        "1899d3be7b756dfaa8181c0c6970de5c6e3062b7"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Moose Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/moose-mountain",
+      "ids": [
+        "0e999cea74830082f85c3fc7548b3248c9dce9cb"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mount Baldy Ski Area",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mount-baldy-ski-area",
+      "ids": [
+        "6743030235c4f2386928e0951479efd836730cf4"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mount Cain",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mount-cain",
+      "ids": [
+        "5781906d75af0ee28842b5a04b4515f37079aa5d"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mount Kato",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mount-kato",
+      "ids": [
+        "d1be1aa1d5386c2876dfd032af576492a7714a8d"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mount Racey Ski Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mount-racey-ski-resort",
+      "ids": [
+        "e5e2e92ad96673a731e4718706b0173baae63eca"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mountain High",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mountain-high",
+      "ids": [
+        "d7cc8768ea056dd9a46d954ce7d03d433288ba8a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mt Eyak",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mt-eyak",
+      "ids": [
+        "28098c43579d6e0b939ab6daad2f6c62c7206faf"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mt La Crosse",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mt-la-crosse",
+      "ids": [
+        "5361bf97f76459a12d2ce4e0495bde3422873ded"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mt. Abram",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mt-abram",
+      "ids": [
+        "5e39ee03c92ff9381445a5956d47332e8182cddc"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mt. Holiday",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mt-holiday",
+      "ids": [
+        "ce630c84980209f2cbe80a74b168645ff385e7c2"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mt. Hood Meadows",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mt-hood-meadows",
+      "ids": [
+        "effda1f2db54d33bc3770670cd4335bd56a41eec"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mt. Pisgah",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mt-pisgah",
+      "ids": [
+        "8fd506ce399d0940c37c1c7e173e55bfc00b54ed"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mt. Shasta",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mt-shasta",
+      "ids": [
+        "d02d16e39611d48a0421991064355899bce16402"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Mt. Washington",
+      "country": "CA",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/mt-washington",
+      "ids": [
+        "26d2df5f88caa4a30012e6c865526ce3040b6388"
+      ],
+      "idsVerified": true,
+      "note": "Pass page: 2 days at each of the alpine and Nordic areas."
+    },
+    {
+      "name": "Muica Snow Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/muica-snow-resort",
+      "ids": [
+        "fb7f7f629b5cd983c02e33537523f4623809a6a8"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Murray Ridge Ski Area",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/murray-ridge-ski-area",
+      "ids": [
+        "0bc4ad9d89288c5016a8912a92c174ec7a079800"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Nayoro Piyashiri Ski Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/nayoro-piyashiri-ski-resort",
+      "ids": [
+        "a3f7c06cc2a668b54ab2ad04f49467e845ffe787",
+        "a04941fa2b83c90dd20fbddae229fd8289c2564b"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has two rows for this one resort (same skimap.org id)."
+    },
+    {
+      "name": "Ninox Snow Park",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/ninox-snow-park",
+      "ids": [
+        "c682e7f389b8055c73dec35f4603f38253f56964"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Norefjell Ski Resort",
+      "country": "NO",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/norefjell-ski-resort",
+      "ids": [
+        "3ac13a2774ea4e6a954a62bf2177d1fb484e194b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "North Cascade Heli",
+      "country": "US",
+      "access": "discount only: 15% off 2-day trips and 10% off 1-day trips (heli skiing)",
+      "kind": "discount",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/north-cascade-heli",
+      "ids": [],
+      "idsVerified": true,
+      "note": "Heli-ski operator, not a lift-served ski area; the only cat/heli-only entry on the pass list. No OpenSkiMap row (searched \"heli\", \"North Cascade\" and a 15 km radius)."
+    },
+    {
+      "name": "Norway Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/norway-mountain",
+      "ids": [
+        "7b6ee646dc06c70700f9953eb0a2bc32d6fe54df"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Nubs Nob",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/nubs-nob-0",
+      "ids": [
+        "f6ebfb21468c867abadc111c469ac78676f49933"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Nutt Hill",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/nutt-hill",
+      "ids": [
+        "ca9f9488116ec374c4c93dfed92bb509e5065af3"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Ober Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/ober-mountain",
+      "ids": [
+        "0c5660d4eef0f04e94747339f8514016002ef02f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "OBERSTDORF KLEINWALSERTAL BERGBAHNEN",
+      "country": "AT",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/oberstdorf-kleinwalsertal-bergbahnen",
+      "ids": [
+        "95d07bbe7b52066bdd3653541ed114ac6d24ca93",
+        "8a5063e32476ab3ab529dd524a0debe563e08f28",
+        "21def33c68a75c001d3342fc3e711e0f1e997637",
+        "27a930db3d838e9aa8ce0d4da3ada523dd4ce740",
+        "a4ab6152ad856758bbac95daa5cf3fdd077aea0f",
+        "36caeeb99dd1cc8a496f145ee01dbaeb1635545b"
+      ],
+      "idsVerified": true,
+      "note": "Pass page says \"seven ski areas\" and names Nebelhorn, Fellhorn/Kanzelwand and Ifen; ok-bergbahnen.com lists the seven as Nebelhorn, Fellhorn, Söllereck, Kanzelwand, Heuberg, Walmendingerhorn, Ifen. Spans Germany and Austria; the pass files it under Riezlern, Austria."
+    },
+    {
+      "name": "Obertauern",
+      "country": "AT",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/obertauern",
+      "ids": [
+        "b28af962323890eb2dc4f2705ed7b6893d894add"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Okunakayama Kogen",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/okunakayama-kogen",
+      "ids": [
+        "d7f20666449875a45dce67980f11db603ec062bc"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Onikoube Ski Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/onikoube-ski-resort",
+      "ids": [
+        "83a6164e59bd3fea70cb9f943c010e02cf239e85"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Oppdal",
+      "country": "NO",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/oppdal",
+      "ids": [
+        "d3f67900a5233a1437babd4f804a78820fb839ba"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Orcières Merlette 1850",
+      "country": "FR",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/orcieres-merlette-1850",
+      "ids": [
+        "293ceddf2ced898a483558519740f4f0dee9225f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Palcall Tsumagoi Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/palcall-tsumagoi-resort",
+      "ids": [
+        "e42b445d142573e50e0a6d90d696cfe7d9fa7f33"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Pass Powderkeg",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/pass-powderkeg",
+      "ids": [
+        "fc6a6f31424898eb563b75f685889f5fa00587af"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Pats Peak",
+      "country": "US",
+      "access": "2 days, blackout dates, reservations required",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/pats-peak",
+      "ids": [
+        "e43e8b6f95fd0fa7b449d11bdd0aa0df2a18915a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Paul Bunyan Ski Hill",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/paul-bunyan-ski-hill",
+      "ids": [
+        "03cb8154c75418bb8fa6d8302927baf5f7797fbd"
+      ],
+      "idsVerified": true,
+      "note": "Pass page: full partner for 26/27; it was an Allied (reduced-ticket only) partner in 25/26."
+    },
+    {
+      "name": "Pebble Creek Ski Area",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/pebble-creek-ski-area",
+      "ids": [
+        "d6ccc4b24a3ff6253ea1439cf75e74bdf5f80579"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Peek ‘n Peak",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/peek-n-peak",
+      "ids": [
+        "4a70580006db14f084698eb63dc4db03e220ecda"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Petzen",
+      "country": "AT",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/petzen",
+      "ids": [
+        "a654d2ce9e67040e03edcb1b31c8df2abb5100b3"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Phoenix Mountain",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/phoenix-mountain",
+      "ids": [
+        "206531d25c87671bf4c2705b9c8f968a4d35ed94"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Pila",
+      "country": "IT",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/pila",
+      "ids": [
+        "80f1b9fb69d6d58d8c0211a019de956673e86a18"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Pine Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/pine-mountain",
+      "ids": [
+        "e9e53434c85990c4832361e9d821f667cffa64f0"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Pippu Ski Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/pippu-ski-resort",
+      "ids": [
+        "fe23db84534ccedbe5862c2a6b96bfb659da061c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Pitztal Glacier",
+      "country": "AT",
+      "access": "2 days, no blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/pitztal-glacier",
+      "ids": [
+        "f1ae030e9b17ac258bb0eb30a0f769106518dfcd",
+        "a710407367bee5d3a51e5dec4c2c6acc0ea5e432"
+      ],
+      "idsVerified": true,
+      "note": "Pass page describes Pitztal Glacier and Rifflsee together as one area (68 km of slopes), so both OpenSkiMap rows are included."
+    },
+    {
+      "name": "Pizol",
+      "country": "CH",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/pizol",
+      "ids": [
+        "3c30eddac708122c98a1ad904d7a67fc8499b342"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Pomerelle Mountain Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/pomerelle-mountain-resort",
+      "ids": [
+        "14ec9ceb98c4ce0cdc13b6fc73ab12fe20c95a1f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Portes du Soleil",
+      "country": "FR",
+      "access": "2 days total via Portes du Soleil resorts; no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/portes-du-soleil",
+      "ids": [
+        "70b5c16a6a584808d97c9084dd340e4c8605acdb",
+        "d3d69f021189f84fe11396cd2078f905ebd0beb9",
+        "18fc59dac7fcada9451a1b4487a95f2285ac4930",
+        "b61605e5f50bffc3a0908fbb912a31111b48bf62",
+        "45c1ed53a5c947daeb9df201306473ac8b059788",
+        "8ab6f8a4372774042033a0721b21c2fbb8df2c9c",
+        "b2d026c49e73f7b49e043de835baa5622adc2e47",
+        "8f52a4cffc57a788e69b889d7b5c12197a606047",
+        "44e5bfbfe3e11ad75d642cc4225aaab79a936d91"
+      ],
+      "idsVerified": true,
+      "note": "Pass page: 2 days total across its 12 destinations (Abondance, Avoriaz, Champéry, Châtel, La Chapelle d'Abondance, Les Gets, Montriond, Morgins, Morzine, Saint-Jean d'Aulps, Torgon, Val-d'Illiez-Les Crosets-Champoussin). Ids are the OpenSkiMap combined row plus every component row: Châtel is \"Espace Liberté\", Saint-Jean d'Aulps is \"Roc d'Enfer\", Montriond has no row of its own. Spans France and Switzerland."
+    },
+    {
+      "name": "Powder Ridge",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/powder-ridge",
+      "ids": [
+        "9bc8daa5cc36d1e4282e4c2a5d037456d2cef475"
+      ],
+      "idsVerified": true,
+      "note": "The Minnesota one (Kimball, MN); the pass lists two partners named Powder Ridge."
+    },
+    {
+      "name": "Powder Ridge",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/powder-ridge-0",
+      "ids": [
+        "fac42701c8f1addc2ed860fcdfd84ef6ee0cab75"
+      ],
+      "idsVerified": true,
+      "note": "The Connecticut one (Middlefield, CT); the pass lists two partners named Powder Ridge."
+    },
+    {
+      "name": "Powderhorn",
+      "country": "US",
+      "access": "2 days, no blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/powderhorn",
+      "ids": [
+        "ad4b81c2172308bc79a3d488e3908f5663a3059e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Pyhä Ski Resort",
+      "country": "FI",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/pyha-ski-resort",
+      "ids": [
+        "cebc149497e19ddc3d8c80e732466fe3bfd43cc6"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Ragged Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/ragged-mountain",
+      "ids": [
+        "79a1940e13ccae5bf38fb38169f1a70236b06eec"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Rauriser-Hochalmbahnen",
+      "country": "AT",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/rauriser-hochalmbahnen",
+      "ids": [
+        "1586f10a5ae9a8f4707455ef38cb72a1bee343e6"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap names it \"Raurisertal\" (same website, hochalmbahnen.at)."
+    },
+    {
+      "name": "Red Lodge Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/red-lodge-mountain",
+      "ids": [
+        "c67f75462733dca449d070942e082a1c1a7d0689"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Riksgränsen",
+      "country": "SE",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/riksgransen",
+      "ids": [
+        "b457f7e14191ebb120ac33a540b1edc7cd554186"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap files this row under Norway (border artefact); the resort is in Sweden."
+    },
+    {
+      "name": "Ruka Ski Resort",
+      "country": "FI",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/ruka-ski-resort",
+      "ids": [
+        "9ebf3503311da1c2e8d04a89c04e678a0d347367"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Saddleback Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/saddleback-mountain",
+      "ids": [
+        "02977acc39c35bef4a956c76fe455121d13c25eb"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Saskadena Six Ski Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/saskadena-six-ski-area",
+      "ids": [
+        "8966d0ea45002cbef23efd6b912df21d0e428822"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Sasquatch Mountain Resort",
+      "country": "CA",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/sasquatch-mountain-resort",
+      "ids": [
+        "b38f30d1d386190b96087ad975d4ffc0e912d43b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Schuss Mountain at Shanty Creek",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/schuss-mountain-at-shanty-creek",
+      "ids": [
+        "76780a114df4eeaee0fb37d7f1e5a5f3bdfdb04d"
+      ],
+      "idsVerified": true,
+      "note": "Matched to Schuss Mountain only, as the pass names it; Shanty Creek's small Summit Mountain row is left out."
+    },
+    {
+      "name": "Shames Mountain",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/shames-mountain",
+      "ids": [
+        "ea6d832bbf3fd251ce0f1666eb52dd44d673f014"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Shawnee Mountain Ski Area",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/shawnee-mountain-ski-area",
+      "ids": [
+        "355c556419de6098b79e1a9f6b714c000068a8fe"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Shimokura",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/shimokura",
+      "ids": [
+        "ea3fb66e764c2538ad01b48188a24d58a9cc3eb0",
+        "db44144dfe03acab5b43db473ed2d16ac528cd69"
+      ],
+      "idsVerified": false,
+      "note": "Hachimantai Resort Panorama is added because the pass page says \"A lift ticket here can also be used at the beginner-friendly Panorama resort\"; it does not say outright that the Indy ticket carries over, hence idsVerified false."
+    },
+    {
+      "name": "Showdown Montana",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/showdown-montana",
+      "ids": [
+        "fbff3ec1a04b26ff94e1f1356e35767dfdf1594e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Silver Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/silver-mountain",
+      "ids": [
+        "d25d32a3fc9e2109feb7a784cd62e354fbb866c6"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Skaneateles Ski Club",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/skaneateles-ski-club",
+      "ids": [
+        "db3f3218e439bdba07b25aedcdc9087403d764e6"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Skeetawk",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/skeetawk",
+      "ids": [
+        "8db20608e6e0a34c6724767d3428317d35b616cc"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Ski Big Bear",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/ski-big-bear",
+      "ids": [
+        "7adf49bcc5e9f369b1749003582b14effa4010c0"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Ski Bluewood",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/ski-bluewood",
+      "ids": [
+        "9de44d36058588b0bb8da99912b97a5c3f388191"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Ski Land",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/ski-land",
+      "ids": [
+        "1d81c666cbb4d02aa6aaf8dce16062587864ed52"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Ski Mont Blanc",
+      "country": "CA",
+      "access": "2 days",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/this-is-indy/news/whiteface-gore-and-belleayre-join-allied-program-as-indy-pass-announces-15-additional-resorts-for",
+      "ids": [
+        "9ba1da0fcaef1c5a5d1ced87bfe780e1a4c6cc78"
+      ],
+      "idsVerified": true,
+      "note": "Named under \"New Resorts Announced November 12, 2026: Alpine\" in the pass's own press release, but not on the resort list page when fetched on 2026-11-16 (/our-resorts/mont-blanc answered 403 rather than 404, which on this site marks a page that exists but is not published). Blackout status not yet stated."
+    },
+    {
+      "name": "Ski Saint-Bruno",
+      "country": "CA",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/ski-saint-bruno",
+      "ids": [
+        "b6a4ea696c3ce7ff680fcb2878b769de28c9e155"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Ski Sawmill",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/ski-sawmill",
+      "ids": [
+        "b444752fcee1a3ce5745eb664c06e157ac98f52b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Ski Vallée Bleue",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/ski-vallee-bleue",
+      "ids": [
+        "78688106352077e2f6ad2f2a55e1be73e5380f1e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Skigebiet Heiligenblut-Großglockner",
+      "country": "AT",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/skigebiet-heiligenblut-grossglockner",
+      "ids": [
+        "0e26601b28e950ea854b8e85adb5aa0a51ecc97f"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "SkiWelt",
+      "country": "AT",
+      "access": "2 days, no blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/skiwelt",
+      "ids": [
+        "37ee9c6ba5b44864ba844f804938a8b815f8b717"
+      ],
+      "idsVerified": true,
+      "note": "Pass page: SkiWelt offers 2 days but no third-day offer."
+    },
+    {
+      "name": "Smokey Mountain Ski Club",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/smokey-mountain-ski-club",
+      "ids": [
+        "5f049fa511ae919e1b009c8419f71067cf63427c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Smugglers' Notch Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates, reservations required",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/smugglers-notch-resort",
+      "ids": [
+        "4e33ba5d0c4bb24ebff1c1270b9d8ec5f86f3f92"
+      ],
+      "idsVerified": true,
+      "note": "Pass page: reservations will be required; booking details were not yet published when fetched."
+    },
+    {
+      "name": "Snow King Mountain Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/snow-king-mountain-resort",
+      "ids": [
+        "c47e4e0cea10faf86129192a93cfe5136543c1da"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Snow Resort The Cupid of Romance",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/snow-resort-the-cupid-of-romance",
+      "ids": [
+        "cb23e2679d722d6411b1d93cb7f64bd24b6ed669"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Snow Ridge",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/snow-ridge",
+      "ids": [
+        "f30d1166d286a1c7eb53ac281736bfb0f7695f45"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Snowstar",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/snowstar",
+      "ids": [],
+      "idsVerified": true,
+      "note": "No row in the index: searched \"Snowstar\", \"Snow Star\", Andalusia and a 25 km radius. OpenSkiMap has \"Ski Snowstar\" (id d2bc3b99...) but tags it abandoned, so the index of operating areas drops it; the pass lists it as an operating partner."
+    },
+    {
+      "name": "Soldier Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/soldier-mountain",
+      "ids": [
+        "6b5d7d129610235541aade75781befaa8dd22622"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Spirit Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/spirit-mountain",
+      "ids": [
+        "6127f6c6224f06894564d1487d3194cc02d6690b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Spring Mountain Adventures",
+      "country": "US",
+      "access": "2 days, blackout dates, reservations required",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/spring-mountain-adventures",
+      "ids": [
+        "47d1fa18b3f1d3f92c6388cac59dd919c8d20784"
+      ],
+      "idsVerified": true,
+      "note": "Pass page: reservations required on select dates; link not yet published when fetched."
+    },
+    {
+      "name": "St Johann in Tirol",
+      "country": "AT",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/st-johann-in-tirol",
+      "ids": [
+        "7bbe4370de755694437795af4d89234c73ed73d4"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Steinplatte",
+      "country": "AT",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/steinplatte",
+      "ids": [
+        "337c8cd2d65a8c5457b0ed96d99891837d17af68"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap names it \"Skigebiet Steinplatte Winklmoosalm\" (same website); the area runs across the border to Winklmoosalm, Germany."
+    },
+    {
+      "name": "Stoke Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/stoke-mountain",
+      "ids": [],
+      "idsVerified": true,
+      "note": "Indoor ski and snowboard training centre in Tukwila, WA (ski machines, 24 ft \"vertical\"): listed by the pass as an alpine partner but not a snow ski area. No OpenSkiMap row (searched \"Stoke\" and a 20 km radius)."
+    },
+    {
+      "name": "Stranda Ski Resort",
+      "country": "NO",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/stranda-ski-resort",
+      "ids": [
+        "3529e86a07b95e0463b6c6c2850591736d258fcb",
+        "bc5ba2343fde067957610f2666dabf89b3e2ee22"
+      ],
+      "idsVerified": true,
+      "note": "OpenSkiMap has two rows for this one resort (both strandafjellet.no, same skimap.org id)."
+    },
+    {
+      "name": "Stöten i Sälen",
+      "country": "SE",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/stoten-i-salen",
+      "ids": [
+        "7b9ebd11b0f34b0ff27595dacf4573ef0e1dfec4"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Sunburst Ski Area",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/sunburst-ski-area",
+      "ids": [
+        "8427c5944ae2f43d6bd0d412933c04162cbe3180"
+      ],
+      "idsVerified": true,
+      "note": "Pass page says \"No Blackout Dates\" but the 26/27 blackout sheet lists dates for the Indy Base Pass."
+    },
+    {
+      "name": "Sundown Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/sundown-mountain",
+      "ids": [
+        "fe0cf62c2877f98925dfdf45434f8577509b6686"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Sunlight Mountain Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/sunlight-mountain-resort",
+      "ids": [
+        "c4431109a3fd5c562c509e2320a86c169aed0dd7"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Swain Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/swain-resort",
+      "ids": [
+        "b0b9519425df4d4c587f76eec37e302360d9603c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Takasu Snow Park",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/takasu-snow-park",
+      "ids": [
+        "4ee3f352a5b853868ea8270abd9c5f9643f15b5a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Tamarack Mountain Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates; Destination Upgrade resort (3 extra days as a paid add-on)",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/tamarack-mountain-resort",
+      "ids": [
+        "063937ba03fcc9ee00d5a60da62d664623841eec"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Tazawako",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/tazawako",
+      "ids": [
+        "c602257d6161adbcd8f1e18ed4e3ae037ac9327b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Tenney Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/tenney-mountain",
+      "ids": [
+        "7d26be88853e89f3377b2050201f439ebe390a0d"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Terry Peak",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/terry-peak",
+      "ids": [
+        "64cba5151b6bd43dc67c6be33fdea3d63576b4ef"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "The Krvavec Ski Resort",
+      "country": "SI",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/the-krvavec-ski-resort",
+      "ids": [
+        "1c25cf660c84f21364c1905e7eb788e3789ccfbd"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Thrill Hills",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/thrill-hills",
+      "ids": [
+        "efd299f44680135945271b00d7b05d33854abf65"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Titus Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/titus-mountain",
+      "ids": [
+        "30bdb26aafeede97f796dd60b7fd2c735c4eb778"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Togakushi Ski Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/togakushi-ski-resort",
+      "ids": [
+        "ddb30131027e2ed35f6d5740bb6bdfba7074bcbd"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Togari Onsen Snow Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/togari-onsen-snow-resort",
+      "ids": [
+        "2d0444657597437042f88000cae4cf8468681dea"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Treetops Resort",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/treetops-resort",
+      "ids": [
+        "1cd85cf7418531a245f8e534a389c566f57a1126"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Trollhaugen",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/trollhaugen",
+      "ids": [
+        "d1118f723cb1ffdace02c494efb80f6790c65ee0"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Tschiertschen - Chur",
+      "country": "CH",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/tschiertschen-chur",
+      "ids": [
+        "d5e7592301c0a122ea8e807a2659d29a7e21beee"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Tussey Mountain",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/tussey-mountain",
+      "ids": [
+        "fd00fdefb3462da486a46ffe87a05820428c206d"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Tyrol Basin Ski and Snowboard",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/tyrol-basin-ski-and-snowboard",
+      "ids": [
+        "4ca587625d3329fde74b813a842bac400b05e5b2"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Val d'Irène",
+      "country": "CA",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/val-direne",
+      "ids": [
+        "f925374f52ee352c407a54b9a5f14f8f3f35696a"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Veterans Memorial Recreation Area",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/veterans-memorial-recreation-area",
+      "ids": [
+        "6e484493acae09d7e2f5cbc717ef37e76a07fa8b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Washigatake Ski Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/washigatake-ski-resort",
+      "ids": [
+        "323af836e78ff3f811fa43a5de343e67c998f576"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Waterville Valley Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/waterville-valley-resort",
+      "ids": [
+        "48eb377ddfe9e682fba0d64818a5d9a082a33117"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "West Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/west-mountain",
+      "ids": [
+        "9aa9eb2e7e4946a91f4fef6e021de4cc353742df"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Whaleback Mountain",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/whaleback-mountain",
+      "ids": [
+        "c8c26f11a3b39a1171cc899d67435d90c997e76e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "White Pass",
+      "country": "US",
+      "access": "2 days, blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/white-pass",
+      "ids": [
+        "da6da566549a988c9265ac7bc387e2c7fb59bd56"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "White Pine Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/white-pine-resort",
+      "ids": [
+        "09b32bd37bdd1181ae2e1b4b9460352b593d798c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Whitecap Mountains Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/whitecap-mountains-resort",
+      "ids": [
+        "b7094d426187b8c49a991c61e46248870ad31d1c"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Whiteface",
+      "country": "US",
+      "access": "allied discount: up to 2 daily lift tickets at 25% off the daily window rate",
+      "kind": "discount",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/whiteface",
+      "ids": [
+        "d8b3d7d48706c9ce19bd6ba147c156ae89574ad8"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "WhitePIA Takasu",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/whitepia-takasu",
+      "ids": [
+        "ad3bc44d99f395ecf777763169d4926de3e0b76e"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Winter4Kids",
+      "country": "US",
+      "access": "2 dates only: December 20, 2026 and March 7, 2027; reservations required",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/winter4kids",
+      "ids": [
+        "75846c6f8d2a59a25744828c3d5fd577345a1830"
+      ],
+      "idsVerified": true,
+      "note": "Pass page: standard Indy Passholders are welcome on December 20, 2026 and March 7, 2027 only, for the 26/27 season; email reservation needed. OpenSkiMap names the hill \"National Winter Activity Center\"."
+    },
+    {
+      "name": "Wintergreen",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/wintergreen",
+      "ids": [
+        "f5682086c3b44e006c6a9e21c553a662f538add8"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Winterplace Ski Resort",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/winterplace-ski-resort",
+      "ids": [
+        "8cd0e5b9f5a6086fe6eb0135c29784435808d163"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Wisp",
+      "country": "US",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/wisp",
+      "ids": [
+        "474eb18d133632b436ad8ef5adb04b1087dd8d0b"
+      ],
+      "idsVerified": true
+    },
+    {
+      "name": "Yuzawa Nakazato Snow Resort",
+      "country": "JP",
+      "access": "2 days, no blackout dates",
+      "kind": "limited",
+      "confirmed": true,
+      "source": "official",
+      "url": "https://www.indyskipass.com/our-resorts/yuzawa-nakazato-snow-resort",
+      "ids": [
+        "6783f692191d824dcc9adb5731488f9bbeeeb11d"
+      ],
+      "idsVerified": true
+    }
+  ]
+}

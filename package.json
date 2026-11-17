@@ -1,0 +1,47 @@
+{
+  "name": "powtracker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "shots": "node scripts/shots.ts",
+    "check:ui": "node scripts/check-ui.ts",
+    "icons": "node scripts/make-icons.ts",
+    "data:skiareas": "node scripts/fetch-skiareas.ts",
+    "data:index": "node scripts/build-index.ts",
+    "data:resorts": "node scripts/build-resorts.ts",
+    "data:forecast": "node scripts/ingest.ts",
+    "data:obs": "node scripts/ingest-obs.ts",
+    "data:refresh": "node scripts/ingest.ts && node scripts/ingest-obs.ts"
+  },
+  "dependencies": {
+    "@openmeteo/mapbox-layer": "^0.0.16",
+    "d3-array": "^3.2.5",
+    "d3-scale": "^4.0.3",
+    "d3-shape": "^3.2.1",
+    "maplibre-gl": "^6.18.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/d3-array": "^3.2.2",
+    "@types/d3-scale": "^4.0.9",
+    "@types/d3-shape": "^3.2.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "playwright-core": "^1.65.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^4.1.12"
+  }
+}
