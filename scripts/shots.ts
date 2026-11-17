@@ -73,6 +73,29 @@ await shot('phone-detail-dark-long', { ...PHONE, height: 3400 }, 'dark', async (
   await liveCharts(page)
   await page.waitForTimeout(600)
 })
+/** Open a mountain by name and switch to its Mountain tab, with the trail map drawn. */
+const openMountain = async (page: Page, query: string) => {
+  await page.locator('#f-q').fill(query)
+  await page.locator('.mcard-main, .name-btn').first().click()
+  await page.getByRole('button', { name: 'Mountain and trails' }).click()
+  await page.waitForSelector('.trailmap .map canvas', { timeout: 30_000 })
+  await page.waitForFunction(() => !document.querySelector('.trailmap .map-loading'), null, { timeout: 30_000 })
+  await page.waitForTimeout(5000)
+}
+await shot('phone-mountain-live', { ...PHONE, height: 3600 }, 'light', (page) => openMountain(page, 'winter park resort'))
+await shot('phone-mountain-europe', { ...PHONE, height: 3000 }, 'dark', (page) => openMountain(page, 'st. anton'))
+await shot('phone-trailmap', PHONE, 'light', async (page) => {
+  await openMountain(page, 'winter park resort')
+  await page.locator('.trailmap').scrollIntoViewIfNeeded()
+  await page.getByRole('button', { name: 'Full screen' }).click()
+  await page.waitForTimeout(3500)
+})
+await shot('desktop-trailmap-3d', DESKTOP, 'light', async (page) => {
+  await openMountain(page, 'palisades tahoe olympic')
+  await page.getByRole('button', { name: 'Full screen' }).click()
+  await page.getByRole('button', { name: '3D' }).click()
+  await page.waitForTimeout(7000)
+})
 await shot('desktop-rankings', DESKTOP, 'light', async () => {})
 await shot('desktop-rankings-dark', DESKTOP, 'dark', async () => {})
 await shot('desktop-detail', { ...DESKTOP, height: 2400 }, 'light', async (page) => {

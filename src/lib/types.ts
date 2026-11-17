@@ -30,7 +30,26 @@ export interface Resort {
   p: string[]
   /** Website. */
   w?: string
+  /** Difficulty colour convention: 'n' North American, 'j' Japanese; absent means European. */
+  rc?: 'n' | 'j'
+  /** Id on skimap.org, where the resort's official trail maps are archived. */
+  sk?: number
 }
+
+/**
+ * One mountain's mapped runs and lifts (public/data/trails/<id>.json), from OpenStreetMap by way
+ * of OpenSkiMap. Lines are flat arrays of integers: longitude and latitude in units of 1e-5
+ * degrees, the first pair absolute and each later pair the step from the one before.
+ */
+export interface TrailsFile {
+  /** Runs: [name, difficulty 0..6 (see DIFFICULTIES), flags, length m, vertical m, line, area?]. */
+  r: [string, number, number, number, number, number[], (1 | 0)?][]
+  /** Lifts: [name, type, length m, vertical m, line]. */
+  l: [string, string, number, number, number[]][]
+}
+
+/** Bits of a run's flags. */
+export const RUN_FLAGS = { groomed: 1, lit: 2, gladed: 4, ungroomed: 8 } as const
 
 export interface ResortsFile {
   generated: string

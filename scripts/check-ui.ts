@@ -190,6 +190,76 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
   await page.context().close()
 }
 
+// --- Wide screen: a mountain's trail map, live status and conditions ----------------------------
+{
+  const page = await open({ width: 1360, height: 900 })
+  /** Search for a mountain, open it, and switch to its Mountain tab with the trail map drawn. */
+  const openMountain = async (query: string) => {
+    await page.locator('#f-q').fill(query)
+    await page.locator('.name-btn').first().click()
+    await page.getByRole('button', { name: 'Mountain and trails' }).click()
+    await page.waitForSelector('.trailmap .map canvas', { timeout: 30_000 })
+  }
+  const back = async () => {
+    await page.getByRole('button', { name: 'Back to the list' }).click()
+    await page.waitForSelector('.detail', { state: 'detached', timeout: 5000 })
+  }
+
+  await check('mountain: a resort with a live feed shows lifts and trails open and closed', async () => {
+    await openMountain('winter park resort')
+    await page.waitForSelector('.live-tiles', { timeout: 30_000 })
+    const [liftsOpen, liftsTotal] = ((await page.locator('.live-tiles div').first().textContent()) ?? '').match(/\d+/g)!.map(Number)
+    expect(liftsTotal >= 20 && liftsOpen <= liftsTotal, `lifts ${liftsOpen} of ${liftsTotal}`)
+    const states = await page.locator('.rows .state').count()
+    expect(states >= liftsTotal, `${states} status rows`)
+    expect((await page.locator('.group').count()) >= 4, 'trails should be grouped by rating')
+    // "Open only" leaves no closed trail on show.
+    await page.getByLabel('Show open trails only').check()
+    const shown = await page.locator('.group .rows .state').evaluateAll((els) => els.map((e) => e.className))
+    expect(shown.every((c) => c.includes('is-open')), `${shown.filter((c) => !c.includes('is-open')).length} closed trails still shown`)
+    expect((await page.locator('.trail-card .legend').textContent())!.includes('Closed'), 'the map legend should explain grey')
+  })
+
+  await check('mountain: tapping the trail map names a run or lift', async () => {
+    const box = (await page.locator('.trailmap').boundingBox())!
+    await page.locator('.trailmap').scrollIntoViewIfNeeded()
+    await page.waitForFunction(() => !document.querySelector('.trailmap .map-loading'), null, { timeout: 30_000 })
+    await page.waitForTimeout(2500)
+    // Sweep the middle of the map until a tap lands on a run or lift.
+    const fresh = (await page.locator('.trailmap').boundingBox()) ?? box
+    let found = ''
+    for (let i = 0; i < 60 && !found; i++) {
+      await page.mouse.click(fresh.x + fresh.width * (0.3 + 0.4 * ((i * 7) % 10) / 10), fresh.y + fresh.height * (0.3 + 0.4 * (i % 6) / 6))
+      found = (await page.locator('.trailmap .maplibregl-popup .pop-name').first().textContent({ timeout: 300 }).catch(() => '')) ?? ''
+    }
+    expect(found.length > 0, 'no run or lift answered a tap')
+    await back()
+  })
+
+  await check('mountain: weather at the summit, and avalanche danger for a US mountain', async () => {
+    await openMountain('palisades tahoe olympic')
+    await page.waitForSelector('.wx-now', { timeout: 30_000 })
+    expect(/feels like/.test((await page.locator('.wx-now').textContent())!), 'summit conditions should include a feels-like temperature')
+    expect((await page.locator('.hourstrip .hour').count()) >= 10, 'an hour-by-hour strip is expected')
+    await page.waitForSelector('.danger', { timeout: 30_000 })
+    expect((await page.locator('.danger').textContent())!.length > 3, 'an avalanche rating or a no-rating notice is expected')
+    expect((await page.getByRole('link', { name: 'Directions' }).getAttribute('href'))!.includes('google.com/maps'), 'directions should open a map')
+    await back()
+  })
+
+  await check('mountain: a resort without a live feed says so, and lists its mapped runs by difficulty', async () => {
+    await openMountain('st. anton')
+    expect((await page.locator('.detail-body').textContent())!.includes('does not publish its live lift and trail status'), 'the missing live status should be stated')
+    const groups = await page.locator('.group summary').allTextContents()
+    expect(groups.some((g) => g.startsWith('Red')) && groups.some((g) => g.startsWith('Blue')), `groups: ${groups.join(' | ')}`)
+    await page.locator('.group summary').first().click()
+    expect((await page.locator('.group[open] .rows li').count()) > 3, 'named runs should be listed')
+    await back()
+    await page.locator('#f-q').fill('')
+  })
+  await page.context().close()
+}
+
 // --- Wide screen: the map ---------------------------------------------------------------------
 {
   const page = await open({ width: 1360, height: 900 })
@@ -317,6 +387,20 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     expect((await day.getAttribute('aria-selected')) === 'true', 'the tapped day should be selected')
     const heading = (await page.locator('.day-detail b').textContent())!
     expect(heading.includes(String(num(await day.locator('.dom').textContent()))), `day detail shows ${heading}`)
+    await page.getByRole('button', { name: 'Back to the list' }).click()
+    await page.waitForSelector('.detail', { state: 'detached', timeout: 5000 })
+  })
+
+  await check('phone: the mountain tab fits, and the trail map opens full screen', async () => {
+    await page.locator('.mcard-main').first().click()
+    await page.getByRole('button', { name: 'Mountain and trails' }).click()
+    await page.waitForSelector('.trailmap .map canvas', { timeout: 30_000 })
+    const overflow = await page.locator('.detail').evaluate((el) => el.scrollWidth - el.clientWidth)
+    expect(overflow <= 0, `mountain tab is ${overflow}px wider than the screen`)
+    await page.getByRole('button', { name: 'Full screen' }).click()
+    const box = (await page.locator('.trailmap').boundingBox())!
+    expect(box.width >= 389 && box.height >= 800, `full-screen map is ${Math.round(box.width)} x ${Math.round(box.height)}`)
+    await page.getByRole('button', { name: 'Close map' }).click()
     await page.getByRole('button', { name: 'Back to the list' }).click()
     await page.waitForSelector('.detail', { state: 'detached', timeout: 5000 })
   })

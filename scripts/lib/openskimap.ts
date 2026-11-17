@@ -23,6 +23,10 @@ export interface SkiArea {
   runKm: number
   lifts: number
   website: string
+  /** How this area marks difficulty: by the European, North American or Japanese colour convention. */
+  convention: 'europe' | 'north_america' | 'japan'
+  /** Its id on skimap.org, the archive of official trail maps; 0 when OpenSkiMap has none. */
+  skimapId: number
 }
 
 interface RawFeature {
@@ -32,6 +36,8 @@ interface RawFeature {
     status: string | null
     activities?: string[]
     websites?: string[]
+    runConvention?: string
+    sources?: { type: string; id: string | number }[]
     places?: { iso3166_1Alpha2?: string; localized?: { en?: { country?: string; region?: string; locality?: string } } }[]
     statistics?: {
       minElevation?: number | null
@@ -92,6 +98,8 @@ export function loadSkiAreas(file = SKIAREAS_FILE): SkiArea[] {
       runKm: Math.round(runKm * 10) / 10,
       lifts,
       website: p.websites?.[0] ?? '',
+      convention: p.runConvention === 'north_america' || p.runConvention === 'japan' ? p.runConvention : 'europe',
+      skimapId: Number(p.sources?.find((s) => s.type === 'skimap.org')?.id ?? 0) || 0,
     })
   }
   return out

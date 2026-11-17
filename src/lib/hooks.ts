@@ -57,6 +57,24 @@ export function useLocation(): [Locating, () => void] {
   return [state, locate]
 }
 
+export type Async<T> = { status: 'loading' } | { status: 'ready'; data: T } | { status: 'error'; message: string }
+
+/** Run an abortable load when `deps` change, and report where it stands. */
+export function useAsync<T>(load: (signal: AbortSignal) => Promise<T>, deps: readonly unknown[]): Async<T> {
+  const [state, setState] = useState<Async<T>>({ status: 'loading' })
+  useEffect(() => {
+    const ctl = new AbortController()
+    setState({ status: 'loading' })
+    load(ctl.signal).then(
+      (data) => !ctl.signal.aborted && setState({ status: 'ready', data }),
+      (e: unknown) => !ctl.signal.aborted && setState({ status: 'error', message: e instanceof Error ? e.message : String(e) }),
+    )
+    return () => ctl.abort()
+    // The caller lists what the load depends on.
+  }, deps)
+  return state
+}
+
 export function useMediaQuery(query: string): boolean {
   const [matches, setMatches] = useState(() => window.matchMedia(query).matches)
   useEffect(() => {

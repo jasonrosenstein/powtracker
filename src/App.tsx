@@ -219,6 +219,7 @@ export function App() {
           obs={openRow.o}
           passes={data.passes}
           units={units}
+          dark={dark}
           metric={metricOk}
           level={level}
           generated={data.generated}

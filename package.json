@@ -16,6 +16,8 @@
     "check:ui": "node scripts/check-ui.ts",
     "icons": "node scripts/make-icons.ts",
     "data:skiareas": "node scripts/fetch-skiareas.ts",
+    "data:trailsource": "node scripts/fetch-skiareas.ts --trails",
+    "data:trails": "node scripts/build-trails.ts",
     "data:index": "node scripts/build-index.ts",
     "data:resorts": "node scripts/build-resorts.ts",
     "data:forecast": "node scripts/ingest.ts",

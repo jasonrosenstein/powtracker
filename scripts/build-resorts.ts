@@ -112,6 +112,8 @@ const resorts: Resort[] = picked
       p: passesOf.get(a.osmId) ?? [],
     }
     if (a.website) r.w = a.website
+    if (a.convention !== 'europe') r.rc = a.convention === 'japan' ? 'j' : 'n'
+    if (a.skimapId) r.sk = a.skimapId
     return r
   })
   .sort((x, y) => y.t - y.b - (x.t - x.b))

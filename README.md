@@ -63,6 +63,31 @@ detail screen and the map animations; `npm run shots` saves screenshots of every
 The same engine runs in the browser for a mountain's detail view, on a fresh fetch, so its charts
 are newer than the rankings snapshot and can differ from it slightly.
 
+## The mountain itself
+
+Each mountain has a second tab for the day on the hill:
+
+- **Trail map.** `scripts/build-trails.ts` packs every tracked mountain's downhill runs and
+  operating lifts from OpenSkiMap (OpenStreetMap) into `public/data/trails/<id>.json`: 80,000
+  runs and 16,000 lifts, 11 MB in all, committed. The app draws them over shaded terrain
+  (Mapzen terrain tiles on AWS Open Data), coloured by the difficulty convention of the region:
+  green, blue, black and double black in North America; green, blue, red and black in Europe;
+  green, red and black in Japan. A 3D button tilts the map onto real terrain.
+- **Live lifts and trails.** Where the resort's operator publishes a status feed that any
+  website may read (the Alterra feed at mtnpowder.com: 16 resorts, listed in
+  `src/lib/status.ts`), the browser reads it when the mountain is opened: lifts and trails open
+  and closed, grooming, lift hours, and the resort's own snow report. On the trail map, colour
+  then means "reported open today" and everything else is grey. Every other mountain says
+  plainly that its live status is on the resort's site.
+- **On the mountain.** Summit temperature and wind chill, wind and gusts with a lift-hold
+  warning, visibility, sunrise and sunset, hour by hour for a day and a half (Open-Meteo).
+- **Avalanche danger** beyond the ski-area boundary, from avalanche.org (United States) and
+  Avalanche Canada.
+- **Getting there.** Directions, the resort's site, and its official trail maps on skimap.org.
+
+To rebuild the trail maps: `npm run data:trailsource` (downloads about 1 GB), then
+`npm run data:trails`.
+
 ## Refreshing the data
 
 ```bash
@@ -93,8 +118,12 @@ allows commercial use, and makes tracking every ski area in OpenSkiMap (about 4,
   directly (its server was down when this was built; many of its stations arrive through
   NOAA), Météo-France's live observations (free key required; its open daily files run days
   behind), MET Norway (free key required).
-- These are station measurements, not the resorts' own snow reports. Resort-reported figures
-  come only from each resort or from licensed feeds.
+- Station measurements are not the resorts' own snow reports. Resort-reported snow, and live
+  lift and trail status, are shown only for the 16 resorts whose operator publishes an open
+  feed; other operators (Vail Resorts, Boyne, Powdr, most of Europe and Japan) publish theirs
+  only on their own sites or through licensed feeds.
+- Trail maps are as complete as OpenStreetMap's mapping of each mountain. Live status is matched
+  to mapped runs by name, so a run the resort names differently shows grey.
 - Pass rosters are a snapshot of each pass's own listing for the season named in the file, and
   record included days at the top tier only. See `data/passes/README.md`.
 
@@ -106,4 +135,6 @@ OpenFreeMap, OpenMapTiles. Radar: RainViewer. Station measurements: NOAA Nationa
 Hydrologic Remote Sensing Center; Japan Meteorological Agency; WSL Institute for Snow and
 Avalanche Research SLF; GeoSphere Austria (CC BY 4.0); the avalanche warning services of Tirol,
 South Tyrol and Trentino via avalanche.report (CC BY 4.0); Government of British Columbia (Open
-Government Licence).
+Government Licence). Trail maps: OpenSkiMap, OpenStreetMap contributors (ODbL); terrain: Mapzen
+terrain tiles, AWS Open Data. Live resort status: each resort, through Alterra Mountain
+Company's public feed. Avalanche danger: avalanche.org and Avalanche Canada.

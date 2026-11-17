@@ -14,6 +14,7 @@ import type { Observation, PassDef } from '../lib/types.ts'
 import { fmtElev, fmtSnow, fmtSnowNum, fmtSnowRange, snowUnit, type Units } from '../lib/units.ts'
 import { Segmented } from './Controls.tsx'
 import { ConfidenceBars, IconBack, IconShare } from './icons.tsx'
+import { Mountain } from './Mountain.tsx'
 import { SaveButton } from './Rankings.tsx'
 
 const WINDOW_OF: Partial<Record<Metric, number>> = { w3: 0, w7: 1, w14: 2 }
@@ -36,7 +37,7 @@ function stormLine(days: readonly DayTotal[], units: Units): string {
   return `Main storm ${fmtDate(storm.from)} to ${fmtDate(storm.to)}: ${fmtSnow(storm.totalCm, units)}, heaviest on ${fmtDate(storm.peak.date)} (${fmtSnow(storm.peak.cm, units)}).`
 }
 
-export function Detail({ row, obs, passes, units, metric, level: initialLevel, generated, saved, onToggleSaved, onClose }: {
+export function Detail({ row, obs, passes, units, dark, metric, level: initialLevel, generated, saved, onToggleSaved, onClose }: {
   row: Row
   /** Station measurements near this resort, when a source covers it. */
   obs: readonly Observation[] | undefined
@@ -45,11 +46,13 @@ export function Detail({ row, obs, passes, units, metric, level: initialLevel, g
   metric: Metric
   level: Level
   generated: Date
+  dark: boolean
   saved: boolean
   onToggleSaved: () => void
   onClose: () => void
 }) {
   const { r, f } = row
+  const [tab, setTab] = useState<'snow' | 'mountain'>('snow')
   const [level, setLevel] = useState<Level>(initialLevel)
   const [win, setWin] = useState(WINDOW_OF[metric] ?? 1)
   const [state, setState] = useState<LiveState>({ status: 'loading' })
@@ -144,6 +147,15 @@ export function Detail({ row, obs, passes, units, metric, level: initialLevel, g
             {r.w && <a href={r.w} target="_blank" rel="noreferrer">Resort site</a>}
           </p>
 
+          <Segmented
+            label="What to show for this mountain"
+            options={[{ id: 'snow', label: 'Snow forecast' }, { id: 'mountain', label: 'Mountain and trails' }]}
+            value={tab}
+            onChange={setTab}
+            grow
+          />
+
+          {tab === 'mountain' ? <Mountain row={row} units={units} dark={dark} /> : <>
           <div className="hero" role="group" aria-label="Forecast period">
             {totals.map((t, wi) => (
               <button key={wi} type="button" className="hero-tile" aria-pressed={wi === win} onClick={() => setWin(wi)}>
@@ -215,17 +227,6 @@ export function Detail({ row, obs, passes, units, metric, level: initialLevel, g
             )
           )}
 
-          <section className="chart-card">
-            <header><h3>The mountain</h3></header>
-            <dl className="facts num">
-              <div><dt>Base</dt><dd>{fmtElev(r.b, units)}</dd></div>
-              <div><dt>Summit</dt><dd>{fmtElev(r.t, units)}</dd></div>
-              <div><dt>Vertical</dt><dd>{fmtElev(r.t - r.b, units)}</dd></div>
-              {r.km > 0 && <div><dt>Runs</dt><dd>{r.km} km</dd></div>}
-              {r.li > 0 && <div><dt>Lifts</dt><dd>{r.li}</dd></div>}
-            </dl>
-          </section>
-
           {live && view && (
             <>
               <p className="status">Charts use live model data fetched {fmtAgo(new Date(live.fetchedMs))}. Times are local to the mountain.</p>
@@ -254,6 +255,7 @@ export function Detail({ row, obs, passes, units, metric, level: initialLevel, g
               </details>
             </>
           )}
+          </>}
         </div>
       </div>
     </div>

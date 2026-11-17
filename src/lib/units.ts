@@ -64,6 +64,17 @@ export function fmtElev(m: number, u: Units): string {
   return `${fmtElevNum(m, u)} ${elevUnit(u)}`
 }
 
+/** Wind speed, e.g. "38 km/h" or "24 mph". */
+export function fmtWind(kmh: number, u: Units): string {
+  return u === 'metric' ? `${Math.round(kmh)} km/h` : `${Math.round(kmh / 1.609344)} mph`
+}
+
+/** A distance on the ground from metres, e.g. "12 km" or "0.3 mi". */
+export function fmtDistance(m: number, u: Units): string {
+  const v = u === 'metric' ? m / 1000 : m / 1609.344
+  return `${v >= 10 ? Math.round(v) : v.toFixed(1)} ${u === 'metric' ? 'km' : 'mi'}`
+}
+
 export function tempValue(c: number, u: Units): number {
   return u === 'metric' ? c : (c * 9) / 5 + 32
 }
