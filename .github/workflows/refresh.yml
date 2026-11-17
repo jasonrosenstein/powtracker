@@ -1,9 +1,10 @@
-# Twice a day: pull the latest run of every weather model, rebuild the site with the fresh
-# snapshot, and publish it to GitHub Pages. Nothing is committed back, so the repository does not
-# grow with every refresh.
+# Publishes the site to GitHub Pages, with the forecast and station measurements refreshed.
 #
-# The schedule follows ECMWF, the last of the big models to land: its 00Z run is on Open-Meteo by
-# about 08:00 UTC and its 12Z run by about 20:00 UTC.
+# Twice a day it pulls the latest run of every weather model. The schedule follows ECMWF, the
+# last of the big models to land: its 00Z run is on Open-Meteo by about 08:00 UTC and its 12Z run
+# by about 20:00 UTC. A push publishes new code at once, reusing the forecast already on the site
+# unless that is more than 12 hours old. Nothing is committed back, so the repository does not
+# grow with every refresh.
 name: Refresh snow data and publish
 
 on:
@@ -25,10 +26,12 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 45
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
+    env:
+      LIVE: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/data
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -37,14 +40,32 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
-      # Free tier: paced to stay inside Open-Meteo's limits (about 10 minutes). With the
-      # OPEN_METEO_API_KEY secret set, the commercial endpoint is used and the pacing is dropped.
-      # If this step fails the job stops here and the published site keeps its last snapshot.
+      # The forecast refresh takes about 10 minutes on Open-Meteo's free tier, and can be refused:
+      # the tier's limits are counted per network address, and this runner shares its address with
+      # other projects. So a refresh that fails, or that a push does not need, must never stop
+      # the site from being published: the forecast already on the site is kept instead.
+      # With the OPEN_METEO_API_KEY secret set, the commercial endpoint is used and neither applies.
       - name: Forecast snapshot
-        run: node scripts/ingest.ts
+        timeout-minutes: 25
+        continue-on-error: true
+        id: forecast
         env:
           OPEN_METEO_API_KEY: ${{ secrets.OPEN_METEO_API_KEY }}
-      # Station measurements are a bonus: a source being down must not block the forecast.
+        run: |
+          if [ "${{ github.event_name }}" = "push" ] && curl -fsS -o published.json "$LIVE/forecast.json" \
+            && node -e "const f = JSON.parse(require('fs').readFileSync('published.json', 'utf8')); process.exit(Date.now() - Date.parse(f.generated) < 12 * 3600e3 ? 0 : 1)"; then
+            mv published.json public/data/forecast.json
+            echo "Reused the forecast published on the site: it is under 12 hours old."
+          else
+            node scripts/ingest.ts
+          fi
+      - name: Keep the published forecast when the refresh failed
+        if: steps.forecast.outcome == 'failure'
+        run: |
+          echo "::warning::The forecast refresh failed; publishing with the last forecast instead."
+          curl -fsS -o public/data/forecast.json "$LIVE/forecast.json" || echo "No published forecast to fall back on: using the one in the repository."
+      # Station measurements are quick and have no such limits: refresh them every time. A source
+      # being down must not block the rest.
       - name: Station measurements
         run: node scripts/ingest-obs.ts
         continue-on-error: true
