@@ -5,6 +5,7 @@
 // Usage: node scripts/check-ui.ts [baseUrl]
 //   npm run build && npx vite preview --port 4173   (in another terminal)
 import { chromium, type Page } from 'playwright-core'
+import { liveFeedFor } from '../src/lib/status.ts'
 
 const base = process.argv[2] ?? 'http://127.0.0.1:4173/'
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--enable-unsafe-swiftshader'] })
@@ -275,8 +276,9 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
   await check('mountain: an announced opening day is shown with the page that states it', async () => {
     const openings = await fetch(new URL('data/openings.json', base)).then((r) => (r.ok ? r.json() : null))
     const resorts = (await fetch(new URL('data/resorts.json', base)).then((r) => r.json())).resorts as { id: string; n: string }[]
-    // A mountain with a dated opening whose name finds it alone, so the search cannot land elsewhere.
-    const pick = resorts.find((r) => openings?.resorts[r.id]?.d && resorts.filter((o) => o.n.toLowerCase().includes(r.n.toLowerCase())).length === 1)
+    // A mountain with a dated opening and no live feed (a feed's own report replaces the card),
+    // whose name finds it alone, so the search cannot land elsewhere.
+    const pick = resorts.find((r) => openings?.resorts[r.id]?.d && !liveFeedFor(r) && resorts.filter((o) => o.n.toLowerCase().includes(r.n.toLowerCase())).length === 1)
     if (!pick) throw new Error('no dated opening in data/openings.json to check')
     const opening = openings.resorts[pick.id]
     await page.locator('#f-q').fill(pick.n)

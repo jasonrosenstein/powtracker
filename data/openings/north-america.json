@@ -1,6 +1,7 @@
 {
   "season": "2026/27",
   "compiled": "2026-11-17",
+  "verbatim": true,
   "openings": [
     {
       "id": "f2df72ab",
@@ -49,7 +50,8 @@
       "state": "planned",
       "date": "2026-11-25",
       "says": "Opening Day November 25th!",
-      "source": "https://www.beavercreek.com/"
+      "source": "https://www.beavercreek.com/",
+      "verbatim": false
     },
     {
       "id": "7f0f9748",
@@ -130,7 +132,8 @@
       "state": "planned",
       "date": "2026-11-20",
       "says": "Friday: Nov 20, 2026 — Opening Day! Heavenly Opens for our 2026/2027 Ski Season! Open for skiing and riding on the California Side",
-      "source": "https://www.skiheavenly.com/"
+      "source": "https://www.skiheavenly.com/",
+      "verbatim": false
     },
     {
       "id": "2a2d5ad1",
@@ -394,7 +397,8 @@
       "state": "planned",
       "date": "2026-11-25",
       "says": "The Countdown Is On! The Butte Is Back Nov 25th",
-      "source": "https://www.skicb.com/"
+      "source": "https://www.skicb.com/",
+      "verbatim": false
     },
     {
       "id": "717fe0e8",
@@ -402,7 +406,8 @@
       "state": "planned",
       "date": "2026-11-20",
       "says": "Opening Day November 20!",
-      "source": "https://www.northstarcalifornia.com/"
+      "source": "https://www.northstarcalifornia.com/",
+      "verbatim": false
     },
     {
       "id": "c67f7546",
@@ -653,7 +658,8 @@
       "state": "planned",
       "date": "2026-12-04",
       "says": "Opening Day December 4! … Friday: Dec 04, 2026 — Opening Day 2026/2027 Celebration",
-      "source": "https://www.kirkwood.com/"
+      "source": "https://www.kirkwood.com/",
+      "verbatim": false
     },
     {
       "id": "74dd4473",

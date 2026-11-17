@@ -116,12 +116,16 @@ export interface Opening {
   s: 'open' | 'planned' | 'tentative' | 'tba' | 'closed'
   /** Opening day (or the day it opened), "YYYY-MM-DD"; absent when only wording was given. */
   d?: string
-  /** The source's own short wording. */
+  /** What the source says: its own words when `q` is set, otherwise a summary of them. */
   says: string
+  /** 1 when `says` is quoted word for word from the page. */
+  q?: 1
   /** The page that states it. */
   src: string
   /** The day that page was read, "YYYY-MM-DD". */
   at?: string
+  /** The ski guide the date comes from, when it is not the resort's or its pass's own statement. */
+  via?: string
 }
 
 export interface OpeningsFile {

@@ -1,0 +1,3966 @@
+{
+ "season": "2026/27",
+ "compiled": "2026-11-17",
+ "verbatim": false,
+ "openings": [
+  {
+   "id": "fa9477e2",
+   "name": "4 Vallées – Verbier/La Tzoumaz/Nendaz/Veysonnaz/Thyon",
+   "state": "tentative",
+   "date": "2026-11-07",
+   "says": "Winter season kicks off 7 November 2026 at Verbier, with lifts at weekends only throughout November; opening times subject to change depending on conditions. No date given for daily operation or the other sectors.",
+   "source": "https://verbier4vallees.ch/en/online-shop/tickets/season-start_ticket_1984271"
+  },
+  {
+   "id": "2f313098",
+   "name": "Dolomiti Superski",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "Dolomiti Superski winter season starts 28 November 2026; each valley opens on its own day (first valleys 27-28 Nov, Sellaronda valleys 4 Dec)",
+   "source": "https://www.dolomiti.it/en/dolomites/news/dolomiti-superski-winter-ski-season"
+  },
+  {
+   "id": "fc76f378",
+   "name": "Zermatt - Breuil-Cervinia, Breuil-Cervinia Ski Paradise",
+   "state": "open",
+   "date": "2026-11-01",
+   "says": "Winter ski passes valid 1 Nov 2026 to 2 May 2027; Skiresort.com lists the area as open on 17 Nov (7 of 51 lifts, year-round glacier). A media guide citing the operator gives 28 Nov for Sunnegga-Rothorn and Gornergrat.",
+   "source": "https://www.matterhornparadise.ch/en/information"
+  },
+  {
+   "id": "bc036184",
+   "name": "Kaprun - Kitzsteinhorn/Maiskogel",
+   "state": "open",
+   "says": "Glacier ski season under way on the Kitzsteinhorn (skiing down to the Kristallbahn; planned ski start was 10 Oct 2026). Maiskogel lift and 3K K-onnection open from 5 Dec.",
+   "source": "https://www.kitzsteinhorn.at/de/service/informationen/betriebs-oeffnungszeiten"
+  },
+  {
+   "id": "60bf2e06",
+   "name": "Stubai",
+   "state": "open",
+   "date": "2026-10-09",
+   "says": "Stubai Glacier open since 9 Oct 2026. Rest of the valley: Schlick 2000 expected 28 Nov 2026; Elfer planned 18 Dec 2026; Serles from mid-December.",
+   "source": "https://www.stubaier-gletscher.com/skigebiet/oeffnungszeiten/"
+  },
+  {
+   "id": "68b126bc",
+   "name": "Les Trois Vallées",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-18",
+   "says": "3 Vallées links open 5 December 2026 to 18 April 2027. Val Thorens and Orelle open earlier, on 21 November; Courchevel 4 December; Méribel and Les Menuires 5 December; Saint-Martin-de-Belleville 12 December.",
+   "source": "https://www.les3vallees.com/en/live/lifts-and-trails-opening"
+  },
+  {
+   "id": "bbbfaa27",
+   "name": "Zillertal Arena",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-11",
+   "says": "Lifts in Zell am Ziller (Rosenalmbahn), Gerlos, Königsleiten and Hochkrimml run from 4 Dec 2026 to 11 Apr 2027; Gerlosstein from 18 Dec. Times subject to weather and demand.",
+   "source": "https://www.zillertal.at/en/winter/holidays/ski-areas.html"
+  },
+  {
+   "id": "78e5f98d",
+   "name": "Sölden",
+   "state": "open",
+   "date": "2026-10-09",
+   "says": "Glacier ski area open (season 9 Oct 2026 to 2 May 2027); winter ski area open (6 Nov 2026 to 18 Apr 2027); more lifts (Roßkirpl, Hochsölden-Rotkoglbahn) from Fri 20 Nov 2026.",
+   "source": "https://www.soelden.com/en/live-information/ski-resort-news"
+  },
+  {
+   "id": "02196b1e",
+   "name": "Cortina d'Ampezzo",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-05-02",
+   "says": "Skiresort.com: planned start of season 28 Nov 2026, planned end 2 May 2027; Cortina's sectors open on different days",
+   "source": "https://www.skiresort.com/en/ski-resort/cortina-dampezzo/snow-report/"
+  },
+  {
+   "id": "bffad13d",
+   "name": "Ponte di Legno - Passo Tonale",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "Visit Trentino lift-opening table: Ponte di Legno/Passo Tonale 28 Nov 2026 (first pistes)",
+   "source": "https://www.visittrentino.info/it/articoli/outdoor/prima-neve-in-trentino"
+  },
+  {
+   "id": "0e7ba1fd",
+   "name": "Mayrhofen Hippach",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-11",
+   "says": "Penkenbahn and Horbergbahn run from 4 Dec 2026 (season to 11 Apr 2027); Ahornbahn from 12 Dec 2026. Times subject to weather and demand.",
+   "source": "https://www.zillertal.at/en/winter/holidays/ski-areas.html"
+  },
+  {
+   "id": "5ffd86e2",
+   "name": "Monterosa Ski",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-11",
+   "says": "Monterosa Ski 3 Valli (Champoluc, Frachey, Staffal, Alagna) open from Saturday 28 November 2026 to Sunday 11 April 2027, snow conditions permitting",
+   "source": "https://monterosaski.eu/en/experiences/monterosa-ski-opening-dates-winter-29318"
+  },
+  {
+   "id": "99cef648",
+   "name": "Hochzillertal-Hochfügen",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-11",
+   "says": "Hochfügen from 4 Dec 2026, Hochzillertal-Kaltenbach from 5 Dec 2026 (both to 11 Apr 2027). Times subject to weather and demand.",
+   "source": "https://www.zillertal.at/en/winter/holidays/ski-areas.html"
+  },
+  {
+   "id": "e13d9d82",
+   "name": "Méribel",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-18",
+   "says": "Les 3 Vallées official opening dates: Méribel, winter 5 December 2026 to 18 April 2027.",
+   "source": "https://www.les3vallees.com/en/live/lifts-and-trails-opening"
+  },
+  {
+   "id": "a848fe66",
+   "name": "Marmolada",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Funivie Marmolada cable car: winter 4 December 2026 - 4 April 2027",
+   "source": "https://www.funiviemarmolada.com/en/"
+  },
+  {
+   "id": "fc37a308",
+   "name": "Saas Fee",
+   "state": "open",
+   "date": "2026-10-31",
+   "closing": "2027-04-18",
+   "says": "Magic Pass opening dates: winter 31.10.2026 – 18.04.2027 (glacier summer skiing ran from 18.07); listed as open with 7 of 100 km of pistes on 17 Nov",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "e9c0a197",
+   "name": "Belalp",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-04",
+   "says": "Magic Pass opening dates: winter 12.12.2026 – 04.04.2027 (restricted cable-car service only until 11.12)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "fd250230",
+   "name": "Hintertuxer Gletscher",
+   "state": "open",
+   "says": "Hintertux Glacier: open all year round.",
+   "source": "https://www.zillertal.at/en/winter/holidays/ski-areas.html"
+  },
+  {
+   "id": "3c30edda",
+   "name": "Pizol",
+   "state": "planned",
+   "date": "2026-11-27",
+   "closing": "2027-04-04",
+   "says": "Daily lift and ski operation from Friday 27 November 2026; extended weekend operation on the Wangs side from 20 November if there is enough snow; all lifts from 12 December; season ends Sunday 4 April 2027.",
+   "source": "https://pizol.com/planen-buchen/betriebszeiten-winter/"
+  },
+  {
+   "id": "e61adbd6",
+   "name": "Silvretta Montafon",
+   "state": "planned",
+   "date": "2026-11-27",
+   "closing": "2027-04-11",
+   "says": "Winter season 27 Nov 2026 to 11 Apr 2027, opening in stages: Valisera daily from 28 Nov, Versettla 3 Dec, Zamang daily from 4 Dec (weekend 27-29 Nov), Grasjoch daily from 12 Dec, Hochjoch and the rest 19 Dec.",
+   "source": "https://www.silvretta-montafon.at/de/info-service/oeffnungszeiten"
+  },
+  {
+   "id": "f1ae030e",
+   "name": "Pitztaler Gletscher",
+   "state": "open",
+   "date": "2026-09-26",
+   "closing": "2027-05-02",
+   "says": "Skiing on the glacier since Sat 26 Sep 2026 (season to 2 May 2027); Rifflsee lifts open 12 Dec 2026.",
+   "source": "https://www.pitztaler-gletscher.at/"
+  },
+  {
+   "id": "0e26601b",
+   "name": "Großglockner Heiligenblut",
+   "state": "planned",
+   "date": "2026-12-18",
+   "closing": "2027-04-04",
+   "says": "Winter 2026/27 operation 18 Dec 2026 to 4 Apr 2027; season opener 18 Dec with all lifts and slopes, depending on snow conditions.",
+   "source": "https://heiligenblut.at/en/winter/skigebiet-grossglockner-heiligenblut/"
+  },
+  {
+   "id": "76fbc6ed",
+   "name": "Lauchernalp",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-11",
+   "says": "Magic Pass opening dates: winter 12.12.2026 – 11.04.2027 (funicular open at weekends 08.11 – 12.12)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "ab64447a",
+   "name": "Evasion Mont Blanc",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "says": "General opening of the Evasion Mont-Blanc area on 19 December 2026, subject to weather and sufficient snow; partial openings earlier (Megève 5–6 December and from 12 December, Saint-Gervais from 12 December).",
+   "source": "https://www.evasionmontblanc.com/"
+  },
+  {
+   "id": "8556f7c9",
+   "name": "Saas Grund",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Season Opening @ Kreuzboden, Saas-Grund: 19 December 2026 (event listing on the Saastal tourism site).",
+   "source": "https://www.saas-fee.ch/en/"
+  },
+  {
+   "id": "d2e1e84c",
+   "name": "Pejo 3000",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Lifts open from 4 December 2026 to 4 April 2027",
+   "source": "https://www.skipejo.it/piste-e-impianti/impianti/"
+  },
+  {
+   "id": "97a14ced",
+   "name": "Megève",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-04",
+   "says": "General opening on Saturday 19 December 2026. Partial opening on the weekend of 5–6 December and from Saturday 12 December, subject to weather and sufficient snow. Rochebrune and Mont d'Arbois sectors close 4 April 2027.",
+   "source": "https://www.evasionmontblanc.com/"
+  },
+  {
+   "id": "d49fb763",
+   "name": "Disentis/Mustér",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-04",
+   "says": "Continuous winter operations begin 19 December 2026 (expected until 4 April 2027); first slopes and lifts open on the weekends of 28/29 November, 5/6 and 12/13 December, subject to suitable snow and weather.",
+   "source": "https://www.andermatt-sedrun-disentis.ch/en/stories/saisonsart-winter26-27"
+  },
+  {
+   "id": "f93e7406",
+   "name": "Courmayeur",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-04-11",
+   "says": "Winter season scheduled for 28 November: ski area open from 28 November 2026 to 11 April 2027",
+   "source": "https://www.courmayeur-montblanc.com/en/"
+  },
+  {
+   "id": "529fcab6",
+   "name": "Les Grands Montets",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "Chamonix tourist office \"2026–2027 Ski Area Opening Forecast\": Grands Montets ski area, November 28, 2026, depending on snow conditions.",
+   "source": "https://en.chamonix.com/infos-live"
+  },
+  {
+   "id": "097fee0c",
+   "name": "Valtournenche",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "Winter opening dates 2026/27: Valtournenche 28 November - 25 April (Breuil-Cervinia: 24 October - 2 May, already running)",
+   "source": "https://www.cervinia.it/en"
+  },
+  {
+   "id": "fb20868f",
+   "name": "See",
+   "state": "planned",
+   "date": "2026-12-11",
+   "closing": "2027-04-04",
+   "says": "Lifts in Kappl and See start the winter season together on 11 Dec 2026; season foreseen to 4 Apr 2027, changes possible depending on snow and operations.",
+   "source": "https://www.kappl-see.com/de/tickets-preise/skipasspreise-betriebszeiten"
+  },
+  {
+   "id": "989d5aae",
+   "name": "Gemsstock – Andermatt",
+   "state": "open",
+   "date": "2026-11-14",
+   "closing": "2027-04-18",
+   "says": "The 2026/27 winter season kicks off on Saturday 14 November 2026 at Gemsstock, initially on Gurschen; continuous operations planned until 18 April 2027. Skiresort.com lists Gemsstock as open on 17 Nov (2 of 4 lifts).",
+   "source": "https://www.andermatt-sedrun-disentis.ch/en/stories/saisonsart-winter26-27"
+  },
+  {
+   "id": "7c2f2690",
+   "name": "Silvretta Arena Ischgl/Samnaun",
+   "state": "planned",
+   "date": "2026-11-26",
+   "closing": "2027-05-02",
+   "says": "Winter season in Ischgl from 26 Nov 2026 to 2 May 2027.",
+   "source": "https://www.ischgl.com/de/winter"
+  },
+  {
+   "id": "99f28ade",
+   "name": "Stubaier Gletscher",
+   "state": "open",
+   "date": "2026-10-09",
+   "closing": "2027-05-17",
+   "says": "Ski season 2026/27 is running: season start 9 Oct 2026, expected end 17 May 2027 (dependent on snow and weather).",
+   "source": "https://www.stubaier-gletscher.com/skigebiet/oeffnungszeiten/"
+  },
+  {
+   "id": "13756027",
+   "name": "Corvatsch-Furtschellas",
+   "state": "planned",
+   "date": "2026-11-21",
+   "closing": "2027-04-25",
+   "says": "Corvatsch cable car (Surlej – Murtèl – Corvatsch) runs from 21.11.2026 (to 25.04.2027); Cristins ski lift from 05.12.2026; Furtschellas (Sils) from 19.12.2026 to 04.04.2027.",
+   "source": "https://www.corvatsch-diavolezza.ch/en/news-1/operating-hours"
+  },
+  {
+   "id": "3ab7375c",
+   "name": "Val Thorens - Orelle",
+   "state": "planned",
+   "date": "2026-11-21",
+   "closing": "2027-05-02",
+   "says": "Les 3 Vallées official opening dates: Val Thorens and Orelle open the 2026/27 season on 21 November 2026 (winter season to 2 May 2027).",
+   "source": "https://www.les3vallees.com/en/live/lifts-and-trails-opening"
+  },
+  {
+   "id": "5b89c3ba",
+   "name": "Kappl",
+   "state": "planned",
+   "date": "2026-12-11",
+   "closing": "2027-04-04",
+   "says": "Lifts in Kappl and See start the winter season together on 11 Dec 2026; season foreseen to 4 Apr 2027, changes possible depending on snow and operations.",
+   "source": "https://www.kappl-see.com/de/tickets-preise/skipasspreise-betriebszeiten"
+  },
+  {
+   "id": "525c3d6d",
+   "name": "Brixen Plose - Plose di Bressanone, Brixen Plose, Plose di Bressanone",
+   "state": "planned",
+   "date": "2026-12-05",
+   "says": "The Plose ski area opens on 5 December 2026",
+   "source": "https://www.plose.org/en/"
+  },
+  {
+   "id": "075db540",
+   "name": "Les Ménuires",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-18",
+   "says": "Les 3 Vallées official opening dates: Les Menuires, winter 5 December 2026 to 18 April 2027.",
+   "source": "https://www.les3vallees.com/en/live/lifts-and-trails-opening"
+  },
+  {
+   "id": "7764d597",
+   "name": "Crans-Montana",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "The ski area will partially open from Saturday 28 November 2026 and fully from 19 December 2026; the season is due to end on Sunday 4 April 2027. Opening and closing dates are subject to snow conditions.",
+   "source": "https://www.crans-montana.ch/en/?idcmt=Partenaire_news_621351bf961c389099afec0b97fb6c86"
+  },
+  {
+   "id": "4d065e67",
+   "name": "Axamer Lizum - Muttereralm",
+   "state": "planned",
+   "date": "2026-11-20",
+   "says": "Axamer Lizum: winter season 20 Nov 2026 to 11 Apr 2027 (\"back from 20.11.\"). Muttereralm (separate lifts): 4 Dec 2026 to 14 Mar 2027.",
+   "source": "https://www.axamer-lizum.at/winter"
+  },
+  {
+   "id": "c2fba992",
+   "name": "Brévent/Flégère (Chamonix)",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "Chamonix tourist office \"2026–2027 Ski Area Opening Forecast\": La Flégère November 28, 2026; Brévent December 12, 2026; both depending on snow conditions.",
+   "source": "https://en.chamonix.com/infos-live"
+  },
+  {
+   "id": "23365b5c",
+   "name": "Courchevel",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-18",
+   "says": "Les 3 Vallées official opening dates: Courchevel, winter 4 December 2026 to 18 April 2027 (Village, Moriond and La Tania from 5 December).",
+   "source": "https://www.les3vallees.com/en/live/lifts-and-trails-opening"
+  },
+  {
+   "id": "69931ad5",
+   "name": "Spieljoch - Fügen",
+   "state": "planned",
+   "date": "2026-12-11",
+   "closing": "2027-03-29",
+   "says": "Spieljochbahn operates 11 Dec 2026 to 29 Mar 2027. Times subject to weather and demand.",
+   "source": "https://www.zillertal.at/en/winter/holidays/ski-areas.html"
+  },
+  {
+   "id": "05f2a87a",
+   "name": "Nordkette",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "says": "Skiresort.com: planned start of season 19 Dec 2026. Operator: all cable cars closed for maintenance until 19 Nov 2026 and running again from 20 Nov 2026; it gives no date for ski lifts and pistes.",
+   "source": "https://www.skiresort.com/en/ski-resort/nordkette-innsbruck/snow-report/"
+  },
+  {
+   "id": "95d07bbe",
+   "name": "Kleinwalsertal-Oberstdorf",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Staged: Söllereck as early as snow allows; Fellhorn/Kanzelwand 4 Dec 2026; Ifen and Parsenn 11 Dec; Nebelhorn 12 Dec; Heuberg 18 Dec; new Walmendingerhorn lift 24 Dec.",
+   "source": "https://www.ok-bergbahnen.com/"
+  },
+  {
+   "id": "a4ab6152",
+   "name": "Skigebiet Nebelhorn",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-05-02",
+   "says": "Nebelhornbahn winter season 12 Dec 2026 to 2 May 2027.",
+   "source": "https://www.ok-bergbahnen.com/oeffnungszeiten/"
+  },
+  {
+   "id": "6cec3bb3",
+   "name": "Alpe Cermis",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Open from 28 November to 4 April 2027 ('Apertura 28.11')",
+   "source": "https://www.alpecermis.it/en/homepage/"
+  },
+  {
+   "id": "de62da63",
+   "name": "Glacier 3000",
+   "state": "open",
+   "date": "2026-11-07",
+   "closing": "2027-04-30",
+   "says": "Glacier 3000 open daily: the ski area is open daily, depending on weather conditions (news of 10 Nov 2026). Magic Pass lists the season as 07.11.2026 – 30.04.2027.",
+   "source": "https://www.glacier3000.ch/en"
+  },
+  {
+   "id": "73a929fd",
+   "name": "Meiringen - Hasliberg",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-29",
+   "says": "Magic Pass opening dates: 19.12.2026 – 29.03.2027; weekends in November, subject to snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "66e1d0ae",
+   "name": "Glungezer",
+   "state": "tentative",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Winter season 2026/27: 4 Dec 2026 to 4 Apr 2027, depending on snow; initially sections 1 and 2.",
+   "source": "https://www.glungezerbahn.at/winter/oeffnungszeiten/"
+  },
+  {
+   "id": "53410fc6",
+   "name": "Ski Arlberg",
+   "state": "planned",
+   "date": "2026-12-02",
+   "closing": "2027-04-18",
+   "says": "Season starts 2 Dec 2026 in St. Anton-St. Christoph-Stuben and Lech-Oberlech-Zürs (limited operation possible); Warth/Schröcken 4 Dec; season ends 18 Apr 2027.",
+   "source": "https://www.skiarlberg.at/en/tickets-season-times/season-times-winter"
+  },
+  {
+   "id": "66e67247",
+   "name": "St. Anton/St. Christoph/Stuben",
+   "state": "planned",
+   "date": "2026-12-02",
+   "closing": "2027-04-18",
+   "says": "Start of season 2 Dec 2026 for St. Anton - St. Christoph - Stuben (limited operation possible); end of season 18 Apr 2027.",
+   "source": "https://www.skiarlberg.at/en/tickets-season-times/season-times-winter"
+  },
+  {
+   "id": "b66cd0bd",
+   "name": "Val Thorens",
+   "state": "planned",
+   "date": "2026-11-21",
+   "closing": "2027-05-02",
+   "says": "Les 3 Vallées official opening dates: Val Thorens, winter 21 November 2026 to 2 May 2027.",
+   "source": "https://www.les3vallees.com/en/live/lifts-and-trails-opening"
+  },
+  {
+   "id": "0295b165",
+   "name": "Kronplatz - Plan de Corones, Kronplatz, Plan de Corones",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-04-11",
+   "says": "Winter season 28/11 - 11/04 (28 November 2026 to 11 April 2027)",
+   "source": "https://www.kronplatz.com/en"
+  },
+  {
+   "id": "70b5c16a",
+   "name": "Les Portes du Soleil",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-18",
+   "says": "Portes du Soleil linked area: 19 December 2026 to 18 April 2027. Sectors open earlier: Les Crosets chairlift 28 November, Châtel partially 5–6 December, Avoriaz 11 December, Les Gets 12–13 December, weather permitting.",
+   "source": "https://en.portesdusoleil.com/in-winter/opening-of-slopes-and-ski-lifts/"
+  },
+  {
+   "id": "7fda1758",
+   "name": "Zinal / Grimentz",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-11",
+   "says": "Magic Pass opening dates: Bendolla (Grimentz) and Sorebois (Zinal) at weekends from 28.11.2026, depending on snow conditions; Sorebois every day from 05.12.2026; both areas 18.12.2026 – 11.04.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "26affab6",
+   "name": "Ski Area San Pellegrino - Falcade",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Passo San Pellegrino - Falcade ski area: open from 28 November 2026 to 4 April 2027",
+   "source": "https://www.fassa.com/en/ski-lifts-slopes/ski-areas"
+  },
+  {
+   "id": "180faeea",
+   "name": "Skicircus Saalbach-Hinterglemm Leogang Fieberbrunn",
+   "state": "planned",
+   "date": "2026-11-27",
+   "closing": "2027-04-04",
+   "says": "Planned ski operation in the whole Skicircus from 27 Nov 2026 to 4 Apr 2027 (subject to change).",
+   "source": "https://www.saalbach.com/de/winter/skigebiet"
+  },
+  {
+   "id": "170c8c0d",
+   "name": "Saint-Luc - Chandolin",
+   "state": "planned",
+   "date": "2026-12-18",
+   "closing": "2027-04-11",
+   "says": "Magic Pass opening dates: winter 18.12.2026 – 11.04.2027; weekends from mid-November onwards, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "f9beaf4e",
+   "name": "Corviglia",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "Official season start on Corviglia is 28 November 2026; season-pass holders get an exclusive early opening on 27 November 2026, one day before.",
+   "source": "https://www.mountains.ch/en/events/early-season-opening"
+  },
+  {
+   "id": "10f2ef5a",
+   "name": "Les Contamines",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-10",
+   "says": "Official opening from 19 December 2026 to 10 April 2027. Partial opening on the weekend of 5–6 December and during the week of 12–18 December 2026.",
+   "source": "https://skipass.lescontamines.net/fr/forfait-contamines"
+  },
+  {
+   "id": "a654d2ce",
+   "name": "Skigebiet Petzen",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "says": "The anticipated start of the winter season is 5 December 2026.",
+   "source": "https://www.petzen.net/en"
+  },
+  {
+   "id": "37ee9c6b",
+   "name": "SkiWelt Wilder Kaiser - Brixental",
+   "state": "planned",
+   "date": "2026-12-05",
+   "says": "Open daily from 5 Dec 2026; earlier if there is enough snow.",
+   "source": "https://www.skiwelt.at/de/"
+  },
+  {
+   "id": "fca6e2a2",
+   "name": "Val Gardena, Gröden, Gherdëina",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "The lifts in Val Gardena and the Sellaronda are open from 4 December 2026 until 4 April 2027, subject to change",
+   "source": "https://www.valgardena.it/en/winter-holidays-dolomites/slopes-ski-lifts/"
+  },
+  {
+   "id": "6bce0c5b",
+   "name": "Pinzolo",
+   "state": "planned",
+   "date": "2026-12-03",
+   "closing": "2027-03-31",
+   "says": "The entire SkiArea, including Folgarida, Marilleva and Pinzolo, opens 3 December 2026; Pinzolo closes 31 March 2027; opening times may vary depending on the weather",
+   "source": "https://www.ski.it/en/news/winter-2026-27-opening-and-closing-dates"
+  },
+  {
+   "id": "1586f10a",
+   "name": "Raurisertal",
+   "state": "planned",
+   "date": "2026-12-16",
+   "says": "Season opening 16 Dec 2026 (opening prices 16-19 Dec 2026).",
+   "source": "https://www.hochalmbahnen.at/en/winter/ski-pass-prices/ski-opening-prices"
+  },
+  {
+   "id": "da74e2b8",
+   "name": "Evolène",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-21",
+   "says": "Magic Pass opening dates: Espace Dent-Blanche (Evolène) 19.12.2026 – 21.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "1eeb56a8",
+   "name": "KitzSki",
+   "state": "open",
+   "date": "2026-11-06",
+   "says": "Season opened 6 Nov 2026 at Resterkogel on stored snow: one 750 m piste, public skiing Sat and Sun only. Planned, weather permitting: Hahnenkamm weekend 21-22 Nov, regular operation from 27-28 Nov, full link 11 Dec.",
+   "source": "https://skinachrichten.de/kitzski-wieder-offen-eine-weisse-piste-in-der-gruenen-landschaft/"
+  },
+  {
+   "id": "22257846",
+   "name": "Schlick 2000",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "Lifts closed for maintenance; expected start of the winter season 28 Nov 2026.",
+   "source": "https://www.stubai.at/skigebiete/schlick2000/"
+  },
+  {
+   "id": "cecc6336",
+   "name": "Leukerbad (Torrent)",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-04",
+   "says": "Magic Pass opening dates: Torrent pre-season 05–06 and 12–17.12.2026; main season 18.12.2026 – 04.04.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "6ecf3eac",
+   "name": "Schmittenhöhe Zell am See",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Planned winter season start on the Schmittenhöhe: 4 Dec 2026.",
+   "source": "https://www.schmitten.at/de"
+  },
+  {
+   "id": "0ed67f04",
+   "name": "Unterbäch - Eischoll",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-21",
+   "says": "Magic Pass opening dates: Unterbäch 19.12.2026 – 21.03.2027 (no dates listed for Eischoll)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "6ff57b9f",
+   "name": "Gitschberg Jochtal, Rio Pusteria",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Gitschberg gondola: open from 4 December 2026 to 4 April 2027",
+   "source": "https://www.gitschberg-jochtal.com/en"
+  },
+  {
+   "id": "80f1b9fb",
+   "name": "Pila ski",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-11",
+   "says": "Subject to snow conditions, the ski season will begin on Saturday 28 November 2026 and continue until Sunday 11 April 2027",
+   "source": "https://pila.it/en/"
+  },
+  {
+   "id": "04d84a37",
+   "name": "Alta Badia",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Ski season from 4 December 2026 to 4 April 2027",
+   "source": "https://www.altabadia.org/en/"
+  },
+  {
+   "id": "6706227f",
+   "name": "Gstaad - Saanen - Rougemont",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: Eggli (Gstaad, Saanen) 19.12.2026 – 14.03.2027; Rougemont-La Videmanette weekends 05.12 – 13.12 if conditions permit, daily 19.12.2026 – 14.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "79c0a83a",
+   "name": "Skiarena Andermatt-Sedrun",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-04",
+   "says": "In the Andermatt–Oberalp Pass–Sedrun area, continuous operations are planned from 12 December 2026 to 4 April 2027.",
+   "source": "https://www.andermatt-sedrun-disentis.ch/en/stories/saisonsart-winter26-27"
+  },
+  {
+   "id": "f04f5c36",
+   "name": "Melchsee-Frutt",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-04",
+   "says": "Magic Pass opening dates: 12.12.2026 – 04.04.2027; also 05–08.12, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "064c2584",
+   "name": "La Thuile ski",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "Winter season 2026/2027: the opening of the area is planned for November 28th and will end on April 11th",
+   "source": "https://www.lathuile.it/en"
+  },
+  {
+   "id": "6fc2b7bd",
+   "name": "Sörenberg",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-29",
+   "says": "Magic Pass opening dates: 19.12.2026 – 29.03.2027; Rossweid gondola and Dorf ski lifts at weekends from 28.11.2026, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "a7104073",
+   "name": "Rifflsee",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-04",
+   "says": "Rifflsee lifts: 12 Dec 2026 to 4 Apr 2027; actual start and end may vary with snow and weather.",
+   "source": "https://www.pitztaler-gletscher.at/service/betriebszeiten-winter"
+  },
+  {
+   "id": "2443e6d5",
+   "name": "Nax - Mont Noble",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-04",
+   "says": "Magic Pass opening dates: 19.12.2026 – 04.04.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "f80221da",
+   "name": "妙高杉ノ原スキー場, Myoko Suginohara Ski Resort",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-28",
+   "says": "Operating period: Sat 19 Dec 2026 - Sun 28 Mar 2027.",
+   "source": "https://www.princehotels.co.jp/ski/myoko/winter/"
+  },
+  {
+   "id": "a2b33899",
+   "name": "Ovronnaz",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-04",
+   "says": "Magic Pass opening dates: 12.12.2026 – 04.04.2027; pre-opening weekend 05–08.12.2026",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "85720b14",
+   "name": "Skiarea San Domenico",
+   "state": "planned",
+   "date": "2026-12-05",
+   "says": "Season opening: Saturday 5 December 2026",
+   "source": "https://www.san-domenico.com/inverno/info-live/situazione-impianti/"
+  },
+  {
+   "id": "e615b3d3",
+   "name": "Val di Fassa",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Val di Fassa sectors (Belvedere-Col Rodella, Buffaure-Ciampac, Catinaccio, Carezza, Alpe Lusia) open from 4 December 2026; Passo San Pellegrino-Falcade from 28 November 2026",
+   "source": "https://www.fassa.com/en/ski-lifts-slopes/ski-areas"
+  },
+  {
+   "id": "3bfbf3fc",
+   "name": "Buffaure - Ciampac",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Buffaure - Ciampac ski area: open from 4 December 2026 to 4 April 2027",
+   "source": "https://www.fassa.com/en/ski-lifts-slopes/ski-areas"
+  },
+  {
+   "id": "45c1ed53",
+   "name": "Espace Liberté",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-04-18",
+   "says": "Châtel provisional dates: partial opening of Pré la Joux on 5–6 December; Linga / Pré la Joux and the Avoriaz link 11–18 December; whole area from 19 December 2026 to 18 April 2027. Subject to snow and operations.",
+   "source": "https://www.chatel.com/skier/dates-douverture-du-domaine-skiable/"
+  },
+  {
+   "id": "ac19567d",
+   "name": "Hochoetz-Kühtai",
+   "state": "planned",
+   "date": "2026-11-27",
+   "closing": "2027-04-11",
+   "says": "Kühtai lifts run from Fri 27 Nov 2026 to Sun 11 Apr 2027; the joint ski pass is also valid in Hochoetz from 4 Dec 2026.",
+   "source": "https://www.kuehtai.info/"
+  },
+  {
+   "id": "64aee63c",
+   "name": "Paganella, Area sciistica Andalo Fai della Paganella",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "Opening: 28 November 2026",
+   "source": "https://www.paganella.net/en"
+  },
+  {
+   "id": "8af93a64",
+   "name": "Le Grand-Bornand",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-11",
+   "says": "The ski area pre-opens on 5 and 6 December 2026; continuous opening from 12 December until 11 April 2027.",
+   "source": "https://www.legrandbornand.com/quoi-faire/sports-loisirs-bien-etre/sports-dhiver/ski-alpin/"
+  },
+  {
+   "id": "125d0233",
+   "name": "Estació d'Esquí Baqueira-Beret",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Skiresort.com: \"Planned start of season: 28 Nov 2026\" (planned end of season: 4 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/baqueira-beret/snow-report/"
+  },
+  {
+   "id": "18fc59da",
+   "name": "Avoriaz",
+   "state": "planned",
+   "date": "2026-12-11",
+   "closing": "2027-04-18",
+   "says": "The Avoriaz ski area will be open from December 11, 2026, to April 18, 2027.",
+   "source": "https://www.avoriaz.com/en/winter-activities/ski-et-snow/ski-area-opening-hours-and-times/"
+  },
+  {
+   "id": "00e3880c",
+   "name": "Ski Civetta",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Skiresort.com: planned start of season 28 Nov 2026, planned end 4 Apr 2027",
+   "source": "https://www.skiresort.com/en/ski-resort/civetta-alleghe-selva-di-cadore-palafavera-zoldo/snow-report/"
+  },
+  {
+   "id": "3768b8c9",
+   "name": "Drei Zinnen - Tre Cime, Drei Zinnen, Tre Cime",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Ski area open from 28 November 2026 to 4 April 2027",
+   "source": "https://www.dreizinnen.com/en/skiing"
+  },
+  {
+   "id": "c443cc10",
+   "name": "3 Zinnen Dolomites (Dobbiaco - San Candido - Braies - Sesto - Alta Pusteria)",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Ski area open from 28 November 2026 to 4 April 2027 (main Helm-Rotwand area; smaller village lifts later)",
+   "source": "https://www.dreizinnen.com/en/skiing"
+  },
+  {
+   "id": "337c8cd2",
+   "name": "Skigebiet Steinplatte Winklmoosalm",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "says": "Start of the winter season expected on 5 Dec 2026.",
+   "source": "https://www.steinplatte.tirol/"
+  },
+  {
+   "id": "b61605e5",
+   "name": "Champéry – Les Crosets – Champoussin – Morgins",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "We hope to welcome you from Saturday 28 November 2026 (Crosets 8 chairlift); slopes open gradually depending on snow: Champéry 5-8 and from 11 December, Morgins 12-13 December, whole Swiss sector 18 December.",
+   "source": "https://skipass-pds-ch.ch/en/hours"
+  },
+  {
+   "id": "2badaaea",
+   "name": "白馬八方尾根, Hakuba Happo One",
+   "state": "tentative",
+   "date": "2026-12-01",
+   "says": "Lift-ticket 'season-in' price period runs 1-18 Dec 2026 (high season from 19 Dec); the resort's site carries no separate opening notice. Two media lists also give 1 Dec as the scheduled opening, subject to snow.",
+   "source": "https://www.happo-one.jp/ticket/"
+  },
+  {
+   "id": "739e56f4",
+   "name": "Patscherkofel Ski",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-03-29",
+   "says": "Operation currently suspended; winter season starts 12 Dec 2026 and runs to 29 Mar 2027.",
+   "source": "https://www.patscherkofelbahn.at/"
+  },
+  {
+   "id": "7512fc8f",
+   "name": "Schönried - Saanenmöser - Zweisimmen - St. Stephan",
+   "state": "tentative",
+   "date": "2026-11-20",
+   "closing": "2027-04-04",
+   "says": "Magic Pass opening dates: Saanenmöser-Saanerslochgrat and Hornberg 20.11.2026 – 04.04.2027 if conditions permit; Schönried-Horneggli weekends from 21.11 if conditions permit; all sectors daily from 18.12.2026.",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "d6582b43",
+   "name": "Vercorin",
+   "state": "planned",
+   "date": "2026-12-18",
+   "closing": "2027-04-11",
+   "says": "Magic Pass opening dates: 18.12.2026 – 11.04.2027; weekends from 14.11, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "8a5063e3",
+   "name": "Skigebiet Fellhorn/Kanzelwand",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Fellhornbahn and Kanzelwandbahn winter season 4 Dec 2026 to 4 Apr 2027.",
+   "source": "https://www.ok-bergbahnen.com/oeffnungszeiten/"
+  },
+  {
+   "id": "c349bb23",
+   "name": "Les 7 Laux",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-29",
+   "says": "Alpine ski area open from 19 December 2026 to 29 March 2027 (Belledonne tourist office listing, updated 2 November 2026).",
+   "source": "https://www.destination-belledonne.com/offres/domaine-alpin-des-7-laux-les-sept-laux-fr-2778070/"
+  },
+  {
+   "id": "e876d1a9",
+   "name": "Bürchen - Törbel",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-21",
+   "says": "Magic Pass opening dates: Moosalp 19.12.2026 – 21.03.2027; weekends in December, subject to snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "b0a93ffd",
+   "name": "Bad Kleinkirchheim",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Planned start of the winter season 26/27: 4 Dec 2026 (day tickets valid 4 Dec 2026 to 29 Mar 2027).",
+   "source": "https://www.badkleinkirchheim.com/skigebiet/preise-oeffnungszeiten/"
+  },
+  {
+   "id": "d5e75923",
+   "name": "Tschiertschen",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-14",
+   "says": "Daily operation from 19 December 2026 to 14 March 2027; chairlifts run on the weekend of 12/13 December 2026 if there is enough snow.",
+   "source": "https://www.tschiertschen.ch/de/betriebszeiten-tarife"
+  },
+  {
+   "id": "f3b4e79c",
+   "name": "Hochzeiger",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Ski operation at Hochzeiger daily from 4 Dec 2026 to 4 Apr 2027.",
+   "source": "https://www.hochzeiger.com/de/oeffnungszeiten-hochzeiger.html"
+  },
+  {
+   "id": "c5107fc2",
+   "name": "Lech/Zürs",
+   "state": "planned",
+   "date": "2026-12-02",
+   "closing": "2027-04-18",
+   "says": "Start of season 2 Dec 2026 for Lech - Oberlech - Zürs (limited operation possible); end of season 18 Apr 2027.",
+   "source": "https://www.skiarlberg.at/en/tickets-season-times/season-times-winter"
+  },
+  {
+   "id": "b2d026c4",
+   "name": "Les Gets-Morzine",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Les Gets: 19 December, with a pre-opening of the Les Gets ski area on the weekend of 12–13 December, weather permitting. Morzine: 19 December.",
+   "source": "https://en.portesdusoleil.com/in-winter/opening-of-slopes-and-ski-lifts/"
+  },
+  {
+   "id": "dcb15d6d",
+   "name": "Seiser Alm - Mont de Sëuc - Alpe di Siusi, Seiser Alm, Alpe di Siusi, Mont de Sëuc",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "The Seiser Alm/Groeden ski area is open from 4 December 2026 to 4 April 2027",
+   "source": "https://www.seiseralm.it/en/active/winter/skiing/ski-pass.html"
+  },
+  {
+   "id": "fd830ae8",
+   "name": "Campiglio Dolomiti di Brenta",
+   "state": "planned",
+   "date": "2026-11-27",
+   "closing": "2027-04-11",
+   "says": "Early-opening weekend 21-22 November 2026 (confirmed; Groste lifts only); open all season from 27 November 2026; entire SkiArea from 3 December; until 11 April 2027; times may vary with the weather",
+   "source": "https://www.ski.it/en/news/winter-2026-27-opening-and-closing-dates"
+  },
+  {
+   "id": "3f17bde1",
+   "name": "Balme - Vallorcine",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "says": "Chamonix tourist office \"2026–2027 Ski Area Opening Forecast\": Balme–Vallorcine ski area, December 12, 2026, depending on snow conditions.",
+   "source": "https://en.chamonix.com/infos-live"
+  },
+  {
+   "id": "c75c6ca0",
+   "name": "Belvedere - Col Rodella - Passo Pordoi",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Belvedere - Col Rodella ski area: open from 4 December 2026 to 4 April 2027",
+   "source": "https://www.fassa.com/en/ski-lifts-slopes/ski-areas"
+  },
+  {
+   "id": "b63d5d59",
+   "name": "Villars/Gryon/Les Diablerets",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-11",
+   "says": "Magic Pass opening dates: Villars-Gryon and Les Diablerets both 04.12.2026 – 11.04.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "4984dcad",
+   "name": "Ski Area Alpe Lusia",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Opening 4 December 2026",
+   "source": "https://www.alpelusia.it/"
+  },
+  {
+   "id": "8262bac3",
+   "name": "Leukerbad - Gemmipass",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-18",
+   "says": "Magic Pass opening dates: Gemmi 19.12.2026 – 18.04.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "9d79e592",
+   "name": "Leysin",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-03-29",
+   "says": "Magic Pass opening dates: winter 12.12.2026 – 29.03.2027 (La Berneuse gondola at weekends 07.11 – 06.12)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "11b42733",
+   "name": "San Martino di Castrozza - Passo Rolle",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Lift table: Colbricon Express gondola from 28 Nov 2026; Tognola and the other main San Martino lifts from 4 Dec 2026 (to 4 Apr 2027); Passo Rolle chairlifts from 4 Dec; Col Verde/Rosetta from 5 Dec",
+   "source": "https://www.sanmartino.com/en/lifts-and-slopes-live-info/lifts-open"
+  },
+  {
+   "id": "46148538",
+   "name": "San Martino di Castrozza",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Lift table: Colbricon Express gondola from 28 Nov 2026; Tognola and the other main San Martino lifts from 4 Dec 2026 (to 4 Apr 2027); Passo Rolle chairlifts from 4 Dec; Col Verde/Rosetta from 5 Dec",
+   "source": "https://www.sanmartino.com/en/lifts-and-slopes-live-info/lifts-open"
+  },
+  {
+   "id": "de4f884c",
+   "name": "GrandValira",
+   "state": "tentative",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "The opening of the 2026-27 season is scheduled for December 4, 2026, although this may vary depending on weather conditions. Closing scheduled for April 4, 2027.",
+   "source": "https://www.grandvalira.com/en/resort/openning-times"
+  },
+  {
+   "id": "5ecb0638",
+   "name": "Pal-Arinsal",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "2026-27 winter season: start December 4, 2026; closing April 4, 2027.",
+   "source": "https://www.palarinsal.com/en/resort/times-calendar"
+  },
+  {
+   "id": "7bbe4370",
+   "name": "St Johann in Tirol",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "says": "Skiresort.com: planned start of season 5 Dec 2026.",
+   "source": "https://www.skiresort.com/en/ski-resort/st-johann-in-tirol-oberndorf-harschbichl/snow-report/"
+  },
+  {
+   "id": "1bba0722",
+   "name": "Kaunertaler Gletscher",
+   "state": "open",
+   "date": "2026-10-17",
+   "says": "Glacier season started Saturday 17 October (Sonnenlift, Fernerlift, Falginjochbahn, Karlesjochbahn); the Fendels winter area starts 18 December",
+   "source": "https://www.kaunertaler-gletscher.at/en/"
+  },
+  {
+   "id": "0c827a42",
+   "name": "Visperterminen",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-29",
+   "says": "Magic Pass opening dates: 19.12.2026 – 29.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "7467b4b9",
+   "name": "ニセコユナイテッド, Niseko United",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "All four areas list 28 Nov 2026 as the first day (Annupuri and Grand Hirafu to 5 May 2027, Niseko Village to 4 Apr 2027, Hanazono to 11 Apr 2027). 'Opening days and hours are subject to change.'",
+   "source": "https://www.niseko.ne.jp/en/lift/"
+  },
+  {
+   "id": "b46b8286",
+   "name": "Diavolezza-Lagalb",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Diavolezza had its autumn ski opening 24 October to 15 November 2026 (Wednesday, Saturday and Sunday only) and is shut until the winter timetable starts on 19.12.2026 (to 02.05.2027); Lagalb runs 19.12.2026 – 04.04.2027.",
+   "source": "https://www.corvatsch-diavolezza.ch/en/news-1/operating-hours"
+  },
+  {
+   "id": "5372192b",
+   "name": "Gerlosstein / Hainzenberg",
+   "state": "planned",
+   "date": "2026-12-18",
+   "closing": "2027-03-29",
+   "says": "Gerlossteinbahn operates 18 Dec 2026 to 29 Mar 2027. Times subject to weather and demand.",
+   "source": "https://www.zillertal.at/en/winter/holidays/ski-areas.html"
+  },
+  {
+   "id": "9d8adf25",
+   "name": "アライスノーリゾート, ARAI SNOW RESORT",
+   "state": "planned",
+   "date": "2026-12-12",
+   "says": "Notice dated 13 Nov 2026: 'Ski Area Opening Confirmed for Saturday, December 12, 2026!'",
+   "source": "https://www.lottehotel.com/arai-resort/en.html"
+  },
+  {
+   "id": "ea9dfe26",
+   "name": "Les Houches - Saint-Gervais",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "says": "Chamonix tourist office \"2026–2027 Ski Area Opening Forecast\": Les Houches–St. Gervais ski area, December 19, 2026. A partial opening is possible in early December, depending on snow conditions.",
+   "source": "https://en.chamonix.com/infos-live"
+  },
+  {
+   "id": "93f78af0",
+   "name": "Fendels",
+   "state": "tentative",
+   "date": "2026-12-18",
+   "says": "Kaunertal lift company news: Wintermountain Fendels ski start on 18 December. The Fendels page itself says the winter season starts in December, always depending on current snow conditions.",
+   "source": "https://www.kaunertaler-gletscher.at/en/"
+  },
+  {
+   "id": "293ceddf",
+   "name": "Orcières Merlette",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-11",
+   "says": "Season dates: from 12 December 2026 to 11 April 2027.",
+   "source": "https://www.orcieres.com/"
+  },
+  {
+   "id": "0cbcc6a3",
+   "name": "栂池高原, Tsugaike Kogen",
+   "state": "tentative",
+   "date": "2026-12-01",
+   "says": "Opening day decided: Tue 1 Dec 2026 (announced 16 Oct). The opening day may change depending on weather and snow.",
+   "source": "https://www.tsugaike.gr.jp/archives/19253"
+  },
+  {
+   "id": "aeb21ce1",
+   "name": "Monte Bondone",
+   "state": "tentative",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Lifts open from 4 December (2026) until 4 April 2027, weather permitting",
+   "source": "https://www.comune.trento.it/Novita/Comunicati/Monte-Bondone-corsi-di-sci-e-skipass-agevolati-per-i-residenti2"
+  },
+  {
+   "id": "0ae05d0d",
+   "name": "Arolla",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-18",
+   "says": "Magic Pass opening dates: Espace Dent-Blanche (Arolla) 12.12.2026 – 18.04.2027; weekends and public holidays from 21.11.2026",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "57154399",
+   "name": "Anzère",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Magic Pass opening dates: 04.12.2026 – 04.04.2027; also the weekends 21–22.11 and 28–29.11, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "aa87548d",
+   "name": "Les Portes du Mont-Blanc",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-21",
+   "says": "Ski resort open from 19 December 2026 to 21 March 2027.",
+   "source": "https://www.lesportesdumontblanc.fr/hiver/en/home-2/"
+  },
+  {
+   "id": "1de6206a",
+   "name": "Beidahu Ski Resort, 北大湖滑雪度假区",
+   "state": "open",
+   "date": "2026-11-13",
+   "says": "Trial skiing began 7 Nov; officially opened 13 Nov 2026 (two runs open on the day; two new lifts expected at the end of December).",
+   "source": "https://www.yangtse.com/news/yw/202611/t20261114_412445.html"
+  },
+  {
+   "id": "c822724e",
+   "name": "Wispile – Gstaad",
+   "state": "planned",
+   "date": "2026-12-26",
+   "closing": "2027-02-28",
+   "says": "Magic Pass opening dates: Wispile daily 26.12.2026 – 03.01.2027, then Thursday to Sunday until 28.02.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "c841118d",
+   "name": "白馬五竜, Hakuba Goryu",
+   "state": "planned",
+   "date": "2026-11-21",
+   "says": "Winter season operation starts Sat 21 Nov 2026 (announced 10 Nov). Running lifts and open runs may change at short notice with snow and weather.",
+   "source": "https://www.hakubagoryu.jp/information/news/12043/"
+  },
+  {
+   "id": "748fee00",
+   "name": "Latemar Dolomites",
+   "state": "tentative",
+   "date": "2026-11-27",
+   "says": "Winter season opening 2026/2027: Obereggen 27 November, Pampeago 28 November, Predazzo 4 December; dates subject to change depending on snow and slope conditions",
+   "source": "https://www.latemar.it/en/"
+  },
+  {
+   "id": "13ba8696",
+   "name": "Orelle",
+   "state": "planned",
+   "date": "2026-11-21",
+   "closing": "2027-05-02",
+   "says": "Les 3 Vallées official opening dates: Orelle, winter 21 November 2026 to 2 May 2027.",
+   "source": "https://www.les3vallees.com/en/live/lifts-and-trails-opening"
+  },
+  {
+   "id": "29b30f99",
+   "name": "Folgarida-Marilleva",
+   "state": "planned",
+   "date": "2026-12-03",
+   "closing": "2027-04-04",
+   "says": "The entire SkiArea, including Folgarida, Marilleva and Pinzolo, opens 3 December 2026; Folgarida Marilleva closes 4 April 2027; opening times may vary depending on the weather",
+   "source": "https://www.ski.it/en/news/winter-2026-27-opening-and-closing-dates"
+  },
+  {
+   "id": "ab796170",
+   "name": "Arabba",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "The lifts reopen in Arabba and the winter season gets underway from 4 December 2026",
+   "source": "https://www.arabba.it/en/arabba-fodom-turismo/1-0.html"
+  },
+  {
+   "id": "19b6e308",
+   "name": "Bernex",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-28",
+   "says": "Magic Pass opening dates: 19.12.2026 – 28.03.2027; also 12–13.12.2026, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "7cfdd8cc",
+   "name": "蔵王温泉スキー場, Zao Onsen Ski Resort",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-05-05",
+   "says": "Opening and ski-area opening ceremony planned for 12 Dec 2026; whether skiing is possible depends on snow. Final season runs to 5 May 2027 at the latest.",
+   "source": "https://zaomountainresort.com/chrage/"
+  },
+  {
+   "id": "21def33c",
+   "name": "Skigebiet Heuberg Arena/Walmendingerhorn",
+   "state": "planned",
+   "date": "2026-12-11",
+   "closing": "2027-04-04",
+   "says": "Parsennbahn from 11 Dec 2026, Heubergbahn (Heubergarena) from 18 Dec 2026, new Walmendingerhornbahn from 24 Dec 2026; all to 4 Apr 2027.",
+   "source": "https://www.ok-bergbahnen.com/oeffnungszeiten/"
+  },
+  {
+   "id": "29034ce2",
+   "name": "Moléson",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-02-21",
+   "says": "Magic Pass opening dates: 19.12.2026 – 21.02.2027 (weekends on summer opening hours 01.11 – 18.12.2026)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "58c88c13",
+   "name": "Hafjell",
+   "state": "planned",
+   "date": "2026-11-27",
+   "says": "Hafjell opens 27 November 2026; the alpine area is open from 27 November to 11 April (2026/2027).",
+   "source": "https://www.alpinco.com/no/hafjell/apningstider-vinter"
+  },
+  {
+   "id": "3eb5b182",
+   "name": "Hochoetz",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Ski pass valid in the Hochoetz ski area from 4 Dec 2026 (stated by the partner lift company in Kühtai).",
+   "source": "https://www.kuehtai.info/"
+  },
+  {
+   "id": "701abcf5",
+   "name": "Kvitfjell",
+   "state": "planned",
+   "date": "2026-11-27",
+   "says": "Kvitfjell opens 27 November - \"the opening date is set\" (season start in Kvitfjell 2026). Which runs and lifts open when is to be updated; the snow guarantee (at least 5 km of pistes) runs from 5 December 2026.",
+   "source": "https://www.alpinco.com/no/kvitfjell"
+  },
+  {
+   "id": "8f52a4cf",
+   "name": "Roc d'Enfer",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-28",
+   "says": "The Roc d'Enfer ski area opens for winter 2026-2027 from 19 December 2026 to 28 March 2027.",
+   "source": "https://www.rocdenfer.com/plan-et-ouverture-des-pistes-hiver/"
+  },
+  {
+   "id": "e1974296",
+   "name": "富良野スキー場, Furano ski resort, ふらのスキー場",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-05-05",
+   "says": "Start of 2026-2027 season operation planned for Sat 28 Nov 2026; operating period shown as 28 Nov 2026 - 5 May 2027.",
+   "source": "https://www.princehotels.co.jp/ski/furano/winter/"
+  },
+  {
+   "id": "14e44f00",
+   "name": "11er Neustift/Neder",
+   "state": "planned",
+   "date": "2026-12-18",
+   "says": "Closed for maintenance; planned winter start 18 Dec 2026.",
+   "source": "https://www.stubai.at/skigebiete/elferbahnen/"
+  },
+  {
+   "id": "6d8c8a9a",
+   "name": "白馬47, Hakuba 47",
+   "state": "unknown",
+   "says": "Opening date not yet announced; the resort plans to open once there is enough snow (local list, last updated 12 Nov 2026).",
+   "source": "https://www.cbhakuba.com/entry/hakuba-valley-ski-resort-opening-dates"
+  },
+  {
+   "id": "8ab6f8a4",
+   "name": "La Chapelle d'Abondance",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Opening for the 2026–2027 winter season: 19 December.",
+   "source": "https://en.portesdusoleil.com/in-winter/opening-of-slopes-and-ski-lifts/"
+  },
+  {
+   "id": "3ac13a27",
+   "name": "Norefjell",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "Fnugg listing for Norefjell Skisenter: \"Season start 28.11.26\".",
+   "source": "https://fnugg.no/norefjell/"
+  },
+  {
+   "id": "d3c7b897",
+   "name": "Thollon-les-Mémises",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-03-29",
+   "says": "Skiresort.com: \"Planned start of season: 19 Dec 2026\" (planned end of season: 29 Mar 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/thollon-les-memises/snow-report/"
+  },
+  {
+   "id": "f9ee8634",
+   "name": "Lélex",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-29",
+   "says": "Magic Pass opening dates: Monts Jura 19.12.2026 – 29.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "6dd4003a",
+   "name": "Niederhorn",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-07",
+   "says": "Magic Pass opening dates: 19.12.2026 – 07.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "d3d69f02",
+   "name": "Abondance",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Opening for the 2026–2027 winter season: 19 December.",
+   "source": "https://en.portesdusoleil.com/in-winter/opening-of-slopes-and-ski-lifts/"
+  },
+  {
+   "id": "8ff7c34b",
+   "name": "Vigo di Fassa - Ciampedie",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-03-29",
+   "says": "Catinaccio ski area (Vigo di Fassa - Ciampedie): open from 4 December 2026 to 29 March 2027",
+   "source": "https://www.fassa.com/en/ski-lifts-slopes/ski-areas"
+  },
+  {
+   "id": "27a930db",
+   "name": "Skigebiet Ifen",
+   "state": "planned",
+   "date": "2026-12-11",
+   "closing": "2027-04-04",
+   "says": "Ifenbahn from 11 Dec 2026 (Gaisbühllift from 4 Dec), to 4 Apr 2027.",
+   "source": "https://www.ok-bergbahnen.com/oeffnungszeiten/"
+  },
+  {
+   "id": "a10f8810",
+   "name": "Charmey",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-07",
+   "says": "Magic Pass opening dates: 19.12.2026 – 07.03.2027; skiing 05.12 – 13.12.2026 subject to conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "144ac3c3",
+   "name": "Valtgeva (Druni KidsArena)",
+   "state": "tentative",
+   "closing": "2027-04-04",
+   "says": "Part of the Sedrun side of the Andermatt–Oberalp Pass–Sedrun area, where continuous operations are planned from 12 December 2026 to 4 April 2027; no separate date is given for the Valtgeva children's area.",
+   "source": "https://www.andermatt-sedrun-disentis.ch/en/stories/saisonsart-winter26-27"
+  },
+  {
+   "id": "d7645928",
+   "name": "谷川岳天神平スキー場, Mt. T",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-04",
+   "says": "Operating period: Sat 19 Dec 2026 - Sun 4 Apr 2027 (announced 1 Sep 2026).",
+   "source": "https://tanigawadake-joch.com/mt-t/news/260901/"
+  },
+  {
+   "id": "4962137f",
+   "name": "Carezza",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Winter season: open from 4 December 2026",
+   "source": "https://carezza.it/en"
+  },
+  {
+   "id": "d3f67900",
+   "name": "Oppdal Skisenter",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "Oppdal opens Saturday 28 November 2026 (Vangslia up to the tree line, Hovden and Stølen shortly after); weekends only in weeks 48 and 49, daily from week 50; higher terrain as soon as there is enough snow.",
+   "source": "https://www.alpinco.com/no/oppdal/sesongstart"
+  },
+  {
+   "id": "2d73aefe",
+   "name": "Zuoz",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-03-14",
+   "says": "Skiresort.com: planned start of season 19 Dec 2026, planned end 14 Mar 2027 (not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/zuoz-pizzet-albanas/snow-report/"
+  },
+  {
+   "id": "cc230857",
+   "name": "Klewenalp - Stockhütte",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-29",
+   "says": "Magic Pass opening dates: 19.12.2026 – 29.03.2027 (pedestrians only at fine-weather weekends 07.11 – 29.11)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "4230b270",
+   "name": "Val Comelico - Padola",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "says": "dolomiti.it lift table: the Padola lifts (Cenerentola, Col d'la Tenda) have opening date 19.12.2026",
+   "source": "https://www.dolomiti.it/de/lifte/drei-zinnen-dolomiten"
+  },
+  {
+   "id": "143bc287",
+   "name": "Wiriehorn",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: winter 12.12.2026 – 14.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "fea767be",
+   "name": "Serlesbahnen",
+   "state": "tentative",
+   "says": "Lifts closed for maintenance; reopening from mid-December, no day given.",
+   "source": "https://www.stubai.at/skigebiete/serlesbahnen/"
+  },
+  {
+   "id": "17a2aed2",
+   "name": "Praz de Lys Sommand",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-04",
+   "says": "Magic Pass opening dates: 19.12.2026 – 04.04.2027; pre-opening 12–13.12.2026",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "fafa43aa",
+   "name": "Glencoe Mountain Resort",
+   "state": "unknown",
+   "says": "No ski opening date announced. The access chairlift is closed for annual maintenance \"to prepare for the coming Ski Season\" and is expected to reopen on or before 1 December (snow report of 14 November 2026).",
+   "source": "https://www.glencoemountain.co.uk/snow-report/"
+  },
+  {
+   "id": "e42b445d",
+   "name": "パルコール嬬恋リゾート スキー & ホテル, Palcall Tsumagoi Resort Ski & Hotel",
+   "state": "planned",
+   "date": "2026-12-05",
+   "says": "Winter season opening planned: 5 Dec 2026.",
+   "source": "https://palcallresort.com/"
+  },
+  {
+   "id": "3529e86a",
+   "name": "Strandafjellet",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "says": "Fnugg (the channel the resort points guests to) lists \"Season start 12.12.26\"; the resort's own site says \"Date of season start to come!\" and publishes hours only from 19 December 2026.",
+   "source": "https://fnugg.no/stranda/"
+  },
+  {
+   "id": "066c4b2d",
+   "name": "Ordino-Arcalis",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "2026-27 winter season: from 4 December 2026 to April 4, 2027.",
+   "source": "https://www.ordinoarcalis.com/en/resort/opening-times"
+  },
+  {
+   "id": "46d00760",
+   "name": "Rangger Köpfl",
+   "state": "planned",
+   "date": "2026-12-11",
+   "says": "Winter operation starts on 11 December.",
+   "source": "https://www.rangger-koepfl.at/"
+  },
+  {
+   "id": "83a6164e",
+   "name": "オニコウベスキー場, Onikobe Ski Area",
+   "state": "tentative",
+   "date": "2026-12-18",
+   "closing": "2027-03-22",
+   "says": "Operating period: Fri 18 Dec 2026 - Mon 22 Mar 2027 (planned); 18 Dec is a free-lift opening day. Open daily in season, depending on snow.",
+   "source": "https://leisure.tstar.jp/event/rlvokbs/"
+  },
+  {
+   "id": "3a47b82d",
+   "name": "Saas-Almagell - Furggstalden/Heidbodme",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-04",
+   "says": "Magic Pass opening dates: Saas-Almagell 19.12.2026 – 04.04.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "b28af962",
+   "name": "Obertauern",
+   "state": "planned",
+   "date": "2026-11-20",
+   "says": "First lifts and pistes open on Fri 20 Nov 2026 (\"Saisonstart 2026/27\"); further lifts follow step by step depending on snow.",
+   "source": "https://www.obertauern.com/index.html"
+  },
+  {
+   "id": "0f17e89d",
+   "name": "Galtür",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-11",
+   "says": "Winter season 2026/27 in Galtür (Silvapark): 4 Dec 2026 to 11 Apr 2027, lifts daily.",
+   "source": "https://www.galtuer.com/de/winter/betriebszeiten-preise/skipasspreise-silvapark"
+  },
+  {
+   "id": "36ad81f4",
+   "name": "Cristallo - Faloria",
+   "state": "tentative",
+   "says": "Winter 2026/27: Faloria-Cristallo ski lifts closed, 'see you in December' (no day given)",
+   "source": "https://faloriacristallo.it/en/"
+  },
+  {
+   "id": "eeba0704",
+   "name": "용평리조트, Yongpyong Resort",
+   "state": "unknown",
+   "says": "Targeting a late-November opening of the 2026/27 season; the exact opening day and open slopes will be decided by weather and snowmaking conditions (regional newspaper report, 22 Oct 2026).",
+   "source": "https://www.kwnews.co.kr/article/20261022500766"
+  },
+  {
+   "id": "28bc6b32",
+   "name": "Hirmentaz - Les Habères",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-21",
+   "says": "Magic Pass opening dates: Hirmentaz 19.12.2026 – 21.03.2027 (weekends in December subject to snow conditions); Les Habères from 19.12.2026",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "abe78a3d",
+   "name": "Rochers-de-Naye",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-03-29",
+   "says": "Magic Pass opening dates: 12.12.2026 – 29.03.2027 (Wednesday to Sunday; every day during the Vaud school holidays)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "0758851e",
+   "name": "舞子スノーリゾート, Maiko Snow Resort",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "The 2026-2027 season is planned to open on Sat 19 Dec.",
+   "source": "https://www.maiko-resort.com/winter/"
+  },
+  {
+   "id": "44e5bfbf",
+   "name": "Torgon",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Opening for the 2026–2027 winter season: 19 December.",
+   "source": "https://en.portesdusoleil.com/in-winter/opening-of-slopes-and-ski-lifts/"
+  },
+  {
+   "id": "a1014f93",
+   "name": "安比高原スキー場, Appi Kogen Ski Resort",
+   "state": "planned",
+   "date": "2026-12-05",
+   "says": "2026-27 winter opens 5 Dec (early season 5-18 Dec, regular 19 Dec - 28 Mar, spring to 5 May). A pre-opening is planned from 28 Nov onward, weekdays included, as soon as conditions allow, announced two days ahead.",
+   "source": "https://www.appi.co.jp/snow-mountain-resort/info/"
+  },
+  {
+   "id": "83e87ebe",
+   "name": "Jeizinen",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: 19.12.2026 – 14.03.2027; pre-opening weekend 12–13.12.2026; extra days in late March depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "712f8e14",
+   "name": "Folgaria, Area sciistica Folgaria",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "Visit Trentino lift-opening table: Folgaria - Fiorentini (Alpe Cimbra) 28 Nov 2026",
+   "source": "https://www.visittrentino.info/it/articoli/outdoor/prima-neve-in-trentino"
+  },
+  {
+   "id": "c682e7f3",
+   "name": "ニノックススノーパーク, Ninox Snow Park",
+   "state": "tentative",
+   "date": "2026-12-17",
+   "closing": "2027-03-22",
+   "says": "Operating period (planned): Thu 17 Dec 2026 - Mon 22 Mar 2027. Opening may be postponed depending on snow depth and weather.",
+   "source": "https://www.ninox.co.jp/lift/"
+  },
+  {
+   "id": "c4b221a5",
+   "name": "Les Rousses",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-03-21",
+   "says": "Magic Pass opening dates: Jura-sur-Léman (cross-border Les Rousses – La Dôle area) 05.12.2026 – 21.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "e8cdffc4",
+   "name": "星野リゾート 猫魔スキー場, Hoshino Resorts Nekoma Mountain",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "North area: 28 Nov 2026 - 9 May 2027. South area: 12 Dec 2026 - 4 Apr 2027. May change depending on snow.",
+   "source": "https://www.nekoma.co.jp/"
+  },
+  {
+   "id": "e9db6a18",
+   "name": "Grimmialp",
+   "state": "planned",
+   "date": "2026-12-25",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: 25.12.2026 – 14.03.2027; weekends, subject to snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "30e931ea",
+   "name": "志賀高原 横手山スキー場, Shiga Kogen Yokoteyama Ski Area",
+   "state": "tentative",
+   "date": "2026-11-20",
+   "says": "Opening postponed from 14 Nov (too warm for snowmaking) to Fri 20 Nov 2026, as a pre-opening on the Kaiwa slope (No. 4 lift) only. May change with weather, temperature and snow.",
+   "source": "https://yokoteyama2307.com/2026/11/13/%e3%82%aa%e3%83%bc%e3%83%97%e3%83%b3%e6%97%a5%e5%bb%b6%e6%9c%9f%e3%81%8a%e3%82%88%e3%81%b311%e6%9c%8820%e6%97%a5%e9%87%91%e3%83%97%e3%83%ac%e3%82%aa%e3%83%bc%e3%83%97%e3%83%b3%e3%81%ae%e3%81%8a/"
+  },
+  {
+   "id": "c602257d",
+   "name": "たざわ湖スキー場, Tazawako Ski Resort",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "says": "SURF&SNOW's 2026-2027 opening list gives 2026/12/19 as the planned opening day.",
+   "source": "https://surfsnow.jp/open/"
+  },
+  {
+   "id": "06d3de5f",
+   "name": "La Berra",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-03-28",
+   "says": "Magic Pass opening dates: winter 28.11.2026 – 28.03.2027, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "a61289e1",
+   "name": "松花湖滑雪场, Songhua Lake Ski Resort",
+   "state": "tentative",
+   "date": "2026-11-20",
+   "says": "Snowmaking began 21 Oct; official opening planned for 20 Nov (provincial news list, 3 Nov 2026).",
+   "source": "https://news.sina.com.cn/zx/gj/2026-11-03/doc-inixmsvy6763424.shtml"
+  },
+  {
+   "id": "0e314e14",
+   "name": "カムイスキーリンクス, Kamui Ski Links",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-04-04",
+   "says": "Planned start of season: 12 Dec 2026; planned end of season: 4 Apr 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/kamui-ski-links/snow-report/"
+  },
+  {
+   "id": "b602362c",
+   "name": "白馬コルチナ, Hakuba Cortina, 白馬岩岳コルチナ",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "says": "Listed with a planned start of operation of 12 Dec 2026 (media list, as of 9 Nov 2026).",
+   "source": "https://tabiris.com/archives/skiopen2027/"
+  },
+  {
+   "id": "a12bb085",
+   "name": "Kühtai",
+   "state": "planned",
+   "date": "2026-11-27",
+   "closing": "2027-04-11",
+   "says": "Kühtai lifts in operation from Fri 27 Nov 2026 until Sun 11 Apr 2027.",
+   "source": "https://www.kuehtai.info/"
+  },
+  {
+   "id": "24ee5141",
+   "name": "ルスツリゾートスキー場, Rusutsu Resort Ski Area",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "Early-season ticket period 1 starts Sat 28 Nov 2026 (planned) and runs to 11 Dec.",
+   "source": "https://rusutsu.com/winter-lift-tickets/"
+  },
+  {
+   "id": "1f9e24e6",
+   "name": "網張温泉スキー場, Amihari Onsen Ski Resort",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-28",
+   "says": "Open (planned) Sat 19 Dec 2026 - Sun 28 Mar 2027.",
+   "source": "https://qkamura.or.jp/iwate/ski/"
+  },
+  {
+   "id": "4ee3f352",
+   "name": "高鷲スノーパーク, Takasu Snow Park",
+   "state": "planned",
+   "date": "2026-12-11",
+   "says": "Takasu Snow Park is planned to open on Fri 11 Dec.",
+   "source": "https://www.takasu.gr.jp/"
+  },
+  {
+   "id": "e68137ff",
+   "name": "宝台樹スキー場, Hodaigi Ski Resort",
+   "state": "planned",
+   "date": "2026-12-12",
+   "says": "'27 snow season planned to open Sat 12 Dec.",
+   "source": "https://hodaigi.jp/"
+  },
+  {
+   "id": "870ba279",
+   "name": "Mijoux - La Faucille",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-29",
+   "says": "Magic Pass opening dates: Monts Jura 19.12.2026 – 29.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "18cba912",
+   "name": "白馬白馬岩岳, Hakuba Iwatake, 白馬岩岳",
+   "state": "planned",
+   "date": "2026-12-18",
+   "closing": "2027-03-28",
+   "says": "The 2026-2027 winter operating period is planned as Fri 18 Dec 2026 - Sun 28 Mar 2027.",
+   "source": "https://iwatake-mountain-resort.com/winter"
+  },
+  {
+   "id": "302846b0",
+   "name": "奥志賀高原スキー場, Shiga Kogen Okushiga Kogen Ski Area",
+   "state": "planned",
+   "date": "2026-12-12",
+   "says": "Okushiga Kogen: planned opening day Sat 12 Dec (Shiga Kogen lift association notice).",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/content-1.html"
+  },
+  {
+   "id": "e0494e78",
+   "name": "青森スプリング・スキーリゾート, Aomori Spring Resort",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "says": "SURF&SNOW's 2026-2027 opening list gives 2026/12/12 as the planned opening day.",
+   "source": "https://surfsnow.jp/open/"
+  },
+  {
+   "id": "ddb30131",
+   "name": "戸隠スキー場, Togakushi Ski Area",
+   "state": "planned",
+   "date": "2026-12-12",
+   "says": "Lift price table lists a 'ski-area opening special price' for Sat 12 Dec 2026.",
+   "source": "https://www.togakusi.com/ski/charge/"
+  },
+  {
+   "id": "ea3fb66e",
+   "name": "八幡平リゾート, Hachimantai Resort Shimokura Ski area",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Panorama and Shimokura ski areas are planned to open on 19 Dec for the 2026-27 season.",
+   "source": "https://www.hachimantai.co.jp/"
+  },
+  {
+   "id": "e0683a5f",
+   "name": "Axalp",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-29",
+   "says": "Magic Pass opening dates: 19.12.2026 – 29.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "f09b2df6",
+   "name": "Björkliden",
+   "state": "planned",
+   "date": "2027-02-04",
+   "says": "Winter and skiing season: 4 February - 2 May (opening hours for winter 2027). Until then the resort runs its northern-lights season without lift skiing.",
+   "source": "https://bjorkliden.com/om-oss/oppettider/"
+  },
+  {
+   "id": "7764bdb0",
+   "name": "La Forclaz",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-21",
+   "says": "Magic Pass opening dates: Espace Dent-Blanche (La Forclaz) 19.12.2026 – 21.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "04c79ac8",
+   "name": "神立高原スキー場, Kandatsu Kogen Ski Resort, Kandatsu kōgen sukī-ba",
+   "state": "tentative",
+   "date": "2026-12-11",
+   "says": "Operating periods (planned): pre-season Fri 11 Dec - Fri 18 Dec 2026, top season from Sat 19 Dec 2026. Periods may change depending on conditions.",
+   "source": "https://www.kandatsu.com/price/"
+  },
+  {
+   "id": "a0ff12f1",
+   "name": "Les Mosses",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: Les Mosses-La Lécherette 19.12.2026 – 14.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "351e73f4",
+   "name": "鹿島槍スキー場, Kashimayari Snow Resort",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-03-22",
+   "says": "2026-27 season operating period: 12 Dec 2026 - 22 Mar 2027.",
+   "source": "https://www.kashimayari.net/snow/tickets/"
+  },
+  {
+   "id": "36caeeb9",
+   "name": "Skigebiet Söllereck",
+   "state": "unknown",
+   "says": "Söllereckbahn starts the winter season as early as possible, as soon as snow conditions allow; no day set. Season to 4 Apr 2027.",
+   "source": "https://www.ok-bergbahnen.com/oeffnungszeiten/"
+  },
+  {
+   "id": "1c25cf66",
+   "name": "Krvavec",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-18",
+   "says": "Skiresort.com: \"Planned start of season: 28 Nov 2026\"; planned end of season: 18 Apr 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/krvavec/snow-report/"
+  },
+  {
+   "id": "3bb19df7",
+   "name": "Mörlialp",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: 19.12.2026 – 14.03.2027; weekends in December, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "9e9a84ef",
+   "name": "白馬乗鞍スキー場, Hakuba Norikura Onsen Ski Resort, はくばのりくらスキーじょう",
+   "state": "planned",
+   "date": "2026-12-12",
+   "says": "Ski area planned to open on 12 Dec.",
+   "source": "https://www.hakunori.com/"
+  },
+  {
+   "id": "2d044465",
+   "name": "戸狩温泉スキー場, Togari Onsen Ski Resort",
+   "state": "planned",
+   "date": "2026-12-18",
+   "says": "Operator's press release (resort summary): planned to open from 18 Dec 2026.",
+   "source": "https://prtimes.jp/main/html/rd/p/000000004.000173853.html"
+  },
+  {
+   "id": "04363b99",
+   "name": "Sattel-Hochstuckli",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-07",
+   "says": "Magic Pass opening dates: ski area 19.12.2026 – 07.03.2027; weekends and public holidays 28.11 – 18.12.2026 subject to snow conditions (gondola daily from 28.11)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "894ab14e",
+   "name": "志賀高原 焼額山スキー場, Shiga Kogen Yakebitaiyama Ski Area, 焼額山スキー場",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-05-05",
+   "says": "Pre-opening planned for Fri 4 Dec 2026; operating period shown as 4 Dec 2026 - 5 May 2027. The Shiga Kogen opening festival is held here on Sat 5 Dec.",
+   "source": "https://www.princehotels.co.jp/ski/shiga/winter/"
+  },
+  {
+   "id": "25d31b46",
+   "name": "密苑云顶乐园, Yunding Resort Secret Garden, 云顶滑雪公园",
+   "state": "tentative",
+   "date": "2026-11-06",
+   "says": "Planned to open officially on 6 Nov 2026 (Securities Daily via china.com.cn, 11 Nov 2026). That date has passed and no fetched page confirms the resort is open.",
+   "source": "http://travel.china.com.cn/txt/2026-11/11/content_118770066.shtml"
+  },
+  {
+   "id": "a04941fa",
+   "name": "名寄市ピヤシリシャンツェ, PIYASHIRI NAYORO SNOW PARK",
+   "state": "planned",
+   "date": "2026-12-11",
+   "says": "2026-27 season planned to open Fri 11 Dec.",
+   "source": "https://www.nayoro.co.jp/piyashiri/"
+  },
+  {
+   "id": "323af836",
+   "name": "鷲ヶ岳スキー場, Washigatake Ski Area",
+   "state": "planned",
+   "date": "2026-11-21",
+   "says": "Planned start of the 2026-2027 season: Sat 21 Nov 2026 (announced 11 Aug).",
+   "source": "https://ski.washigatake.jp/news/2026/08/11/5655/"
+  },
+  {
+   "id": "37743c0e",
+   "name": "ダイナランドスキー場, Dynaland Ski Area",
+   "state": "planned",
+   "date": "2026-12-05",
+   "says": "The 2026-2027 season opens Sat 5 Dec.",
+   "source": "https://www.dynaland.co.jp/"
+  },
+  {
+   "id": "dd96ad5d",
+   "name": "Bumbach",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-07",
+   "says": "Magic Pass opening dates: 19.12.2026 – 07.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "f1abda33",
+   "name": "Geto Kogen",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "Opening planned for Sat 28 Nov (2026-27 season); may be postponed depending on snow.",
+   "source": "https://www.getokogen.com/winter/"
+  },
+  {
+   "id": "23aa5ae8",
+   "name": "L'Abbaye",
+   "state": "unknown",
+   "says": "Magic Pass opening dates: Vallée de Joux: \"Depending on snow conditions\" (no date)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "b7e060a1",
+   "name": "斑尾高原スキー場, Madarao Kogen Mountain Resort",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-03-28",
+   "says": "Winter operation planned to start Sat 12 Dec 2026 (to 28 Mar 2027); may change with snow and weather. Some lifts start 19 or 26 Dec; no lift link to Tangram before 19 Dec.",
+   "source": "https://www.madarao.jp/11200"
+  },
+  {
+   "id": "db44144d",
+   "name": "八幡平リゾート パノラマスキー場, Hachimantai Resort Panorama Ski Are",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Panorama and Shimokura ski areas are planned to open on 19 Dec for the 2026-27 season.",
+   "source": "https://www.hachimantai.co.jp/"
+  },
+  {
+   "id": "74b11097",
+   "name": "Engstligenalp",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-05-02",
+   "says": "Ski operation daily from 19.12.2026 (to 02.05.2027); the cable car runs daily on the winter timetable from 25.11.2026.",
+   "source": "https://engstligenalp.ch/winter/betriebsinfo/"
+  },
+  {
+   "id": "f8a13510",
+   "name": "Metabief - Mont d'or",
+   "state": "planned",
+   "date": "2026-12-18",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: 18.12.2026 – 14.03.2027; weekends 05–06.12 and 12–13.12.2026, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "e5e2e92a",
+   "name": "マウントレースイスキー場, Mount Racey",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-03-28",
+   "says": "Season period: Sat 5 Dec 2026 - Sun 28 Mar 2027.",
+   "source": "https://yubari-resort.co.jp/"
+  },
+  {
+   "id": "7b9ebd11",
+   "name": "Stöten i Sälen",
+   "state": "planned",
+   "date": "2026-12-10",
+   "says": "The 2026/2027 season is 10 December - 11 April; Grand Opening weekend 10-13 December 2026.",
+   "source": "https://www.stoten.se/oppettider/"
+  },
+  {
+   "id": "92ec4cdf",
+   "name": "Glenshee Ski Center",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "says": "\"We plan to open from 19th Dec for winter sports\"; tickets on sale online from 1 December.",
+   "source": "https://www.ski-glenshee.co.uk/Winter"
+  },
+  {
+   "id": "45a94035",
+   "name": "Massif des Brasses",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-21",
+   "says": "Magic Pass opening dates: 19.12.2026 – 21.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "cb23e267",
+   "name": "スノーリゾート ロマンスの神様, The Cupid of Romance",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "says": "Listed with a planned start of operation of 12 Dec 2026 (media list, as of 9 Nov 2026).",
+   "source": "https://tabiris.com/archives/skiopen2027/"
+  },
+  {
+   "id": "e410120f",
+   "name": "Sigriswill-Schwanden",
+   "state": "tentative",
+   "date": "2026-11-27",
+   "closing": "2027-03-22",
+   "says": "Magic Pass opening dates: 27.11.2026 – 22.03.2027, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "b457f7e1",
+   "name": "Riksgränsen",
+   "state": "planned",
+   "date": "2027-02-18",
+   "says": "Winter season 2027: 18 February - 23 May.",
+   "source": "https://riksgransen.se/om-oss/oppettider-vintersasong/"
+  },
+  {
+   "id": "9e5f29a0",
+   "name": "Ski Center Lavarone",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-03-21",
+   "says": "Skiresort.com: planned start of season 5 Dec 2026, planned end 21 Mar 2027",
+   "source": "https://www.skiresort.com/en/ski-resort/lavarone/snow-report/"
+  },
+  {
+   "id": "59d4e1df",
+   "name": "Sainte-Croix / Les Rasses",
+   "state": "tentative",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: December – 14.03.2027, depending on snow conditions (no opening day given)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "9bb5e653",
+   "name": "志賀高原 西館山スキー場, Shiga Kogen Nishidateyama Ski Area",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "d7f20666",
+   "name": "奥中山高原スキー場, Okunakayamakogen Ski Area",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-28",
+   "says": "2026-2027 operating period: Sat 19 Dec 2026 - Sun 28 Mar 2027.",
+   "source": "https://www.okunakayamakogen.jp/winter-season/%e5%96%b6%e6%a5%ad%e6%99%82%e9%96%93-2/"
+  },
+  {
+   "id": "ece5006c",
+   "name": "白馬さのさか, Hakuba Sanosaka Snow Resort",
+   "state": "tentative",
+   "date": "2026-12-18",
+   "says": "Local list (updated 12 Nov 2026): 'WHITE RESORT HAKUBA SANOSAKA — Scheduled to open on December 18, 2026.' Opening dates may change depending on snowfall.",
+   "source": "https://www.cbhakuba.com/entry/hakuba-valley-ski-resort-opening-dates"
+  },
+  {
+   "id": "8e91d398",
+   "name": "Alpinsenteret i Raudalen",
+   "state": "tentative",
+   "date": "2026-12-16",
+   "says": "Raudalen: opens 16 December 2026 (lifts from 10:00 all season). All times subject to weather, snow and operating conditions.",
+   "source": "https://beito.com/apningstider-for-heisen/"
+  },
+  {
+   "id": "c8a21c0d",
+   "name": "Passo Rolle",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Passo Rolle chairlifts (Paradiso, Cimon, Ferrari) listed 4 December 2026 - 4 April 2027",
+   "source": "https://www.sanmartino.com/en/lifts-and-slopes-live-info/lifts-open"
+  },
+  {
+   "id": "fb7f7f62",
+   "name": "ムイカスノーリゾート, Muica Snow Resort",
+   "state": "planned",
+   "date": "2026-12-24",
+   "says": "This season's operation is planned to start on 24 Dec.",
+   "source": "https://www.muikamachi.com/ski/"
+  },
+  {
+   "id": "6ff3d800",
+   "name": "Levin hiihtokeskus, Levi Ski Resort",
+   "state": "open",
+   "date": "2026-10-02",
+   "says": "Levi's 2026-2027 winter season started on 2 October 2026 on the Front Slopes with stored snow; more slopes open as the winter progresses (new terrain on the South Slopes from Friday 20 November).",
+   "source": "https://www.levi.fi/laskettelu-ja-hiihto/rinteet-ja-hissit/"
+  },
+  {
+   "id": "ad3bc44d",
+   "name": "ホワイトピアたかす, WhitePIA Takasu",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "26-27 season planned to open Sat 28 Nov, with an opening event.",
+   "source": "https://whitepia.jp/"
+  },
+  {
+   "id": "973e1ccd",
+   "name": "志賀高原 一の瀬ファミリースキー場, Shiga Kogen Ichinose Family Ski Area",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "bc5ba234",
+   "name": "Strandafjellet skisenter",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "says": "Fnugg (the channel the resort points guests to) lists \"Season start 12.12.26\"; the resort's own site says \"Date of season start to come!\" and publishes hours only from 19 December 2026.",
+   "source": "https://fnugg.no/stranda/"
+  },
+  {
+   "id": "b609f3d8",
+   "name": "Gspon",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-06",
+   "says": "Magic Pass opening dates: 19.12.2026 – 06.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "e875d3c5",
+   "name": "Hohwald Beatenberg",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-07",
+   "says": "Magic Pass opening dates: 19.12.2026 – 07.03.2027; weekends from 28.11, snow conditions permitting",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "490be64d",
+   "name": "志賀高原 東館山スキー場, Shiga Kogen Higashidateyama Ski Area",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "2f49ef26",
+   "name": "Les Rousses",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-03-21",
+   "says": "Magic Pass opening dates: Jura-sur-Léman (cross-border Les Rousses – La Dôle area) 05.12.2026 – 21.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "4284b8c9",
+   "name": "Le Brassus",
+   "state": "unknown",
+   "says": "Magic Pass opening dates: Vallée de Joux: \"Depending on snow conditions\" (no date)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "d134dedf",
+   "name": "Gatrisch - Selital",
+   "state": "unknown",
+   "says": "Magic Pass opening dates: Selital: \"Depending on snow conditions\" (no date)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "a3f7c06c",
+   "name": "ピヤシリスキー場, Nayoro Piyashiri",
+   "state": "planned",
+   "date": "2026-12-11",
+   "says": "2026-27 season planned to open Fri 11 Dec.",
+   "source": "https://www.nayoro.co.jp/piyashiri/"
+  },
+  {
+   "id": "78f4bcb9",
+   "name": "Rathvel",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: 05.12.2026 – 14.03.2027, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "d007ecfc",
+   "name": "Hohe Winde",
+   "state": "unknown",
+   "says": "Magic Pass opening dates: no dates: runs Wednesday afternoons, Saturdays and Sundays and daily in school holidays, subject to snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "478e5161",
+   "name": "キューピットバレイスキー場, Cupid Valley Ski Area",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-28",
+   "says": "Operating period: Sat 19 Dec 2026 - Sun 28 Mar 2027 (planned); closed 23-26 Mar 2027.",
+   "source": "https://www.yukidaruma-kogen.com/winter/course.html"
+  },
+  {
+   "id": "7f293fdd",
+   "name": "La Serra",
+   "state": "tentative",
+   "says": "The Station des Rousses alpine ski area (Jura sur Léman, which includes the La Serra massif) is closed: \"see you in December 2026\". No day is given.",
+   "source": "https://www.lesrousses.com/station-des-rousses-hiver/ski-alpin-jura-sur-leman/"
+  },
+  {
+   "id": "f7ad90ac",
+   "name": "志賀高原 熊の湯スキー場, Shiga Kogen Kumanoyu Ski Area",
+   "state": "tentative",
+   "says": "Kumanoyu's own lift page gives only the Shiga Kogen common lift-ticket period (Sat 5 Dec 2026 - Wed 5 May 2027) and no opening day of its own.",
+   "source": "https://www.kumanoyu.co.jp/lift/"
+  },
+  {
+   "id": "f62b32b5",
+   "name": "志賀高原 ジャイアントスキー場, Shiga Kogen Giant Ski Area",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "ecaa20e8",
+   "name": "L'Orient",
+   "state": "unknown",
+   "says": "Magic Pass opening dates: Vallée de Joux: \"Depending on snow conditions\" (no date)",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "a49c1598",
+   "name": "爺ガ岳スキー場, Jiigatake Snow Resort",
+   "state": "tentative",
+   "date": "2026-12-11",
+   "says": "Local list (updated 12 Nov 2026): 'JIIGATAKE SKI RESORT — Scheduled to open on December 11, 2026.' Opening dates may change depending on snowfall.",
+   "source": "https://www.cbhakuba.com/entry/hakuba-valley-ski-resort-opening-dates"
+  },
+  {
+   "id": "eb95f5e3",
+   "name": "Les Pléiades",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: Les Pléiades 12.12.2026 – 14.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "5c741ffb",
+   "name": "キャンモア・スキービレッジ, Canmore Ski Resort",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "says": "'26-27 season: 12.19 OPEN!!' May change depending on snow.",
+   "source": "https://www.canmore-ski.jp/"
+  },
+  {
+   "id": "6783f692",
+   "name": "湯沢中里スキーリゾート, Yuzawa Nakazato Ski Resort",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-28",
+   "says": "Operating period (planned): 19 Dec 2026 - 28 Mar 2027.",
+   "source": "https://www.yuzawa-nakazato.com/winter/fee/"
+  },
+  {
+   "id": "fed642df",
+   "name": "志賀高原 発哺ブナ平スキー場, Shiga Kogen Hoppo Bunadaira Ski Area, 発哺ブナ平スキー場",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "6da2b2a9",
+   "name": "志賀高原 高天ヶ原マンモススキー場, Shiga Kogen Takamagahara Mammoth Ski Area, 高天ヶ原マンモススキー場",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "9ebf3503",
+   "name": "Rukatunturi, Ruka",
+   "state": "open",
+   "date": "2026-10-02",
+   "closing": "2027-05-02",
+   "says": "Ruka's winter season starts 2 October 2026; the slopes are open 2 October 2026 - 2 May 2027. Home page: \"Ruka's winter season is already under way!\"",
+   "source": "https://www.ruka.fi/fi/hiihtokeskus/rinteet"
+  },
+  {
+   "id": "63a16704",
+   "name": "Beitostølen Skisenter",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "says": "Regular lift hours 09:30-15:30 on 5-6 December 2026 (first weekend), then daily from 12 December 2026 to 12 February 2027. Subject to weather, snow and operating conditions.",
+   "source": "https://beito.com/apningstider-for-heisen/"
+  },
+  {
+   "id": "d762c4dc",
+   "name": "Les Planards (Chamonix)",
+   "state": "tentative",
+   "says": "Currently closed; reopening mid-December (latest post in the feed on the official site). No day is given.",
+   "source": "https://www.planards.fr/en/homepage-alpin-coaster-attractions-park/"
+  },
+  {
+   "id": "cebc1494",
+   "name": "Pyhä Ski Resort",
+   "state": "planned",
+   "date": "2026-11-27",
+   "says": "Normal opening hours 2026-2027 begin 27 November: 27.11.-17.12. open 10-17.",
+   "source": "https://www.pyha.fi/fi/hiihtokeskus/rinteet"
+  },
+  {
+   "id": "bf9a1316",
+   "name": "志賀高原 サンバレースキー場, Shiga Kogen Sun Valley Ski Area",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "87b83d28",
+   "name": "志賀高原 寺小屋スキー場, Shiga Kogen Terakoya Ski Area",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "782ff266",
+   "name": "Saint-Cergue",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: 12.12.2026 – 14.03.2027, depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "4b7aa57a",
+   "name": "志賀高原 渋峠スキー場, Shiga Kogen Shibutoge Ski Area",
+   "state": "tentative",
+   "says": "Yokoteyama-Shibutoge pre-opens Fri 20 Nov 2026 (postponed from 14 Nov) with only the Kaiwa slope (No. 4 lift) planned; the notice does not say when the Shibutoge slopes open.",
+   "source": "https://yokoteyama2307.com/2026/11/13/%e3%82%aa%e3%83%bc%e3%83%97%e3%83%b3%e6%97%a5%e5%bb%b6%e6%9c%9f%e3%81%8a%e3%82%88%e3%81%b311%e6%9c%8820%e6%97%a5%e9%87%91%e3%83%97%e3%83%ac%e3%82%aa%e3%83%bc%e3%83%97%e3%83%b3%e3%81%ae%e3%81%8a/"
+  },
+  {
+   "id": "37d45663",
+   "name": "Vormaine",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-11",
+   "says": "Ski area open from 19 December 2026 to 11 April 2027 (partial opening on 12 December 2026, depending on snow conditions).",
+   "source": "https://www.lavormaine.com/domaine-skiable-vormaine-hiver/"
+  },
+  {
+   "id": "d5e32566",
+   "name": "Grenchenberg",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "says": "Magic Pass opening dates: Wednesday afternoons, Saturdays and Sundays from 12.12.2026, daily 21.12.2026 – 03.01.2027; all depending on snow conditions",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "ea53f7cb",
+   "name": "志賀高原 丸池スキー場, Shiga Kogen Maruike Ski Area",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "46dace15",
+   "name": "志賀高原 一の瀬ダイヤモンドスキー場, Shiga Kogen Ichinose Diamond Ski Area",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "8e31aee7",
+   "name": "志賀高原 タンネの森 オコジョスキー場, Shiga Kogen Tannenomori Okojo Ski Area",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "0b454312",
+   "name": "志賀高原 蓮池スキー場, Shiga Kogen Hasuike Ski Area",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "956c33e7",
+   "name": "志賀高原 一の瀬山の神スキー場, Shiga Kogen Ichinose Yamanokami Ski Area",
+   "state": "tentative",
+   "says": "Shiga Kogen's common lift-ticket season is Sat 5 Dec 2026 - Wed 5 May 2027; the lift association states no opening day for this individual area.",
+   "source": "https://shigakogen-ski.or.jp/winter/news/2026/11/2026-2027.html"
+  },
+  {
+   "id": "c733395f",
+   "name": "Les Pléiades",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-03-14",
+   "says": "Magic Pass opening dates: Les Pléiades 12.12.2026 – 14.03.2027",
+   "source": "https://www.magicpass.ch/en/stations"
+  },
+  {
+   "id": "0476a1aa",
+   "name": "Les Deux Alpes",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-05-02",
+   "says": "Winter season 28 November 2026 – 2 May 2027.",
+   "source": "https://www.les2alpes.com/hiver/"
+  },
+  {
+   "id": "1164f5d4",
+   "name": "Alpe d'Huez Grand Domaine",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-25",
+   "says": "The 2026-2027 winter season starts on Saturday 5 December 2026 and ends on Sunday 25 April 2027, with closing dates that differ by sector.",
+   "source": "https://skipass.alpedhuez.com/blog/ouverture-domaine/"
+  },
+  {
+   "id": "93786d96",
+   "name": "La Grave",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-05-02",
+   "says": "Open from 19 December 2026 until 2 May 2027.",
+   "source": "https://la-grave.com/hiver-tarifs-horaires/"
+  },
+  {
+   "id": "d9ac8983",
+   "name": "Mürren/Schilthorn",
+   "state": "unknown",
+   "says": "Jungfrau Ski Region (incl. Mürren-Schilthorn): the start of winter operation has not yet been determined and depends on snow and weather; weekend-only operation expected until the end of November, snow permitting.",
+   "source": "https://www.jungfrau.ch/en-gb/jungfrau-ski-region/"
+  },
+  {
+   "id": "97e9df8f",
+   "name": "Engelberg Titlis",
+   "state": "tentative",
+   "date": "2026-10-29",
+   "closing": "2027-05-02",
+   "says": "Skiresort.com: planned start of season 29 Oct 2026, planned end 2 May 2027; shown as temporarily closed on 17 Nov 2026 (0 of 70 km open). The operator's own site could not be read.",
+   "source": "https://www.skiresort.com/en/ski-resort/titlis-engelberg/snow-report/"
+  },
+  {
+   "id": "91c44085",
+   "name": "Paradiski",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-17",
+   "says": "Paradiski area open from 12 December 2026 to 17 April 2027.",
+   "source": "https://paradiski.com/"
+  },
+  {
+   "id": "dec537b6",
+   "name": "Les Arcs",
+   "state": "planned",
+   "date": "2026-12-12",
+   "says": "The ski area opens on 12 December 2026.",
+   "source": "https://www.lesarcs.com/fr"
+  },
+  {
+   "id": "53a8bb06",
+   "name": "Ski amadé",
+   "state": "tentative",
+   "says": "Staged across the alliance (expected dates, subject to change): Reiteralm 19 Nov 2026, Planai 20 Nov, Zauchensee and Gastein 27 Nov, Snow Space, Hauser Kaibling and Hochkönig 28 Nov, Großarltal-Dorfgastein 4 Dec.",
+   "source": "https://www.skiamade.com/de/live-infos/winterbetriebszeiten"
+  },
+  {
+   "id": "d5ff708c",
+   "name": "Laax",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "Start of winter season on Saturday 28 November 2026 (season-opening weekend 28–29 November); daily winter sports operations start Saturday 5 December 2026.",
+   "source": "https://www.laax.com/en"
+  },
+  {
+   "id": "a6e33a70",
+   "name": "Tignes - Val d'Isère",
+   "state": "tentative",
+   "date": "2026-11-21",
+   "closing": "2027-05-02",
+   "says": "Tignes opens progressively from 21 November 2026, then the area linked with Val d'Isère from 28 November, subject to favourable snow conditions. Tignes winter season: 21 November 2026 to 2 May 2027.",
+   "source": "https://www.tignes.net/ouvertures-station"
+  },
+  {
+   "id": "f47f7e05",
+   "name": "La Plagne",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-17",
+   "says": "Paradiski area (La Plagne and Les Arcs) open from 12 December 2026 to 17 April 2027.",
+   "source": "https://paradiski.com/"
+  },
+  {
+   "id": "d45b83e0",
+   "name": "Bormio Ski",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "The ski area of Bormio is closed; new winter season: 'See you starting from December 4th'",
+   "source": "https://www.bormioski.eu/en/info-lifts-and-slopes/"
+  },
+  {
+   "id": "17756f84",
+   "name": "Aletsch Arena",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-03",
+   "says": "Winter season 5 December 2026 until 3 April 2027; exclusive ski day for season-pass holders on Friday 4 December 2026 (Flesch chairlift, Fiescheralp).",
+   "source": "https://www.aletscharena.ch/en/planning-booking/travel-mobility/timetable-season-times"
+  },
+  {
+   "id": "403c8d67",
+   "name": "Parsenn",
+   "state": "planned",
+   "date": "2026-11-20",
+   "closing": "2027-04-04",
+   "says": "Parsenn Davos: weekend operation 13–15 November 2026, continuous operation 20 November 2026 – 4 April 2027. Parsenn Klosters side: weekend operation 27–29 November, continuous from 4 December 2026.",
+   "source": "https://www.davosklostersmountains.ch/en/mountains/winter/live-info/current-operating-infos"
+  },
+  {
+   "id": "efaa82d7",
+   "name": "Le Grand Massif",
+   "state": "planned",
+   "date": "2026-12-05",
+   "says": "Flaine opens daily from Saturday 5 December; Les Carroz and Samoëns join the following weekend (Saturday 12 December); Morillon and Sixt are planned from Saturday 19 December.",
+   "source": "https://www.grand-massif.com/ouverture-domaine/"
+  },
+  {
+   "id": "d1b585cc",
+   "name": "Espace Haute Maurienne Vanoise",
+   "state": "tentative",
+   "says": "Not one linked area; its resorts open separately (dates announced by the resorts, subject to weather and snow): Aussois and Val Cenis 12 December 2026, Valfréjus 16 December, La Norma and Bonneval-sur-Arc 19 December.",
+   "source": "https://www.france-montagnes.com/experiences/dates-douvertures-des-domaines-skiables-saison-26-27/"
+  },
+  {
+   "id": "9e8a0910",
+   "name": "Gletscher-Skigebiet Zugspitze, Ski resort Zugspitze",
+   "state": "tentative",
+   "date": "2026-11-27",
+   "says": "Skiresort.com: planned start of season 27 Nov 2026. Operator: cable car and glacier lift under maintenance 16-20 and 23-26 Nov 2026; it gives the ski season only as early December to early May, depending on snow.",
+   "source": "https://www.skiresort.com/en/ski-resort/zugspitze/snow-report/"
+  },
+  {
+   "id": "4ae9b0cb",
+   "name": "Arosa Lenzerheide",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-11",
+   "says": "Winter pre-season 28 November to 18 December 2026: daily partial operation, depending on weather and snow; full daily operation from 19 December 2026. Dates are the earliest possible and may change at short notice.",
+   "source": "https://arosalenzerheide.swiss/en/Ski-Area/Lift-Company/Operating-hours"
+  },
+  {
+   "id": "f8176e48",
+   "name": "La Rosière",
+   "state": "planned",
+   "date": "2026-12-12",
+   "says": "\"We expect you from 12 December.\"",
+   "source": "https://www.larosiere.net/"
+  },
+  {
+   "id": "e587928e",
+   "name": "Serfaus Fiss Ladis",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "\"Snow start\" period 4-18 Dec 2026, when possibly not all lifts are running; main season from 19 Dec 2026.",
+   "source": "https://www.serfaus-fiss-ladis.at/de/winterurlaub/saison-und-oeffnungszeiten"
+  },
+  {
+   "id": "8d276328",
+   "name": "Lienzer Bergbahnen",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "says": "Skiresort.com: planned start of season 5 Dec 2026 (Zettersfeld - Lienz).",
+   "source": "https://www.skiresort.com/en/ski-resort/zettersfeld-lienz/snow-report/"
+  },
+  {
+   "id": "6f516f75",
+   "name": "Goldeck",
+   "state": "planned",
+   "date": "2026-12-18",
+   "closing": "2027-03-21",
+   "says": "Season opening 18 Dec 2026 at the latest; winter operation 18 Dec 2026 to 21 Mar 2027; earlier opening possible depending on snow and weather.",
+   "source": "https://www.sportberg-goldeck.com/en/"
+  },
+  {
+   "id": "24863fea",
+   "name": "Vals",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-04-04",
+   "says": "Skiresort.com: planned start of season 19 Dec 2026, planned end of season 4 Apr 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/vals-dachberg/snow-report/"
+  },
+  {
+   "id": "f9d49079",
+   "name": "Flumserberg",
+   "state": "unknown",
+   "says": "The start of the winter season at Flumserberg is flexible: it starts as soon as snow conditions allow, usually between mid-November and early December. All lifts were closed on 17 November 2026.",
+   "source": "https://www.flumserberg.ch/Operating-hours"
+  },
+  {
+   "id": "94cb050e",
+   "name": "Serre-Chevalier",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-04-18",
+   "says": "Winter 2026-2027: open from 5 December 2026 to 18 April 2027. Saturday 5 December: Chantemerle, Villeneuve and Monêtier sectors; Saturday 12 December: Briançon sector. Subject to changes and snow conditions.",
+   "source": "https://www.serre-chevalier.com/"
+  },
+  {
+   "id": "d68b7ce7",
+   "name": "Klausberg Skiarena",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Skiworld Ahrntal (Klausberg & Speikboden) winter season: 4 December 2026 to 4 April 2027",
+   "source": "https://www.skiworldahrntal.it/en/winter/"
+  },
+  {
+   "id": "bdd08a03",
+   "name": "Bansko",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-04-11",
+   "says": "Skiresort.com: \"Planned start of season: 12 Dec 2026\"; planned end of season: 11 Apr 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/bansko/snow-report/"
+  },
+  {
+   "id": "775634f8",
+   "name": "Les Sybelles",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-04-09",
+   "says": "Skiresort.com: \"Planned start of season: 12 Dec 2026\" (planned end of season: 9 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/les-sybelles-le-corbier-la-toussuire-les-bottieres-st-sorlin-st-jean-darves/snow-report/"
+  },
+  {
+   "id": "c9f7bd1f",
+   "name": "Scuol Motta Naluns",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-04-04",
+   "says": "Skiresort.com: planned start of season 12 Dec 2026, planned end of season 4 Apr 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/scuol-motta-naluns/snow-report/"
+  },
+  {
+   "id": "3669872c",
+   "name": "Kals-Matrei",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-04",
+   "says": "Kals and Matrei: 5 Dec 2026 to 4 Apr 2027.",
+   "source": "https://www.gg-resort.at/"
+  },
+  {
+   "id": "94a0f07c",
+   "name": "Freesports Arena Dachstein Krippenstein",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Start of winter season 19 Dec 2026; all facilities currently closed.",
+   "source": "https://www.dachstein-salzkammergut.com/en"
+  },
+  {
+   "id": "c1ae8c3b",
+   "name": "Madrisa",
+   "state": "planned",
+   "date": "2026-12-18",
+   "closing": "2027-03-29",
+   "says": "Madrisa: continuous operation 18 December 2026 – 29 March 2027.",
+   "source": "https://www.davosklostersmountains.ch/en/mountains/winter/live-info/current-operating-infos"
+  },
+  {
+   "id": "65838d5e",
+   "name": "Speikboden",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Skiworld Ahrntal (Klausberg & Speikboden) winter season: 4 December 2026 to 4 April 2027",
+   "source": "https://www.skiworldahrntal.it/en/winter/"
+  },
+  {
+   "id": "1d111e03",
+   "name": "Grindelwald - Wengen (Kleine Scheidegg - Männlichen)",
+   "state": "unknown",
+   "says": "Jungfrau Ski Region: the start of winter operation has not yet been determined and depends on snow and weather; until the end of November operation is expected only or partly at weekends, depending on snow.",
+   "source": "https://www.jungfrau.ch/en-gb/jungfrau-ski-region/"
+  },
+  {
+   "id": "d6419e85",
+   "name": "Golm",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "says": "Skiresort.com: planned start of season 5 Dec 2026.",
+   "source": "https://www.skiresort.com/en/ski-resort/golm/snow-report/"
+  },
+  {
+   "id": "8ebbe708",
+   "name": "Ski Gastein - Schlossalm/Angertal/Stubnerkogel",
+   "state": "planned",
+   "date": "2026-11-27",
+   "closing": "2027-04-04",
+   "says": "Partial operation at Schlossalm and Stubnerkogel from Fri 27 Nov 2026; Angertal (Senderbahn and practice area) from 4 Dec; full linked area Schlossalm-Angertal-Stubnerkogel 11 Dec 2026 to 4 Apr 2027.",
+   "source": "https://www.skigastein.com/"
+  },
+  {
+   "id": "9cb83fdd",
+   "name": "La Clusaz",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "says": "Listed opening 12 December 2026 (dates announced by the resorts, subject to snow); a pre-opening on 5 and 6 December is mentioned if there is snow.",
+   "source": "https://www.alti-mag.com/dates-douverture-stations-ski"
+  },
+  {
+   "id": "d54a7899",
+   "name": "Klausberg - Monte Chiusetta, Klausberg, Monte Chiusetta",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-04",
+   "says": "Skiworld Ahrntal (Klausberg & Speikboden) winter season: 4 December 2026 to 4 April 2027",
+   "source": "https://www.skiworldahrntal.it/en/winter/"
+  },
+  {
+   "id": "1871bd97",
+   "name": "Grindelwald First",
+   "state": "unknown",
+   "says": "Jungfrau Ski Region: the start of winter operation has not yet been determined and depends on snow and weather; until the end of November operation is expected only or partly at weekends, depending on snow.",
+   "source": "https://www.jungfrau.ch/en-gb/jungfrau-ski-region/"
+  },
+  {
+   "id": "de350ad7",
+   "name": "Val Cenis",
+   "state": "tentative",
+   "date": "2026-12-13",
+   "closing": "2027-04-16",
+   "says": "Skiresort.com: \"Planned start of season: 13 Dec 2026\" (planned end of season: 16 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/val-cenis-lanslevillard-lanslebourg-termignon/snow-report/"
+  },
+  {
+   "id": "923cbc11",
+   "name": "Venet",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "says": "Skiresort.com: planned start of season 19 Dec 2026.",
+   "source": "https://www.skiresort.com/en/ski-resort/venet-landeck-zams-fliess/snow-report/"
+  },
+  {
+   "id": "b0bddc47",
+   "name": "Skigebiet Hinterstoder",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Daily operation from 28 Nov 2026 to 4 Apr 2027.",
+   "source": "https://skisport.com/hinterstoder/de/winter/oeffnungszeiten"
+  },
+  {
+   "id": "8ebb23da",
+   "name": "Nauders Bergkastel",
+   "state": "planned",
+   "date": "2026-12-11",
+   "says": "Ski area open from 11 Dec 2026; opening weekend events on 12 and 13 Dec.",
+   "source": "https://www.nauders.com/en"
+  },
+  {
+   "id": "5dc251b4",
+   "name": "Nassfeld, Mokrine",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Start of the season: 4 December 2026",
+   "source": "https://www.nassfeld.at/en"
+  },
+  {
+   "id": "1a008890",
+   "name": "La Norma",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-04-11",
+   "says": "Skiresort.com: \"Planned start of season: 19 Dec 2026\" (planned end of season: 11 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/la-norma/snow-report/"
+  },
+  {
+   "id": "696bb1ff",
+   "name": "Chäserrugg-Alt St. Johann",
+   "state": "tentative",
+   "date": "2026-11-21",
+   "closing": "2027-04-05",
+   "says": "Skiresort.com: planned start of season 21 Nov 2026, planned end of season 5 Apr 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/chaeserrugg-unterwasser-alt-st-johann-toggenburg/snow-report/"
+  },
+  {
+   "id": "45625a91",
+   "name": "Sulden",
+   "state": "open",
+   "says": "'Hit the slopes! Sulden is open' (no opening day stated on the page)",
+   "source": "https://seilbahnensulden.it/en/lifts-slopes/"
+  },
+  {
+   "id": "cdf9fe45",
+   "name": "Ankogel Mallnitz",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-29",
+   "says": "No lift operation during maintenance; winter start 19 Dec 2026, season to 29 Mar 2027.",
+   "source": "https://www.ankogel-mallnitz.at/de"
+  },
+  {
+   "id": "e794ef31",
+   "name": "Bardonecchia - Jafferau",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-11",
+   "says": "The winter season will officially begin on Saturday 5 December 2026, with operations scheduled until 11 April 2027",
+   "source": "https://www.bardonecchiaski.com/en/vialattea-bardo-unveils-the-2026-27-winter-season"
+  },
+  {
+   "id": "da710e6c",
+   "name": "Skigebiet Damüls-Mellau-Faschina",
+   "state": "tentative",
+   "date": "2026-12-04",
+   "says": "Skiresort.com: planned start of season 4 Dec 2026 (Damüls Mellau).",
+   "source": "https://www.skiresort.com/en/ski-resort/damuels-mellau/snow-report/"
+  },
+  {
+   "id": "f83cb97a",
+   "name": "Skigebiet Damüls-Mellau",
+   "state": "tentative",
+   "date": "2026-12-04",
+   "says": "Skiresort.com: planned start of season 4 Dec 2026 (Damüls Mellau).",
+   "source": "https://www.skiresort.com/en/ski-resort/damuels-mellau/snow-report/"
+  },
+  {
+   "id": "0c1ee22a",
+   "name": "Galibier-Thabor",
+   "state": "tentative",
+   "says": "Listed dates (announced by the resorts, subject to weather and snow): Valloire 5 December 2026, Valmeinier 12 December 2026.",
+   "source": "https://www.france-montagnes.com/experiences/dates-douvertures-des-domaines-skiables-saison-26-27/"
+  },
+  {
+   "id": "fa473fa1",
+   "name": "Skigebiet Garmisch-Classic",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "says": "Skiresort.com: planned start of season 12 Dec 2026. Operator lists Alpspitzbahn, Hochalmbahn and Kreuzeckbahn as closed for maintenance until 10 Dec 2026.",
+   "source": "https://www.skiresort.com/en/ski-resort/garmisch-classic-garmisch-partenkirchen/snow-report/"
+  },
+  {
+   "id": "87ac1b90",
+   "name": "Sillian - Hochpustertal",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-03-29",
+   "says": "Winter 2026/2027: 5 Dec 2026 to 29 Mar 2027.",
+   "source": "https://www.hochpustertal-ski.at/"
+  },
+  {
+   "id": "82655cce",
+   "name": "Karwendelbahn (Dammkar-Mittenwald)",
+   "state": "tentative",
+   "says": "Cable car closed for maintenance from 23 Nov 2026 and open again from 25 Dec 2026; the page gives no date for the Dammkar ski route.",
+   "source": "https://www.karwendelbahn.de/"
+  },
+  {
+   "id": "df2bd5ab",
+   "name": "Wildkogel",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-04",
+   "says": "Wildkogelbahn and Smaragdbahn run 5-8 Dec 2026, then daily from 11 Dec 2026 to 4 Apr 2027.",
+   "source": "https://www.wildkogel-arena.at/de/bergbahnen-wildkogel/oeffnungszeiten-tarife-winter.html"
+  },
+  {
+   "id": "ebc3833f",
+   "name": "Snow Space Salzburg",
+   "state": "planned",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Planned season start 28 Nov 2026; the continuous 12-peak ski link is scheduled to open from 5 Dec 2026; last planned day 4 Apr 2027.",
+   "source": "https://www.snow-space.com/en/winter"
+  },
+  {
+   "id": "2826e74d",
+   "name": "Brigels-Waltensburg-Andiast, Brigels-Waltenburg-Andiast, Breil-Vuorz-Andiast",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-03-21",
+   "says": "Skiresort.com: planned start of season 19 Dec 2026, planned end of season 21 Mar 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/brigels-waltensburg-andiast/snow-report/"
+  },
+  {
+   "id": "a82f34f3",
+   "name": "Sauze D'Oulx",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-11",
+   "says": "Vialattea//Bardo: the winter season officially begins Saturday 5 December 2026, operations scheduled until 11 April 2027",
+   "source": "https://www.bardonecchiaski.com/en/vialattea-bardo-unveils-the-2026-27-winter-season"
+  },
+  {
+   "id": "6d73101c",
+   "name": "Arêches Beaufort",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-04",
+   "says": "2026-2027 season: the ski area will be open from Saturday, December 19, 2026 to Sunday, April 4, 2027 inclusive; a pre-opening on the 12th is mentioned.",
+   "source": "https://en.areches-beaufort.com/"
+  },
+  {
+   "id": "f5fcc0e5",
+   "name": "Le Grand Domaine",
+   "state": "tentative",
+   "date": "2026-12-18",
+   "closing": "2027-04-10",
+   "says": "Skiresort.com: \"Planned start of season: 18 Dec 2026\" (planned end of season: 10 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/le-grand-domaine-valmorel-doucy-celliers-st-francois-longchamp/snow-report/"
+  },
+  {
+   "id": "78c523bf",
+   "name": "Brunnalm / St. Jakob",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-11",
+   "says": "Continuous ski operation 5 Dec 2026 to 11 Apr 2027.",
+   "source": "https://www.stjakob-ski.at/"
+  },
+  {
+   "id": "590814dd",
+   "name": "Vysoké Tatry - Tatranská Lomnica",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-04-11",
+   "says": "Skiresort.com: \"Planned start of season: 19 Dec 2026\"; planned end of season: 11 Apr 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/tatranska-lomnica/snow-report/"
+  },
+  {
+   "id": "3ab1f000",
+   "name": "Sonnenkopf",
+   "state": "planned",
+   "date": "2026-12-11",
+   "closing": "2027-04-11",
+   "says": "Winter season from 11 Dec 2026 to 11 Apr 2027.",
+   "source": "https://sonnenkopf.com/de/"
+  },
+  {
+   "id": "17b19c74",
+   "name": "Grindelwald - Männlichen (Schlittelpiste)",
+   "state": "unknown",
+   "says": "Jungfrau Ski Region: the start of winter operation has not yet been determined and depends on snow and weather; until the end of November operation is expected only or partly at weekends, depending on snow.",
+   "source": "https://www.jungfrau.ch/en-gb/jungfrau-ski-region/"
+  },
+  {
+   "id": "1fd29b02",
+   "name": "Schladming Dachstein",
+   "state": "tentative",
+   "says": "Staged by mountain (expected dates, subject to change): Reiteralm 19 Nov 2026, Planai 20 Nov, Hauser Kaibling 28 Nov, Hochwurzen 4 Dec, Fageralm 18 Dec, Dachstein glacier 25 Dec.",
+   "source": "https://www.skiamade.com/de/live-infos/winterbetriebszeiten"
+  },
+  {
+   "id": "b9dc9702",
+   "name": "Hauser Kaibling",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Hauser Kaibling: expected start of ski operation 28 Nov 2026, expected end 4 Apr 2027 (provisional, subject to change).",
+   "source": "https://www.skiamade.com/de/live-infos/winterbetriebszeiten"
+  },
+  {
+   "id": "96682590",
+   "name": "Großeck-Speiereck",
+   "state": "tentative",
+   "date": "2026-12-04",
+   "says": "Skiresort.com: planned start of season 4 Dec 2026.",
+   "source": "https://www.skiresort.com/en/ski-resort/grosseck-speiereck-mauterndorf-st-michael/snow-report/"
+  },
+  {
+   "id": "611c5f30",
+   "name": "გუდაური, Gudauri, Гудаури",
+   "state": "planned",
+   "date": "2026-12-20",
+   "says": "News item dated 28 October 2026: \"The winter season will officially open on December 20 in Gudauri, Bakuriani, Goderdzi, and Mestia.\"",
+   "source": "https://mta.ski/en/news"
+  },
+  {
+   "id": "c85b6de8",
+   "name": "Kreischberg",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Winter 2026/27: the season starts on Fri 4 Dec.",
+   "source": "https://www.kreischberg.at/"
+  },
+  {
+   "id": "abd8fc58",
+   "name": "Puy-Saint-Vincent",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-04-11",
+   "says": "Skiresort.com: \"Planned start of season: 12 Dec 2026\" (planned end of season: 11 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/puy-saint-vincent/snow-report/"
+  },
+  {
+   "id": "9ea685d2",
+   "name": "Grächen",
+   "state": "planned",
+   "date": "2026-12-12",
+   "says": "Season Opening 12.12.2026; mountain railway winter hours 12 December – 4 April.",
+   "source": "https://graechen.ch/en"
+  },
+  {
+   "id": "f94a8923",
+   "name": "Obergurgl-Hochgurgl",
+   "state": "planned",
+   "date": "2026-11-19",
+   "says": "The winter season 2026/27 starts on 19 Nov 2026.",
+   "source": "https://www.gurgl.com/en/live-information/mountain-lift-news"
+  },
+  {
+   "id": "83250142",
+   "name": "Mellau",
+   "state": "tentative",
+   "says": "Skiresort.com: planned start of season 4 Dec 2026 for the linked Damüls Mellau area; whether the Mellau side opens on that day is not stated.",
+   "source": "https://www.skiresort.com/en/ski-resort/damuels-mellau/snow-report/"
+  },
+  {
+   "id": "9159a8a2",
+   "name": "Skigebiet Diedamskopf",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-04",
+   "says": "Planned start of the winter season 12 Dec 2026, to 4 Apr 2027.",
+   "source": "https://www.diedamskopf.at/"
+  },
+  {
+   "id": "c32e6467",
+   "name": "Borovets",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-04-11",
+   "says": "Skiresort.com: \"Planned start of season: 19 Dec 2026\"; planned end of season: 11 Apr 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/borovets/snow-report/"
+  },
+  {
+   "id": "4ae8be1d",
+   "name": "Ski Juwel Alpbachtal-Wildschönau",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Start of skiing season on 4 Dec 2026.",
+   "source": "https://www.skijuwel.com/en"
+  },
+  {
+   "id": "a69a57ca",
+   "name": "Schnalstal",
+   "state": "open",
+   "date": "2026-09-19",
+   "closing": "2027-05-09",
+   "says": "Skiresort.com: ski resort open (glacier); season 19 Sep 2026 - 9 May 2027",
+   "source": "https://www.skiresort.com/en/ski-resort/val-senales-glacier-schnalstaler-gletscher/snow-report/"
+  },
+  {
+   "id": "0736f548",
+   "name": "Forni di Sopra",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-03-29",
+   "says": "Skiresort.com: planned start of season 5 Dec 2026, planned end 29 Mar 2027",
+   "source": "https://www.skiresort.com/en/ski-resort/forni-di-sopra/snow-report/"
+  },
+  {
+   "id": "35a6ed0e",
+   "name": "Sestriere",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-11",
+   "says": "Vialattea//Bardo: the winter season officially begins Saturday 5 December 2026, operations scheduled until 11 April 2027",
+   "source": "https://www.bardonecchiaski.com/en/vialattea-bardo-unveils-the-2026-27-winter-season"
+  },
+  {
+   "id": "fc89413e",
+   "name": "Großarltal-Dorfgastein",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Dorfgastein-Großarltal ski link: season start 4 Dec 2026.",
+   "source": "https://www.skigastein.com/"
+  },
+  {
+   "id": "c321766d",
+   "name": "Valmorel",
+   "state": "planned",
+   "date": "2026-12-18",
+   "says": "\"Opening on 18 December!\"",
+   "source": "https://www.valmorel.com/"
+  },
+  {
+   "id": "451134c6",
+   "name": "Grüsch-Danusa",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-03-29",
+   "says": "Skiresort.com: planned start of season 5 Dec 2026, planned end of season 29 Mar 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/gruesch-danusa/snow-report/"
+  },
+  {
+   "id": "3150d087",
+   "name": "Valfréjus",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Opening season: December 19th to April 9th 2027.",
+   "source": "https://www.valfrejus.ski/en/"
+  },
+  {
+   "id": "5ee4bbf3",
+   "name": "Estación de Esquí y Montaña de Sierra Nevada",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-25",
+   "says": "Skiresort.com: \"Planned start of season: 28 Nov 2026\" (planned end of season: 25 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/sierra-nevada-pradollano/snow-report/"
+  },
+  {
+   "id": "e0e82fa6",
+   "name": "Vogel",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-04-04",
+   "says": "Skiresort.com: \"Planned start of season: 19 Dec 2026\"; planned end of season: 4 Apr 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/vogel-bohinj/snow-report/"
+  },
+  {
+   "id": "a52b30a5",
+   "name": "Planai & Hochwurzen",
+   "state": "planned",
+   "date": "2026-11-20",
+   "says": "Planai starts on 20 Nov 2026 with the Märchenwiese 8-seat chairlift, open daily from then. Hochwurzen: expected 4 Dec 2026 (Ski amadé).",
+   "source": "https://www.planai.at/de"
+  },
+  {
+   "id": "723611e5",
+   "name": "Katschberg-Aineck",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-03-28",
+   "says": "Winter season from 4 Dec 2026 to 28 Mar 2027.",
+   "source": "https://www.katschi.at/home"
+  },
+  {
+   "id": "82faebb7",
+   "name": "Santa Caterina",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-11",
+   "says": "Lifts open from 4 December 2026 to 11 April 2027",
+   "source": "https://www.santacaterinaimpianti.it/"
+  },
+  {
+   "id": "c192f68b",
+   "name": "Rosskopf",
+   "state": "planned",
+   "date": "2026-12-04",
+   "says": "Winter opening: 4 December 2026",
+   "source": "https://www.rosskopf.com/en/winter/skiing-area-rosskopf/skiing-on-rosskopf.html"
+  },
+  {
+   "id": "76d441ab",
+   "name": "Bonneval-sur-Arc",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-04-23",
+   "says": "Skiresort.com: \"Planned start of season: 19 Dec 2026\" (planned end of season: 23 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/bonneval-sur-arc/snow-report/"
+  },
+  {
+   "id": "756e0502",
+   "name": "Aussois",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-04-09",
+   "says": "Skiresort.com: \"Planned start of season: 12 Dec 2026\" (planned end of season: 9 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/aussois/snow-report/"
+  },
+  {
+   "id": "d42aa81c",
+   "name": "Les Orres",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-11",
+   "says": "Winter season 2026-2027: the ski area is open from 5 December 2026 to 11 April 2027.",
+   "source": "https://www.lesorres.com/"
+  },
+  {
+   "id": "3939037c",
+   "name": "Montclar",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Winter 2026-2027: pre-opening weekends on 5 and 6 December (depending on snow), then 12 and 13 December; continuous opening from Saturday 19 December.",
+   "source": "https://www.montclar.com/infos-neige/ouverture-domaine-skiable/"
+  },
+  {
+   "id": "bd7b3458",
+   "name": "Sansicario",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-11",
+   "says": "Vialattea//Bardo: the winter season officially begins Saturday 5 December 2026, operations scheduled until 11 April 2027",
+   "source": "https://www.bardonecchiaski.com/en/vialattea-bardo-unveils-the-2026-27-winter-season"
+  },
+  {
+   "id": "1b306639",
+   "name": "Aramón Cerler",
+   "state": "tentative",
+   "closing": "2027-04-04",
+   "says": "No date on the operator's site. Skiresort.com: \"Planned start of season: 5 Dec 2026\" (planned end of season: 4 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/cerler/snow-report/"
+  },
+  {
+   "id": "847660cd",
+   "name": "Schwemmalm",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-03-29",
+   "says": "Skiresort.com: planned start of season 5 Dec 2026, planned end 29 Mar 2027",
+   "source": "https://www.skiresort.com/en/ski-resort/schwemmalm/snow-report/"
+  },
+  {
+   "id": "6d9ba323",
+   "name": "Sainte-Foy Tarentaise",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-18",
+   "says": "Open from 12 December 2026 to 18 April 2027.",
+   "source": "https://www.saintefoy-tarentaise.com/"
+  },
+  {
+   "id": "c2ef03c6",
+   "name": "Bardonecchia",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-11",
+   "says": "The winter season will officially begin on Saturday 5 December 2026, with operations scheduled until 11 April 2027",
+   "source": "https://www.bardonecchiaski.com/en/vialattea-bardo-unveils-the-2026-27-winter-season"
+  },
+  {
+   "id": "e5aebd95",
+   "name": "Bergeralm",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Season start Sat 28 Nov 2026 if snow conditions are good; ski operation until 4 Apr 2027.",
+   "source": "https://www.bergeralm.net/"
+  },
+  {
+   "id": "2cbe4074",
+   "name": "Savognin",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-03-29",
+   "says": "Skiresort.com: planned start of season 5 Dec 2026, planned end of season 29 Mar 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/savognin/snow-report/"
+  },
+  {
+   "id": "504eff3f",
+   "name": "Gourette",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-03-28",
+   "says": "Skiresort.com: \"Planned start of season: 5 Dec 2026\" (planned end of season: 28 Mar 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/gourette-eaux-bonnes/snow-report/"
+  },
+  {
+   "id": "c1bb4134",
+   "name": "Zauchensee-Flachauwinkl",
+   "state": "tentative",
+   "date": "2026-11-27",
+   "closing": "2027-04-11",
+   "says": "Zauchensee-Flachauwinkl: expected start of ski operation 27 Nov 2026, expected end 11 Apr 2027 (provisional, subject to change).",
+   "source": "https://www.skiamade.com/de/live-infos/winterbetriebszeiten"
+  },
+  {
+   "id": "e7c4c03b",
+   "name": "Espace Lumière",
+   "state": "planned",
+   "date": "2026-12-12",
+   "closing": "2027-04-04",
+   "says": "Pra Loup ski area open from 12 December 2026 to 4 April 2027.",
+   "source": "https://www.praloup.com/"
+  },
+  {
+   "id": "fe930951",
+   "name": "Aprica",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-11",
+   "says": "Skiresort.com: planned start of season 28 Nov 2026, planned end 11 Apr 2027",
+   "source": "https://www.skiresort.com/en/ski-resort/aprica/snow-report/"
+  },
+  {
+   "id": "71c073dc",
+   "name": "Flachau",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Flachau (Snow Space Salzburg): expected start of ski operation 28 Nov 2026, expected end 4 Apr 2027 (provisional); continuous link across Snow Space from 5 Dec.",
+   "source": "https://www.skiamade.com/de/live-infos/winterbetriebszeiten"
+  },
+  {
+   "id": "9d0b2c5e",
+   "name": "Forêt Blanche : Vars/Risoul",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-11",
+   "says": "Vars la Forêt Blanche: open from 5 December to 11 April 2027.",
+   "source": "https://www.vars.com/fr/"
+  },
+  {
+   "id": "31ba9e7c",
+   "name": "Hochkönig",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "Hochkönig (Maria Alm, Dienten, Mühlbach): expected start of ski operation 28 Nov 2026 (provisional, subject to change).",
+   "source": "https://www.skiamade.com/de/live-infos/winterbetriebszeiten"
+  },
+  {
+   "id": "5f7de23f",
+   "name": "Reiteralm",
+   "state": "tentative",
+   "date": "2026-11-19",
+   "closing": "2027-04-11",
+   "says": "Reiteralm: expected start of ski operation 19 Nov 2026, expected end 11 Apr 2027 (provisional). Reiteralm's own site says start of the season \"as soon as possible\".",
+   "source": "https://www.skiamade.com/de/live-infos/winterbetriebszeiten"
+  },
+  {
+   "id": "9b2e119a",
+   "name": "Elm",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-03-29",
+   "says": "Skiresort.com: planned start of season 5 Dec 2026, planned end of season 29 Mar 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/elm-im-sernftal/snow-report/"
+  },
+  {
+   "id": "8209eb84",
+   "name": "Brandnertal – Brand/​Bürserberg",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-03-29",
+   "says": "Weekend operation in Brand on 28-29 Nov and 5-6 Dec 2026 (changes possible depending on snow and weather); daily operation 12 Dec 2026 to 29 Mar 2027.",
+   "source": "https://www.vorarlberg-alpenregion.at/brandnertal/en/our-cable-cars/bergbahnen-brandnertal/operating-hours"
+  },
+  {
+   "id": "e2843e4c",
+   "name": "野沢温泉スキー場, Nozawa Onsen",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "Winter season operation planned from Sat 28 Nov (early-season period 28 Nov - 18 Dec 2026; opening festival 19 Dec).",
+   "source": "https://nozawaski.com/"
+  },
+  {
+   "id": "67a84872",
+   "name": "Airolo Pesciüm",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-04-04",
+   "says": "Skiresort.com: planned start of season 19 Dec 2026, planned end of season 4 Apr 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/airolo-pesciuem/snow-report/"
+  },
+  {
+   "id": "7671147d",
+   "name": "Zoncolan, Çoncolan",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-03-29",
+   "says": "Skiresort.com: planned start of season 5 Dec 2026, planned end 29 Mar 2027",
+   "source": "https://www.skiresort.com/en/ski-resort/zoncolan-ravascletto-sutrio/snow-report/"
+  },
+  {
+   "id": "ce27bffa",
+   "name": "Weißsee Gletscherwelt",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-04-18",
+   "says": "Winter season 19 Dec 2026 to 18 Apr 2027, daily.",
+   "source": "https://www.gletscherwelt-weissee.at/en/"
+  },
+  {
+   "id": "39d7d654",
+   "name": "Hochkössen - Unterberghorn",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "says": "Start of winter season 26/27: 5-8 Dec 2026 depending on snow, probably weekend operation at first; continuous operation from 19 Dec.",
+   "source": "https://skisport.com/hochkoessen/de/winter/oeffnungszeiten"
+  },
+  {
+   "id": "7346bb5d",
+   "name": "Wagrain",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Wagrain (Snow Space Salzburg): expected start of ski operation 28 Nov 2026, expected end 4 Apr 2027 (provisional); continuous link across Snow Space from 5 Dec.",
+   "source": "https://www.skiamade.com/de/live-infos/winterbetriebszeiten"
+  },
+  {
+   "id": "4243519f",
+   "name": "Queyras - Molines/Saint-Véran",
+   "state": "tentative",
+   "date": "2026-12-18",
+   "says": "Listed opening 18 December 2026 for Molines-en-Queyras and Saint-Véran (dates announced by the resorts, subject to snow).",
+   "source": "https://www.alti-mag.com/dates-douverture-stations-ski"
+  },
+  {
+   "id": "cd6cd576",
+   "name": "Jasna Low Tatras",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "\"During the last weekend of November we will be opening the new 2026/27 ski season in Jasná\": Winter Jasná Opening 27-28 November 2026, with the on-slope programme on Saturday 28 November.",
+   "source": "https://www.jasna.sk/aktivity/podujatia/winter-jasna-opening"
+  },
+  {
+   "id": "226326fa",
+   "name": "竜王スキーパーク, Ryuoo Ski Park, Ryūō sukī pāku",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-04",
+   "says": "Planned to open Sat 5 Dec; operating period 5 Dec 2026 - 4 Apr 2027.",
+   "source": "https://ryuoo.com/winter/price_w/"
+  },
+  {
+   "id": "a044deed",
+   "name": "Wildhaus",
+   "state": "tentative",
+   "date": "2026-11-21",
+   "closing": "2027-03-29",
+   "says": "Skiresort.com: planned start of season 21 Nov 2026, planned end of season 29 Mar 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/wildhaus-gamserrugg-toggenburg/snow-report/"
+  },
+  {
+   "id": "d9965566",
+   "name": "Scopello / Alpe di Mera",
+   "state": "unknown",
+   "says": "Alpe di Mera opening calendar: 'To be updated' (not yet published)",
+   "source": "https://monterosaski.eu/en/experiences/monterosa-ski-opening-dates-winter-29318"
+  },
+  {
+   "id": "b11f8a9b",
+   "name": "Panticosa",
+   "state": "tentative",
+   "closing": "2027-04-04",
+   "says": "No date on the operator's site. Skiresort.com: \"Planned start of season: 5 Dec 2026\" (planned end of season: 4 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/panticosa/snow-report/"
+  },
+  {
+   "id": "60ae6a4b",
+   "name": "Engelberg - Ristis-Brunni",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-03-29",
+   "says": "Skiresort.com: planned start of season 5 Dec 2026, planned end of season 29 Mar 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/brunni-engelberg/snow-report/"
+  },
+  {
+   "id": "4c50c0aa",
+   "name": "Champorcher",
+   "state": "planned",
+   "date": "2026-12-05",
+   "closing": "2027-04-04",
+   "says": "Champorcher: open 5-8 and 12-13 December 2026, then daily from Saturday 19 December 2026 to Sunday 4 April 2027",
+   "source": "https://monterosaski.eu/en/experiences/monterosa-ski-opening-dates-winter-29318"
+  },
+  {
+   "id": "0345d73f",
+   "name": "Espace Diamant",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-04-10",
+   "says": "Provisional opening of the ski area from 5 December 2026 to 10 April 2027, depending on snow conditions.",
+   "source": "https://www.espacediamant.com/"
+  },
+  {
+   "id": "8e5dbdde",
+   "name": "Dévoluy",
+   "state": "planned",
+   "date": "2026-12-12",
+   "says": "\"See you on 12 December 2026 on the slopes!\"",
+   "source": "https://www.ledevoluy.com/hiver/"
+  },
+  {
+   "id": "f6bd4222",
+   "name": "Rinerhorn",
+   "state": "planned",
+   "date": "2026-12-18",
+   "closing": "2027-03-29",
+   "says": "Rinerhorn: continuous operation 18 December 2026 – 29 March 2027 (closed during the WEF).",
+   "source": "https://www.davosklostersmountains.ch/en/mountains/winter/live-info/current-operating-infos"
+  },
+  {
+   "id": "c880b001",
+   "name": "Jakobshorn",
+   "state": "planned",
+   "date": "2026-12-04",
+   "closing": "2027-04-11",
+   "says": "Jakobshorn: weekend operation 27–29 November 2026; continuous operation 4 December 2026 – 11 April 2027.",
+   "source": "https://www.davosklostersmountains.ch/en/mountains/winter/live-info/current-operating-infos"
+  },
+  {
+   "id": "16e55806",
+   "name": "Sella Nevea - Kanin, Sella Nevea - Canin, Kanin - Sella Nevea",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-04-11",
+   "says": "Skiresort.com: \"Planned start of season: 12 Dec 2026\"; planned end of season: 11 Apr 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/kanin-sella-nevea-bovec/snow-report/"
+  },
+  {
+   "id": "df4c0541",
+   "name": "Obersaxen",
+   "state": "tentative",
+   "date": "2026-12-18",
+   "closing": "2027-04-04",
+   "says": "Skiresort.com: planned start of season 18 Dec 2026, planned end of season 4 Apr 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/obersaxen-mundaun-val-lumnezia/snow-report/"
+  },
+  {
+   "id": "cb461faa",
+   "name": "Smučišča Mariborsko Pohorje",
+   "state": "tentative",
+   "date": "2026-12-04",
+   "closing": "2027-03-31",
+   "says": "Skiresort.com: \"Planned start of season: 4 Dec 2026\"; planned end of season: 31 Mar 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/mariborsko-pohorje-maribor/snow-report/"
+  },
+  {
+   "id": "39daafb4",
+   "name": "Mölltaler Gletscher",
+   "state": "open",
+   "closing": "2027-05-30",
+   "says": "Skiresort.com lists the glacier as open (snow report updated 17 Nov 2026), with ski season 10 Nov 2026 - 30 May 2027 (aggregator listing; the opening day was not checked against the operator's site).",
+   "source": "https://www.skiresort.com/en/ski-resort/moelltal-glacier-moelltaler-gletscher/snow-report/"
+  },
+  {
+   "id": "20048b56",
+   "name": "Høgevarde",
+   "state": "planned",
+   "date": "2026-12-12",
+   "says": "Fnugg listing for Høgevarde Fjellpark: \"Season start 12.12.26\"; the area is open at weekends and in holidays.",
+   "source": "https://fnugg.no/hogevarde/"
+  },
+  {
+   "id": "48f49671",
+   "name": "Bellwald",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-03-29",
+   "says": "Skiresort.com: planned start of season 12 Dec 2026, planned end of season 29 Mar 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/bellwald/snow-report/"
+  },
+  {
+   "id": "d7f0152d",
+   "name": "Wendelstein",
+   "state": "tentative",
+   "date": "2026-12-26",
+   "says": "Skiresort.com: planned start of season 26 Dec 2026. Operator: cable car closed for maintenance until 27 Nov and cog railway until 22 Dec 2026; no ski-season date given.",
+   "source": "https://www.skiresort.com/en/ski-resort/wendelstein-brannenburg-osterhofen/snow-report/"
+  },
+  {
+   "id": "42e7619d",
+   "name": "Adelboden - Lenk",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Skiresort.com: planned start of season 28 Nov 2026, planned end of season 4 Apr 2027 (aggregator listing; not checked against the lift company's own site).",
+   "source": "https://www.skiresort.com/en/ski-resort/adelboden-lenk-chuenisbaergli-silleren-hahnenmoos-metsch/snow-report/"
+  },
+  {
+   "id": "5ea6683e",
+   "name": "Åre",
+   "state": "tentative",
+   "date": "2026-12-11",
+   "says": "Dates for the 2026/27 season: Åre by opens 11 December (with Ski Test Weekend, earlier if snow conditions allow); the gondola, Björnen and Duved/Tegefjäll open 18 December; the rest of the high zone 8 February.",
+   "source": "https://www.skistar.com/sv/vara-skidorter/are/vinter-i-are/vader-och-backar/liftarnas-oppettider/"
+  },
+  {
+   "id": "a12b471b",
+   "name": "Kasprowy Wierch",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-04-18",
+   "says": "Skiresort.com: \"Planned start of season: 12 Dec 2026\"; planned end of season: 18 Apr 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/kasprowy-wierch-zakopane/snow-report/"
+  },
+  {
+   "id": "26ac3476",
+   "name": "Vrátna",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-03-29",
+   "says": "Skiresort.com: \"Planned start of season: 19 Dec 2026\"; planned end of season: 29 Mar 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/vratna/snow-report/"
+  },
+  {
+   "id": "5426b573",
+   "name": "苗場スキー場, Naeba Ski Resort, Naeba sukī-ba",
+   "state": "planned",
+   "date": "2026-12-18",
+   "closing": "2027-04-04",
+   "says": "Operating period: Fri 18 Dec 2026 - Sun 4 Apr 2027 (Dragondola planned from 26 Dec).",
+   "source": "https://www.princehotels.co.jp/ski/naeba/winter/"
+  },
+  {
+   "id": "9a10ccf0",
+   "name": "Tegelbergbahn",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "says": "Skiresort.com: planned start of season 19 Dec 2026. Operator: Tegelbergbahn closed for maintenance from 9 Nov to 17 Dec 2026 inclusive; no ski-season date given.",
+   "source": "https://www.skiresort.com/en/ski-resort/tegelberg-schwangau/snow-report/"
+  },
+  {
+   "id": "03fcc029",
+   "name": "Masella",
+   "state": "tentative",
+   "says": "No date on the resort's site. Skiresort.com lists the joint La Molina/Masella (Alp 2500) area with \"Planned start of season: 28 Nov 2026\"; it does not say which of the two resorts that date is for.",
+   "source": "https://www.skiresort.com/en/ski-resort/la-molina-masella-alp2500/snow-report/"
+  },
+  {
+   "id": "a9a3a838",
+   "name": "天元台高原, Tengendai Kogen",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "says": "Listed with a planned start of operation of 28 Nov 2026 (media list, as of 9 Nov 2026).",
+   "source": "https://tabiris.com/archives/skiopen2027/"
+  },
+  {
+   "id": "2a7a0bf0",
+   "name": "Brauneck",
+   "state": "planned",
+   "date": "2026-12-05",
+   "says": "The winter season starts on 5 Dec.",
+   "source": "https://www.brauneck-bergbahn.de/"
+  },
+  {
+   "id": "cb33e8a2",
+   "name": "Narvikfjellet Ski Resort",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-05-02",
+   "says": "Skiresort.com: \"Planned start of season: 5 Dec 2026\"; planned end of season: 2 May 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/narvikfjellet-narvik/snow-report/"
+  },
+  {
+   "id": "6eebeff1",
+   "name": "La Molina",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-25",
+   "says": "Skiresort.com lists the joint La Molina/Masella (Alp 2500) area with \"Planned start of season: 28 Nov 2026\" (planned end 25 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/la-molina-masella-alp2500/snow-report/"
+  },
+  {
+   "id": "7a288434",
+   "name": "ガーラ湯沢スノーリゾート, Gala Yuzawa Snow Resort",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-05-05",
+   "says": "Sightseeing operation (gondola and sightseeing lift only, no skiing) Sat 12 - Fri 18 Dec 2026; slope operation (skiing and snowboarding) from Sat 19 Dec 2026 to 5 May 2027.",
+   "source": "https://gala.co.jp/winter/hours-pricing/"
+  },
+  {
+   "id": "2957e492",
+   "name": "八海山スキー場, Muikamachi Hakkaisan",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-28",
+   "says": "2026-2027 operating period: Sat 19 Dec 2026 - Sun 28 Mar 2027 (planned).",
+   "source": "https://www.princehotels.co.jp/ski/hakkaisan/winter/"
+  },
+  {
+   "id": "a06c96ff",
+   "name": "Hemsedal skisenter",
+   "state": "tentative",
+   "date": "2026-12-11",
+   "says": "Dates for the 2026/27 season: Hemsedal Skisenter opens 11 December, in connection with Ski Test Weekend or as soon as snow conditions allow; closes 2 May.",
+   "source": "https://www.skistar.com/sv/vara-skidorter/hemsedal/vinter-i-hemsedal/vader-och-backar/liftarnas-oppettider/"
+  },
+  {
+   "id": "e0debe67",
+   "name": "湯沢高原スキー場, Yuzawa Kogen Ski Resort",
+   "state": "planned",
+   "date": "2026-12-18",
+   "says": "Winter operation planned to open Fri 18 Dec (all facilities closed 16 Nov - 17 Dec).",
+   "source": "https://www.yuzawakogen.com/"
+  },
+  {
+   "id": "b52fb4c5",
+   "name": "赤倉観光リゾートスキー場, Akakura Kanko Ski Resort",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-05-05",
+   "says": "Lift operation period: 19 Dec 2026 - 5 May 2027.",
+   "source": "https://akr-ski.com/slope/"
+  },
+  {
+   "id": "0f469179",
+   "name": "Formigal",
+   "state": "tentative",
+   "date": "2026-11-28",
+   "closing": "2027-04-04",
+   "says": "Skiresort.com: \"Planned start of season: 28 Nov 2026\" (planned end of season: 4 Apr 2027).",
+   "source": "https://www.skiresort.com/en/ski-resort/formigal/snow-report/"
+  },
+  {
+   "id": "e351e0e7",
+   "name": "富士見パノラマリゾート, Fujimi Panorama Resort",
+   "state": "planned",
+   "date": "2026-12-12",
+   "says": "The winter season opens on Sat 12 Dec (news item dated 14 Nov 2026).",
+   "source": "https://www.fujimipanorama.com/snow/"
+  },
+  {
+   "id": "b1d1105a",
+   "name": "瑞穂ハイランド, Mizuho Highland",
+   "state": "tentative",
+   "date": "2026-12-24",
+   "says": "Listed with a planned start of operation of 24 Dec 2026 (media list, as of 9 Nov 2026).",
+   "source": "https://tabiris.com/archives/skiopen2027/"
+  },
+  {
+   "id": "583dbc46",
+   "name": "Skiresort Černá Hora-Pec",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-04-11",
+   "says": "Skiresort.com: \"Planned start of season: 5 Dec 2026\"; planned end of season: 11 Apr 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/pec-pod-snezkou/snow-report/"
+  },
+  {
+   "id": "0aab3509",
+   "name": "白山セイモアスキー場, Hakusan Senjo Onsen Seymour Ski Area",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "says": "SURF&SNOW's 2026-2027 opening list gives 2026/12/19 as the planned opening day.",
+   "source": "https://surfsnow.jp/open/"
+  },
+  {
+   "id": "97d7791e",
+   "name": "上越国際, Joetsu International, Jōetsu kokusai",
+   "state": "tentative",
+   "date": "2026-12-12",
+   "closing": "2027-04-04",
+   "says": "Planned to open Sat 12 Dec 2026; operating period 12 Dec 2026 - 4 Apr 2027 (planned). May change with weather and snow.",
+   "source": "https://jkokusai.co.jp/news/20260901/"
+  },
+  {
+   "id": "31b4287d",
+   "name": "雫石スキー場, Shizukuishi Ski Resort",
+   "state": "tentative",
+   "date": "2026-12-19",
+   "closing": "2027-03-22",
+   "says": "Operating period: Sat 19 Dec 2026 - Mon 22 Mar 2027. The period may change with weather and course conditions.",
+   "source": "https://www.princehotels.co.jp/ski/shizukuishi/winter/"
+  },
+  {
+   "id": "7a1d5a36",
+   "name": "JAM福井勝山マウンテンリゾート, JAM Fukui Katsuyama Mountain Resort",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "White-season operation starts Sat 19 Dec (planned); closed 2 Nov - 18 Dec.",
+   "source": "https://jamresort.jp/"
+  },
+  {
+   "id": "24ab41e1",
+   "name": "Trysil",
+   "state": "tentative",
+   "date": "2026-12-04",
+   "says": "Dates for the 2026/27 season: Turistsenteret 4 December (official season opening with Ski Test Weekend, earlier if snow conditions allow); Høyfjellssenteret/Fageråsen 12 December; Skihytta and Høgegga 18 December.",
+   "source": "https://www.skistar.com/sv/vara-skidorter/trysil/vinter-i-trysil/vader-och-backar/liftarnas-oppettider/"
+  },
+  {
+   "id": "5df62281",
+   "name": "木曽福島スキー場, Kisofukushima Ski Resort, きそふくしますきーじょう",
+   "state": "planned",
+   "date": "2026-12-19",
+   "closing": "2027-03-22",
+   "says": "2027-season winter operating period: Sat 19 Dec 2026 - Mon 22 Mar 2027.",
+   "source": "https://kisofukushima-ski.com/service/"
+  },
+  {
+   "id": "20368184",
+   "name": "信州松本 野麦峠スキー場, Shinshu-Matsumoto Nomugitoge Ski Resort",
+   "state": "planned",
+   "date": "2026-12-18",
+   "closing": "2027-03-28",
+   "says": "The 26/27 season is planned to open 18 Dec 2026 (planned to close 28 Mar 2027).",
+   "source": "http://gakutoresort.jp/post-2845/"
+  },
+  {
+   "id": "882b24fc",
+   "name": "Hemavan",
+   "state": "tentative",
+   "date": "2026-11-27",
+   "says": "Winter 26/27: from 27 November to 13 December Centrumliften and Lilla Lämmeln run Friday-Sunday 10-16; daily operation with more lifts from 18 December. Home page: \"Season premiere 27/11!\"",
+   "source": "https://hemavan.nu/liftarnas-oppettider/"
+  },
+  {
+   "id": "982c9241",
+   "name": "Voss Resort Fjellheisar",
+   "state": "tentative",
+   "date": "2026-12-04",
+   "says": "Winter season 2026/2027: opening weekends 4-6 and 11-13 December (09:30-15:30), regular daily hours from 18 December. \"Opening depends on snow and weather conditions.\"",
+   "source": "https://www.vossresort.no/ditt-besok/opningstider/"
+  },
+  {
+   "id": "7133c778",
+   "name": "Skiareál Horní Domky - Lysá Hora",
+   "state": "tentative",
+   "says": "\"Preparation for the winter season is under way, we start in December!\" No day given.",
+   "source": "https://rokytnice.nhr.cz/novinky"
+  },
+  {
+   "id": "f0f1464c",
+   "name": "Bjorli Skisenter",
+   "state": "planned",
+   "date": "2026-11-28",
+   "says": "Fnugg listing for Bjorli Skisenter: \"Season start 28.11.26\".",
+   "source": "https://fnugg.no/bjorli/"
+  },
+  {
+   "id": "29f3c806",
+   "name": "Janské Lázně - Černá hora",
+   "state": "tentative",
+   "date": "2026-12-05",
+   "closing": "2027-04-04",
+   "says": "Skiresort.com: \"Planned start of season: 5 Dec 2026\"; planned end of season: 4 Apr 2027.",
+   "source": "https://www.skiresort.com/en/ski-resort/cerna-hora-janske-lazne/snow-report/"
+  },
+  {
+   "id": "7c478a9b",
+   "name": "Kopaonik",
+   "state": "tentative",
+   "date": "2026-12-03",
+   "says": "The new ski season on Kopaonik is planned to start with the Ski Opening event, foreseen for 3-6 December (free skiing on 3 December); it depends on weather and piste preparation and may be moved.",
+   "source": "https://www.skijalistasrbije.rs/sr/ski-opening-kopaonik-2026-pocetak-zimske-carolije"
+  },
+  {
+   "id": "4f28d329",
+   "name": "Nevis Range",
+   "state": "unknown",
+   "says": "No snowsports opening date announced. The mountain gondola, the access to the slopes, is closed for annual maintenance from 16 November to 13 December 2026 and plans to reopen on Monday 14 December 2026.",
+   "source": "https://www.nevisrange.co.uk/plan-your-visit/opening-hours/"
+  },
+  {
+   "id": "ab685762",
+   "name": "Malbun",
+   "state": "planned",
+   "date": "2026-12-19",
+   "says": "Winter season from 19 Dec 2026.",
+   "source": "https://www.bergbahnen.li/"
+  },
+  {
+   "id": "bd20a220",
+   "name": "Lofsdalen",
+   "state": "planned",
+   "date": "2026-12-11",
+   "closing": "2027-04-11",
+   "says": "Lift opening hours 11 December 2026 - 11 April 2027 (\"closed for the season, reopens 11 December\").",
+   "source": "https://www.lofsdalen.com/sv/skidakning"
+  },
+  {
+   "id": "2db723ca",
+   "name": "Björnrike",
+   "state": "tentative",
+   "date": "2026-12-18",
+   "says": "Dates for the 2026/27 season: Björnrike opens 18 December and closes 11 April. All opening dates are subject to snow availability. (Vemdalsskalet, another sector of SkiStar Vemdalen, opens first on 27 November, Thu-Sun.)",
+   "source": "https://www.skistar.com/sv/vara-skidorter/vemdalen/vinter-i-vemdalen/vader-och-backar/liftarnas-oppettider/"
+  },
+  {
+   "id": "10f9e430",
+   "name": "Ylläs",
+   "state": "tentative",
+   "date": "2026-11-21",
+   "says": "The Ylläs downhill season starts 21 November 2026 with the Äkäslompolo children's lift and school slope. \"The exact start and end dates of the season cannot be set in advance\"; subject to weather and conditions.",
+   "source": "https://ski.yllas.fi/rinteet-ja-hissit/aukioloajat/"
+  }
+ ]
+}

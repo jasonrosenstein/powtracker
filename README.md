@@ -86,8 +86,11 @@ Each mountain has a second tab for the day on the hill:
   season (open since a day, a set opening day, a hoped-for one, no date yet, or not opening)
   in the source's own words, with the page that states it and the day it was read;
   `npm run data:openings` builds `public/data/openings.json` from them. The app shows the
-  announcement, its source and that day. A planned date that has passed is shown as planned,
-  never as "open". Only mountains with a page that states something are listed.
+  announcement, its source and that day: quotation marks only around words taken from the page,
+  plain text for a summary. A date that comes from a ski guide (Skiresort.com, whose dates
+  matched the operators' about three times in four) is called "expected" and says whose it is.
+  A planned date that has passed is shown as planned, never as "open". Only mountains with a
+  page that states something are listed: 643 of the 1,752 on 17 November 2026.
 - **On the mountain.** Summit temperature and wind chill, wind and gusts with a lift-hold
   warning, visibility, sunrise and sunset, hour by hour for a day and a half (Open-Meteo).
 - **Avalanche danger** beyond the ski-area boundary, from avalanche.org (United States) and

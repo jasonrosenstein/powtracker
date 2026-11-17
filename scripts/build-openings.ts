@@ -11,8 +11,16 @@ import type { Opening, OpeningsFile, ResortsFile } from '../src/lib/types.ts'
 interface Research {
   season: string
   compiled: string
-  openings: { id: string; name: string; state: string; date?: string; says?: string; source?: string }[]
+  /** Whether each `says` is quoted word for word from its page; an entry can say otherwise. */
+  verbatim?: boolean
+  openings: { id: string; name: string; state: string; date?: string; says?: string; source?: string; verbatim?: boolean }[]
 }
+
+/**
+ * Ski guides whose season dates are their own listing, not the resort's statement. Checked
+ * against operators' pages on 2026-11-17, Skiresort.com's date matched 163 times in 223.
+ */
+const GUIDES: [RegExp, string][] = [[/(^|\.)skiresort\.(com|info|de)$/, 'Skiresort.com']]
 
 const DIR = 'data/openings'
 const STATES = new Set(['open', 'planned', 'tentative', 'tba', 'closed'])
@@ -51,6 +59,9 @@ for (const file of existsSync(DIR) ? readdirSync(DIR).filter((f) => f.endsWith('
     const entry: Opening = { s: state as Opening['s'], says: clip((o.says ?? '').replace(/\s+/g, ' ').trim()), src: o.source }
     if (o.date && state !== 'tba' && state !== 'closed') entry.d = o.date
     if (/^\d{4}-\d{2}-\d{2}$/.test(research.compiled ?? '')) entry.at = research.compiled
+    if (entry.says && (o.verbatim ?? research.verbatim)) entry.q = 1
+    const guide = GUIDES.find(([host]) => host.test(new URL(entry.src).hostname))
+    if (guide) entry.via = guide[1]
     // Two files can cover one mountain. The more definite statement wins; two equally definite
     // ones that disagree are reported, and the first is kept until someone reads both pages.
     const prior = out.resorts[o.id]

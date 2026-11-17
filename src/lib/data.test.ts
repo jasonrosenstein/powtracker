@@ -99,7 +99,7 @@ describe('openingLine', () => {
     expect(openingLine({ s: 'planned', d: '2026-11-17', says: '', src }, NOW)).toMatchObject({ text: 'Opens today, Tuesday 17 November', short: 'Opens today' })
   })
   it('reports a resort that has set no date, or will not open, in those words', () => {
-    expect(openingLine({ s: 'tba', says: 'Opening Day TBD', src }, NOW)).toMatchObject({ text: 'No opening date set', detail: 'The announcement: “Opening Day TBD”.' })
+    expect(openingLine({ s: 'tba', says: 'Opening Day TBD', q: 1, src }, NOW)).toMatchObject({ text: 'No opening date set', detail: 'The announcement: “Opening Day TBD”.' })
     expect(openingLine({ s: 'closed', says: 'Will not open for 2026–27', src }, NOW)?.text).toBe('Not opening this season')
   })
   it('announces a planned opening that is still ahead', () => {
@@ -118,8 +118,18 @@ describe('openingLine', () => {
     expect(openingLine({ s: 'open', says: '', src }, NOW)?.text).toBe('Open for the season')
   })
   it('dates the announcement with the day it was read', () => {
-    expect(openingLine({ s: 'planned', d: '2026-11-21', says: 'Opening day Saturday', src, at: '2026-11-17' }, NOW)?.detail).toBe('The announcement, as read on 17 November: “Opening day Saturday”.')
+    expect(openingLine({ s: 'planned', d: '2026-11-21', says: 'Opening day Saturday', q: 1, src, at: '2026-11-17' }, NOW)?.detail).toBe('The announcement, as read on 17 November: “Opening day Saturday”.')
     expect(openingLine({ s: 'open', says: '', src, at: '2026-11-17' }, NOW)?.detail).toBe('Read on 17 November.')
+  })
+  it('puts quotation marks only around the source’s own words', () => {
+    expect(openingLine({ s: 'planned', d: '2026-11-21', says: 'Winter season from 21 November to 2 May', src, at: '2026-11-17' }, NOW)?.detail).toBe('As read on 17 November: Winter season from 21 November to 2 May.')
+    expect(openingLine({ s: 'planned', d: '2026-11-21', says: 'Opens 21 November.', src }, NOW)?.detail).toBe('Opens 21 November.')
+  })
+  it('calls a ski guide’s date an expectation, and names the guide', () => {
+    const line = openingLine({ s: 'tentative', d: '2026-11-28', says: 'Planned start of season 28 Nov 2026', src, via: 'Skiresort.com' }, NOW)!
+    expect(line).toMatchObject({ text: 'Expected to open Saturday 28 November', short: 'Expected 28 Nov' })
+    expect(line.detail).toBe('Planned start of season 28 Nov 2026. This date is Skiresort.com’s, not the resort’s own.'.replaceAll('’', "'"))
+    expect(openingLine({ s: 'tentative', d: '2026-10-29', says: '', src, via: 'Skiresort.com' }, NOW)?.text).toBe('Was expected to open Thursday 29 October')
   })
   it('falls back to the announcement when there is no date, and to nothing without an announcement', () => {
     const line = openingLine({ s: 'tentative', says: 'Opening as conditions allow', src }, NOW)!
