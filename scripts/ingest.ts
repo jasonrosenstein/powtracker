@@ -9,7 +9,9 @@
 //             snapshot after changing the snow engine without spending any API calls.
 // Env:   OPEN_METEO_API_KEY  optional; switches to the commercial endpoint and drops the pacing.
 import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs'
+import https from 'node:https'
 import { parseArgs } from 'node:util'
+import { gunzipSync } from 'node:zlib'
 import { parseHourly, summarise, type OpenMeteoLocation } from '../src/lib/forecast.ts'
 import { FORECAST_DAYS, MODEL_IDS, PAST_DAYS, WINDOWS_H } from '../src/lib/models.ts'
 import { callWeight, forecastUrl, REQUEST_FORECAST_DAYS } from '../src/lib/openmeteo.ts'
@@ -67,6 +69,32 @@ console.log(
     (apiKey ? ' (commercial endpoint)' : ' (free tier, paced)'),
 )
 
+// One connection, held open for the whole run. The pacing leaves about seven seconds between
+// requests, longer than fetch() keeps an idle connection, so fetch() opened a new one each time.
+// From a GitHub runner that failed: after two new connections in a minute the next ones timed
+// out for the rest of it (2026-11-17: 38 timeouts, 13 minutes of waiting, in one refresh).
+const agent = new https.Agent({ keepAlive: true, maxSockets: 1 })
+
+function get(url: string, timeoutMs = 120_000): Promise<{ status: number; text: string }> {
+  return new Promise((resolve, reject) => {
+    const req = https.get(url, { agent, headers: { 'accept-encoding': 'gzip' }, timeout: timeoutMs }, (res) => {
+      const chunks: Buffer[] = []
+      res.on('data', (c: Buffer) => chunks.push(c))
+      res.on('error', reject)
+      res.on('end', () => {
+        const body = Buffer.concat(chunks)
+        try {
+          resolve({ status: res.statusCode ?? 0, text: (res.headers['content-encoding'] === 'gzip' ? gunzipSync(body) : body).toString('utf8') })
+        } catch (e) {
+          reject(e)
+        }
+      })
+    })
+    req.on('timeout', () => req.destroy(new Error(`no response in ${timeoutMs / 1000}s`)))
+    req.on('error', reject)
+  })
+}
+
 async function fetchBatch(batch: Resort[]): Promise<OpenMeteoLocation[]> {
   const url = forecastUrl(
     batch.map((r) => ({ lat: r.la, lon: r.lo, elevation: (r.b + r.t) / 2 })),
@@ -75,18 +103,20 @@ async function fetchBatch(batch: Resort[]): Promise<OpenMeteoLocation[]> {
   let lastError = ''
   for (let attempt = 1; attempt <= 6; attempt++) {
     try {
-      const res = await fetch(url, { signal: AbortSignal.timeout(120_000) })
-      if (res.ok) {
-        const body = (await res.json()) as OpenMeteoLocation | OpenMeteoLocation[]
+      const res = await get(url)
+      if (res.status >= 200 && res.status < 300) {
+        const body = JSON.parse(res.text) as OpenMeteoLocation | OpenMeteoLocation[]
         const locs = Array.isArray(body) ? body : [body]
         if (locs.length !== batch.length) throw new Error(`asked for ${batch.length} locations, got ${locs.length}`)
         return locs
       }
-      lastError = `HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`
+      lastError = `HTTP ${res.status}: ${res.text.slice(0, 200)}`
       // 429 is the rate limit: wait out the minute. Other 4xx will not fix themselves.
       if (res.status !== 429 && res.status < 500) break
     } catch (e) {
-      lastError = String(e)
+      // Name the network fault (ETIMEDOUT, ECONNRESET, …): "failed" alone cannot be diagnosed.
+      const code = (e as NodeJS.ErrnoException).code
+      lastError = code ? `${code}: ${String(e)}` : String(e)
     }
     const wait = Math.min(120, 15 * attempt)
     console.warn(`  attempt ${attempt} failed (${lastError}); retrying in ${wait}s`)
@@ -108,6 +138,7 @@ for (let i = 0; i < todo.length; i += BATCH) {
     await sleep(Math.max(0, minGapMs - (Date.now() - batchStart)))
   }
 }
+agent.destroy()
 
 const out: ForecastFile = {
   generated: new Date(startedMs).toISOString(),

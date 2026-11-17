@@ -26,7 +26,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
@@ -45,8 +45,11 @@ jobs:
       # other projects. So a refresh that fails, or that a push does not need, must never stop
       # the site from being published: the forecast already on the site is kept instead.
       # With the OPEN_METEO_API_KEY secret set, the commercial endpoint is used and neither applies.
+      # The first scheduled run (2026-11-17) needed 26 minutes because new connections from the
+      # runner kept timing out, and a 25-minute limit stopped it one batch short. The script now
+      # holds one connection open; the limit leaves room in case that is not the whole story.
       - name: Forecast snapshot
-        timeout-minutes: 25
+        timeout-minutes: 40
         continue-on-error: true
         id: forecast
         env:
