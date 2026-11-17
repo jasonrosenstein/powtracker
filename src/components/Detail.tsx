@@ -13,7 +13,7 @@ import { modelSpread } from '../lib/snow.ts'
 import type { Observation, PassDef } from '../lib/types.ts'
 import { fmtElev, fmtSnow, fmtSnowNum, fmtSnowRange, snowUnit, type Units } from '../lib/units.ts'
 import { Segmented } from './Controls.tsx'
-import { ConfidenceBars, IconBack } from './icons.tsx'
+import { ConfidenceBars, IconBack, IconShare } from './icons.tsx'
 import { SaveButton } from './Rankings.tsx'
 
 const WINDOW_OF: Partial<Record<Metric, number>> = { w3: 0, w7: 1, w14: 2 }
@@ -78,6 +78,25 @@ export function Detail({ row, obs, passes, units, metric, level: initialLevel, g
     }
   }, [onClose])
 
+  // Share this mountain's link: the share sheet on a touch device, the clipboard with a mouse
+  // (where "copy link" is what people expect and a system share sheet is a detour).
+  const [shared, setShared] = useState('')
+  const share = async () => {
+    const link = { title: `${r.n} snow forecast`, url: location.href }
+    try {
+      if (navigator.share && window.matchMedia('(pointer: coarse)').matches) {
+        await navigator.share(link)
+        return
+      }
+      await navigator.clipboard.writeText(link.url)
+      setShared('Link copied')
+    } catch (e) {
+      // Closing the share sheet is not an error worth a message.
+      if ((e as Error).name !== 'AbortError') setShared('Copy the address from the browser bar to share it')
+    }
+    setTimeout(() => setShared(''), 2500)
+  }
+
   const elevOf = (l: Level) => (l === 'base' ? r.b : l === 'top' ? r.t : Math.round((r.b + r.t) / 2))
   const z = elevOf(level)
   const li = LEVEL_INDEX[level]
@@ -111,8 +130,10 @@ export function Detail({ row, obs, passes, units, metric, level: initialLevel, g
         <div className="detail-bar">
           <button type="button" className="icon-btn is-round" aria-label="Back to the list" onClick={onClose}><IconBack /></button>
           <h2>{r.n}</h2>
+          <button type="button" className="star" aria-label={`Share the ${r.n} forecast`} onClick={share}><IconShare /></button>
           <SaveButton saved={saved} name={r.n} onToggle={onToggleSaved} />
         </div>
+        {shared && <p className="toast" role="status">{shared}</p>}
 
         <div className="detail-body">
           <p className="detail-sub">

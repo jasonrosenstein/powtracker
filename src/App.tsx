@@ -95,10 +95,12 @@ export function App() {
   const filterKey = JSON.stringify(filters)
   const filtered = useMemo(() => (data ? applyFilters(data.rows, filters) : []), [data, filterKey])
   const sorted = useMemo(() => sortRows(filtered, order.key, order.desc, metricOk, level, here), [filtered, order, metricOk, level, here])
-  const savedRows = useMemo(
-    () => (data ? sortRows(data.rows.filter((row) => saved.includes(row.r.id)), order.key, order.desc, metricOk, level, here) : []),
-    [data, saved, order, metricOk, level, here],
-  )
+  // Saved mountains ignore the pass, region and size filters, but the search box still narrows them.
+  const savedRows = useMemo(() => {
+    if (!data) return []
+    const mine = applyFilters(data.rows.filter((row) => saved.includes(row.r.id)), { ...NO_FILTERS, query })
+    return sortRows(mine, order.key, order.desc, metricOk, level, here)
+  }, [data, saved, query, order, metricOk, level, here])
   const openRow = data && openId ? data.rows.find((row) => row.r.id === openId) : undefined
   const closeDetail = useCallback(() => setOpenId(null), [setOpenId])
 
@@ -157,7 +159,13 @@ export function App() {
             <Rankings
               {...listProps}
               rows={savedRows}
-              empty={<><IconStar size={30} /><b>No saved mountains yet.</b><span>Tap the star on any mountain to keep it here.</span><button type="button" className="primary-btn" onClick={() => setTab('rank')}>Browse the rankings</button></>}
+              empty={
+                saved.length > 0 ? (
+                  <><b>None of your saved mountains match.</b><span>Clear the search to see all {saved.length}.</span></>
+                ) : (
+                  <><IconStar size={30} /><b>No saved mountains yet.</b><span>Tap the star on any mountain to keep it here.</span><button type="button" className="primary-btn" onClick={() => setTab('rank')}>Browse the rankings</button></>
+                )
+              }
             />
           </>
         )}

@@ -17,6 +17,7 @@ export const IconStar = ({ filled = false, size = 22 }: { filled?: boolean; size
 export const IconSearch = () => <Icon size={18}><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></Icon>
 export const IconClose = ({ size = 20 }: { size?: number }) => <Icon size={size}><path d="M6 6l12 12M18 6 6 18" /></Icon>
 export const IconBack = () => <Icon><path d="M15 5l-7 7 7 7" /></Icon>
+export const IconShare = () => <Icon size={20}><path d="M12 15V4M8 7.5 12 3.5l4 4M6 11H5v9h14v-9h-1" /></Icon>
 export const IconChevron = () => <Icon size={14}><path d="m6 9 6 6 6-6" /></Icon>
 export const IconLayers = () => <Icon size={20}><path d="m12 3 9 5-9 5-9-5 9-5ZM3 13l9 5 9-5" /></Icon>
 export const IconPlay = () => <Icon size={18} filled><path d="M7 4.5v15l12-7.5L7 4.5Z" /></Icon>

@@ -152,6 +152,17 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     await page.waitForSelector('.detail', { state: 'detached', timeout: 5000 })
   })
 
+  await check('the share button copies the mountain link', async () => {
+    await page.context().grantPermissions(['clipboard-read', 'clipboard-write'])
+    await page.locator('.name-btn').first().click()
+    await page.waitForSelector('.detail .daystrip', { timeout: 30_000 })
+    await page.getByRole('button', { name: /^Share the/ }).click()
+    await page.waitForSelector('.toast:has-text("Link copied")', { timeout: 5000 })
+    expect((await page.evaluate(() => navigator.clipboard.readText())) === page.url(), 'the clipboard should hold the page address')
+    await page.getByRole('button', { name: 'Back to the list' }).click()
+    await page.waitForSelector('.detail', { state: 'detached', timeout: 5000 })
+  })
+
   await check('a shared link opens straight on the mountain, and Back stays on the site', async () => {
     await page.locator('.name-btn').first().click()
     const url = page.url()
