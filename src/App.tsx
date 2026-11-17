@@ -101,6 +101,7 @@ export function App() {
     const mine = applyFilters(data.rows.filter((row) => saved.includes(row.r.id)), { ...NO_FILTERS, query })
     return sortRows(mine, order.key, order.desc, metricOk, level, here)
   }, [data, saved, query, order, metricOk, level, here])
+  const measured = useMemo(() => sorted.filter((row) => row.o).length, [sorted])
   const openRow = data && openId ? data.rows.find((row) => row.r.id === openId) : undefined
   const closeDetail = useCallback(() => setOpenId(null), [setOpenId])
 
@@ -108,7 +109,7 @@ export function App() {
   if (!data) return <div className="loading"><Logo size={44} /><p>Loading the latest snow forecast…</p></div>
 
   const control: ControlState = { rows: data.rows, passes: data.passes, units, setUnits, level, setLevel, filters, setFilters, sort, setSort }
-  const listProps = { passes: data.passes, observations: data.observations, units, dark, metric: metricOk, setMetric: setMetricRaw, level, sort, setSort, here, wide, isSaved, toggleSaved, onOpen: setOpenId }
+  const listProps = { passes: data.passes, units, dark, metric: metricOk, setMetric: setMetricRaw, level, sort, setSort, here, wide, isSaved, toggleSaved, onOpen: setOpenId }
 
   return (
     <div className={`app is-${tab}`}>
@@ -149,6 +150,7 @@ export function App() {
           <>
             <p className="summary">
               <b>{sorted.length.toLocaleString('en-US')}</b> mountains · updated {fmtAgo(data.generated)} · {MODELS.length} weather models
+              {measured > 0 && <> · {measured.toLocaleString('en-US')} with station readings</>}
             </p>
             <Rankings {...listProps} rows={sorted} empty={<><b>No mountains match.</b><span>Try a different search or loosen the filters.</span></>} />
           </>
@@ -190,7 +192,9 @@ export function App() {
             <p>
               Forecast data: <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> (ECMWF, NOAA, DWD, Environment Canada, JMA, UK Met Office, Météo-France).
               Mountains and elevations: <a href="https://openskimap.org/" target="_blank" rel="noreferrer">OpenSkiMap</a>, OpenStreetMap contributors. Radar: RainViewer.
-              Station measurements: SLF. Pass rosters are checked against each pass's own listing; confirm with the pass before you travel.
+              Snow measured on the ground comes from official stations within 10 km of a mountain and at its height: NOAA (United States), the Japan Meteorological
+              Agency, SLF (Switzerland), GeoSphere Austria, the avalanche services of Tirol, South Tyrol and Trentino, and British Columbia's snow weather stations. Readings
+              that no neighbouring station supports are left out. Pass rosters are checked against each pass's own listing; confirm with the pass before you travel.
             </p>
           </details>
         </footer>
@@ -212,7 +216,7 @@ export function App() {
         <Detail
           key={openRow.r.id}
           row={openRow}
-          obs={data.observations[openRow.r.id]}
+          obs={openRow.o}
           passes={data.passes}
           units={units}
           metric={metricOk}

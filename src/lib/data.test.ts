@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { applyFilters, biggestStorm, confidenceOf, distanceKm, snowOf, sortRows, spreadOf, type Filters, type Row } from './data.ts'
+import { applyFilters, biggestStorm, confidenceOf, distanceKm, measuredDepth, measuredFall, snowOf, sortRows, spreadOf, valueOf, type Filters, type Row } from './data.ts'
 import { snowClass, snowColor, snowRadius, snowScale } from './scale.ts'
-import type { ResortForecast } from './types.ts'
+import type { Observation, ResortForecast } from './types.ts'
 
 function forecast(mid7: number | null, over: Partial<ResortForecast> = {}): ResortForecast {
   return {
@@ -22,6 +22,7 @@ function row(n: string, b: number, t: number, opts: { f?: ResortForecast; p?: st
   return {
     r: { id: n, n, cc: opts.cc ?? 'US', co: 'United States', rg: 'Utah', la: 0, lo: 0, b, t, km: 10, li: 3, p: opts.p ?? [] },
     f: opts.f,
+    o: undefined,
     vert: t - b,
     region: opts.region ?? 'North America',
     search: `${n} utah united states`.toLowerCase(),
@@ -52,6 +53,40 @@ describe('spreadOf', () => {
   })
   it('has none for past snowfall', () => {
     expect(spreadOf(forecast(20), 'p24', 'mid')).toBeNull()
+  })
+})
+
+describe('measured snow', () => {
+  const NOW = Date.parse('2026-11-17T12:00:00Z')
+  const reading = (k: Observation['k'], v: number, hoursAgo: number): Observation => ({ k, v, at: new Date(NOW - hoursAgo * 3_600_000).toISOString(), st: 'Station', z: 2000, km: 3, src: 'Test' })
+  const withObs = (...o: Observation[]): Row => ({ ...row('M', 1000, 2000, { f: forecast(20) }), o })
+
+  it('ranks fallen snow by a fresh station reading, and by the model estimate without one', () => {
+    expect(valueOf(withObs(reading('new24', 18, 5)), 'p24', 'mid', NOW)).toBe(18)
+    expect(valueOf(withObs(), 'p24', 'mid', NOW)).toBe(2)
+    expect(valueOf(row('M', 1000, 2000, { f: forecast(20) }), 'p72', 'mid', NOW)).toBe(5)
+  })
+  it('prefers measured new snow to a change in depth', () => {
+    const r = withObs(reading('change24', 9, 2), reading('new24', 14, 6))
+    expect(measuredFall(r, 'p24', NOW)?.k).toBe('new24')
+    expect(measuredFall(withObs(reading('change24', 9, 2)), 'p24', NOW)?.v).toBe(9)
+  })
+  it('does not pass a stale reading off as the last 24 hours', () => {
+    const r = withObs(reading('new24', 30, 50))
+    expect(measuredFall(r, 'p24', NOW)).toBeNull()
+    expect(valueOf(r, 'p24', 'mid', NOW)).toBe(2)
+  })
+  it('never replaces a forecast with a measurement', () => {
+    expect(valueOf(withObs(reading('new24', 18, 5)), 'w7', 'mid', NOW)).toBe(20)
+    expect(measuredFall(withObs(reading('new24', 18, 5)), 'w7', NOW)).toBeNull()
+  })
+  it('reads snow on the ground, and sorts by it with unmeasured mountains last', () => {
+    const deep = { ...withObs(reading('depth', 120, 3)), r: { ...withObs().r, n: 'Deep' } }
+    const shallow = { ...withObs(reading('depth', 40, 3)), r: { ...withObs().r, n: 'Shallow' } }
+    const none = { ...withObs(), r: { ...withObs().r, n: 'None' } }
+    expect(measuredDepth(deep)?.v).toBe(120)
+    expect(measuredDepth(none)).toBeNull()
+    expect(sortRows([none, shallow, deep], 'depth', true, 'w7', 'mid').map((r) => r.r.n)).toEqual(['Deep', 'Shallow', 'None'])
   })
 })
 

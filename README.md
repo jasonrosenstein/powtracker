@@ -50,9 +50,15 @@ detail screen and the map animations; `npm run shots` saves screenshots of every
    those covering the whole window: eight models for 3 days, six for 7, three for 14.
    Confidence is high when the middle half of the models sit within a band half as wide as the
    total, medium within a band as wide as the total, low beyond; 14 days never rates above medium.
-5. **Measurements.** `scripts/ingest-obs.ts` pulls snow depth and new snow from ground stations
-   and matches each to mountains within 10 km at a comparable height. One source so far (SLF,
-   Switzerland); each new source is one adapter function in that file.
+5. **Measurements.** `scripts/ingest-obs.ts` pulls snow depth and measured snowfall from about
+   12,900 official ground stations and matches each mountain to the nearest one within 10 km
+   that stands between 200 m below its base and 300 m above its summit. Sources: NOAA NOHRSC
+   station reports (United States), JMA AMeDAS (Japan), SLF (Switzerland), GeoSphere Austria,
+   the avalanche services of Tirol, South Tyrol and Trentino, and British Columbia's snow
+   weather stations. Automated depth sensors fail in recognisable ways, so a deep reading is
+   kept only if neighbouring stations support it. Where a station measured the last 24 or 72
+   hours, that figure replaces the model estimate and is marked as measured. Each new source
+   is one adapter function in that file.
 
 The same engine runs in the browser for a mountain's detail view, on a fresh fetch, so its charts
 are newer than the rankings snapshot and can differ from it slightly.
@@ -81,7 +87,14 @@ allows commercial use, and makes tracking every ski area in OpenSkiMap (about 4,
   combined and as their parts (Les Trois Vallées and Val Thorens).
 - Models at 9 to 25 km cannot see a single ridge: totals are best read as a comparison between
   mountains and between models, and the 14-day column as a guide to the pattern.
-- "Last 24 / 72 hours" is a model estimate everywhere except where a station measurement exists.
+- About a third of mountains have a station close enough to measure them (two thirds in the
+  US, Austria and Switzerland; none yet in France, Norway or most of Canada). Elsewhere "last
+  24 / 72 hours" is a model estimate and there is no snow depth. Not yet connected: SNOTEL
+  directly (its server was down when this was built; many of its stations arrive through
+  NOAA), Météo-France's live observations (free key required; its open daily files run days
+  behind), MET Norway (free key required).
+- These are station measurements, not the resorts' own snow reports. Resort-reported figures
+  come only from each resort or from licensed feeds.
 - Pass rosters are a snapshot of each pass's own listing for the season named in the file, and
   record included days at the top tier only. See `data/passes/README.md`.
 
@@ -89,5 +102,8 @@ allows commercial use, and makes tracking every ski area in OpenSkiMap (about 4,
 
 Forecasts: Open-Meteo (CC BY 4.0), from ECMWF, NOAA, DWD, Environment Canada, JMA, the UK Met
 Office and Météo-France. Mountains: OpenSkiMap and OpenStreetMap contributors (ODbL). Basemap:
-OpenFreeMap, OpenMapTiles. Radar: RainViewer. Station measurements: WSL Institute for Snow and
-Avalanche Research SLF.
+OpenFreeMap, OpenMapTiles. Radar: RainViewer. Station measurements: NOAA National Operational
+Hydrologic Remote Sensing Center; Japan Meteorological Agency; WSL Institute for Snow and
+Avalanche Research SLF; GeoSphere Austria (CC BY 4.0); the avalanche warning services of Tirol,
+South Tyrol and Trentino via avalanche.report (CC BY 4.0); Government of British Columbia (Open
+Government Licence).

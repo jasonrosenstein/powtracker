@@ -9,6 +9,8 @@ export interface Row {
   r: Resort
   /** Undefined when the latest snapshot has no forecast for this resort. */
   f: ResortForecast | undefined
+  /** Readings from snow stations near the resort; undefined where no source covers it. */
+  o: Observation[] | undefined
   vert: number
   region: Region | null
   /** Lower-cased text the search box matches against. */
@@ -22,8 +24,8 @@ export interface Dataset {
   generated: Date
   models: string[]
   source: string
-  /** Snow measured at stations near a resort, by resort id. Only where a source covers it. */
-  observations: Record<string, Observation[]>
+  /** When the station measurements were gathered; null when there are none. */
+  measuredAt: Date | null
 }
 
 export async function loadDataset(): Promise<Dataset> {
@@ -43,11 +45,12 @@ export async function loadDataset(): Promise<Dataset> {
   const rows: Row[] = resorts.resorts.map((r) => ({
     r,
     f: forecast.resorts[r.id],
+    o: obs.resorts[r.id],
     vert: r.t - r.b,
     region: regionOf(r.cc),
     search: `${r.n} ${r.rg} ${r.co}`.toLowerCase(),
   }))
-  return { rows, passes: resorts.passes, generated: new Date(forecast.generated), models: forecast.models, source: resorts.source, observations: obs.resorts }
+  return { rows, passes: resorts.passes, generated: new Date(forecast.generated), models: forecast.models, source: resorts.source, measuredAt: obs.generated ? new Date(obs.generated) : null }
 }
 
 /** The snowfall figure a row is ranked by: fallen in the last 24 / 72 h, or forecast for 3 / 7 / 14 days. */
@@ -71,6 +74,34 @@ export function snowOf(f: ResortForecast | undefined, metric: Metric, level: Lev
   if (metric === 'p24') return f.p[li][0]
   if (metric === 'p72') return f.p[li][1]
   return f.w[li][WINDOW_INDEX[metric]!]
+}
+
+/** A reading stops standing for "the last 24 hours" once it is this old. */
+const FRESH_MS = 36 * 3_600_000
+
+/** The station reading of snow fallen over a past period, if a fresh one exists. */
+export function measuredFall(row: Row, metric: Metric, nowMs = Date.now()): Observation | null {
+  if (!row.o || (metric !== 'p24' && metric !== 'p72')) return null
+  // New snow measured on a board or gauge beats a change in depth, which settling shrinks.
+  const kinds = metric === 'p24' ? (['new24', 'change24'] as const) : (['new72', 'change72'] as const)
+  for (const k of kinds) {
+    const o = row.o.find((x) => x.k === k && nowMs - Date.parse(x.at) <= FRESH_MS)
+    if (o) return o
+  }
+  return null
+}
+
+/** Snow on the ground at the nearest station, if one reports it. */
+export function measuredDepth(row: Row): Observation | null {
+  return row.o?.find((x) => x.k === 'depth') ?? null
+}
+
+/**
+ * The figure a mountain is ranked by. A forecast comes from the models; snow that has already
+ * fallen comes from a station where one measured it, and from the models' estimate elsewhere.
+ */
+export function valueOf(row: Row, metric: Metric, level: Level, nowMs = Date.now()): number | null {
+  return measuredFall(row, metric, nowMs)?.v ?? snowOf(row.f, metric, level)
 }
 
 export interface Spread {
@@ -120,10 +151,11 @@ export function rateSpread(spread: number | null, longRange: boolean): Confidenc
   return { level: longRange && level === 3 ? 2 : level, spread }
 }
 
-export type SortKey = 'snow' | 'near' | 'vert' | 'base' | 'top' | 'name' | 'agree' | 'km'
+export type SortKey = 'snow' | 'depth' | 'near' | 'vert' | 'base' | 'top' | 'name' | 'agree' | 'km'
 
 export const SORTS: readonly { id: SortKey; label: string; defaultDesc: boolean }[] = [
   { id: 'snow', label: 'Most snow', defaultDesc: true },
+  { id: 'depth', label: 'Deepest snow on the ground', defaultDesc: true },
   { id: 'near', label: 'Nearest to me', defaultDesc: false },
   { id: 'vert', label: 'Vertical drop', defaultDesc: true },
   { id: 'top', label: 'Summit elevation', defaultDesc: true },
@@ -171,7 +203,9 @@ export function sortRows(rows: readonly Row[], key: SortKey, desc: boolean, metr
   const value = (row: Row): number | string | null => {
     switch (key) {
       case 'snow':
-        return snowOf(row.f, metric, level)
+        return valueOf(row, metric, level)
+      case 'depth':
+        return measuredDepth(row)?.v ?? null
       case 'near':
         return here ? distanceKm(here, row.r.la, row.r.lo) : null
       case 'vert':

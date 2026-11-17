@@ -2,10 +2,10 @@
 // phone never lays out two thousand of them at once.
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Spark } from '../charts/charts.tsx'
-import { CONFIDENCE_LABEL, confidenceOf, distanceKm, LEVEL_INDEX, METRICS, snowOf, spreadOf, type LatLon, type Metric, type Row, type SortKey } from '../lib/data.ts'
+import { CONFIDENCE_LABEL, confidenceOf, distanceKm, LEVEL_INDEX, measuredDepth, measuredFall, METRICS, spreadOf, valueOf, type LatLon, type Metric, type Row, type SortKey } from '../lib/data.ts'
 import { LEVEL_LABELS, type Level } from '../lib/models.ts'
 import { snowClass, snowScale, type SnowScale } from '../lib/scale.ts'
-import type { Observation, PassDef } from '../lib/types.ts'
+import type { PassDef } from '../lib/types.ts'
 import { elevUnit, fmtElev, fmtElevNum, fmtSnow, fmtSnowNum, fmtSnowRange, snowUnit, snowUnitName, type Units } from '../lib/units.ts'
 import { ConfidenceBars, IconStar } from './icons.tsx'
 
@@ -14,7 +14,6 @@ const PAGE = 50
 export interface RankingsProps {
   rows: readonly Row[]
   passes: readonly PassDef[]
-  observations: Record<string, Observation[]>
   units: Units
   dark: boolean
   metric: Metric
@@ -90,13 +89,18 @@ export function Rankings(p: RankingsProps) {
         return { text: `${fmtElev(row.vert, p.units)} vertical`, strong: p.sort.key === 'vert' }
     }
   }
+  /** Snow on the ground at the nearest station, where one measures it. */
+  const depth = (row: Row): string | null => {
+    const d = measuredDepth(row)
+    return d ? `${fmtSnow(d.v, p.units)} on the ground` : null
+  }
   /** What stands behind the number: model confidence for a forecast, a station reading for the past. */
   const backing = (row: Row): ReactNode => {
     const conf = confidenceOf(row.f, p.metric)
     if (conf) return <><ConfidenceBars level={conf.level} /> {CONFIDENCE_LABEL[conf.level]}</>
     if (!metricDef.past) return row.f ? 'Too few models to rate' : 'No forecast yet'
-    const measured = p.metric === 'p24' ? p.observations[row.r.id]?.find((o) => o.k === 'new24') : undefined
-    return measured ? `Measured nearby: ${fmtSnow(measured.v, p.units)}` : 'Model estimate'
+    const measured = measuredFall(row, p.metric)
+    return measured ? <><span className="dot-measured" aria-hidden="true" /> Measured at {measured.st}</> : 'Model estimate'
   }
 
   return (
@@ -122,9 +126,12 @@ export function Rankings(p: RankingsProps) {
                       {[row.r.rg, row.r.co].filter(Boolean).join(', ')}
                       {row.r.p.map((slug) => <span key={slug} className="tag">{passShort(slug)}</span>)}
                     </span>
-                    <span className={f.strong ? 'fact is-strong num' : 'fact num'}>{f.text}</span>
+                    <span className="fact num">
+                      <span className={f.strong ? 'is-strong' : undefined}>{f.text}</span>
+                      {depth(row) && <span className={p.sort.key === 'depth' ? 'is-strong' : undefined}> · {depth(row)}</span>}
+                    </span>
                   </span>
-                  <SnowBadge cm={snowOf(row.f, p.metric, p.level)} units={p.units} scale={scale} />
+                  <SnowBadge cm={valueOf(row, p.metric, p.level)} units={p.units} scale={scale} />
                   <span className="mcard-foot">
                     {row.f && <Spark days={row.f.d[li]} />}
                     <span className="backing">{backing(row)}</span>
@@ -141,7 +148,10 @@ export function Rankings(p: RankingsProps) {
         </div>
       )}
       <p className="list-note">
-        {metricDef.past ? 'Estimated' : 'Forecast'} snowfall at {LEVEL_LABELS[p.level].toLowerCase()} elevation, in {snowUnitName(p.units)}. The small bars are the next 14 days.
+        {metricDef.past
+          ? <>Snow that has fallen, in {snowUnitName(p.units)}: <span className="dot-measured" aria-hidden="true" /> measured at a snow station within 10 km where there is one, otherwise the weather models' estimate at {LEVEL_LABELS[p.level].toLowerCase()} elevation.</>
+          : <>Forecast snowfall at {LEVEL_LABELS[p.level].toLowerCase()} elevation, in {snowUnitName(p.units)}.</>}{' '}
+        Snow on the ground is measured at the nearest station. The small bars are the next 14 days.
       </p>
     </>
   )
@@ -172,6 +182,7 @@ function WideTable(p: RankingsProps & { visible: Row[]; passShort: (slug: string
             <Th label={`Vertical, ${elevUnit(p.units)}`} active={p.sort.key === 'vert'} onClick={() => sortBy('vert')} />
             <Th label="Base" active={p.sort.key === 'base'} onClick={() => sortBy('base')} />
             <Th label="Summit" active={p.sort.key === 'top'} onClick={() => sortBy('top')} />
+            <Th label={`Depth, ${snowUnit(p.units)}`} active={p.sort.key === 'depth'} onClick={() => sortBy('depth')} title="Snow on the ground, measured at the nearest station" />
             {METRICS.map((m) => (
               <Th key={m.id} label={m.past ? `Last ${m.short}` : m.short} active={p.sort.key === 'snow' && p.metric === m.id} onClick={() => sortBySnow(m.id)} title={`${m.label}, ${snowUnit(p.units)}`} />
             ))}
@@ -200,12 +211,17 @@ function WideTable(p: RankingsProps & { visible: Row[]; passShort: (slug: string
                 <td className="num">{fmtElevNum(row.vert, p.units)}</td>
                 <td className="num">{fmtElevNum(row.r.b, p.units)}</td>
                 <td className="num">{fmtElevNum(row.r.t, p.units)}</td>
+                <td className="num">{fmtSnowNum(measuredDepth(row)?.v, p.units)}</td>
                 {METRICS.map((m) => {
-                  const v = snowOf(row.f, m.id, p.level)
+                  const v = valueOf(row, m.id, p.level)
+                  const station = measuredFall(row, m.id)
                   return m.id === p.metric ? (
                     <td key={m.id} className="is-key"><SnowBadge cm={v} units={p.units} scale={p.scale} /></td>
                   ) : (
-                    <td key={m.id} className="num">{fmtSnowNum(v, p.units)}</td>
+                    <td key={m.id} className="num" title={station ? `Measured at ${station.st}` : undefined}>
+                      {station && <span className="dot-measured" aria-label="measured" />}
+                      {fmtSnowNum(v, p.units)}
+                    </td>
                   )
                 })}
                 <td className="conf-cell">

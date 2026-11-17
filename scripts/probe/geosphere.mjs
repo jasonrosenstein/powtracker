@@ -1,0 +1,15 @@
+// Probe: why the GeoSphere Austria adapter returns no stations.
+const api = 'https://dataset.api.hub.geosphere.at/v1/station'
+const meta = await (await fetch(`${api}/current/tawes-v1-10min/metadata`)).json()
+const active = meta.stations.filter((s) => s.is_active)
+console.log('stations', meta.stations.length, 'active', active.length, 'id type', typeof active[0].id)
+const ids = active.map((s) => s.id).join(',')
+const r = await fetch(`${api}/current/tawes-v1-10min?parameters=SCHNEE&station_ids=${ids}`)
+console.log('current HTTP', r.status)
+const d = await r.json()
+console.log('timestamps', d.timestamps, 'features', d.features?.length, JSON.stringify(d).slice(0, 300))
+const vals = (d.features ?? []).map((f) => f.properties.parameters.SCHNEE.data[0])
+console.log('non-null', vals.filter((v) => v != null).length, 'station type', typeof d.features?.[0]?.properties.station)
+const t = new Date(Date.parse(d.timestamps[0]) - 24 * 3600000).toISOString().slice(0, 16)
+const h = await fetch(`${api}/historical/tawes-v1-10min?parameters=SCHNEE&start=${t}&end=${t}&station_ids=${active.slice(0, 20).map((s) => s.id).join(',')}`)
+console.log('historical HTTP', h.status, (await h.text()).slice(0, 300))

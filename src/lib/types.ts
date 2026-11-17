@@ -62,8 +62,11 @@ export interface ResortForecast {
 
 /** One reading from a snow station near a resort. */
 export interface Observation {
-  /** depth: snow on the ground. new24: new snow measured over 24 h. change24: change in depth over 24 h. */
-  k: 'depth' | 'new24' | 'change24'
+  /**
+   * depth: snow on the ground. new24 / new72: new snow measured over 24 / 72 h.
+   * change24 / change72: how much deeper the snow is than 24 / 72 h ago.
+   */
+  k: 'depth' | 'new24' | 'change24' | 'new72' | 'change72'
   /** Centimetres. */
   v: number
   /** When it was measured (ISO, UTC). */

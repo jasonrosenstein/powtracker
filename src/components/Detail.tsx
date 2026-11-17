@@ -19,9 +19,11 @@ import { SaveButton } from './Rankings.tsx'
 const WINDOW_OF: Partial<Record<Metric, number>> = { w3: 0, w7: 1, w14: 2 }
 
 const OBS_LABEL: Record<Observation['k'], string> = {
-  depth: 'snow on the ground',
-  new24: 'new snow in 24 hours',
-  change24: 'deeper than 24 hours ago',
+  depth: 'Snow on the ground',
+  new24: 'New snow in 24 hours',
+  change24: 'Deeper than 24 hours ago',
+  new72: 'New snow in 72 hours',
+  change72: 'Deeper than 72 hours ago',
 }
 
 type LiveState = { status: 'loading' } | { status: 'ready'; live: Live } | { status: 'error'; message: string }
@@ -169,22 +171,24 @@ export function Detail({ row, obs, passes, units, metric, level: initialLevel, g
           {days && <DayStrip days={days} units={units} levelLabel={levelLabel} />}
 
           <section className="chart-card recent">
-            <header><h3>Recent snow</h3></header>
-            <div className="recent-row">
-              <div><strong className="num">{fmtSnow(past[0], units)}</strong><span>last 24 hours</span></div>
-              <div><strong className="num">{fmtSnow(past[1], units)}</strong><span>last 72 hours</span></div>
-            </div>
-            <p className="hint">Estimated from the weather models at {levelLabel}.</p>
+            <header>
+              <h3>On the ground now</h3>
+              <p>{obs && obs.length > 0 ? 'Measured at snow stations near the mountain.' : 'No snow station reports within 10 km at this mountain\'s height, so these are the weather models\' estimates.'}</p>
+            </header>
             {obs && obs.length > 0 && (
               <ul className="measured">
                 {obs.map((o) => (
                   <li key={o.k}>
                     <strong className="num">{fmtSnow(o.v, units)}</strong>
-                    <span>Measured: {OBS_LABEL[o.k]} at {o.st} ({fmtElev(o.z, units)}, {o.km} km away), {fmtAgo(new Date(o.at))}. {o.src}.</span>
+                    <span><b>{OBS_LABEL[o.k]}</b> at {o.st} ({fmtElev(o.z, units)}, {o.km} km away), {fmtAgo(new Date(o.at))}. {o.src}.</span>
                   </li>
                 ))}
               </ul>
             )}
+            <div className={obs && obs.length > 0 ? 'recent-row is-secondary' : 'recent-row'}>
+              <div><strong className="num">{fmtSnow(past[0], units)}</strong><span>last 24 hours, model estimate</span></div>
+              <div><strong className="num">{fmtSnow(past[1], units)}</strong><span>last 72 hours, model estimate</span></div>
+            </div>
           </section>
 
           {state.status === 'loading' && <p className="status">Loading the latest run of every model for the charts…</p>}

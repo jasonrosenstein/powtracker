@@ -55,7 +55,7 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
   const level = (name: string) => page.locator('.controls .seg').first().getByRole('button', { name, exact: true })
 
   await check('default ranking is by 7-day snowfall, deepest first', async () => {
-    const v = (await column(9)).map(num)
+    const v = (await column(10)).map(num)
     expect(v.length === 12 && sortedDesc(v) && v[0] > 0, `7-day column: ${v.join(', ')}`)
     expect((await period()) === '7 days', 'the period bar should show 7 days')
   })
@@ -71,7 +71,7 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     })
   }
 
-  for (const [label, col] of [['Last 24h', 6], ['Last 72h', 7], ['3 days', 8], ['14 days', 10]] as const) {
+  for (const [label, col] of [['Last 24h', 7], ['Last 72h', 8], ['3 days', 9], ['14 days', 11]] as const) {
     await check(`sorts by snowfall, ${label}`, async () => {
       await header(label).click()
       const v = (await column(col)).map(num)
@@ -85,9 +85,9 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     // Rank by name so the same mountains are compared at both levels.
     await header('Mountain').click()
     await level('Summit').click()
-    const top = (await column(9, 40)).map(num)
+    const top = (await column(10, 40)).map(num)
     await level('Base').click()
-    const baseVals = (await column(9, 40)).map(num)
+    const baseVals = (await column(10, 40)).map(num)
     const sum = (v: number[]) => v.reduce((a, b) => a + b, 0)
     expect(sum(top) > sum(baseVals), `summit ${sum(top)} should exceed base ${sum(baseVals)}`)
     await level('Mid').click()
@@ -133,9 +133,22 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     await page.locator('.chips .chip').nth(0).click()
   })
 
+  await check('sorts by measured snow depth, and opens to the station readings', async () => {
+    await header('Depth').click()
+    const v = (await column(6)).map(num)
+    expect(sortedDesc(v) && v[0] > 0, `depth column: ${v.join(', ')}`)
+    await page.locator('.name-btn').first().click()
+    await page.waitForSelector('.detail .measured li', { timeout: 30_000 })
+    const reading = (await page.locator('.detail .measured li').first().textContent())!
+    expect(/Snow on the ground at .+ km away/.test(reading), `first reading: ${reading.slice(0, 120)}`)
+    await page.getByRole('button', { name: 'Back to the list' }).click()
+    await page.waitForSelector('.detail', { state: 'detached', timeout: 5000 })
+    await page.locator('.period').getByRole('button', { name: '7 days' }).click()
+  })
+
   await check('sorting by confidence puts the most agreed forecasts first', async () => {
     await header('Confidence').click()
-    const cells = await column(11, 20)
+    const cells = await column(12, 20)
     expect(cells.every((c) => c.includes('High confidence')), `top rows: ${cells.slice(0, 3).join(' | ')}`)
     await page.locator('.period').getByRole('button', { name: '7 days' }).click()
   })
@@ -249,9 +262,21 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     await openSheet('Most snow')
     await page.locator('.choice', { hasText: 'Vertical drop' }).click()
     await closeSheet()
-    const v = (await page.locator('.mcard .fact').evaluateAll((els) => els.slice(0, 10).map((e) => e.textContent ?? ''))).map(num)
+    const v = (await page.locator('.mcard .fact span:first-child').evaluateAll((els) => els.slice(0, 10).map((e) => e.textContent ?? ''))).map(num)
     expect(v.length === 10 && sortedDesc(v), v.join(', '))
     await openSheet('Vertical drop')
+    await page.locator('.choice', { hasText: 'Most snow' }).click()
+    await closeSheet()
+  })
+
+  await check('phone: deepest snow on the ground ranks by station measurements', async () => {
+    await openSheet('Most snow')
+    await page.locator('.choice', { hasText: 'Deepest snow on the ground' }).click()
+    await closeSheet()
+    const facts = await page.locator('.mcard .fact').evaluateAll((els) => els.slice(0, 8).map((e) => e.textContent ?? ''))
+    const depths = facts.map((f) => num(f.split('·')[1] ?? ''))
+    expect(facts.every((f) => f.includes('on the ground')) && sortedDesc(depths) && depths[0] > 0, facts.slice(0, 3).join(' | '))
+    await openSheet('Deepest snow')
     await page.locator('.choice', { hasText: 'Most snow' }).click()
     await closeSheet()
   })

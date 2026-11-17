@@ -151,7 +151,9 @@ a { color: var(--accent-ink); }
 .name { font-weight: 700; font-size: 16.5px; letter-spacing: -0.01em; line-height: 1.25; overflow-wrap: anywhere; }
 .place { font-size: 13px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 3px 6px; align-items: center; }
 .fact { font-size: 12.5px; color: var(--ink-3); }
-.fact.is-strong { color: var(--ink); font-weight: 650; }
+.fact .is-strong { color: var(--ink); font-weight: 650; }
+/* A filled dot marks a figure measured at a snow station, as opposed to a model estimate. */
+.dot-measured { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin-right: 5px; vertical-align: 1px; flex: none; }
 .badge { align-self: start; min-width: 68px; padding: 7px 10px 6px; border-radius: 14px; display: inline-flex; align-items: baseline; justify-content: center; gap: 3px; }
 .badge b { font-size: 23px; font-weight: 750; letter-spacing: -0.02em; line-height: 1.1; }
 .badge small { font-size: 11.5px; font-weight: 650; opacity: 0.85; }
@@ -226,10 +228,12 @@ a { color: var(--accent-ink); }
 .recent-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
 .recent-row strong { display: block; font-size: 22px; font-weight: 750; letter-spacing: -0.02em; }
 .recent-row span { font-size: 12.5px; color: var(--ink-2); }
-.recent .hint { margin: 8px 0 0; }
-.measured { list-style: none; margin: 12px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; }
-.measured li { display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 10px; align-items: baseline; font-size: 13px; color: var(--ink-2); }
-.measured li strong { color: var(--ink); font-size: 15.5px; font-weight: 700; }
+.recent-row.is-secondary { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.recent-row.is-secondary strong { font-size: 16px; }
+.measured { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 10px; }
+.measured li { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 10px; align-items: baseline; font-size: 13px; color: var(--ink-2); }
+.measured li strong { color: var(--ink); font-size: 20px; font-weight: 750; letter-spacing: -0.02em; }
+.measured li b { color: var(--ink); font-weight: 650; }
 
 .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 12px 10px; margin-top: 8px; }
 .facts dt { font-size: 12px; color: var(--ink-3); }

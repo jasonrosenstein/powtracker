@@ -4,7 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { addProtocol, Map as MlMap, NavigationControl, Popup, setWorkerUrl, type AddProtocolAction, type GeoJSONSource, type MapLayerMouseEvent, type RasterTileSource } from 'maplibre-gl'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { LEVEL_INDEX, METRICS, snowOf, type Metric, type Row } from '../lib/data.ts'
+import { LEVEL_INDEX, METRICS, valueOf, type Metric, type Row } from '../lib/data.ts'
 import { LEVEL_LABELS, type Level } from '../lib/models.ts'
 import { snowClass, snowColor, snowRadius, snowScale } from '../lib/scale.ts'
 import { fmtSnow, fmtSnowNum, snowUnit, snowUnitName, type Units } from '../lib/units.ts'
@@ -190,7 +190,7 @@ export default function MapView(p: MapViewProps) {
     // The mountain's own local day that falls on the timeline's date.
     const dayIndex = (d0: string) => Math.max(0, Math.min(13, Math.round((dateMs - Date.parse(`${d0}T00:00:00Z`)) / DAY_MS)))
     const features = p.rows.map((row) => {
-      const cm = bubbles === 'daily' ? (row.f ? row.f.d[li][dayIndex(row.f.d0)] : null) : snowOf(row.f, p.metric, p.level)
+      const cm = bubbles === 'daily' ? (row.f ? row.f.d[li][dayIndex(row.f.d0)] : null) : valueOf(row, p.metric, p.level)
       return {
         type: 'Feature' as const,
         geometry: { type: 'Point' as const, coordinates: [row.r.lo, row.r.la] },
