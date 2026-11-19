@@ -1,6 +1,6 @@
 # Powtracker
 
-Live at **https://jasonrosenstein.github.io/powtracker/**
+Live at **https://powtracker.app/**
 
 Forecast snowfall for ski mountains worldwide over the next 3, 7 and 14 days, triangulated from
 eight weather models, at the base, the middle and the summit of each mountain. Sort by snowfall,
@@ -114,7 +114,9 @@ that address (a phone on the same Wi-Fi) gets the snapshot fallback instead of l
 the hour turns. Use `--resume` rather than a second full run.
 
 `.github/workflows/refresh.yml` does the refresh twice a day and publishes the site to GitHub
-Pages. On Open-Meteo's free tier (10,000 calls a day and 300,000 a month, non-commercial use
+Pages, which serves it at powtracker.app: the domain is registered and has its DNS at Vercel
+(address records for GitHub Pages, and `www` pointing at the github.io name), and is set as the
+custom domain in the repository's Pages settings. On Open-Meteo's free tier (10,000 calls a day and 300,000 a month, non-commercial use
 only) one refresh costs about 2.1 calls per mountain: about 3,600 for the 1,750 tracked. Set `OPEN_METEO_API_KEY` to use a paid plan: it lifts the limits,
 allows commercial use, and makes tracking every ski area in OpenSkiMap (about 4,400) affordable.
 
