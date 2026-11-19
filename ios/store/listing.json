@@ -1,0 +1,25 @@
+{
+  "appId": "6836583470",
+  "locale": "en-US",
+  "primaryCategory": "WEATHER",
+  "secondaryCategory": "SPORTS",
+  "subtitle": "Ski snowfall, 14 days ahead",
+  "privacyPolicyUrl": "https://powtracker.app/privacy.html",
+  "supportUrl": "https://powtracker.app/support.html",
+  "marketingUrl": "https://powtracker.app/",
+  "copyright": "2026 Jason Rosenstein",
+  "promotionalText": "Where is it going to snow? Powtracker ranks 1,750 ski mountains by the snow on the way, from eight weather models.",
+  "keywords": "ski,snow,forecast,powder,snowboard,resort,trail map,snowfall,weather,mountain,lifts,skiing,report",
+  "description": "Powtracker shows how much snow is coming to every major ski mountain in the world, and when.\n\nEight independent weather models are combined into one forecast for each mountain, worked out for its real elevations. See which mountains get the most snow, how sure the models are, and what the mountain looks like today.\n\nFREE\n• Snowfall for the next 3 days at 1,750 mountains, ranked\n• Snow that fell in the last 24 hours, measured at official stations where there is one\n• Trail maps for every mountain\n• Live lifts and trails at about 100 mountains that publish them\n• Season opening dates, summit weather and avalanche danger\n• One saved mountain\n\nPOWTRACKER PRO\n• The 7-day and 14-day outlook, day by day\n• Base, mid and summit forecasts, and the snow line\n• Filter by season pass\n• All eight weather models side by side, and how far they agree\n• Animated forecast maps and hour-by-hour summit weather\n• Unlimited saved mountains\n\nPowtracker Pro is $2.99 a month after a 7-day free trial. Payment is charged to your Apple Account. The subscription renews automatically unless cancelled at least 24 hours before the end of the period. Manage or cancel it in your Apple Account's subscriptions.\n\nForecasts are estimates. Check the resort and the official avalanche forecast before you go.\n\nTerms of use: https://powtracker.app/terms.html\nPrivacy policy: https://powtracker.app/privacy.html",
+  "review": {
+    "contactFirstName": "Jason",
+    "contactLastName": "Rosenstein",
+    "contactEmail": "admin@powtracker.app",
+    "demoAccountRequired": false,
+    "notes": "Powtracker needs no account. To see the subscription, tap \"Try Pro\" at the top right, or tap \"7 days\" in the forecast bar. Pro features: the 7- and 14-day forecast periods, the Base and Summit elevation buttons, season-pass filters, the model charts on a mountain's page, map layers, and saving more than one mountain. Purchases are verified on the device with StoreKit 2; \"Restore purchases\" is at the bottom of the same sheet."
+  },
+  "screenshots": {
+    "displayType": "APP_IPHONE_67",
+    "files": ["screenshots/1-rankings.png", "screenshots/2-forecast.png", "screenshots/3-charts.png", "screenshots/4-trails.png", "screenshots/5-map.png"]
+  }
+}

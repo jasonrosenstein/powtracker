@@ -55,9 +55,12 @@ Forecasts are estimates. Check the resort and the official avalanche forecast be
 Terms of use: https://powtracker.app/terms.html
 Privacy policy: https://powtracker.app/privacy.html
 
-**Keywords** (100 characters)
+**Keywords** (100 characters; no pass names, since Apple refuses other companies' trademarks here)
 
-ski,snow,forecast,powder,snowboard,resort,ikon,epic,indy,trail map,snowfall,weather,mountain,lifts
+ski,snow,forecast,powder,snowboard,resort,trail map,snowfall,weather,mountain,lifts,skiing,report
+
+The live values are in `listing.json`; `node scripts/asc-listing.mjs` applies them, and
+`asc-subscription.mjs` and `asc-testflight.mjs` set up the subscription and the test group.
 
 ## Subscription
 
