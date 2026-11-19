@@ -7,6 +7,7 @@ import { fetchAvalancheDanger, hasAvalancheService } from '../lib/avalanche.ts'
 import { openingLine, type Row } from '../lib/data.ts'
 import { fmtAgo, useAsync } from '../lib/hooks.ts'
 import { fetchMountainWeather, SKY_WORDS, windAdvice } from '../lib/mountain-weather.ts'
+import { fetchData } from '../lib/origin.ts'
 import { fetchLiveStatus, liveFeedFor, tally, type LiveStatus, type LiveTrail, type OpenState } from '../lib/status.ts'
 import { decodeTrails, difficultyClasses, liftKey, liftTypeName, nameKey, runLabel, type Trails } from '../lib/trails.ts'
 import type { TrailsFile } from '../lib/types.ts'
@@ -49,7 +50,7 @@ export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: b
 
   const trails = useAsync<Trails | null>(
     async (signal) => {
-      const res = await fetch(`${import.meta.env.BASE_URL}data/trails/${r.id}.json`, { signal })
+      const res = await fetchData(`trails/${r.id}.json`, { signal })
       if (res.status === 404) return null
       if (!res.ok) throw new Error(`trail data: HTTP ${res.status}`)
       return decodeTrails((await res.json()) as TrailsFile, r)

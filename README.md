@@ -100,6 +100,32 @@ Each mountain has a second tab for the day on the hill:
 To rebuild the trail maps: `npm run data:trailsource` (downloads about 1 GB), then
 `npm run data:trails`.
 
+## Powtracker Pro and the iPhone app
+
+`src/lib/plan.ts` says what is free and what is Pro ($2.99 a month, 7-day trial), and why;
+`node scripts/pricing-scenarios.ts` prints the comparison the split was chosen from. The paywall
+is in force in the iPhone app and in a build made with `VITE_PAYWALL=on`. Opening the site with
+`?paywall=on` previews the free plan in that tab; otherwise the site shows everything.
+
+The iPhone app (`ios/`, made with Capacitor) is this site in a native shell. It reads its data
+from powtracker.app, so a forecast refresh needs no app update. The subscription is bought and
+verified on the device with StoreKit 2 (`ios/App/App/SubscriptionsPlugin.swift`, bridged in
+`src/lib/store.ts`): no server and no accounts.
+
+```bash
+sh scripts/ios-sync.sh        # build with the paywall on and copy into the Xcode project
+xcodebuild -project ios/App/App.xcodeproj -scheme App -destination 'generic/platform=iOS Simulator' build
+node scripts/make-icons.ts    # the app icon and launch image, from public/icon.svg
+node scripts/store-shots.ts   # App Store screenshots
+```
+
+`ios/store/listing.md` holds the App Store listing text and the subscription's settings.
+
+Before Pro is sold, the data licences that are free only for non-commercial use have to be
+settled: Open-Meteo needs its paid plan (set `OPEN_METEO_API_KEY`; the app must then stop
+calling the free API from the device), and RainViewer's radar is for personal use, so it is
+hidden wherever the paywall is on.
+
 ## Refreshing the data
 
 ```bash

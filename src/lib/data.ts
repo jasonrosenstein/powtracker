@@ -1,6 +1,7 @@
 // Loads the resort list and the forecast snapshot, and joins them into the rows the app sorts,
 // filters and maps.
 import { type Level } from './models.ts'
+import { fetchData } from './origin.ts'
 import { regionOf, type Region } from './regions.ts'
 import { modelSpread } from './snow.ts'
 import type { ForecastFile, Observation, ObservationsFile, Opening, OpeningsFile, PassDef, Resort, ResortForecast, ResortsFile } from './types.ts'
@@ -33,7 +34,7 @@ export interface Dataset {
 export async function loadDataset(): Promise<Dataset> {
   const get = async <T>(file: string): Promise<T> => {
     // Skip the HTTP cache: the snapshot is replaced in place twice a day.
-    const res = await fetch(`${import.meta.env.BASE_URL}data/${file}`, { cache: 'no-cache' })
+    const res = await fetchData(file, { cache: 'no-cache' })
     if (!res.ok) throw new Error(`${file}: HTTP ${res.status}`)
     return (await res.json()) as T
   }

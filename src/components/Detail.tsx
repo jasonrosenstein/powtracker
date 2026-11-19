@@ -9,6 +9,7 @@ import { biggestStorm, CONFIDENCE_LABEL, LEVEL_INDEX, openingLine, rateSpread, t
 import { fmtAgo } from '../lib/hooks.ts'
 import { elevationProfile, fetchLive, levelView, meteogram, snapshotDays, type DayTotal, type Live } from '../lib/live.ts'
 import { LEVEL_LABELS, LEVELS, MODELS, WINDOW_LABELS, WINDOWS_H, type Level } from '../lib/models.ts'
+import { shareUrl } from '../lib/origin.ts'
 import { allowedLevel, FREE_DAYS, levelNeeds, type Feature, type Plan } from '../lib/plan.ts'
 import { modelSpread } from '../lib/snow.ts'
 import type { Observation, PassDef } from '../lib/types.ts'
@@ -104,7 +105,7 @@ export function Detail({ row, obs, passes, units, dark, metric, level: initialLe
   // (where "copy link" is what people expect and a system share sheet is a detour).
   const [shared, setShared] = useState('')
   const share = async () => {
-    const link = { title: `${r.n} snow forecast`, url: location.href }
+    const link = { title: `${r.n} snow forecast`, url: shareUrl(r.id) }
     try {
       if (navigator.share && window.matchMedia('(pointer: coarse)').matches) {
         await navigator.share(link)

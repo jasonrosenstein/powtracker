@@ -26,8 +26,8 @@
     "data:refresh": "node scripts/ingest.ts && node scripts/ingest-obs.ts"
   },
   "dependencies": {
-    "@capacitor/core": "^8.6.1",
-    "@capacitor/ios": "^8.6.1",
+    "@capacitor/core": "^8.6.2",
+    "@capacitor/ios": "^8.6.2",
     "@openmeteo/mapbox-layer": "^0.0.16",
     "d3-array": "^3.2.5",
     "d3-scale": "^4.0.3",
@@ -37,7 +37,7 @@
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
-    "@capacitor/cli": "^8.6.1",
+    "@capacitor/cli": "^8.6.2",
     "@types/d3-array": "^3.2.2",
     "@types/d3-scale": "^4.0.9",
     "@types/d3-shape": "^3.2.0",
