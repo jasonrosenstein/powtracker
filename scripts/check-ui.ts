@@ -4,11 +4,32 @@
 //
 // Usage: node scripts/check-ui.ts [baseUrl]
 //   npm run build && npx vite preview --port 4173   (in another terminal)
+import dns from 'node:dns'
 import { chromium, type Page } from 'playwright-core'
 import { liveFeedFor } from '../src/lib/status.ts'
 
 const base = process.argv[2] ?? 'http://127.0.0.1:4173/'
-const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--enable-unsafe-swiftshader'] })
+
+// CHECK_UI_RESOLVE="host=address" sends that host to that address, in Chrome and in this
+// script's own requests. For a domain whose records are new: a machine that looked the name up
+// before it existed keeps answering "no such host" for a while after the rest of the world sees it.
+const pin = process.env.CHECK_UI_RESOLVE?.split('=')
+if (pin?.length === 2) {
+  const [host, address] = pin
+  const systemLookup = dns.lookup
+  const pinned = (name: string, options: unknown, callback?: unknown) => {
+    const cb = (typeof options === 'function' ? options : callback) as (e: Error | null, a: unknown, f?: number) => void
+    if (name !== host) return (systemLookup as (...a: unknown[]) => void)(name, options, callback)
+    const wantsAll = typeof options === 'object' && options !== null && (options as { all?: boolean }).all
+    process.nextTick(() => (wantsAll ? cb(null, [{ address, family: 4 }]) : cb(null, address, 4)))
+  }
+  ;(dns as { lookup: unknown }).lookup = pinned
+}
+const browser = await chromium.launch({
+  channel: 'chrome',
+  headless: true,
+  args: ['--enable-unsafe-swiftshader', ...(pin?.length === 2 ? [`--host-resolver-rules=MAP ${pin[0]} ${pin[1]}`] : [])],
+})
 let failed = 0
 
 async function check(name: string, fn: () => Promise<void>) {
