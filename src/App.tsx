@@ -2,11 +2,13 @@ import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } fro
 import { Controls, FilterChips, FilterSheet, PeriodBar, type ControlState, type SheetSection } from './components/Controls.tsx'
 import { Detail } from './components/Detail.tsx'
 import { IconClose, IconMap, IconRank, IconSearch, IconStar, Logo } from './components/icons.tsx'
+import { ProButton, usePlan } from './components/Plan.tsx'
 import { Rankings } from './components/Rankings.tsx'
-import { applyFilters, loadDataset, METRICS, NO_FILTERS, sortRows, type Dataset, type Filters, type Metric, type SortKey } from './lib/data.ts'
+import { applyFilters, loadDataset, METRICS, NO_FILTERS, sortRows, valueOf, type Dataset, type Filters, type Metric, type Row, type SortKey } from './lib/data.ts'
 import { fmtAgo, useLocation, useMediaQuery, usePersisted, useSaved } from './lib/hooks.ts'
 import { MODELS, type Level } from './lib/models.ts'
-import { defaultUnits, type Units } from './lib/units.ts'
+import { allowedLevel, allowedMetric, allowedSort, levelNeeds, metricNeeds, passesNeed, savingNeeds, sortNeeds } from './lib/plan.ts'
+import { defaultUnits, fmtSnow, type Units } from './lib/units.ts'
 
 // The map brings a large library with it: load it only when the Map tab is opened.
 const MapView = lazy(() => import('./components/MapView.tsx'))
@@ -48,44 +50,82 @@ function useOpenResort(): [string | null, (id: string | null) => void] {
   return [id, open]
 }
 
+/** For the free plan: what the 7-day outlook holds, without saying where. */
+function OutlookTeaser({ rows, units, onAsk }: { rows: readonly Row[]; units: Units; onAsk: () => void }) {
+  const totals = rows.map((row) => valueOf(row, 'w7', 'mid') ?? 0)
+  const most = Math.max(0, ...totals)
+  const footOrMore = totals.filter((cm) => cm >= 30).length
+  if (most < 15) return null
+  return (
+    <button type="button" className="teaser" onClick={onAsk}>
+      <span>
+        <b>{fmtSnow(most, units)} is on the way to one mountain in the next 7 days</b>
+        {footOrMore > 1 && <>, and {footOrMore.toLocaleString('en-US')} mountains expect {units === 'metric' ? '30 cm' : 'a foot'} or more</>}.
+      </span>
+      <span className="teaser-cta">See where with Pro</span>
+    </button>
+  )
+}
+
 export function App() {
   const [data, setData] = useState<Dataset | null>(null)
   const [error, setError] = useState('')
   const [tab, setTab] = useState<Tab>('rank')
   const [units, setUnits] = usePersisted<Units>('units', defaultUnits)
   const [metric, setMetricRaw] = usePersisted<Metric>('metric', 'w7')
-  const [level, setLevel] = usePersisted<Level>('level', 'mid')
+  const [storedLevel, setLevelRaw] = usePersisted<Level>('level', 'mid')
   const [stored, setStored] = usePersisted<Pick<Filters, 'passes' | 'region' | 'minVert'>>('filters', NO_FILTERS)
   const [query, setQuery] = useState('')
-  const [sort, setSortRaw] = useState<{ key: SortKey; desc: boolean }>({ key: 'snow', desc: true })
+  const [sortRaw, setSortRaw] = useState<{ key: SortKey; desc: boolean }>({ key: 'snow', desc: true })
   const [sheet, setSheet] = useState<SheetSection | null>(null)
   const [openId, setOpenId] = useOpenResort()
-  const { saved, isSaved, toggle: toggleSaved } = useSaved()
+  const { saved, isSaved, toggle: toggleSavedRaw } = useSaved()
   const [locating, locate] = useLocation()
   const wide = useMediaQuery('(min-width: 1000px)')
   const dark = useMediaQuery('(prefers-color-scheme: dark)')
+  const { plan, ask } = usePlan()
 
   useEffect(() => {
     loadDataset().then(setData, (e: unknown) => setError(e instanceof Error ? e.message : String(e)))
   }, [])
 
-  const metricOk = METRICS.some((m) => m.id === metric) ? metric : 'w7'
+  // What is remembered may be more than the plan allows (a first visit defaults to 7 days; a
+  // subscription can lapse): show the nearest thing the plan does allow.
+  const metricOk = allowedMetric(plan, METRICS.some((m) => m.id === metric) ? metric : 'w7')
+  const level = allowedLevel(plan, storedLevel)
+  const sort = allowedSort(plan, sortRaw)
   // A remembered pass can disappear when rosters are rebuilt: drop it rather than show nothing.
   const knownPasses = (stored.passes ?? []).filter((slug) => !data || data.passes.some((pass) => pass.slug === slug))
-  const filters: Filters = { ...NO_FILTERS, ...stored, passes: knownPasses, query }
+  const filters: Filters = { ...NO_FILTERS, ...stored, passes: passesNeed(plan, knownPasses) ? [] : knownPasses, query }
+
+  // Every choice Pro gates goes through here: reaching for one opens the paywall instead.
+  const gated = <T,>(needs: (value: T) => ReturnType<typeof metricNeeds>, set: (value: T) => void) => (value: T) => {
+    const feature = needs(value)
+    if (feature) ask(feature)
+    else set(value)
+  }
   const setFilters = (f: Filters) => {
-    setStored({ passes: f.passes, region: f.region, minVert: f.minVert })
+    const feature = passesNeed(plan, f.passes)
+    if (feature) ask(feature)
+    setStored({ passes: feature ? [] : f.passes, region: f.region, minVert: f.minVert })
     setQuery(f.query)
   }
+  const setMetricOnly = gated((m: Metric) => metricNeeds(plan, m), setMetricRaw)
   // Picking a snowfall period means "rank by it": switch back to the snowfall sort.
-  const setMetric = (m: Metric) => {
+  const setMetric = gated((m: Metric) => metricNeeds(plan, m), (m) => {
     setMetricRaw(m)
     setSortRaw({ key: 'snow', desc: true })
-  }
+  })
+  const setLevel = gated((l: Level) => levelNeeds(plan, l), setLevelRaw)
   // Sorting by distance needs a position: ask for it the moment it is chosen.
-  const setSort = (s: { key: SortKey; desc: boolean }) => {
+  const setSort = gated((s: { key: SortKey; desc: boolean }) => sortNeeds(plan, s.key), (s) => {
     if (s.key === 'near' && locating.status !== 'ready') locate()
     setSortRaw(s)
+  })
+  const toggleSaved = (id: string) => {
+    const feature = isSaved(id) ? null : savingNeeds(plan, saved.length)
+    if (feature) ask(feature)
+    else toggleSavedRaw(id)
   }
   const here = locating.status === 'ready' ? locating.here : null
 
@@ -109,7 +149,7 @@ export function App() {
   if (!data) return <div className="loading"><Logo size={44} /><p>Loading the latest snow forecast…</p></div>
 
   const control: ControlState = { rows: data.rows, passes: data.passes, units, setUnits, level, setLevel, filters, setFilters, sort, setSort }
-  const listProps = { passes: data.passes, units, dark, metric: metricOk, setMetric: setMetricRaw, level, sort, setSort, here, wide, isSaved, toggleSaved, onOpen: setOpenId }
+  const listProps = { passes: data.passes, units, dark, metric: metricOk, setMetric: setMetricOnly, level, sort, setSort, here, wide, isSaved, toggleSaved, onOpen: setOpenId }
 
   return (
     <div className={`app is-${tab}`}>
@@ -134,6 +174,7 @@ export function App() {
               ))}
             </nav>
           )}
+          <ProButton />
         </header>
         <PeriodBar metric={metricOk} setMetric={setMetric} />
       </div>
@@ -152,6 +193,7 @@ export function App() {
               <b>{sorted.length.toLocaleString('en-US')}</b> mountains · updated {fmtAgo(data.generated)} · {MODELS.length} weather models
               {measured > 0 && <> · {measured.toLocaleString('en-US')} with station readings</>}
             </p>
+            {plan === 'free' && <OutlookTeaser rows={data.rows} units={units} onAsk={() => ask('outlook')} />}
             <Rankings {...listProps} rows={sorted} empty={<><b>No mountains match.</b><span>Try a different search or loosen the filters.</span></>} />
           </>
         )}
@@ -225,6 +267,8 @@ export function App() {
           generated={data.generated}
           saved={isSaved(openRow.r.id)}
           onToggleSaved={() => toggleSaved(openRow.r.id)}
+          plan={plan}
+          onAsk={ask}
           onClose={closeDetail}
         />
       )}

@@ -467,7 +467,81 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     expect(fit.page <= fit.screen + 1, `page is ${fit.page}px tall on a ${fit.screen}px screen`)
     expect(fit.map > 400, `the map is only ${Math.round(fit.map)}px tall`)
   })
+  await check('no paywall where Pro is not sold: nothing is locked', async () => {
+    expect((await page.locator('.pro-btn, .lock, .paywall').count()) === 0, 'a lock or a Pro button is showing without the paywall')
+  })
   await page.context().close()
+}
+
+// --- Phone: the free plan and the paywall (previewed with ?paywall=on) ---------------------------
+{
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, locale: 'en-US' })
+  const page = await ctx.newPage()
+  const modelFetches: string[] = []
+  page.on('request', (r) => /open-meteo\.com\/v1\/forecast\?.*models=/.test(r.url()) && modelFetches.push(r.url()))
+  await page.goto(new URL('?paywall=on', base).href, { waitUntil: 'networkidle' })
+  const paywall = page.locator('.paywall')
+  const dismiss = async () => {
+    await page.getByRole('button', { name: 'Not now' }).click()
+    await paywall.waitFor({ state: 'detached' })
+  }
+
+  await check('free plan: the trial is offered once on the first visit, with its price and terms', async () => {
+    await paywall.waitFor({ timeout: 15_000 })
+    const text = (await paywall.textContent())!
+    expect(/7 days free, then \$2\.99 a month/.test(text), `the offer should state the trial and the price: ${text.slice(0, 200)}`)
+    expect((await paywall.getByRole('link', { name: 'Terms of use' }).getAttribute('href'))!.endsWith('/terms.html'), 'a terms link is expected')
+    expect((await paywall.getByRole('link', { name: 'Privacy policy' }).getAttribute('href'))!.endsWith('/privacy.html'), 'a privacy link is expected')
+    await dismiss()
+    await page.reload({ waitUntil: 'networkidle' })
+    expect((await paywall.count()) === 0, 'the offer should not reappear on the next visit')
+  })
+
+  await check('free plan: the list shows the next 3 days; 7 days opens the paywall and changes nothing', async () => {
+    expect((await page.locator('.period button[aria-pressed=true]').textContent())!.includes('3 days'), 'the free plan should open on 3 days')
+    const before = await page.locator('.mcard .badge b').first().textContent()
+    await page.locator('.period').getByRole('button', { name: /7 days/ }).click()
+    expect((await paywall.textContent())!.includes('See the next 7 and 14 days'), 'the paywall should say what was reached for')
+    await dismiss()
+    expect((await page.locator('.period button[aria-pressed=true]').textContent())!.includes('3 days'), 'the period should still be 3 days')
+    expect((await page.locator('.mcard .badge b').first().textContent()) === before, 'the list should not change')
+    expect((await page.locator('.teaser').count()) === 1, 'the 7-day teaser is expected above the list')
+    expect((await page.locator('.mcard .spark rect').first().locator('xpath=..').locator('rect').count()) === 3, 'the small bars should cover 3 days')
+  })
+
+  await check('free plan: a pass filter and a second saved mountain open the paywall', async () => {
+    await page.locator('.fchip').first().click()
+    await page.locator('.choice', { hasText: 'Ikon' }).click()
+    expect((await paywall.last().textContent())!.includes('Filter by your season pass'), 'the pass pitch is expected')
+    await page.locator('.paywall').getByRole('button', { name: 'Not now' }).click()
+    await page.getByRole('button', { name: /^Show [\d,]+ mountains$/ }).click()
+    expect(num(await page.locator('.summary b').first().textContent()) > 1500, 'no pass filter should be applied')
+    await page.locator('.mcard .star').nth(0).click()
+    expect((await page.locator('.mcard .star[aria-pressed=true]').count()) === 1, 'the first mountain should save')
+    await page.locator('.mcard .star').nth(1).click()
+    expect((await paywall.textContent())!.includes('Save every mountain you ski'), 'the saved pitch is expected')
+    await dismiss()
+    expect((await page.locator('.mcard .star[aria-pressed=true]').count()) === 1, 'only one mountain should be saved')
+    await page.locator('.mcard .star').nth(0).click()
+  })
+
+  await check('free plan: a mountain shows 3 days from the snapshot, with the rest locked', async () => {
+    await page.locator('.mcard-main').first().click()
+    await page.waitForSelector('.daystrip')
+    expect((await page.locator('.daystrip .day:not(.is-locked)').count()) === 3, 'three open days are expected')
+    expect((await page.locator('.daystrip .day.is-locked').count()) >= 10, 'the later days should be locked')
+    expect((await page.locator('.hero-tile.is-locked').count()) === 2, 'the 7- and 14-day totals should be locked')
+    expect((await page.locator('.detail canvas, .detail .chart-card svg.chart').count()) === 0, 'no Pro chart should be drawn')
+    await page.locator('.daystrip .day.is-locked').first().click()
+    expect((await paywall.count()) === 1, 'a locked day should open the paywall')
+    await dismiss()
+    expect(modelFetches.length === 0, `the free plan should not fetch live model output (${modelFetches.length} requests)`)
+    await page.getByRole('button', { name: 'Mountain and trails' }).click()
+    await page.waitForSelector('.trailmap .map canvas', { timeout: 30_000 })
+    await page.waitForSelector('.wx-now', { timeout: 30_000 })
+    expect((await page.locator('.hourstrip').count()) === 0 && (await page.locator('.locked-row').count()) === 1, 'the hour-by-hour strip should be locked, the trail map and current weather free')
+  })
+  await ctx.close()
 }
 
 await browser.close()

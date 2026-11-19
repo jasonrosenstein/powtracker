@@ -9,11 +9,12 @@ import { biggestStorm, CONFIDENCE_LABEL, LEVEL_INDEX, openingLine, rateSpread, t
 import { fmtAgo } from '../lib/hooks.ts'
 import { elevationProfile, fetchLive, levelView, meteogram, snapshotDays, type DayTotal, type Live } from '../lib/live.ts'
 import { LEVEL_LABELS, LEVELS, MODELS, WINDOW_LABELS, WINDOWS_H, type Level } from '../lib/models.ts'
+import { allowedLevel, FREE_DAYS, levelNeeds, type Feature, type Plan } from '../lib/plan.ts'
 import { modelSpread } from '../lib/snow.ts'
 import type { Observation, PassDef } from '../lib/types.ts'
 import { fmtElev, fmtSnow, fmtSnowNum, fmtSnowRange, snowUnit, type Units } from '../lib/units.ts'
 import { Segmented } from './Controls.tsx'
-import { ConfidenceBars, IconBack, IconShare } from './icons.tsx'
+import { ConfidenceBars, IconBack, IconLock, IconShare } from './icons.tsx'
 import { Mountain } from './Mountain.tsx'
 import { SaveButton } from './Rankings.tsx'
 
@@ -27,17 +28,18 @@ const OBS_LABEL: Record<Observation['k'], string> = {
   change72: 'Deeper than 72 hours ago',
 }
 
-type LiveState = { status: 'loading' } | { status: 'ready'; live: Live } | { status: 'error'; message: string }
+/** `snapshot`: the free plan reads the twice-daily snapshot and does not fetch live model output. */
+type LiveState = { status: 'snapshot' } | { status: 'loading' } | { status: 'ready'; live: Live } | { status: 'error'; message: string }
 
 /** The forecast in one sentence: the storm a skier would plan around. */
 function stormLine(days: readonly DayTotal[], units: Units): string {
   const storm = biggestStorm(days)
-  if (!storm) return 'No meaningful snow in the next 14 days.'
+  if (!storm) return `No meaningful snow in the next ${days.length} days.`
   if (storm.from === storm.to) return `Biggest day: ${fmtDate(storm.from)}, with ${fmtSnow(storm.totalCm, units)}.`
   return `Main storm ${fmtDate(storm.from)} to ${fmtDate(storm.to)}: ${fmtSnow(storm.totalCm, units)}, heaviest on ${fmtDate(storm.peak.date)} (${fmtSnow(storm.peak.cm, units)}).`
 }
 
-export function Detail({ row, obs, passes, units, dark, metric, level: initialLevel, generated, saved, onToggleSaved, onClose }: {
+export function Detail({ row, obs, passes, units, dark, metric, level: initialLevel, generated, saved, onToggleSaved, onClose, plan, onAsk }: {
   row: Row
   /** Station measurements near this resort, when a source covers it. */
   obs: readonly Observation[] | undefined
@@ -50,16 +52,31 @@ export function Detail({ row, obs, passes, units, dark, metric, level: initialLe
   saved: boolean
   onToggleSaved: () => void
   onClose: () => void
+  plan: Plan
+  /** Open the paywall for something this plan does not include. */
+  onAsk: (feature: Feature) => void
 }) {
   const { r, f } = row
+  const free = plan === 'free'
   const [tab, setTab] = useState<'snow' | 'mountain'>('snow')
-  const [level, setLevel] = useState<Level>(initialLevel)
-  const [win, setWin] = useState(WINDOW_OF[metric] ?? 1)
-  const [state, setState] = useState<LiveState>({ status: 'loading' })
+  const [pickedLevel, setPickedLevel] = useState<Level>(initialLevel)
+  const level = allowedLevel(plan, pickedLevel)
+  const setLevel = (l: Level) => {
+    const feature = levelNeeds(plan, l)
+    if (feature) onAsk(feature)
+    else setPickedLevel(l)
+  }
+  const [pickedWin, setWin] = useState(WINDOW_OF[metric] ?? 1)
+  const win = free ? 0 : pickedWin
+  const [state, setState] = useState<LiveState>({ status: free ? 'snapshot' : 'loading' })
   const [attempt, setAttempt] = useState(0)
   const panel = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (free) {
+      setState({ status: 'snapshot' })
+      return
+    }
     const ctl = new AbortController()
     setState({ status: 'loading' })
     fetchLive(r, ctl.signal)
@@ -68,7 +85,7 @@ export function Detail({ row, obs, passes, units, dark, metric, level: initialLe
         if (!ctl.signal.aborted) setState({ status: 'error', message: e instanceof Error ? e.message : String(e) })
       })
     return () => ctl.abort()
-  }, [r, attempt])
+  }, [r, attempt, free])
 
   // Modal behaviour: Escape closes, the page behind does not scroll, focus starts in the panel.
   useEffect(() => {
@@ -158,7 +175,13 @@ export function Detail({ row, obs, passes, units, dark, metric, level: initialLe
 
           {tab === 'mountain' ? <Mountain row={row} units={units} dark={dark} /> : <>
           <div className="hero" role="group" aria-label="Forecast period">
-            {totals.map((t, wi) => (
+            {totals.map((t, wi) => free && wi > 0 ? (
+              <button key={wi} type="button" className="hero-tile is-locked" aria-pressed={false} onClick={() => onAsk('outlook')}>
+                <span className="t-label">Next {WINDOW_LABELS[wi]}</span>
+                <span className="t-value"><IconLock size={22} /></span>
+                <span className="t-conf">Pro</span>
+              </button>
+            ) : (
               <button key={wi} type="button" className="hero-tile" aria-pressed={wi === win} onClick={() => setWin(wi)}>
                 <span className="t-label">Next {WINDOW_LABELS[wi]}</span>
                 <span className="t-value num">{fmtSnowNum(t.mean, units)}<small>{snowUnit(units)}</small></span>
@@ -171,17 +194,17 @@ export function Detail({ row, obs, passes, units, dark, metric, level: initialLe
               </button>
             ))}
           </div>
-          {days && <p className="storyline">{stormLine(days, units)}</p>}
+          {days && <p className="storyline">{stormLine(free ? days.slice(0, FREE_DAYS) : days, units)}</p>}
 
           <Segmented
             label="Elevation on the mountain"
-            options={LEVELS.map((l) => ({ id: l, label: LEVEL_LABELS[l], sub: fmtElev(elevOf(l), units) }))}
+            options={LEVELS.map((l) => ({ id: l, label: LEVEL_LABELS[l], sub: fmtElev(elevOf(l), units), locked: levelNeeds(plan, l) != null }))}
             value={level}
             onChange={setLevel}
             grow
           />
 
-          {days && <DayStrip days={days} units={units} levelLabel={levelLabel} />}
+          {days && <DayStrip days={days} units={units} levelLabel={levelLabel} openDays={free ? FREE_DAYS : days.length} onLocked={() => onAsk('outlook')} />}
 
           <section className="chart-card recent">
             <header>
@@ -200,9 +223,23 @@ export function Detail({ row, obs, passes, units, dark, metric, level: initialLe
             )}
             <div className={obs && obs.length > 0 ? 'recent-row is-secondary' : 'recent-row'}>
               <div><strong className="num">{fmtSnow(past[0], units)}</strong><span>last 24 hours, model estimate</span></div>
-              <div><strong className="num">{fmtSnow(past[1], units)}</strong><span>last 72 hours, model estimate</span></div>
+              {free ? (
+                <button type="button" className="recent-locked" onClick={() => onAsk('outlook')}><strong><IconLock size={18} /></strong><span>last 72 hours, with Pro</span></button>
+              ) : (
+                <div><strong className="num">{fmtSnow(past[1], units)}</strong><span>last 72 hours, model estimate</span></div>
+              )}
             </div>
           </section>
+
+          {free && (
+            <section className="chart-card upsell">
+              <header>
+                <h3>The full forecast for {r.n}</h3>
+                <p>Pro adds the running total for the next 14 days, the snow at the base and the summit, where the snow line sits, and what each of the {MODELS.length} weather models says.</p>
+              </header>
+              <button type="button" className="primary-btn" onClick={() => onAsk('outlook')}>See what Pro adds</button>
+            </section>
+          )}
 
           {state.status === 'loading' && <p className="status">Loading the latest run of every model for the charts…</p>}
           {state.status === 'error' && (

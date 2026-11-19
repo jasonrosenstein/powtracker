@@ -11,6 +11,7 @@ import { fmtSnow, fmtSnowNum, snowUnit, snowUnitName, type Units } from '../lib/
 import { fetchModelRun, fetchRadar, MODEL_LAYERS, modelSourceUrl, radarTiles, SNOWFALL_SCALE, type ModelRun, type OverlayId, type RadarFrames } from '../lib/weather-layers.ts'
 import { Segmented } from './Controls.tsx'
 import { IconPause, IconPlay } from './icons.tsx'
+import { usePlan } from './Plan.tsx'
 
 setWorkerUrl(workerUrl)
 
@@ -82,6 +83,8 @@ export default function MapView(p: MapViewProps) {
   const [legendOpen, setLegendOpen] = useState(() => window.matchMedia('(min-width: 720px)').matches)
   const onOpen = useRef(p.onOpen)
   onOpen.current = p.onOpen
+  const { paywall, plan, ask } = usePlan()
+  const free = plan === 'free'
 
   const theme = p.dark ? 'dark' : 'light'
   const modelLayer = MODEL_LAYERS.find((l) => l.id === overlay)
@@ -340,17 +343,18 @@ export default function MapView(p: MapViewProps) {
             <span className="cap">Circles show</span>
             <Segmented
               label="What the circles show"
-              options={[{ id: 'total', label: metricDef.past ? `Last ${metricDef.short}` : metricDef.short }, { id: 'daily', label: 'Day by day' }]}
+              options={[{ id: 'total', label: metricDef.past ? `Last ${metricDef.short}` : metricDef.short }, { id: 'daily', label: 'Day by day', locked: free }]}
               value={bubbles}
-              onChange={(v) => setBubbles(v as 'total' | 'daily')}
+              onChange={(v) => (free && v === 'daily' ? ask('outlook') : setBubbles(v as 'total' | 'daily'))}
             />
           </div>
           <div className="control">
             <label className="cap" htmlFor="m-overlay">Weather layer</label>
-            <select id="m-overlay" value={overlay} onChange={(e) => { setNote(''); setOverlay(e.target.value) }}>
+            <select id="m-overlay" value={overlay} onChange={(e) => { if (free && e.target.value !== 'none') return ask('layers'); setNote(''); setOverlay(e.target.value) }}>
               <option value="none">None</option>
-              <option value="radar">Live radar, last 2 hours</option>
-              {MODEL_LAYERS.map((l) => <option key={l.id} value={l.id}>{l.label}, forecast</option>)}
+              {/* RainViewer's radar is licensed for personal and educational use: not shown where Pro is sold. */}
+              {!paywall && <option value="radar">Live radar, last 2 hours</option>}
+              {MODEL_LAYERS.map((l) => <option key={l.id} value={l.id}>{l.label}, forecast{free ? ' (Pro)' : ''}</option>)}
             </select>
           </div>
         </div>

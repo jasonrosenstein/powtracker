@@ -454,3 +454,36 @@ select { background: var(--surface); border: 1px solid var(--line-strong); borde
   .detail-body { padding-left: 22px; padding-right: 22px; }
   .toast { left: auto; right: 28px; transform: none; }
 }
+
+/* --- Powtracker Pro: locks, the teaser, the paywall ------------------------------------------- */
+.lock { display: inline-grid; place-items: center; vertical-align: -2px; color: var(--ink-3); }
+.seg button.is-locked { color: var(--ink-3); }
+.choice .lock, .chip .lock { margin-left: 2px; }
+td.is-locked { color: var(--ink-3); }
+.pro-btn { flex: none; min-height: 38px; padding: 0 13px; border-radius: 999px; border: 0; background: var(--accent-fill); color: var(--on-accent); font-weight: 750; font-size: 13.5px; white-space: nowrap; }
+.pro-btn.is-pro { background: var(--accent-soft); color: var(--accent-ink); }
+.teaser { all: unset; cursor: pointer; box-sizing: border-box; width: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 12px 14px; margin: 0 0 10px; border-radius: 16px; background: var(--accent-soft); color: var(--ink); font-size: 14.5px; line-height: 1.35; }
+.teaser > span:first-child { flex: 1 1 220px; }
+.teaser:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.teaser-cta { font-weight: 750; color: var(--accent-ink); text-decoration: underline; white-space: nowrap; }
+.hero-tile.is-locked { color: var(--ink-3); }
+.hero-tile.is-locked .t-value { min-height: 32px; display: flex; align-items: center; }
+.day.is-locked { color: var(--ink-3); }
+.day.is-locked .bar-box { display: grid; place-items: center; }
+.recent-locked { all: unset; cursor: pointer; display: block; color: var(--ink-3); }
+.recent-locked strong, .recent-locked span { display: block; }
+.recent-locked:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.upsell { background: var(--accent-soft); }
+.upsell .primary-btn { margin-top: 4px; }
+.locked-row { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; color: var(--ink-2); text-align: left; }
+.paywall .sheet-head { gap: 10px; }
+.pay-lead { font-size: 16px; line-height: 1.4; margin: 4px 0 12px; }
+.pay-list { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 9px; font-size: 14.5px; }
+.pay-list li { display: flex; gap: 9px; align-items: flex-start; }
+.pay-list svg { flex: none; color: var(--accent); margin-top: 1px; }
+.pay-price { font-size: 16px; margin: 0 0 8px; }
+.pay-terms { font-size: 12px; line-height: 1.45; color: var(--ink-3); margin: 10px 0 0; }
+.paywall .sheet-foot { display: grid; gap: 8px; }
+.paywall a.primary-btn { display: grid; place-items: center; text-decoration: none; box-sizing: border-box; }
+.pay-later { width: 100%; border-color: transparent; background: none; color: var(--ink-2); }
+.primary-btn:disabled { opacity: 0.6; }

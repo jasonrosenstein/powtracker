@@ -4,10 +4,12 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Spark } from '../charts/charts.tsx'
 import { CONFIDENCE_LABEL, confidenceOf, distanceKm, LEVEL_INDEX, measuredDepth, measuredFall, METRICS, openingLine, spreadOf, valueOf, type LatLon, type Metric, type Row, type SortKey } from '../lib/data.ts'
 import { LEVEL_LABELS, type Level } from '../lib/models.ts'
+import { FREE_DAYS, metricNeeds, sortNeeds } from '../lib/plan.ts'
 import { snowClass, snowScale, type SnowScale } from '../lib/scale.ts'
 import type { PassDef } from '../lib/types.ts'
 import { elevUnit, fmtElev, fmtElevNum, fmtSnow, fmtSnowNum, fmtSnowRange, snowUnit, snowUnitName, type Units } from '../lib/units.ts'
-import { ConfidenceBars, IconStar } from './icons.tsx'
+import { ConfidenceBars, IconLock, IconStar } from './icons.tsx'
+import { usePlan } from './Plan.tsx'
 
 const PAGE = 50
 
@@ -53,6 +55,9 @@ export function SaveButton({ saved, name, onToggle }: { saved: boolean; name: st
 const fmtDistance = (km: number, units: Units) => (units === 'metric' ? `${Math.round(km).toLocaleString('en-US')} km away` : `${Math.round(km / 1.609344).toLocaleString('en-US')} mi away`)
 
 export function Rankings(p: RankingsProps) {
+  const { plan } = usePlan()
+  // The small bars preview the days ahead: all 14 for Pro, the free plan's 3 otherwise.
+  const sparkDays = plan === 'pro' ? 14 : FREE_DAYS
   const [shown, setShown] = useState(PAGE)
   const sentinel = useRef<HTMLDivElement>(null)
   // A new filter or sort starts again from the top of the list.
@@ -107,7 +112,7 @@ export function Rankings(p: RankingsProps) {
     <>
       {p.wide ? (
         <div className="card table-card">
-          <WideTable {...p} visible={visible} passShort={passShort} scale={scale} backing={backing} />
+          <WideTable {...p} visible={visible} passShort={passShort} scale={scale} backing={backing} sparkDays={sparkDays} />
         </div>
       ) : (
         <ol className="mcards">
@@ -134,7 +139,7 @@ export function Rankings(p: RankingsProps) {
                   </span>
                   <SnowBadge cm={valueOf(row, p.metric, p.level)} units={p.units} scale={scale} />
                   <span className="mcard-foot">
-                    {row.f && <Spark days={row.f.d[li]} />}
+                    {row.f && <Spark days={row.f.d[li].slice(0, sparkDays)} />}
                     <span className="backing">{backing(row)}</span>
                   </span>
                 </button>
@@ -152,23 +157,25 @@ export function Rankings(p: RankingsProps) {
         {metricDef.past
           ? <>Snow that has fallen, in {snowUnitName(p.units)}: <span className="dot-measured" aria-hidden="true" /> measured at a snow station within 10 km where there is one, otherwise the weather models' estimate at {LEVEL_LABELS[p.level].toLowerCase()} elevation.</>
           : <>Forecast snowfall at {LEVEL_LABELS[p.level].toLowerCase()} elevation, in {snowUnitName(p.units)}.</>}{' '}
-        Snow on the ground is measured at the nearest station. The small bars are the next 14 days.
+        Snow on the ground is measured at the nearest station. The small bars are the next {sparkDays} days.
       </p>
     </>
   )
 }
 
-function WideTable(p: RankingsProps & { visible: Row[]; passShort: (slug: string) => string; scale: SnowScale; backing: (row: Row) => ReactNode }) {
+function WideTable(p: RankingsProps & { visible: Row[]; passShort: (slug: string) => string; scale: SnowScale; backing: (row: Row) => ReactNode; sparkDays: number }) {
+  const { plan } = usePlan()
   const sortBy = (key: SortKey, defaultDesc = true) => p.setSort({ key, desc: p.sort.key === key ? !p.sort.desc : defaultDesc })
   const sortBySnow = (metric: Metric) => {
     const same = p.sort.key === 'snow' && p.metric === metric
+    // A period the plan does not include: setMetric opens the paywall, and the order stays as it is.
     p.setMetric(metric)
-    p.setSort({ key: 'snow', desc: same ? !p.sort.desc : true })
+    if (!metricNeeds(plan, metric)) p.setSort({ key: 'snow', desc: same ? !p.sort.desc : true })
   }
-  const Th = ({ label, active, onClick, title }: { label: string; active: boolean; onClick: () => void; title?: string }) => (
+  const Th = ({ label, active, onClick, title, locked }: { label: string; active: boolean; onClick: () => void; title?: string; locked?: boolean }) => (
     <th scope="col" aria-sort={active ? (p.sort.desc ? 'descending' : 'ascending') : undefined} title={title}>
       <button type="button" onClick={onClick}>
-        {label} <span className="arrow" aria-hidden="true">{active ? (p.sort.desc ? '↓' : '↑') : ''}</span>
+        {label} {locked ? <IconLock size={12} /> : <span className="arrow" aria-hidden="true">{active ? (p.sort.desc ? '↓' : '↑') : ''}</span>}
       </button>
     </th>
   )
@@ -183,12 +190,12 @@ function WideTable(p: RankingsProps & { visible: Row[]; passShort: (slug: string
             <Th label={`Vertical, ${elevUnit(p.units)}`} active={p.sort.key === 'vert'} onClick={() => sortBy('vert')} />
             <Th label="Base" active={p.sort.key === 'base'} onClick={() => sortBy('base')} />
             <Th label="Summit" active={p.sort.key === 'top'} onClick={() => sortBy('top')} />
-            <Th label={`Depth, ${snowUnit(p.units)}`} active={p.sort.key === 'depth'} onClick={() => sortBy('depth')} title="Snow on the ground, measured at the nearest station" />
+            <Th label={`Depth, ${snowUnit(p.units)}`} active={p.sort.key === 'depth'} onClick={() => sortBy('depth')} title="Snow on the ground, measured at the nearest station" locked={sortNeeds(plan, 'depth') != null} />
             {METRICS.map((m) => (
-              <Th key={m.id} label={m.past ? `Last ${m.short}` : m.short} active={p.sort.key === 'snow' && p.metric === m.id} onClick={() => sortBySnow(m.id)} title={`${m.label}, ${snowUnit(p.units)}`} />
+              <Th key={m.id} label={m.past ? `Last ${m.short}` : m.short} active={p.sort.key === 'snow' && p.metric === m.id} onClick={() => sortBySnow(m.id)} title={`${m.label}, ${snowUnit(p.units)}`} locked={metricNeeds(plan, m.id) != null} />
             ))}
-            <Th label="Confidence" active={p.sort.key === 'agree'} onClick={() => sortBy('agree')} title="How closely the weather models agree on the selected forecast, with the lowest and highest model." />
-            <th scope="col"><span className="th-plain">Next 14 days</span></th>
+            <Th label="Confidence" active={p.sort.key === 'agree'} onClick={() => sortBy('agree')} title="How closely the weather models agree on the selected forecast, with the lowest and highest model." locked={sortNeeds(plan, 'agree') != null} />
+            <th scope="col"><span className="th-plain">Next {p.sparkDays} days</span></th>
           </tr>
         </thead>
         <tbody>
@@ -215,6 +222,7 @@ function WideTable(p: RankingsProps & { visible: Row[]; passShort: (slug: string
                 <td className="num">{fmtElevNum(row.r.t, p.units)}</td>
                 <td className="num">{fmtSnowNum(measuredDepth(row)?.v, p.units)}</td>
                 {METRICS.map((m) => {
+                  if (metricNeeds(plan, m.id)) return <td key={m.id} className="num is-locked"><IconLock size={12} /></td>
                   const v = valueOf(row, m.id, p.level)
                   const station = measuredFall(row, m.id)
                   return m.id === p.metric ? (
@@ -230,7 +238,7 @@ function WideTable(p: RankingsProps & { visible: Row[]; passShort: (slug: string
                   <span className="backing">{p.backing(row)}</span>
                   {spread && <span className="range num">{fmtSnowRange(spread.lo, spread.hi, p.units)}</span>}
                 </td>
-                <td className="spark-cell">{row.f && <Spark days={row.f.d[li]} />}</td>
+                <td className="spark-cell">{row.f && <Spark days={row.f.d[li].slice(0, p.sparkDays)} />}</td>
               </tr>
             )
           })}

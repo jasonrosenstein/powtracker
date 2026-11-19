@@ -4,14 +4,17 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import { METRICS, NO_FILTERS, SORTS, type Filters, type Metric, type Row, type SortKey } from '../lib/data.ts'
 import { LEVEL_LABELS, LEVELS, type Level } from '../lib/models.ts'
+import { levelNeeds, metricNeeds, passesNeed, sortNeeds, type Plan } from '../lib/plan.ts'
 import { REGIONS, type Region } from '../lib/regions.ts'
 import type { PassDef } from '../lib/types.ts'
 import { fmtElev, type Units } from '../lib/units.ts'
-import { IconChevron, IconClose } from './icons.tsx'
+import { IconChevron, IconClose, IconLock } from './icons.tsx'
+import { usePlan } from './Plan.tsx'
 
 export function Segmented<T extends string>({ label, options, value, onChange, grow }: {
   label: string
-  options: readonly { id: T; label: ReactNode; sub?: string }[]
+  /** `locked` marks a choice only Pro allows; choosing it is still reported, and the caller opens the paywall. */
+  options: readonly { id: T; label: ReactNode; sub?: string; locked?: boolean }[]
   value: T
   onChange: (v: T) => void
   /** Stretch the options to share the full width. */
@@ -20,8 +23,8 @@ export function Segmented<T extends string>({ label, options, value, onChange, g
   return (
     <div className={grow ? 'seg is-grow' : 'seg'} role="group" aria-label={label}>
       {options.map((o) => (
-        <button key={o.id} type="button" aria-pressed={o.id === value} onClick={() => onChange(o.id)}>
-          {o.label}
+        <button key={o.id} type="button" className={o.locked ? 'is-locked' : undefined} aria-pressed={o.id === value} onClick={() => onChange(o.id)}>
+          {o.label}{o.locked && <> <IconLock /></>}
           {o.sub && <small>{o.sub}</small>}
         </button>
       ))}
@@ -31,7 +34,8 @@ export function Segmented<T extends string>({ label, options, value, onChange, g
 
 /** The headline control: which snowfall the whole app is showing. */
 export function PeriodBar({ metric, setMetric }: { metric: Metric; setMetric: (m: Metric) => void }) {
-  const opts = (past: boolean) => METRICS.filter((m) => m.past === past).map((m) => ({ id: m.id, label: m.short }))
+  const { plan } = usePlan()
+  const opts = (past: boolean) => METRICS.filter((m) => m.past === past).map((m) => ({ id: m.id, label: m.short, locked: metricNeeds(plan, m.id) != null }))
   return (
     <div className="period">
       <div className="period-group">
@@ -74,15 +78,18 @@ const togglePass = (p: ControlState, slug: string) => {
 }
 const regionsIn = (rows: readonly Row[]) => REGIONS.filter((region) => rows.some((row) => row.region === region))
 const sizeLabel = (v: number, units: Units) => (v === 0 ? 'Any size' : `${fmtElev(v, units)}+ vertical`)
+const levelOptions = (plan: Plan) => LEVELS.map((l) => ({ id: l, label: LEVEL_LABELS[l], locked: levelNeeds(plan, l) != null }))
 
 /** Wide screens: every control visible at once. */
 export function Controls(p: ControlState) {
+  const { plan } = usePlan()
+  const passLocked = passesNeed(plan, ['any']) != null
   return (
     <section className="controls" aria-label="Filters">
       <div className="control-row">
         <div className="control">
           <span className="cap">Elevation</span>
-          <Segmented label="Elevation on the mountain" options={LEVELS.map((l) => ({ id: l, label: LEVEL_LABELS[l] }))} value={p.level} onChange={p.setLevel} />
+          <Segmented label="Elevation on the mountain" options={levelOptions(plan)} value={p.level} onChange={p.setLevel} />
         </div>
         <div className="control">
           <label className="cap" htmlFor="f-region">Region</label>
@@ -100,7 +107,7 @@ export function Controls(p: ControlState) {
         <div className="control">
           <label className="cap" htmlFor="f-sort">Sort by</label>
           <select id="f-sort" value={p.sort.key} onChange={(e) => pickSort(p, e.target.value as SortKey)}>
-            {SORTS.map((s) => <option key={s.id} value={s.id}>{s.label}</option>)}
+            {SORTS.map((s) => <option key={s.id} value={s.id}>{s.label}{sortNeeds(plan, s.id) ? ' (Pro)' : ''}</option>)}
           </select>
         </div>
         <div className="control">
@@ -115,7 +122,7 @@ export function Controls(p: ControlState) {
             <button type="button" className="chip" aria-pressed={p.filters.passes.length === 0} onClick={() => p.setFilters({ ...p.filters, passes: [] })}>All mountains</button>
             {p.passes.map((pass) => (
               <button key={pass.slug} type="button" className="chip" aria-pressed={p.filters.passes.includes(pass.slug)} onClick={() => togglePass(p, pass.slug)}>
-                {pass.label} <span className="count">{passCount(p, pass.slug)}</span>
+                {pass.label} {passLocked ? <IconLock /> : <span className="count">{passCount(p, pass.slug)}</span>}
               </button>
             ))}
           </div>
@@ -151,6 +158,8 @@ export function FilterChips(p: ControlState & { onOpen: (section: SheetSection) 
 
 /** The sheet behind the chips: every filter as large, labelled choices. */
 export function FilterSheet(p: ControlState & { section: SheetSection; onClose: () => void; count: number }) {
+  const { plan } = usePlan()
+  const passLocked = passesNeed(plan, ['any']) != null
   const body = useRef<HTMLDivElement>(null)
   useEffect(() => {
     body.current?.querySelector(`[data-section="${p.section}"]`)?.scrollIntoView({ block: 'start' })
@@ -192,7 +201,7 @@ export function FilterSheet(p: ControlState & { section: SheetSection; onClose: 
                 <Choice on={p.filters.passes.length === 0} onClick={() => p.setFilters({ ...p.filters, passes: [] })}>Any pass</Choice>
                 {p.passes.map((pass) => (
                   <Choice key={pass.slug} on={p.filters.passes.includes(pass.slug)} onClick={() => togglePass(p, pass.slug)}>
-                    {shortPass(pass.label)} <span className="count">{passCount(p, pass.slug)}</span>
+                    {shortPass(pass.label)} {passLocked ? <IconLock /> : <span className="count">{passCount(p, pass.slug)}</span>}
                   </Choice>
                 ))}
               </div>
@@ -210,12 +219,12 @@ export function FilterSheet(p: ControlState & { section: SheetSection; onClose: 
           <section data-section="level">
             <h3>Elevation</h3>
             <p className="hint">Snowfall is worked out separately for the base, the middle and the summit.</p>
-            <Segmented label="Elevation on the mountain" options={LEVELS.map((l) => ({ id: l, label: LEVEL_LABELS[l] }))} value={p.level} onChange={p.setLevel} grow />
+            <Segmented label="Elevation on the mountain" options={levelOptions(plan)} value={p.level} onChange={p.setLevel} grow />
           </section>
           <section data-section="sort">
             <h3>Sort by</h3>
             <div className="choices">
-              {SORTS.map((s) => <Choice key={s.id} on={p.sort.key === s.id} onClick={() => pickSort(p, s.id)}>{s.label}</Choice>)}
+              {SORTS.map((s) => <Choice key={s.id} on={p.sort.key === s.id} onClick={() => pickSort(p, s.id)}>{s.label}{sortNeeds(plan, s.id) && <> <IconLock /></>}</Choice>)}
             </div>
             <label className="check">
               <input type="checkbox" checked={p.sort.desc !== SORTS.find((s) => s.id === p.sort.key)!.defaultDesc} onChange={() => p.setSort({ ...p.sort, desc: !p.sort.desc })} />

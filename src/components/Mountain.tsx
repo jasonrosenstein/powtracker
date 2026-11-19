@@ -11,7 +11,8 @@ import { fetchLiveStatus, liveFeedFor, tally, type LiveStatus, type LiveTrail, t
 import { decodeTrails, difficultyClasses, liftKey, liftTypeName, nameKey, runLabel, type Trails } from '../lib/trails.ts'
 import type { TrailsFile } from '../lib/types.ts'
 import { fmtDistance, fmtElev, fmtSnow, fmtTemp, fmtWind, type Units } from '../lib/units.ts'
-import { DifficultyMark, SkyIcon } from './icons.tsx'
+import { DifficultyMark, IconLock, SkyIcon } from './icons.tsx'
+import { usePlan } from './Plan.tsx'
 
 const TrailMap = lazy(() => import('./TrailMap.tsx'))
 
@@ -40,6 +41,7 @@ const clock = (hour: number) => (hour === 0 ? '12 AM' : hour === 12 ? '12 PM' : 
 
 export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: boolean }) {
   const { r } = row
+  const { plan, ask } = usePlan()
   const classes = difficultyClasses(r)
   const feed = liveFeedFor(r)
   const feedKey = feed ? (feed.provider === 'mtnpowder' ? `m${feed.id}` : `i${feed.slug}`) : ''
@@ -221,17 +223,23 @@ export function Mountain({ row, units, dark }: { row: Row; units: Units; dark: b
               <div><dt>Sunset</dt><dd>{weather.data.sunset}</dd></div>
             </dl>
             {advice.level > 0 && <p className="notice is-warn">{advice.text} Peak gust in the next 12 hours: {fmtWind(peakGust, units)}.</p>}
-            <div className="hourstrip">
-              {weather.data.hours.filter((_, i) => i % 3 === 0).slice(0, 13).map((h, i) => (
-                <div key={h.time} className={h.isDay ? 'hour' : 'hour is-night'}>
-                  <span className="dow">{i === 0 ? 'Now' : clock(h.hour)}</span>
-                  <SkyIcon sky={h.sky} night={!h.isDay} size={22} />
-                  <span className="amt num">{fmtTemp(h.tempTop, units).replace(/[CF]$/, '')}</span>
-                  <span className="temps num">{fmtWind(h.gust, units).replace(/ .*/, '')}</span>
+            {plan === 'free' ? (
+              <button type="button" className="ghost-btn locked-row" onClick={() => ask('hours')}><IconLock size={15} /> The next 36 hours at the summit, hour by hour, with Pro</button>
+            ) : (
+              <>
+                <div className="hourstrip">
+                  {weather.data.hours.filter((_, i) => i % 3 === 0).slice(0, 13).map((h, i) => (
+                    <div key={h.time} className={h.isDay ? 'hour' : 'hour is-night'}>
+                      <span className="dow">{i === 0 ? 'Now' : clock(h.hour)}</span>
+                      <SkyIcon sky={h.sky} night={!h.isDay} size={22} />
+                      <span className="amt num">{fmtTemp(h.tempTop, units).replace(/[CF]$/, '')}</span>
+                      <span className="temps num">{fmtWind(h.gust, units).replace(/ .*/, '')}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <p className="hint">Each column: sky, summit temperature, and gusts in {units === 'metric' ? 'km/h' : 'mph'}.</p>
+                <p className="hint">Each column: sky, summit temperature, and gusts in {units === 'metric' ? 'km/h' : 'mph'}.</p>
+              </>
+            )}
           </>
         )}
       </section>

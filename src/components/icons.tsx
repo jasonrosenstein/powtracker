@@ -22,6 +22,11 @@ export const IconChevron = () => <Icon size={14}><path d="m6 9 6 6 6-6" /></Icon
 export const IconLayers = () => <Icon size={20}><path d="m12 3 9 5-9 5-9-5 9-5ZM3 13l9 5 9-5" /></Icon>
 export const IconPlay = () => <Icon size={18} filled><path d="M7 4.5v15l12-7.5L7 4.5Z" /></Icon>
 export const IconPause = () => <Icon size={18} filled><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></Icon>
+/** Marks something only Powtracker Pro shows. */
+export const IconLock = ({ size = 13 }: { size?: number }) => (
+  <span className="lock" role="img" aria-label="Pro"><Icon size={size}><rect x="5" y="10.5" width="14" height="10" rx="2.5" /><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" /></Icon></span>
+)
+export const IconCheck = () => <Icon size={18}><path d="m5 12.5 4.5 4.5L19 7.5" /></Icon>
 
 /** The sky in one glyph: sun or moon, cloud, snow, rain, fog. */
 export function SkyIcon({ sky, night = false, size = 24 }: { sky: string; night?: boolean; size?: number }) {
