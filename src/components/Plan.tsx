@@ -5,7 +5,7 @@
 // unlocked and none of this shows.
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { FEATURE_PITCH, LIST_PRICE, PRO_BENEFITS, TRIAL_DAYS, type Feature, type Plan } from '../lib/plan.ts'
-import { canPurchase, NO_STORE, store, type StoreStatus } from '../lib/store.ts'
+import { canPurchase, NO_STORE, seller, store, type StoreStatus } from '../lib/store.ts'
 import { IconCheck, IconClose, Logo } from './icons.tsx'
 
 const SITE = 'https://powtracker.app'
@@ -131,7 +131,7 @@ function Paywall({ reason, status, onStatus, onClose }: { reason: Feature | 'int
       else if ('pending' in result && result.pending) setMessage('The purchase is waiting for approval. Pro unlocks as soon as it is approved.')
       else if (what === 'restore') setMessage('No Powtracker Pro subscription was found for this Apple Account.')
     } catch (e) {
-      setMessage(`The App Store could not complete that: ${e instanceof Error ? e.message : String(e)}`)
+      setMessage(`${seller === 'apple' ? 'The App Store' : 'The payment page'} could not complete that:${e instanceof Error ? e.message : String(e)}`)
     } finally {
       setBusy(false)
     }
@@ -149,7 +149,13 @@ function Paywall({ reason, status, onStatus, onClose }: { reason: Feature | 'int
           {status.pro ? (
             <>
               <p className="pay-lead"><b>You have Powtracker Pro.</b> {status.expires ? `It renews on ${new Date(status.expires).toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' })}.` : ''}</p>
-              <p className="pay-terms">Change or cancel it in your Apple Account's subscriptions.</p>
+              <p className="pay-terms">{seller === 'apple' ? "Change or cancel it in your Apple Account's subscriptions." : 'Change the card or cancel at any time with the button below.'}</p>
+              {store.link() && (
+                <p className="pay-terms">
+                  <b>Your Pro link.</b> Pro is remembered in this browser. To unlock it on another device, or after clearing your browser, open this link there, and keep a copy of it:{' '}
+                  <button type="button" className="link-btn" onClick={() => void navigator.clipboard.writeText(store.link()!).then(() => setMessage('Link copied.'), () => setMessage(store.link()!))}>Copy my Pro link</button>
+                </p>
+              )}
             </>
           ) : (
             <>
@@ -178,8 +184,9 @@ function Paywall({ reason, status, onStatus, onClose }: { reason: Feature | 'int
           )}
           {!status.pro && <button type="button" className="ghost-btn pay-later" onClick={onClose}>Not now</button>}
           <p className="pay-terms">
-            {!status.pro && canPurchase && <>The subscription renews each month at {price} until cancelled in your Apple Account's subscriptions, at least a day before the period ends. </>}
-            {canPurchase && <><button type="button" className="link-btn" disabled={busy} onClick={() => void run('restore')}>Restore purchases</button> · </>}
+            {!status.pro && seller === 'apple' && <>The subscription renews each month at {price} until cancelled in your Apple Account's subscriptions, at least a day before the period ends. </>}
+            {!status.pro && seller === 'web' && <>You pay by card on Stripe's secure page. The subscription renews each month at {price} until you cancel, which you can do here at any time. </>}
+            {seller === 'apple' && <><button type="button" className="link-btn" disabled={busy} onClick={() => void run('restore')}>Restore purchases</button> · </>}
             <a href={`${SITE}/terms.html`} target="_blank" rel="noreferrer">Terms of use</a> · <a href={`${SITE}/privacy.html`} target="_blank" rel="noreferrer">Privacy policy</a>
           </p>
         </div>

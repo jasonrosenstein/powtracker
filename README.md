@@ -121,6 +121,14 @@ node scripts/store-shots.ts   # App Store screenshots
 
 `ios/store/listing.md` holds the App Store listing text and the subscription's settings.
 
+On the website Pro is bought by card through Stripe Checkout. `pay/` holds three small
+functions for Vercel (`checkout`, `claim`, `status`) that need `STRIPE_SECRET_KEY`,
+`STRIPE_PRICE_ID` and `TOKEN_SECRET` in their environment. Building the site with
+`VITE_PAY_URL` set to their address turns the paywall on and sells Pro there. There are no
+accounts: the browser keeps a signed token that is re-checked against Stripe on each visit, and
+a subscriber's "Pro link" carries it to another device. `node scripts/probe/web-checkout.ts`
+runs the whole flow in a browser against a stand-in for Stripe.
+
 Before Pro is sold, the data licences that are free only for non-commercial use have to be
 settled: Open-Meteo needs its paid plan (set `OPEN_METEO_API_KEY`; the app must then stop
 calling the free API from the device), and RainViewer's radar is for personal use, so it is
