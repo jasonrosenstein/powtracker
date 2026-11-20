@@ -81,7 +81,11 @@ jobs:
       - name: Station measurements
         run: node scripts/ingest-obs.ts
         continue-on-error: true
+      # The repository variable PAY_URL, once set to the payment service's address, turns the
+      # paywall on and sells Pro on the site. Unset, the site shows everything.
       - run: npm run build
+        env:
+          VITE_PAY_URL: ${{ vars.PAY_URL }}
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
