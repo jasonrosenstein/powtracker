@@ -1,26 +1,25 @@
-A screen recording made on a physical iPhone is attached to App Review Information. It starts with launching the app and shows the rankings, a mountain's forecast, its trail map, the map, and subscribing to Powtracker Pro.
+A screen recording made on a physical iPhone is attached to App Review Information. It starts with launching the app and shows the rankings, a mountain's forecast, its trail map and the map.
+
+This build is free: it has no in-app purchases, no subscriptions and no paid content. Every feature is available to everyone.
 
 1. PURPOSE AND AUDIENCE
 Powtracker is a snow forecast for skiers and snowboarders. It answers "where is it going to snow, and how much?" for about 1,750 ski mountains worldwide, so people can decide where and when to ski. It combines eight public weather models into one forecast per mountain, worked out for the mountain's real base, mid and summit elevations, and shows how closely the models agree. It also shows each mountain's trail map, measured snow depth from official stations, season opening dates, summit weather and avalanche danger.
 
 2. HOW TO USE IT (no account, no login, no sample files)
-- The app opens on the rankings: mountains ordered by forecast snowfall. Search at the top.
-- Tap a mountain for its forecast. "Mountain and trails" shows the trail map, lifts and weather.
-- The Map tab shows every mountain on a map. The Saved tab keeps starred mountains.
-- Free: the next 3 days and last 24 hours at mid elevation, trail maps, live lifts, one saved mountain.
-- Powtracker Pro (auto-renewing, $2.99/month, 7-day free trial; product app.powtracker.pro.monthly): tap "Try Pro" at the top right, or tap "7 days" in the forecast bar, then "Start 7-day free trial". Pro unlocks the 7- and 14-day forecasts, Base and Summit elevations, season-pass filters, the model charts on a mountain's page, map layers, hour-by-hour summit weather and unlimited saved mountains. "Restore purchases" and links to the Terms of Use and Privacy Policy are on the same sheet.
+- The app opens on the rankings: mountains ordered by forecast snowfall for the next 3, 7 or 14 days. Search at the top; filter by region, size or season pass.
+- Tap a mountain for its forecast and charts. "Mountain and trails" shows the trail map, lifts and weather.
+- The Map tab shows every mountain on a map, with optional weather layers. The Saved tab keeps starred mountains.
 - There are no accounts and no user-generated content. The app collects no data.
 
 3. EXTERNAL SERVICES
-- Apple StoreKit 2: the subscription, verified on device. No other payment processor.
 - powtracker.app (our site, hosted on GitHub Pages): the forecast, mountain and trail-map files.
 - Open-Meteo: weather model output (ECMWF, NOAA, DWD, Environment Canada, JMA, UK Met Office, Meteo-France).
-- OpenFreeMap and AWS Open Data (Mapzen terrain tiles): map tiles.
+- OpenFreeMap and AWS Open Data (Mapzen terrain tiles): map tiles. RainViewer: the optional radar layer.
 - OpenSkiMap / OpenStreetMap: ski areas, runs and lifts.
 - NOAA, Japan Meteorological Agency, SLF, GeoSphere Austria, avalanche.report, Government of British Columbia: snow station measurements.
 - avalanche.org and Avalanche Canada: avalanche danger ratings.
 - Resorts' own public lift and trail status feeds (Alterra Mountain Company, Intermaps).
-- No authentication service, no analytics, no advertising, no AI service.
+- No payment processor, no authentication service, no analytics, no advertising, no AI service.
 
 4. REGIONAL DIFFERENCES
 The app works the same in every region and has no region-locked features. Coverage of some data depends on the mountain: live lift and trail status exists for about 100 mountains in North America and the Alps, avalanche ratings for the United States and Canada, and station snow depth where an official station is nearby. Units follow the device's region. The app is not offered in China mainland.

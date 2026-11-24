@@ -13,7 +13,9 @@ const SITE = 'https://powtracker.app'
 const APP_STORE_URL: string | undefined = import.meta.env.VITE_APP_STORE_URL
 
 function paywallInForce(): boolean {
-  if (canPurchase || import.meta.env.VITE_PAYWALL === 'on') return true
+  // Pro is sold only where a build asks for it: VITE_PAYWALL=on (the iPhone app, when it sells
+  // Pro) or VITE_PAY_URL (the website, through Stripe). Without either, everything is free.
+  if (import.meta.env.VITE_PAYWALL === 'on' || seller === 'web') return true
   try {
     const asked = new URLSearchParams(location.search).get('paywall')
     if (asked === 'on' || asked === 'off') sessionStorage.setItem('pow:paywall', asked)
