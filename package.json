@@ -23,7 +23,9 @@
     "data:resorts": "node scripts/build-resorts.ts",
     "data:forecast": "node scripts/ingest.ts",
     "data:obs": "node scripts/ingest-obs.ts",
-    "data:refresh": "node scripts/ingest.ts && node scripts/ingest-obs.ts"
+    "data:reports": "node scripts/ingest-reports.ts",
+    "data:bulletin": "node scripts/ingest-bulletin.ts",
+    "data:refresh": "node scripts/ingest.ts && node scripts/ingest-obs.ts && node scripts/ingest-reports.ts && npm run data:bulletin"
   },
   "dependencies": {
     "@capacitor/core": "^8.6.2",
@@ -45,6 +47,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.3.0",
+    "@xmldom/xmldom": "0.9.12",
     "playwright-core": "^1.65.1",
     "typescript": "^7.0.2",
     "vite": "^8.3.8",

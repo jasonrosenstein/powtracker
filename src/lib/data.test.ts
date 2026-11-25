@@ -109,9 +109,7 @@ describe('openingLine', () => {
     expect(openingLine({ s: 'tentative', d: '2026-12-05', says: '', src }, NOW)?.text).toBe('Opens Saturday 5 December, weather permitting')
   })
   it('does not claim a mountain is open because its planned day has passed', () => {
-    const line = openingLine({ s: 'planned', d: '2026-11-14', says: '', src }, NOW)!
-    expect(line.text).toBe('Planned opening day was Saturday 14 November')
-    expect(line.short).toBe('Due to open 14 Nov')
+    expect(openingLine({ s: 'planned', d: '2026-11-14', says: 'Opening Saturday!', src }, NOW)).toBeNull()
   })
   it('reports a mountain that is open, with the day it opened when known', () => {
     expect(openingLine({ s: 'open', d: '2026-11-07', says: '', src }, NOW)?.text).toBe('Open for the season since Saturday 7 November')
@@ -129,7 +127,7 @@ describe('openingLine', () => {
     const line = openingLine({ s: 'tentative', d: '2026-11-28', says: 'Planned start of season 28 Nov 2026', src, via: 'Skiresort.com' }, NOW)!
     expect(line).toMatchObject({ text: 'Expected to open Saturday 28 November', short: 'Expected 28 Nov' })
     expect(line.detail).toBe('Planned start of season 28 Nov 2026. This date is Skiresort.com’s, not the resort’s own.'.replaceAll('’', "'"))
-    expect(openingLine({ s: 'tentative', d: '2026-10-29', says: '', src, via: 'Skiresort.com' }, NOW)?.text).toBe('Was expected to open Thursday 29 October')
+    expect(openingLine({ s: 'tentative', d: '2026-10-29', says: '', src, via: 'Skiresort.com' }, NOW)).toBeNull()
   })
   it('falls back to the announcement when there is no date, and to nothing without an announcement', () => {
     const line = openingLine({ s: 'tentative', says: 'Opening as conditions allow', src }, NOW)!

@@ -65,7 +65,8 @@ export function fmtElev(m: number, u: Units): string {
 }
 
 /** Wind speed, e.g. "38 km/h" or "24 mph". */
-export function fmtWind(kmh: number, u: Units): string {
+export function fmtWind(kmh: number | null, u: Units): string {
+  if (kmh == null) return '–'
   return u === 'metric' ? `${Math.round(kmh)} km/h` : `${Math.round(kmh / 1.609344)} mph`
 }
 

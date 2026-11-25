@@ -257,7 +257,7 @@ export interface OpeningLine {
 
 /**
  * How to say where a mountain's season stands, from its announced opening. A planned date that
- * has passed is reported as planned, not as open: nobody has confirmed that it happened.
+ * has passed is no longer a current status. Never infer that the resort opened or is closed.
  */
 export function openingLine(op: Opening | undefined, nowMs = Date.now()): OpeningLine | null {
   if (!op) return null
@@ -279,15 +279,14 @@ export function openingLine(op: Opening | undefined, nowMs = Date.now()): Openin
   const weather = op.s === 'tentative' ? ', weather permitting' : ''
   if (op.s === 'open' && (!op.d || op.d <= today)) return { text: long ? `Open for the season since ${long}` : 'Open for the season', short: 'Open for the season', ...rest }
   if (!day) return { text: 'Not open yet', short: 'Not open yet', ...rest }
+  if (op.d! < today) return null
   // A ski guide's date is its expectation, not the resort's announcement.
   if (op.via) {
     if (op.d === today) return { text: `Expected to open today, ${long}`, short: 'Expected today', ...rest }
-    if (op.d! > today) return { text: `Expected to open ${long}`, short: `Expected ${brief}`, ...rest }
-    return { text: `Was expected to open ${long}`, short: `Due to open ${brief}`, ...rest }
+    return { text: `Expected to open ${long}`, short: `Expected ${brief}`, ...rest }
   }
   if (op.d === today) return { text: `Opens today, ${long}${weather}`, short: 'Opens today', ...rest }
-  if (op.d! > today) return { text: `Opens ${long}${weather}`, short: `Opens ${brief}`, ...rest }
-  return { text: `Planned opening day was ${long}`, short: `Due to open ${brief}`, ...rest }
+  return { text: `Opens ${long}${weather}`, short: `Opens ${brief}`, ...rest }
 }
 
 export interface Storm {

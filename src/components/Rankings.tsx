@@ -44,6 +44,11 @@ export function SnowBadge({ cm, units, scale }: { cm: number | null; units: Unit
   )
 }
 
+export function SeasonTag({ opening }: { opening: Row['op'] }) {
+  const season = openingLine(opening)
+  return season ? <span className="tag is-season">{season.short}</span> : null
+}
+
 export function SaveButton({ saved, name, onToggle }: { saved: boolean; name: string; onToggle: () => void }) {
   return (
     <button type="button" className="star" aria-pressed={saved} aria-label={saved ? `Remove ${name} from saved` : `Save ${name}`} onClick={(e) => { e.stopPropagation(); onToggle() }}>
@@ -130,7 +135,7 @@ export function Rankings(p: RankingsProps) {
                     <span className="place">
                       {[row.r.rg, row.r.co].filter(Boolean).join(', ')}
                       {row.r.p.map((slug) => <span key={slug} className="tag">{passShort(slug)}</span>)}
-                      {row.op && <span className="tag is-season">{openingLine(row.op)?.short}</span>}
+                      <SeasonTag opening={row.op} />
                     </span>
                     <span className="fact num">
                       <span className={f.strong ? 'is-strong' : undefined}>{f.text}</span>
@@ -212,7 +217,7 @@ function WideTable(p: RankingsProps & { visible: Row[]; passShort: (slug: string
                       <div className="place">
                         {[row.r.rg, row.r.co].filter(Boolean).join(', ')}
                         {row.r.p.map((slug) => <span key={slug} className="tag">{p.passShort(slug)}</span>)}
-                        {row.op && <span className="tag is-season">{openingLine(row.op)?.short}</span>}
+                        <SeasonTag opening={row.op} />
                       </div>
                     </div>
                   </div>

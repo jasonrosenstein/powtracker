@@ -13,8 +13,10 @@ export interface MountainHour {
   tempBase: number
   feelsTop: number
   /** km/h at the summit. */
-  wind: number
-  gust: number
+  wind: number | null
+  gust: number | null
+  /** Meteorological degrees FROM true north. A missing direction is not north. */
+  fromDegrees: number | null
   /** Compass point the wind blows from, e.g. "NW". */
   from: string
   /** Sky in a word, and the icon that goes with it. */
@@ -109,15 +111,18 @@ export function parseMountainWeather(body: Response, r: Pick<Resort, 'b' | 't'>,
     const temp = h.temperature_2m[i]
     // From the current hour to 48 hours ahead.
     if (temp == null || time < nowMs - 3_600_000 || time > nowMs + 48 * 3_600_000) return
+    const speed = h.wind_speed_10m[i], gust = h.wind_gusts_10m[i], dir = h.wind_direction_10m[i]
+    const fromDegrees = dir != null && dir >= 0 && dir <= 360 ? dir % 360 : null
     hours.push({
       time,
       hour: Number(stamp.slice(11, 13)),
       tempTop: temp,
       tempBase: tempAt(temp, r.t, r.b),
       feelsTop: h.apparent_temperature[i] ?? temp,
-      wind: h.wind_speed_10m[i] ?? 0,
-      gust: h.wind_gusts_10m[i] ?? 0,
-      from: compass(h.wind_direction_10m[i] ?? 0),
+      wind: speed != null && Number.isFinite(speed) && speed >= 0 ? speed : null,
+      gust: gust != null && Number.isFinite(gust) && gust >= 0 ? gust : null,
+      fromDegrees,
+      from: fromDegrees != null && speed != null && speed > 0 ? compass(fromDegrees) : '',
       sky: skyOf(h.weather_code[i] ?? 3),
       visibility: h.visibility[i],
       isDay: h.is_day[i] === 1,

@@ -5,7 +5,9 @@ import { IconClose, IconMap, IconRank, IconSearch, IconStar, Logo } from './comp
 import { ProButton, usePlan } from './components/Plan.tsx'
 import { Rankings } from './components/Rankings.tsx'
 import { applyFilters, loadDataset, METRICS, NO_FILTERS, sortRows, valueOf, type Dataset, type Filters, type Metric, type Row, type SortKey } from './lib/data.ts'
-import { fmtAgo, useLocation, useMediaQuery, usePersisted, useSaved } from './lib/hooks.ts'
+import { fmtAgo, useAsync, useLocation, useMediaQuery, usePersisted, useSaved } from './lib/hooks.ts'
+import { fetchData } from './lib/origin.ts'
+import { reportAge, type ReportFile } from './lib/reports.ts'
 import { MODELS, type Level } from './lib/models.ts'
 import { allowedLevel, allowedMetric, allowedSort, levelNeeds, metricNeeds, passesNeed, savingNeeds, sortNeeds } from './lib/plan.ts'
 import { defaultUnits, fmtSnow, type Units } from './lib/units.ts'
@@ -71,6 +73,18 @@ export function App() {
   const [data, setData] = useState<Dataset | null>(null)
   const [error, setError] = useState('')
   const [tab, setTab] = useState<Tab>('rank')
+  const [reportsOnly, setReportsOnly] = useState(false)
+  // Independent of forecasts: a missing report snapshot must never block the rest of the site.
+  const reports = useAsync(async signal => {
+    const res = await fetchData('reports.json', { signal })
+    if (!res.ok) throw Error('Reports unavailable')
+    const file: ReportFile = await res.json()
+    if (file.version !== 1 || !file.resorts) throw Error('Invalid report snapshot')
+    return file
+  }, [])
+  const recentOperators = useMemo(() => new Set(reports.status === 'ready' ? Object.entries(reports.data.resorts)
+    .filter(([,items]) => items.some(report => report.kind === 'operator' && report.readings.some(r => reportAge(r.at) === 'recent')))
+    .map(([id]) => id) : []), [reports])
   const [units, setUnits] = usePersisted<Units>('units', defaultUnits)
   const [metric, setMetricRaw] = usePersisted<Metric>('metric', 'w7')
   const [storedLevel, setLevelRaw] = usePersisted<Level>('level', 'mid')
@@ -141,7 +155,9 @@ export function App() {
     const mine = applyFilters(data.rows.filter((row) => saved.includes(row.r.id)), { ...NO_FILTERS, query })
     return sortRows(mine, order.key, order.desc, metricOk, level, here)
   }, [data, saved, query, order, metricOk, level, here])
-  const measured = useMemo(() => sorted.filter((row) => row.o).length, [sorted])
+  const reportedRows = useMemo(() => sorted.filter(row => recentOperators.has(row.r.id)), [sorted, recentOperators])
+  const ranked = reportsOnly ? reportedRows : sorted
+  const measured = useMemo(() => ranked.filter((row) => row.o).length, [ranked])
   const openRow = data && openId ? data.rows.find((row) => row.r.id === openId) : undefined
   const closeDetail = useCallback(() => setOpenId(null), [setOpenId])
 
@@ -190,11 +206,12 @@ export function App() {
         {tab === 'rank' && (
           <>
             <p className="summary">
-              <b>{sorted.length.toLocaleString('en-US')}</b> mountains · updated {fmtAgo(data.generated)} · {MODELS.length} weather models
+              <b>{ranked.length.toLocaleString('en-US')}</b> mountains · updated {fmtAgo(data.generated)} · {MODELS.length} weather models
               {measured > 0 && <> · {measured.toLocaleString('en-US')} with station readings</>}
             </p>
+            {reports.status === 'ready' && <label className="check"><input type="checkbox" checked={reportsOnly} onChange={e => setReportsOnly(e.target.checked)} /> Only mountains with a resort report in the last 36 hours ({reportedRows.length})</label>}
             {plan === 'free' && <OutlookTeaser rows={data.rows} units={units} onAsk={() => ask('outlook')} />}
-            <Rankings {...listProps} rows={sorted} empty={<><b>No mountains match.</b><span>Try a different search or loosen the filters.</span></>} />
+            <Rankings {...listProps} rows={ranked} empty={<><b>No mountains match.</b><span>Try a different search or loosen the filters.</span></>} />
           </>
         )}
         {tab === 'saved' && (
@@ -224,6 +241,7 @@ export function App() {
         <footer className="about">
           <details>
             <summary>How the numbers are made</summary>
+            <p>The resort snow report is separate from the forecast. Where available, it shows snowfall and surface conditions from the operator’s published report, with its own location, period, time and source link. Nearby LTS measuring points in Italy (CC0, South Tyrol Open Data Hub) and the National Observatory of Athens gauge at Seli are labelled as station reports. A missing rainfall amount is not zero.</p>
             <p>
               Every mountain gets the hourly precipitation and temperature forecast of {MODELS.length} independent weather models ({MODELS.map((m) => m.label).join(', ')}).
               Snowfall is worked out separately for the base, the middle and the summit: colder air higher up turns rain to snow and makes lighter, deeper snow from the
@@ -259,6 +277,7 @@ export function App() {
           key={openRow.r.id}
           row={openRow}
           obs={openRow.o}
+          reports={reports}
           passes={data.passes}
           units={units}
           dark={dark}

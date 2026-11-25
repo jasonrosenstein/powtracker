@@ -81,6 +81,16 @@ jobs:
       - name: Station measurements
         run: node scripts/ingest-obs.ts
         continue-on-error: true
+      - name: Refresh the dated Bear Valley bulletin (the status board loads live in the browser)
+        run: npm run data:bulletin
+        continue-on-error: true
+      - name: Collect official mountain reports
+        continue-on-error: true
+        run: |
+          # Preserve the last good readings per source through a temporary outage. Never
+          # update their observation or collection timestamps just because a job ran.
+          curl -fsSL --max-time 15 -o "$RUNNER_TEMP/last-reports.json" "$LIVE/reports.json" || true
+          node scripts/ingest-reports.ts "$RUNNER_TEMP/last-reports.json"
       # The repository variable PAY_URL, once set to the payment service's address, turns the
       # paywall on and sells Pro on the site. Unset, the site shows everything.
       - run: npm run build

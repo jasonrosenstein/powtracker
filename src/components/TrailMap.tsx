@@ -1,11 +1,17 @@
 // A mountain's trail map: its runs coloured by difficulty and its lifts, drawn over shaded
-// terrain. Where the resort publishes live status, closed runs and lifts fade to grey. Tap a run
+// terrain. With mapped status, runs not confirmed open are dashed, but keep their colour. Tap a run
 // or lift for its details; the 3D button tilts the map onto real terrain.
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { Map as MlMap, NavigationControl, Popup, setWorkerUrl, type GeoJSONSource, type MapLayerMouseEvent } from 'maplibre-gl'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { DifficultyMark } from './icons.tsx'
 import type { OpenState } from '../lib/status.ts'
+import type { Async } from '../lib/hooks.ts'
+import type { MountainWeather } from '../lib/mountain-weather.ts'
+import type { Resort } from '../lib/types.ts'
+import { terrainWind } from '../lib/trail-wind.ts'
+import TrailWind, { directionOf, windSummary } from './TrailWind.tsx'
 import { liftTypeName, runLabel, type DifficultyClass, type Trails } from '../lib/trails.ts'
 import { fmtElev, type Units } from '../lib/units.ts'
 
@@ -20,6 +26,9 @@ const CLOSED = '#9aa3b2'
 const DEM = { type: 'raster-dem' as const, tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'], encoding: 'terrarium' as const, tileSize: 256, maxzoom: 14, attribution: 'Terrain: Mapzen, AWS Open Data' }
 
 export interface TrailMapProps {
+  resort: Resort
+  weather: Async<MountainWeather>
+  windHours: number
   trails: Trails
   classes: DifficultyClass[]
   /** Live state of a run or lift by its index, where the resort publishes it. */
@@ -37,6 +46,19 @@ export default function TrailMap(p: TrailMapProps) {
   const [ready, setReady] = useState(false)
   const [tilted, setTilted] = useState(false)
   const [full, setFull] = useState(false)
+  const [wind, setWind] = useState(true)
+  const [hourIndex, setHourIndex] = useState(0)
+  const mappedClasses = useMemo(() => {
+    const used = new Set(p.trails.runs.map(run => run.cls))
+    return p.classes.filter((_, i) => used.has(i))
+  }, [p.trails, p.classes])
+  const count = p.weather.status === 'ready' ? Math.min(p.windHours,p.weather.data.hours.length) : 0
+  const index = Math.max(0,Math.min(hourIndex,count-1))
+  const hour = p.weather.status === 'ready' && count ? p.weather.data.hours[index] : undefined
+  const activeHour = useRef(hour)
+  activeHour.current = wind ? hour : undefined
+  const activePopup = useRef<Popup|null>(null)
+  useEffect(()=>{ activePopup.current?.remove() },[wind,hour,p.units])
   const theme = p.dark ? 'dark' : 'light'
   // The click handler is bound once; it reads the latest props through this ref.
   const latest = useRef(p)
@@ -63,15 +85,23 @@ export default function TrailMap(p: TrailMapProps) {
       map.addSource('dem-3d', DEM)
       map.addLayer({ id: 'hillshade', type: 'hillshade', source: 'dem', paint: { 'hillshade-exaggeration': 0.45, 'hillshade-shadow-color': p.dark ? '#000000' : '#5a6b84' } }, firstSymbol)
 
+      map.addLayer({ id: 'wind-aspect', type: 'hillshade', source: 'dem', layout: { visibility: 'none' }, paint: {
+        'hillshade-illumination-anchor': 'map', 'hillshade-exaggeration': 0.42,
+        'hillshade-highlight-color': p.dark ? 'rgba(255,180,91,0.38)' : 'rgba(185,98,20,0.38)',
+        'hillshade-shadow-color': p.dark ? 'rgba(120,203,219,0.42)' : 'rgba(52,127,157,0.42)', 'hillshade-accent-color': 'transparent',
+      } }, firstSymbol)
+
       const empty = { type: 'FeatureCollection' as const, features: [] }
       map.addSource('runs', { type: 'geojson', data: empty })
       map.addSource('lifts', { type: 'geojson', data: empty })
       const width = (a: number, b: number) => ['interpolate', ['linear'], ['zoom'], 10, a, 15, b] as unknown as number
-      const faded = ['case', ['==', ['get', 'state'], 'closed'], 0.55, 1] as unknown as number
+      const runPaint = { 'line-color': ['get', 'color'] as ['get', string], 'line-width': width(2.6, 5) }
 
-      map.addLayer({ id: 'run-area', type: 'fill', source: 'runs', filter: ['==', ['get', 'area'], true], paint: { 'fill-color': ['get', 'color'], 'fill-opacity': 0.16 } })
-      map.addLayer({ id: 'run-casing', type: 'line', source: 'runs', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': CASING[theme], 'line-width': width(2.4, 6.5), 'line-opacity': faded } })
-      map.addLayer({ id: 'run-line', type: 'line', source: 'runs', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': ['get', 'color'], 'line-width': width(1.2, 3.8) } })
+      map.addLayer({ id: 'run-area', type: 'fill', source: 'runs', filter: ['==', ['get', 'area'], true], paint: { 'fill-color': ['get', 'color'], 'fill-opacity': 0.2 } })
+      map.addLayer({ id: 'run-casing', type: 'line', source: 'runs', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': CASING[theme], 'line-width': width(4.2, 7) } })
+      // A dash interrupts the colour briefly; it never swaps a run's difficulty for grey.
+      map.addLayer({ id: 'run-dashed', type: 'line', source: 'runs', filter: ['==', ['get', 'dashed'], true], layout: { 'line-join': 'round' }, paint: { ...runPaint, 'line-dasharray': [4, 1.5] } })
+      map.addLayer({ id: 'run-line', type: 'line', source: 'runs', filter: ['==', ['get', 'dashed'], false], layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: runPaint })
       map.addLayer({ id: 'lift-casing', type: 'line', source: 'lifts', paint: { 'line-color': HALO[theme], 'line-width': width(2.6, 5), 'line-opacity': 0.9 } })
       map.addLayer({ id: 'lift-line', type: 'line', source: 'lifts', paint: { 'line-color': ['get', 'color'], 'line-width': width(1.2, 2.4) } })
       map.addLayer({ id: 'lift-ends', type: 'circle', source: 'lifts', filter: ['==', ['geometry-type'], 'Point'], paint: { 'circle-radius': width(1.8, 4), 'circle-color': ['get', 'color'], 'circle-stroke-color': HALO[theme], 'circle-stroke-width': 1.2 } })
@@ -83,7 +113,7 @@ export default function TrailMap(p: TrailMapProps) {
       map.addLayer({ id: 'run-hit', type: 'line', source: 'runs', paint: { 'line-width': 18, 'line-opacity': 0 } })
       map.addLayer({ id: 'lift-hit', type: 'line', source: 'lifts', filter: ['==', ['geometry-type'], 'LineString'], paint: { 'line-width': 18, 'line-opacity': 0 } })
 
-      const popup = (e: MapLayerMouseEvent, lines: string[]) => {
+      const popup = (e: MapLayerMouseEvent, lines: string[], path: [number,number][] | null, uphill: boolean) => {
         const node = document.createElement('div')
         lines.filter(Boolean).forEach((text, i) => {
           const row = document.createElement('div')
@@ -91,14 +121,22 @@ export default function TrailMap(p: TrailMapProps) {
           row.textContent = text
           node.appendChild(row)
         })
-        new Popup({ offset: 8, maxWidth: '240px' }).setLngLat(e.lngLat).setDOMContent(node).addTo(map)
+        activePopup.current?.remove()
+        activePopup.current = new Popup({ offset: 8, maxWidth: '255px' }).setLngLat(e.lngLat).setDOMContent(node).addTo(map)
+        const h = activeHour.current
+        if (!h) return
+        const label = document.createElement('p'); label.textContent = `Mountain forecast: ${windSummary(h,latest.current.units)}`; node.appendChild(label)
+        const from = directionOf(h)
+        if (from == null) return
+        const detail = document.createElement('p'); detail.textContent = 'Checking terrain at this section…'; node.appendChild(detail)
+        terrainWind([e.lngLat.lng,e.lngLat.lat],path,uphill,from).then(notes=>{if (detail.isConnected) detail.textContent=notes.join('. ')},()=>{if (detail.isConnected) detail.textContent='Terrain detail unavailable at this point.'})
       }
       map.on('click', 'lift-hit', (e) => {
         const i = Number(e.features?.[0]?.properties.i)
         const lift = latest.current.trails.lifts[i]
         if (!lift) return
         const u = latest.current.units
-        popup(e, [lift.name || liftTypeName(lift.type), liftTypeName(lift.type), `${fmtElev(lift.verticalM, u)} of rise over ${fmtElev(lift.lengthM, u)}`, latest.current.liftNote?.(i) ?? ''])
+        popup(e, [lift.name || liftTypeName(lift.type), liftTypeName(lift.type), `${fmtElev(lift.verticalM, u)} of rise over ${fmtElev(lift.lengthM, u)}`, latest.current.liftNote?.(i) ?? ''],lift.line,true)
       })
       map.on('click', 'run-hit', (e) => {
         // A lift under the same tap wins: it is the thinner target.
@@ -108,7 +146,7 @@ export default function TrailMap(p: TrailMapProps) {
         if (!run) return
         const u = latest.current.units
         const traits = [run.groomed ? 'groomed' : run.ungroomed ? 'ungroomed' : '', run.gladed ? 'glades' : '', run.lit ? 'lit at night' : ''].filter(Boolean).join(', ')
-        popup(e, [runLabel(run) || 'Unnamed run', `${latest.current.classes[run.cls].label}${traits ? `, ${traits}` : ''}`, `${fmtElev(run.verticalM, u)} of drop over ${fmtElev(run.lengthM, u)}`, latest.current.runNote?.(i) ?? ''])
+        popup(e, [runLabel(run) || 'Unnamed run', `${latest.current.classes[run.cls].label}${traits ? `, ${traits}` : ''}`, `${fmtElev(run.verticalM, u)} of drop over ${fmtElev(run.lengthM, u)}`, latest.current.runNote?.(i) ?? ''],run.area ? null : run.line,false)
       })
       for (const layer of ['run-hit', 'lift-hit']) {
         map.on('mouseenter', layer, () => (map.getCanvas().style.cursor = 'pointer'))
@@ -119,28 +157,27 @@ export default function TrailMap(p: TrailMapProps) {
     return () => {
       setReady(false)
       setTilted(false)
+      activePopup.current?.remove()
+      activePopup.current = null
       mapRef.current = null
       map.remove()
     }
   }, [theme, p.trails])
 
-  // Runs and lifts, recoloured whenever live status arrives.
+  // Run hue is difficulty. Status can change its stroke pattern, never its hue.
   useEffect(() => {
     const map = mapRef.current
     if (!ready || !map) return
     const line = (coords: [number, number][], area: boolean) => (area ? { type: 'Polygon' as const, coordinates: [coords] } : { type: 'LineString' as const, coordinates: coords })
-    // With a live report, colour means "the resort says this is open": a run that is closed, on
-    // hold, or missing from the report is grey. Without one, every run shows its difficulty.
-    const live = (state: OpenState | undefined, has: boolean) => (!has ? 'none' : state === 'open' ? 'open' : 'closed')
     const runs = p.trails.runs.map((run, i) => {
-      const state = live(p.runState?.(i), p.runState != null)
-      return { type: 'Feature' as const, geometry: line(run.line, run.area), properties: { i, name: runLabel(run), area: run.area, state, color: state === 'closed' ? CLOSED : p.classes[run.cls].color } }
+      const dashed = p.runState != null && p.runState(i) !== 'open'
+      return { type: 'Feature' as const, geometry: line(run.line, run.area), properties: { i, name: runLabel(run), area: run.area, dashed, color: p.classes[run.cls].color } }
     })
     // Easier classes are drawn last so a green is never hidden under a black.
     runs.sort((a, b) => p.trails.runs[b.properties.i].cls - p.trails.runs[a.properties.i].cls)
     const lifts = p.trails.lifts.flatMap((lift, i) => {
-      const state = live(p.liftState?.(i), p.liftState != null)
-      const props = { i, name: lift.name, state, color: state === 'closed' ? CLOSED : INK[theme] }
+      const grey = p.liftState != null && p.liftState(i) !== 'open'
+      const props = { i, name: lift.name, color: grey ? CLOSED : INK[theme] }
       const ends = [lift.line[0], lift.line[lift.line.length - 1]]
       return [
         { type: 'Feature' as const, geometry: { type: 'LineString' as const, coordinates: lift.line }, properties: props },
@@ -169,13 +206,23 @@ export default function TrailMap(p: TrailMapProps) {
 
   if (!p.trails.bounds) return null
   return (
-    <div className={full ? 'trailmap is-full' : 'trailmap'}>
-      <div className="map" ref={el} />
-      {!ready && <div className="map-loading">Loading the trail map…</div>}
-      <div className="trailmap-tools">
-        <button type="button" className="icon-btn" aria-pressed={tilted} onClick={() => setTilted(!tilted)}>3D</button>
-        <button type="button" className="icon-btn" aria-pressed={full} onClick={() => setFull(!full)}>{full ? 'Close map' : 'Full screen'}</button>
+    <div className={`trailmap has-stage${full ? ' is-full' : ''}`}>
+      <div className="trailmap-stage">
+        <div className="map" ref={el} />
+        {!ready && <div className="map-loading">Loading the trail map…</div>}
+        <div className="trailmap-tools">
+          <button type="button" className="icon-btn" aria-pressed={wind} onClick={() => setWind(!wind)}>Wind</button>
+          <button type="button" className="icon-btn" aria-pressed={tilted} onClick={() => setTilted(!tilted)}>3D</button>
+          <button type="button" className="icon-btn" aria-pressed={full} onClick={() => setFull(!full)}>{full ? 'Close map' : 'Full screen'}</button>
+        </div>
       </div>
+      <div className="legend trail-key" role="group" aria-label="Trail map key">
+        <b>Run difficulty</b>
+        {mappedClasses.map(cls => <span key={cls.id}><DifficultyMark color={cls.color} shape={cls.shape} />{cls.label}</span>)}
+        <span><i className="key key-lift" />Lift</span>
+        <small>{p.runState ? <><i className="key key-dashed" /> Dashed run or grey lift: not confirmed open.</> : 'Difficulty only · no mapped operating status.'}</small>
+      </div>
+      {wind && <TrailWind map={ready ? mapRef.current : null} resort={p.resort} bounds={p.trails.bounds} units={p.units} dark={p.dark} weather={p.weather} hour={hour} index={index} count={count} setIndex={setHourIndex} />}
     </div>
   )
 }

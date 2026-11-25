@@ -5,8 +5,9 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { fmtDate } from '../charts/base.tsx'
 import { AccumulationChart, ElevationChart, ModelChart, SnowLineChart } from '../charts/charts.tsx'
 import { DayStrip } from '../charts/DayStrip.tsx'
-import { biggestStorm, CONFIDENCE_LABEL, LEVEL_INDEX, openingLine, rateSpread, type Metric, type Row } from '../lib/data.ts'
-import { fmtAgo } from '../lib/hooks.ts'
+import { biggestStorm, CONFIDENCE_LABEL, LEVEL_INDEX, rateSpread, type Metric, type Row } from '../lib/data.ts'
+import { fmtAgo, type Async } from '../lib/hooks.ts'
+import type { ReportFile } from '../lib/reports.ts'
 import { elevationProfile, fetchLive, levelView, meteogram, snapshotDays, type DayTotal, type Live } from '../lib/live.ts'
 import { LEVEL_LABELS, LEVELS, MODELS, WINDOW_LABELS, WINDOWS_H, type Level } from '../lib/models.ts'
 import { shareUrl } from '../lib/origin.ts'
@@ -17,7 +18,8 @@ import { fmtElev, fmtSnow, fmtSnowNum, fmtSnowRange, snowUnit, type Units } from
 import { Segmented } from './Controls.tsx'
 import { ConfidenceBars, IconBack, IconLock, IconShare } from './icons.tsx'
 import { Mountain } from './Mountain.tsx'
-import { SaveButton } from './Rankings.tsx'
+import { ResortReport } from './ResortReport.tsx'
+import { SaveButton, SeasonTag } from './Rankings.tsx'
 
 const WINDOW_OF: Partial<Record<Metric, number>> = { w3: 0, w7: 1, w14: 2 }
 
@@ -40,8 +42,9 @@ function stormLine(days: readonly DayTotal[], units: Units): string {
   return `Main storm ${fmtDate(storm.from)} to ${fmtDate(storm.to)}: ${fmtSnow(storm.totalCm, units)}, heaviest on ${fmtDate(storm.peak.date)} (${fmtSnow(storm.peak.cm, units)}).`
 }
 
-export function Detail({ row, obs, passes, units, dark, metric, level: initialLevel, generated, saved, onToggleSaved, onClose, plan, onAsk }: {
+export function Detail({ row, obs, reports, passes, units, dark, metric, level: initialLevel, generated, saved, onToggleSaved, onClose, plan, onAsk }: {
   row: Row
+  reports: Async<ReportFile>
   /** Station measurements near this resort, when a source covers it. */
   obs: readonly Observation[] | undefined
   passes: readonly PassDef[]
@@ -59,7 +62,9 @@ export function Detail({ row, obs, passes, units, dark, metric, level: initialLe
 }) {
   const { r, f } = row
   const free = plan === 'free'
-  const [tab, setTab] = useState<'snow' | 'mountain'>('snow')
+  const [tab, setTab] = useState<'snow' | 'mountain'>(() =>
+    ['wind', 'mountain'].includes(new URLSearchParams(location.hash.slice(1)).get('view') ?? '') ? 'mountain' : 'snow',
+  )
   const [pickedLevel, setPickedLevel] = useState<Level>(initialLevel)
   const level = allowedLevel(plan, pickedLevel)
   const setLevel = (l: Level) => {
@@ -162,7 +167,7 @@ export function Detail({ row, obs, passes, units, dark, metric, level: initialLe
           <p className="detail-sub">
             {[r.rg, r.co].filter(Boolean).join(', ')}
             {r.p.map((slug) => <span key={slug} className="tag">{passes.find((x) => x.slug === slug)?.label ?? slug}</span>)}
-            {row.op && <span className="tag is-season">{openingLine(row.op)?.short}</span>}
+            <SeasonTag opening={row.op} />
             {r.w && <a href={r.w} target="_blank" rel="noreferrer">Resort site</a>}
           </p>
 
@@ -174,6 +179,7 @@ export function Detail({ row, obs, passes, units, dark, metric, level: initialLe
             grow
           />
 
+          <ResortReport id={r.id} units={units} data={reports} />
           {tab === 'mountain' ? <Mountain row={row} units={units} dark={dark} /> : <>
           <div className="hero" role="group" aria-label="Forecast period">
             {totals.map((t, wi) => free && wi > 0 ? (
@@ -207,7 +213,7 @@ export function Detail({ row, obs, passes, units, dark, metric, level: initialLe
 
           {days && <DayStrip days={days} units={units} levelLabel={levelLabel} openDays={free ? FREE_DAYS : days.length} onLocked={() => onAsk('outlook')} />}
 
-          <section className="chart-card recent">
+          <section className="chart-card recent" aria-label="Nearby stations and model estimates">
             <header>
               <h3>On the ground now</h3>
               <p>{obs && obs.length > 0 ? 'Measured at snow stations near the mountain.' : 'No snow station reports within 10 km at this mountain\'s height, so these are the weather models\' estimates.'}</p>

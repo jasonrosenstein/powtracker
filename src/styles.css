@@ -255,20 +255,46 @@ a { color: var(--accent-ink); }
 .live-tiles span { font-size: 12.5px; color: var(--ink-2); }
 .live .facts { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
 .live .notice { margin-top: 12px; }
+.operator-board iframe { display: block; width: 100%; height: clamp(340px, 62dvh, 620px); margin-block: 12px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.operator-board .notice p { margin: 4px 0 0; }
 .notice.is-warn { border-left: 3px solid var(--warn); color: var(--ink); }
 
 .trailmap { position: relative; height: 420px; margin: 10px -14px 0; background: var(--surface-2); overflow: hidden; }
+.trailmap.has-stage { height: auto; }
+.trailmap-stage { position: relative; height: 420px; }
+.trailmap.is-full.has-stage { display: flex; flex-direction: column; }
+.trailmap.is-full .trailmap-stage { flex: 1; min-height: 0; }
 .trailmap .map { position: absolute; inset: 0; }
+/* The marker rotates with the map; its child travels toward its arrowhead (local -Y). */
+.trail-flow { pointer-events: none; width: 2px; height: 23px; color: var(--ink); }
+.trail-flow > i { display: block; width: 100%; height: 100%; border-radius: 2px; background: linear-gradient(to top, transparent, currentColor 86%); filter: drop-shadow(0 0 1px var(--surface)); animation: trail-wind-travel 3s linear infinite; }
+.trail-flow > i::before { content: ''; position: absolute; left: -2px; top: 0; width: 6px; height: 6px; box-sizing: border-box; border: solid currentColor; border-width: 2px 2px 0 0; transform: rotate(-45deg); }
+@keyframes trail-wind-travel {
+  0% { transform: translateY(42px); opacity: 0; }
+  18%, 78% { opacity: .87; }
+  100% { transform: translateY(-42px); opacity: 0; }
+}
+.flow-paused .trail-flow > i { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .trail-flow > i { animation: none; opacity: .85; } }
+.wind-station { width: 26px; height: 26px; border: 2px solid var(--ink); border-radius: 50%; color: var(--ink); background: var(--surface); line-height: 1; padding: 0; cursor: pointer; }
+.trail-wind-panel { background: var(--surface); padding: 10px 14px; font-size: 13px; border-block: 1px solid var(--line); }
+.trail-wind-panel p, .trail-wind-panel details { margin: 5px 0 0; }
+.trail-wind-panel label { display: flex; align-items: center; gap: 10px; }
+.trail-wind-panel input { flex: 1; min-width: 0; height: 32px; }
+.trail-wind-panel .wind-key { display: inline-block; width: 15px; height: 9px; border-radius: 2px; }
+.trailmap.is-full .trail-wind-panel { max-height: 42dvh; overflow: auto; padding-bottom: max(8px,var(--safe-b)); }
 .trailmap-tools { position: absolute; left: 10px; top: 10px; display: flex; gap: 6px; z-index: 2; }
 .trailmap-tools .icon-btn { min-height: 36px; font-size: 13px; box-shadow: var(--shadow-1); }
 .trailmap-tools .icon-btn[aria-pressed='true'] { background: var(--accent-fill); border-color: var(--accent-fill); color: var(--on-accent); }
 .trailmap.is-full { position: fixed; inset: 0; z-index: 60; height: auto; margin: 0; }
 .trailmap.is-full .trailmap-tools { top: calc(10px + var(--safe-t)); }
 body.map-full { overflow: hidden; }
-.trail-card .legend { margin-top: 10px; }
+.trailmap .trail-key { align-items: center; gap: 4px 12px; margin: 0; padding: 8px 14px; background: var(--surface); border-top: 1px solid var(--line); }
+.trail-key small { flex-basis: 100%; font-size: 12px; }
+.trailmap.is-full .trail-key { max-height: 22dvh; overflow: auto; }
 .diff-mark { flex: none; }
-.key-lift { border-top-color: var(--ink); }
-.key-closed { border-top-color: #9aa3b2; }
+.trail-key .key-lift { border-top-color: var(--ink); }
+.trail-key .key-dashed { vertical-align: middle; border-top: 3px dashed currentColor; }
 /* Runs by difficulty as one bar split by share of the mountain's kilometres. */
 .mix { display: flex; gap: 2px; height: 26px; margin-top: 10px; border-radius: 6px; overflow: hidden; }
 .mix span { flex-basis: 0; min-width: 4px; color: #fff; font-size: 12px; font-weight: 700; line-height: 26px; padding-left: 7px; border-radius: 4px; white-space: nowrap; box-shadow: inset 0 0 0 1px var(--axis); }

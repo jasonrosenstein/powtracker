@@ -59,19 +59,41 @@ export function useLocation(): [Locating, () => void] {
 
 export type Async<T> = { status: 'loading' } | { status: 'ready'; data: T } | { status: 'error'; message: string }
 
-/** Run an abortable load when `deps` change, and report where it stands. */
-export function useAsync<T>(load: (signal: AbortSignal) => Promise<T>, deps: readonly unknown[]): Async<T> {
+/** Avoid polling a backgrounded phone. Catch up immediately when it becomes visible again. */
+export function onVisibleInterval(run: () => void, ms: number): () => void {
+  let due = Date.now() + ms, timer: number | undefined
+  const schedule = () => {
+    window.clearTimeout(timer)
+    if (document.hidden) return
+    if (Date.now() >= due) { due = Date.now() + ms; run() }
+    timer = window.setTimeout(schedule, Math.max(1, due - Date.now()))
+  }
+  schedule()
+  document.addEventListener('visibilitychange', schedule)
+  window.addEventListener('pageshow', schedule)
+  return () => { window.clearTimeout(timer); document.removeEventListener('visibilitychange', schedule); window.removeEventListener('pageshow', schedule) }
+}
+
+/** Run an abortable load when `deps` change. Optional polling retains the displayed result
+ * during the request, but reports a failed refresh instead of presenting old data as current. */
+export function useAsync<T>(load: (signal: AbortSignal) => Promise<T>, deps: readonly unknown[], pollMs?: number): Async<T> {
   const [state, setState] = useState<Async<T>>({ status: 'loading' })
   useEffect(() => {
-    const ctl = new AbortController()
+    let ctl: AbortController
+    const read = () => {
+      ctl?.abort()
+      const current = ctl = new AbortController()
+      load(current.signal).then(
+        (data) => !current.signal.aborted && setState({ status: 'ready', data }),
+        (e: unknown) => !current.signal.aborted && setState({ status: 'error', message: e instanceof Error ? e.message : String(e) }),
+      )
+    }
     setState({ status: 'loading' })
-    load(ctl.signal).then(
-      (data) => !ctl.signal.aborted && setState({ status: 'ready', data }),
-      (e: unknown) => !ctl.signal.aborted && setState({ status: 'error', message: e instanceof Error ? e.message : String(e) }),
-    )
-    return () => ctl.abort()
+    read()
+    const stop = pollMs ? onVisibleInterval(read, pollMs) : undefined
+    return () => { stop?.(); ctl.abort() }
     // The caller lists what the load depends on.
-  }, deps)
+  }, [...deps, pollMs])
   return state
 }
 

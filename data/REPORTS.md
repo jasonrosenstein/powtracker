@@ -1,0 +1,14 @@
+# Published snow and rain reports
+
+`npm run data:reports` builds `public/data/reports.json` independently of model forecasts and snow-station ingestion. It needs no account or API key. The Pages workflow runs it on each publish, including the twice-daily schedule. Mobile and web clients read this one small snapshot; readers don't send requests to every resort. Run `npm test` for source fixtures, and `node scripts/check-reports-ui.ts <preview-url>` for a browser check against a built snapshot.
+
+| Source | Published facts used |
+| --- | --- |
+| Alterra / Mountain Powder (public operator JSON) | All reporting elevations, snow since lifts closed, 24/48/72 hours, 7 days, depth, storm and season; resort-wide numbers stay separate. Uses the snow report's own clock, not the lift-status time. |
+| Vail Resorts' own snow and weather pages | Visible readings from the page's JSON, including the operator's exact cm and inches. No executing page scripts. A disabled 12-hour field is not an overnight measurement. |
+| Resorts of the Canadian Rockies | The operator's snow report feed, verified by resort name. The displayed overnight/24h/48h/week, base and year-to-date figures; not unused fields declared by the CMS. |
+| [Hakuba Valley](https://www.hakubavalley.com/en/weather_en/) | Each mountain's **weather and snow** table, not the lift update. Today's snowfall is not labelled rolling 24h. Weather and surface are attributed to the reporting site. “Rain” has no implied amount. |
+| [LTS via South Tyrol Open Data Hub](https://tourism.api.opendatahub.com/v1/Weather/Measuringpoint) | Active, CC0 stations only, labelled as stations rather than resort-wide claims. Closest tracked Italian mountain within 3 km and within the mountain's elevation band (150 m tolerance). Fresh-snow period unspecified; preserve the source's last snow date if given. |
+| [Seli National Ski Center / National Observatory of Athens](https://penteli.meteo.gr/stations/seli/seli.htm) | The station's explicitly named **Today's Rain** gauge in mm. Not radar, forecast, rain rate, or storm-total precipitation. |
+
+A checked timestamp records collection, **not** observation. Reports over 36 hours old are labelled older and excluded from the recent-operator filter. Sites can publish readings during preseason or after closing: a snow report is not proof that lifts are running. The collector can take a prior snapshot path as an argument; on transport or format errors it retains that source's last successful collection for up to seven days without changing its dates. A successful empty report isn't an error and must not inherit a previous value. New sources require a verified resort match, units, reported time and interval; nearest coordinates alone do not identify an operator report. No global claim of coverage.

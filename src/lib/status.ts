@@ -329,7 +329,7 @@ export function parseIntermaps(feed: { lifts?: IntermapsItem[]; slopes?: Interma
 
 export async function fetchLiveStatus(feed: Feed, signal?: AbortSignal): Promise<LiveStatus> {
   const url = feed.provider === 'mtnpowder' ? `https://www.mtnpowder.com/feed?resortId=${feed.id}` : `https://winter.intermaps.com/${feed.slug}/data?lang=en`
-  const res = await fetch(url, { signal })
+  const res = await fetch(url, { signal, cache: 'no-cache' })
   if (!res.ok) throw new Error(`the resort's status feed returned HTTP ${res.status}`)
   const body = (await res.json()) as Record<string, unknown>
   return feed.provider === 'mtnpowder' ? parseFeed(body) : parseIntermaps(body, feed.slug)

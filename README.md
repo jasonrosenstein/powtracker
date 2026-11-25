@@ -74,14 +74,17 @@ Each mountain has a second tab for the day on the hill:
   green, blue, black and double black in North America; green, blue, red and black in Europe;
   green, red and black in Japan. A 3D button tilts the map onto real terrain.
 - **Live lifts and trails.** Where the resort publishes a status feed that any website may read,
-  the browser reads it when the mountain is opened. Two feeds are read, both listed in
+  the browser reads it when the mountain view opens and every five minutes while visible. Two feeds are read, both listed in
   `src/lib/status.ts`: Alterra's (mtnpowder.com; 16 North American resorts, with grooming, lift
   hours and the resort's own snow report) and Intermaps' (winter.intermaps.com; 85 mountains in
   Austria, Switzerland, Germany, Italy and France, including Ski Arlberg, Sölden, Kitzbühel,
   Ischgl, Davos, Verbier and Portes du Soleil). Mapped runs are matched to the report by sign
-  number, then by name; where most are found, colour on the trail map means "reported open
-  today" and everything else is grey. Every other mountain says that its live status is on the
-  resort's site, and links to it.
+  number, then by name. Run colour always indicates difficulty. Where status is mapped,
+  dashed runs and grey lifts are not confirmed open. Bear Valley uses its operator's public
+  interactive lift and trail board inside the mountain view, without copying credentials;
+  those statuses aren't joined to the map geometry. Its latest dated RSS bulletin is collected
+  independently on each Pages refresh (`npm run data:bulletin`). News is not live status.
+  Mountains without a connected source explicitly say status is unavailable.
 - **Opening dates.** `data/openings/*.json` holds what each mountain has announced for the
   season (open since a day, a set opening day, a hoped-for one, no date yet, or not opening)
   in the source's own words, with the page that states it and the day it was read;
@@ -89,7 +92,7 @@ Each mountain has a second tab for the day on the hill:
   announcement, its source and that day: quotation marks only around words taken from the page,
   plain text for a summary. A date that comes from a ski guide (Skiresort.com, whose dates
   matched the operators' about three times in four) is called "expected" and says whose it is.
-  A planned date that has passed is shown as planned, never as "open". Only mountains with a
+  A planned date that has passed is omitted from current status, never treated as "open". Only mountains with a
   page that states something are listed: 643 of the 1,752 on 17 November 2026.
 - **On the mountain.** Summit temperature and wind chill, wind and gusts with a lift-hold
   warning, visibility, sunrise and sunset, hour by hour for a day and a half (Open-Meteo).
@@ -173,7 +176,7 @@ allows commercial use, and makes tracking every ski area in OpenSkiMap (about 4,
   SnoCountry, Skiresort.info), which is a paid agreement.
 - Opening dates are announcements collected on one day; resorts move them with the weather.
 - Trail maps are as complete as OpenStreetMap's mapping of each mountain. Live status is matched
-  to mapped runs by name, so a run the resort names differently shows grey.
+  to mapped runs by number or name, so a run with no match is not marked as confirmed open.
 - Pass rosters are a snapshot of each pass's own listing for the season named in the file, and
   record included days at the top tier only. See `data/passes/README.md`.
 

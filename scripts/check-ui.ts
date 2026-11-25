@@ -160,8 +160,8 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     const v = (await column(6)).map(num)
     expect(sortedDesc(v) && v[0] > 0, `depth column: ${v.join(', ')}`)
     await page.locator('.name-btn').first().click()
-    await page.waitForSelector('.detail .measured li', { timeout: 30_000 })
-    const reading = (await page.locator('.detail .measured li').first().textContent())!
+    await page.waitForSelector('[aria-label="Nearby stations and model estimates"] .measured li', { timeout: 30_000 })
+    const reading = (await page.locator('[aria-label="Nearby stations and model estimates"] .measured li').first().textContent())!
     expect(/Snow on the ground at .+ km away/.test(reading), `first reading: ${reading.slice(0, 120)}`)
     await page.getByRole('button', { name: 'Back to the list' }).click()
     await page.waitForSelector('.detail', { state: 'detached', timeout: 5000 })
@@ -239,7 +239,8 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     await page.getByLabel('Show open trails only').check()
     const shown = await page.locator('.group .rows .state').evaluateAll((els) => els.map((e) => e.className))
     expect(shown.every((c) => c.includes('is-open')), `${shown.filter((c) => !c.includes('is-open')).length} closed trails still shown`)
-    expect((await page.locator('.trail-card .legend').textContent())!.includes('Closed'), 'the map legend should explain grey')
+    const key = await page.getByRole('group', { name: 'Trail map key' }).innerText()
+    expect(key.includes('Run difficulty') && key.includes('not confirmed open'), 'the key should distinguish run colour from operating status')
   })
 
   await check('mountain: tapping the trail map names a run or lift', async () => {
@@ -284,7 +285,7 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
 
   await check('mountain: a resort without a live feed says where to look, and lists its mapped runs', async () => {
     await openMountain('vail')
-    expect((await page.locator('.detail-body').textContent())!.includes('only on its own site'), 'the missing live status should be stated')
+    expect((await page.locator('.detail-body').textContent())!.includes('doesn’t have a live lift or trail feed'), 'the missing live status should be stated')
     expect((await page.getByRole('link', { name: /on the resort's site/ }).count()) > 0, 'a link to the resort is expected')
     const groups = await page.locator('.group summary').allTextContents()
     expect(groups.some((g) => g.startsWith('Green')) && groups.some((g) => g.startsWith('Black')), `groups: ${groups.join(' | ')}`)
@@ -299,12 +300,16 @@ async function detailCharts(page: Page): Promise<{ live: boolean; charts: number
     const resorts = (await fetch(new URL('data/resorts.json', base)).then((r) => r.json())).resorts as { id: string; n: string }[]
     // A mountain with a dated opening and no live feed (a feed's own report replaces the card),
     // whose name finds it alone, so the search cannot land elsewhere.
-    const pick = resorts.find((r) => openings?.resorts[r.id]?.d && !liveFeedFor(r) && resorts.filter((o) => o.n.toLowerCase().includes(r.n.toLowerCase())).length === 1)
+    const today = new Date().toISOString().slice(0,10)
+    const pick = resorts.find((r) => {
+      const o = openings?.resorts[r.id]
+      return o?.d && (o.s === 'open' || o.d > today) && r.id !== 'f357cc18' && !liveFeedFor(r) && resorts.filter(other => other.n.toLowerCase().includes(r.n.toLowerCase())).length === 1
+    })
     if (!pick) throw new Error('no dated opening in data/openings.json to check')
     const opening = openings.resorts[pick.id]
     await page.locator('#f-q').fill(pick.n)
     const tag = (await page.locator('.tag.is-season').first().textContent())!
-    expect(/^(Opens|Due to open|Open for the season)/.test(tag), `${pick.n} is tagged "${tag}"`)
+    expect(/^(Opens|Expected|Open for the season)/.test(tag), `${pick.n} is tagged "${tag}"`)
     await openMountain(pick.n)
     const source = page.locator('.detail-body').getByRole('link', { name: 'Source' }).first()
     expect((await source.getAttribute('href')) === opening.src, `${pick.n} should link to ${opening.src}`)
