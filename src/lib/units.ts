@@ -45,6 +45,16 @@ export function fmtSnow(cm: number | null | undefined, u: Units): string {
   return cm == null ? '–' : `${fmtSnowNum(cm, u)} ${snowUnit(u)}`
 }
 
+export const rainUnit = (u: Units): string => u === 'metric' ? 'mm' : 'in'
+
+/** Liquid depth (mm), with a trace distinguished from a dry day. */
+export function fmtRainNum(mm: number | null, u: Units): string {
+  if (mm == null) return '–'
+  const v = u === 'metric' ? mm : mm / 25.4
+  const step = u === 'metric' ? 0.1 : 0.01
+  return v > 0 && v < step ? `<${step}` : String(Number(v.toFixed(u === 'metric' ? 1 : 2)))
+}
+
 /** A low–high range, e.g. "12–40 cm". */
 export function fmtSnowRange(lo: number | null, hi: number | null, u: Units): string {
   if (lo == null || hi == null) return '–'

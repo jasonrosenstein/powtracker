@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { dayStartIndex, nowIndex, parseHourly, snowAtLevel, summarise, timeAt, windowTotal, type OpenMeteoLocation } from './forecast.ts'
-import { PAST_DAYS } from './models.ts'
+import { MODEL_IDS, PAST_DAYS } from './models.ts'
+import { levelView, snapshotDays } from './live.ts'
 
 const HOURS = (PAST_DAYS + 15) * 24
 
@@ -61,6 +62,8 @@ describe('summarise', () => {
     expect(f.w[2][0]!).toBeGreaterThan(50)
     expect(f.w[1][0]!).toBeLessThan(f.w[2][0]!)
     expect(f.d0).toBe('2026-11-16')
+    expect(f.rain?.[0][0]).toBe(24)
+    expect(f.rain?.[2][0]).toBe(0)
   })
   it('makes each window the sum of its hours and each day a full local day', () => {
     const h = parseHourly(location({ a: { precip: () => 1, temp: () => -2 } }), ['a'])
@@ -77,6 +80,23 @@ describe('summarise', () => {
     expect(f.w[1][0]).toBe(72)
     expect(f.w[1][2]).toBeNull()
     expect(f.n).toEqual([1, 1, 0])
+  })
+  it('partitions each model before averaging, including the hour ending at midnight in the previous day', () => {
+    const end = dayStartIndex(1)
+    const h = parseHourly(location({
+      [MODEL_IDS[0]]: { precip: i => i === end ? 12 : 0, temp: () => 1 },  // 6 mm of rain
+      [MODEL_IDS[1]]: { precip: i => i === end ? 40 : 0, temp: () => -4 }, // none
+    }))
+    const live = { h, now: nowIndex(h, NOW), fetchedMs: NOW, hours: 336 }
+    const f = summarise(h, 2000, 2000, NOW)
+    const snapshot = snapshotDays(f.d0, f.d[1], f.rain?.[1])
+    expect(levelView(live, 2000).days.map(d => d.rainMm)).toEqual(snapshot.map(d => d.rainMm))
+    expect(snapshot.slice(0, 2).map(d => d.rainMm)).toEqual([3, 0])
+    expect(snapshotDays(f.d0, f.d[1])[0].rainMm).toBeNull()
+  })
+  it('does not call an incomplete model day dry, even with precipitation but no temperatures', () => {
+    const h = parseHourly(location({ a: { precip: () => 0, temp: i => i <= dayStartIndex(1) ? 3 : null } }), ['a'])
+    expect(summarise(h, 2000, 2000, NOW, ['a']).rain?.[1].slice(0, 2)).toEqual([0, null])
   })
   it('gives the temperature range at mid elevation', () => {
     const h = parseHourly(location({ a: { precip: () => 0, temp: (i) => (i % 2 ? -4 : -8) } }), ['a'])

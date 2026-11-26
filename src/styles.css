@@ -15,6 +15,7 @@
   --grid: #e3e8ef;
   --axis: #c3ccd8;
   --accent: #2a78d6;
+  --rain: #15814f;
   --accent-ink: #1c5cab;
   --accent-fill: #1f68c1;
   --on-accent: #ffffff;
@@ -46,6 +47,7 @@
     --grid: #1e293b;
     --axis: #364560;
     --accent: #3987e5;
+    --rain: #27a269;
     --accent-ink: #86b6ef;
     --accent-fill: #3987e5;
     --on-accent: #06101f;
@@ -214,20 +216,32 @@ a { color: var(--accent-ink); }
 .chart-card header h3 { font-size: 15.5px; font-weight: 700; letter-spacing: -0.005em; }
 .chart-card header p { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
 
-.daystrip { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; margin: 10px -14px 0; padding: 0 12px 4px; }
-.daystrip::-webkit-scrollbar { display: none; }
-.day { all: unset; cursor: pointer; box-sizing: border-box; flex: none; width: 50px; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 0 7px; border-radius: 13px; border: 1px solid transparent; }
+.daily-grid { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px; margin: 10px -8px 0 0; }
+.daystrip { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: thin; padding-bottom: 4px; }
+.day, .daily-key { display: grid; grid-template-rows: 32px 59px 59px 38px auto; gap: 3px; align-items: center; justify-items: center; align-content: start; padding: 5px 0; border: 1px solid transparent; }
+.day { cursor: pointer; box-sizing: border-box; flex: 0 0 64px; background: none; border-radius: 10px; }
+.daily-key { justify-items: start; color: var(--ink-2); font-size: 12px; }
+.daily-grid small { font-size: 11px; color: var(--ink-3); }
+.date-row, .wind-row, .depth-row { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.daily-key > span { align-items: start; }
+.daily-key b { font-weight: 650; }
+.daily-key i { display: inline-block; width: 5px; height: 10px; border-radius: 2px 2px 0 0; margin-right: 4px; }
+.snow-key { background: var(--accent); }
+.rain-key, .day .rain .bar { background: var(--rain); }
+.day .wind-row { font-size: 12px; white-space: nowrap; line-height: 1.5; }
+.daily-hint { margin-top: 7px; font-size: 11.5px; color: var(--ink-3); }
+.locked-day { grid-row: 2 / 5; display: grid; justify-items: center; gap: 3px; font-size: 12px; }
+@media (forced-colors: active) { .day .bar { border-inline-start: 8px solid CanvasText; } .day .rain .bar { border-inline-start-style: double; } }
 .day[aria-selected='true'] { background: var(--accent-soft); border-color: var(--accent); }
 .day:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .day .dow { font-size: 11.5px; font-weight: 650; color: var(--ink-3); }
 .day.is-weekend .dow { color: var(--ink); }
 .day .dom { font-size: 11px; color: var(--ink-3); }
-.day .bar-box { width: 18px; display: flex; align-items: flex-end; border-bottom: 1px solid var(--axis); margin: 2px 0 3px; }
+.day .bar-box { width: 16px; height: 36px; display: flex; align-items: flex-end; border-bottom: 1px solid var(--axis); margin-bottom: 2px; }
 .day .bar { display: block; width: 100%; background: var(--accent); border-radius: 4px 4px 0 0; }
 .day .amt { font-size: 13.5px; font-weight: 700; }
 .day .amt.is-zero { color: var(--ink-3); font-weight: 500; }
 .day .temps { font-size: 11px; color: var(--ink-2); white-space: nowrap; }
-.day .temps i { font-style: normal; color: var(--ink-3); }
 .day-detail { display: flex; flex-wrap: wrap; gap: 3px 14px; font-size: 13px; color: var(--ink-2); border-top: 1px solid var(--line); padding-top: 10px; margin-top: 6px; }
 .day-detail b, .day-detail strong { color: var(--ink); }
 
@@ -495,7 +509,6 @@ td.is-locked { color: var(--ink-3); }
 .hero-tile.is-locked { color: var(--ink-3); }
 .hero-tile.is-locked .t-value { min-height: 32px; display: flex; align-items: center; }
 .day.is-locked { color: var(--ink-3); }
-.day.is-locked .bar-box { display: grid; place-items: center; }
 .recent-locked { all: unset; cursor: pointer; display: block; color: var(--ink-3); }
 .recent-locked strong, .recent-locked span { display: block; }
 .recent-locked:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }

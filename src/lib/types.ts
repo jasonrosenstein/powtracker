@@ -73,6 +73,8 @@ export interface ResortForecast {
   n: number[]
   /** Daily consensus snowfall for today and the 13 days after, [level][day]. */
   d: (number | null)[][]
+  /** Forecast liquid rain in mm, [level][day]. Older snapshots contain snow only. */
+  rain?: (number | null)[][]
   /** Model-estimated snowfall over the last 24 and 72 hours, [level][24 h, 72 h]. */
   p: (number | null)[][]
   /** Each model's own totals at mid elevation, [model][window], in the order of `models`. */

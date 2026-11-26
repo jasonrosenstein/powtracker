@@ -1,6 +1,6 @@
 // A resort's live detail: the current hourly output of every model, fetched straight from
 // Open-Meteo in the browser, and the series the detail charts draw from it.
-import { dayStartIndex, nowIndex, parseHourly, snowAtLevel, timeAt, windowTotal, type HourlyModels, type LevelSnow, type OpenMeteoLocation, type WindowTotal } from './forecast.ts'
+import { dailyRainAtLevel, dayStartIndex, nowIndex, parseHourly, snowAtLevel, timeAt, windowTotal, type HourlyModels, type LevelSnow, type OpenMeteoLocation, type WindowTotal } from './forecast.ts'
 import { FORECAST_DAYS, MODEL_IDS, WINDOWS_H } from './models.ts'
 import { forecastUrl } from './openmeteo.ts'
 import { LAPSE_C_PER_M, meanSeries, tempAt, windowSum } from './snow.ts'
@@ -30,6 +30,7 @@ export async function fetchLive(r: Resort, signal?: AbortSignal): Promise<Live> 
 /** One local day's snowfall: the consensus, and the range across models where it is known. */
 export interface DayTotal {
   date: string
+  rainMm: number | null
   mean: number | null
   lo: number | null
   hi: number | null
@@ -52,9 +53,9 @@ export interface LevelView {
 }
 
 /** The same daily totals from the snapshot, for when live model data cannot be fetched. */
-export function snapshotDays(d0: string, daily: readonly (number | null)[]): DayTotal[] {
+export function snapshotDays(d0: string, daily: readonly (number | null)[], rain?: readonly (number | null)[]): DayTotal[] {
   const start = Date.parse(`${d0}T00:00:00Z`)
-  return daily.map((mean, i) => ({ date: new Date(start + i * 86_400_000).toISOString().slice(0, 10), mean, lo: null, hi: null, byModel: [], tLo: null, tHi: null }))
+  return daily.map((mean, i) => ({ date: new Date(start + i * 86_400_000).toISOString().slice(0, 10), mean, rainMm: rain?.[i] ?? null, lo: null, hi: null, byModel: [], tLo: null, tHi: null }))
 }
 
 function runningTotal(series: readonly (number | null)[], start: number, hours: number): (number | null)[] {
@@ -76,6 +77,7 @@ function runningTotal(series: readonly (number | null)[], start: number, hours: 
 export function levelView(live: Live, z: number): LevelView {
   const { h, now, hours } = live
   const snow = snowAtLevel(h, z)
+  const rain = dailyRainAtLevel(h, z)
   const temp = meanSeries(MODEL_IDS.map((m) => h.temp[m] ?? []))
   const days = Array.from({ length: FORECAST_DAYS }, (_, d) => {
     const start = dayStartIndex(d)
@@ -85,6 +87,7 @@ export function levelView(live: Live, z: number): LevelView {
     return {
       date: h.time[start]?.slice(0, 10) ?? '',
       mean: windowSum(snow.mean, start + 1, 24),
+      rainMm: rain[d],
       lo: vals.length ? Math.min(...vals) : null,
       hi: vals.length ? Math.max(...vals) : null,
       byModel,

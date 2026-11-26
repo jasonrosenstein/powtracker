@@ -61,7 +61,13 @@ detail screen and the map animations; `npm run shots` saves screenshots of every
    is one adapter function in that file.
 
 The same engine runs in the browser for a mountain's detail view, on a fresh fetch, so its charts
-are newer than the rankings snapshot and can differ from it slightly.
+are newer than the rankings snapshot and can differ from it slightly. In **Day by day**, the blue
+row shows new snow depth and the green row shows liquid rain. For each model we split the hourly
+precipitation at the selected elevation before averaging and summing each local day. The rows
+have separate scales. Wind is the strongest hourly 10 m wind in Open-Meteo's mid-mountain
+best-match forecast, with the direction it blows **from** at that hour (not a gust or a slope
+measurement). Wind is fetched only for the open forecast, independently of the snow models.
+A dash means the forecast is unavailable, never dry weather, calm wind, or north.
 
 ## The mountain itself
 

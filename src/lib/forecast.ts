@@ -7,7 +7,7 @@
 // short-range model drops out, and daily totals add up to the window totals.
 // The range (lowest and highest model) comes from the models that cover the whole window.
 import { FORECAST_DAYS, MODEL_IDS, PAST_DAYS, WINDOWS_H } from './models.ts'
-import { meanSeries, r1, snowSeries, tempAt, windowSum, type Series } from './snow.ts'
+import { meanSeries, r1, snowFraction, snowSeries, tempAt, windowSum, type Series } from './snow.ts'
 import type { ResortForecast } from './types.ts'
 
 /** One location of an Open-Meteo multi-model hourly response. */
@@ -68,6 +68,16 @@ export function snowAtLevel(h: HourlyModels, z: number, models: readonly string[
   return { z, byModel, mean: meanSeries(byModel) }
 }
 
+/** Liquid rain in mm, not snow depth. Split each model's precipitation at the chosen height
+ * before averaging: a cold, wet model and a warm, dry model do not predict rain together. */
+export function dailyRainAtLevel(h: HourlyModels, z: number, models: readonly string[] = MODEL_IDS): (number | null)[] {
+  const hourly = meanSeries(models.map(m => (h.precip[m] ?? []).map((p, i) => {
+    const t = h.temp[m]?.[i]
+    return p == null || t == null ? null : Math.max(0, p) * (1 - snowFraction(tempAt(t, h.zRef, z)))
+  })))
+  return Array.from({ length: FORECAST_DAYS }, (_, d) => windowSum(hourly, dayStartIndex(d) + 1, 24))
+}
+
 export interface WindowTotal {
   /** Consensus total; null when the models do not reach the end of the window. */
   mean: number | null
@@ -95,7 +105,8 @@ export function windowTotal(s: LevelSnow, start: number, hours: number): WindowT
 export function summarise(h: HourlyModels, base: number, top: number, nowMs: number, models: readonly string[] = MODEL_IDS): ResortForecast {
   const levels = [base, (base + top) / 2, top]
   const now = nowIndex(h, nowMs)
-  const out: ResortForecast = { w: [], lo: [], hi: [], n: [0, 0, 0], d: [], p: [], mm: [], t: [null, null], d0: h.time[dayStartIndex(0)]?.slice(0, 10) ?? '' }
+  const rain: (number | null)[][] = []
+  const out: ResortForecast = { rain, w: [], lo: [], hi: [], n: [0, 0, 0], d: [], p: [], mm: [], t: [null, null], d0: h.time[dayStartIndex(0)]?.slice(0, 10) ?? '' }
 
   levels.forEach((z, li) => {
     const snow = snowAtLevel(h, z, models)
@@ -108,6 +119,8 @@ export function summarise(h: HourlyModels, base: number, top: number, nowMs: num
       out.mm = models.map((_, mi) => totals.map((t) => r1(t.byModel[mi])))
     }
     out.d.push(Array.from({ length: FORECAST_DAYS }, (_, day) => r1(windowSum(snow.mean, dayStartIndex(day) + 1, 24))))
+    // Keep trace rainfall positive in the compact snapshot; rounding it to 0 would mean dry.
+    rain.push(dailyRainAtLevel(h, z, models).map(mm => mm != null && mm > 0 && mm < 0.1 ? Number(mm.toPrecision(2)) : r1(mm)))
     out.p.push([24, 72].map((hours) => r1(windowSum(snow.mean, now - hours + 1, hours))))
   })
 

@@ -6,7 +6,8 @@ import { fmtDate } from '../charts/base.tsx'
 import { AccumulationChart, ElevationChart, ModelChart, SnowLineChart } from '../charts/charts.tsx'
 import { DayStrip } from '../charts/DayStrip.tsx'
 import { biggestStorm, CONFIDENCE_LABEL, LEVEL_INDEX, rateSpread, type Metric, type Row } from '../lib/data.ts'
-import { fmtAgo, type Async } from '../lib/hooks.ts'
+import { fetchDailyWind } from '../lib/daily-wind.ts'
+import { fmtAgo, useAsync, type Async } from '../lib/hooks.ts'
 import type { ReportFile } from '../lib/reports.ts'
 import { elevationProfile, fetchLive, levelView, meteogram, snapshotDays, type DayTotal, type Live } from '../lib/live.ts'
 import { LEVEL_LABELS, LEVELS, MODELS, WINDOW_LABELS, WINDOWS_H, type Level } from '../lib/models.ts'
@@ -76,6 +77,7 @@ export function Detail({ row, obs, reports, passes, units, dark, metric, level: 
   const win = free ? 0 : pickedWin
   const [state, setState] = useState<LiveState>({ status: free ? 'snapshot' : 'loading' })
   const [attempt, setAttempt] = useState(0)
+  const wind = useAsync(signal => free || tab !== 'snow' ? Promise.resolve(null) : fetchDailyWind(r, signal), [r, free, tab, attempt])
   const panel = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -147,7 +149,7 @@ export function Detail({ row, obs, reports, passes, units, dark, metric, level: 
     return { ...t, conf: rateSpread(modelSpread(t.byModel, view ? t.mean : (f?.w[1][wi] ?? null)), wi === 2) }
   })
   const past = view ? view.past : [f?.p[li][0] ?? null, f?.p[li][1] ?? null]
-  const days = view ? view.days : f ? snapshotDays(f.d0, f.d[li]) : null
+  const days = view ? view.days : f ? snapshotDays(f.d0, f.d[li], f.rain?.[li]) : null
   const offsetSec = live?.h.utcOffsetSeconds ?? 0
   const levelLabel = `${LEVEL_LABELS[level].toLowerCase()} elevation`
   const windowLabel = `Next ${WINDOW_LABELS[win]}`
@@ -211,7 +213,7 @@ export function Detail({ row, obs, reports, passes, units, dark, metric, level: 
             grow
           />
 
-          {days && <DayStrip days={days} units={units} levelLabel={levelLabel} openDays={free ? FREE_DAYS : days.length} onLocked={() => onAsk('outlook')} />}
+          {days && <DayStrip days={days} wind={wind.status === 'ready' ? wind.data : null} units={units} levelLabel={levelLabel} openDays={free ? FREE_DAYS : days.length} onLocked={() => onAsk('outlook')} />}
 
           <section className="chart-card recent" aria-label="Nearby stations and model estimates">
             <header>
@@ -251,7 +253,7 @@ export function Detail({ row, obs, reports, passes, units, dark, metric, level: 
           {state.status === 'loading' && <p className="status">Loading the latest run of every model for the charts…</p>}
           {state.status === 'error' && (
             <p className="status is-error">
-              Live model data is not available right now: {state.message.replace(/\.$/, '')}. Everything here is from the snapshot taken {fmtAgo(generated)}.{' '}
+              Live model data is not available right now: {state.message.replace(/\.$/, '')}. Snow and rain totals use the snapshot taken {fmtAgo(generated)}.{' '}
               <button type="button" className="link-btn" onClick={() => setAttempt((n) => n + 1)}>Try again</button>
             </p>
           )}
