@@ -98,6 +98,10 @@ jobs:
           VITE_PAY_URL: ${{ vars.PAY_URL }}
       - uses: actions/upload-pages-artifact@v5
         with:
+          # A job retry keeps earlier artifacts under the same run ID. Publish only this attempt.
+          name: github-pages-${{ github.run_attempt }}
           path: dist
       - id: deploy
         uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
