@@ -24,12 +24,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+    permissions:
+      contents: read
+    outputs:
+      artifact: github-pages-${{ github.run_attempt }}
     env:
       # The site's own address (set in the repository's Pages settings; DNS at Vercel). The
       # github.io address only redirects here, so the published data is read from this one.
@@ -101,7 +102,17 @@ jobs:
           # A job retry keeps earlier artifacts under the same run ID. Publish only this attempt.
           name: github-pages-${{ github.run_attempt }}
           path: dist
+
+  # Start publication after the upload job completes. Retrying just this job reuses the
+  # original upload (and does not repeat any weather requests).
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
       - id: deploy
         uses: actions/deploy-pages@v5
         with:
-          artifact_name: github-pages-${{ github.run_attempt }}
+          artifact_name: ${{ needs.build.outputs.artifact }}
