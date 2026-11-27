@@ -4,7 +4,7 @@ import { readFile, rename, writeFile } from 'node:fs/promises'
 import { liveFeedFor } from '../src/lib/status.ts'
 import type { Resort } from '../src/lib/types.ts'
 import type { PublishedReport, ReportFile } from '../src/lib/reports.ts'
-import { alterraSnow, hakubaSnow, ltsReading, rcrSnow, seliRain, vailSnow, type Parsed } from './lib/report-parsers.ts'
+import { alterraSnow, hakubaSnow, ltsReading, observatoryRain, rcrSnow, seliRain, vailSnow, type Parsed } from './lib/report-parsers.ts'
 
 const out = 'public/data/reports.json'
 const resorts: Resort[] = JSON.parse(await readFile('public/data/resorts.json','utf8')).resorts
@@ -85,6 +85,15 @@ for (const [id, slug] of Object.entries({ a49c1598:'jiigatake', '351e73f4':'kash
 }
 const seli='https://penteli.meteo.gr/stations/seli/seli.htm'
 job(['10910feb'],'National Observatory of Athens · Seli ski center',seli,async()=>seliRain(await get(seli,'windows-1253')),'station')
+
+for (const [id,slug,name,elevation] of [
+  ['a06f4e81','parnassos1950','Parnassos, Kelaria',1950],
+  ['e8a6ca6d','vasilitsa','Vasilitsa',1780],
+  ['17084b85','kaimaktsalan','Kaimaktsalan Ski Center',2090],
+] as const) {
+  const url = `https://penteli.meteo.gr/stations/${slug}/`
+  job([id], `National Observatory of Athens · ${name}`, url, async()=>observatoryRain(await get(url),name,elevation), 'station')
+}
 
 // LTS supplies measuring points, not operator-wide totals. Use only open CC0 observations
 // near the mountain, label the distance, and keep the last snowfall date apart from report time.

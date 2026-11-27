@@ -79,6 +79,27 @@ export function seliRain(html: string): Parsed {
   return { readings:[result].filter(hasValues) }
 }
 
+// The Observatory's modern station pages (Seli above uses its older table layout).
+export function observatoryRain(html: string, station: string, elevation: number): Parsed {
+  const text = html.replace(/<[^>]*>/g,' ').replace(/&nbsp;/g,' ').replace(/\s+/g,' ')
+  if (!text.includes(`Weather station of ${station} Provided by the National Observatory of Athens`) ||
+      !text.includes(`Elevation: ${elevation} m`)) throw Error('Wrong Observatory station or elevation')
+  if (/The station appears to be offline/i.test(text)) return {readings:[]}
+  const stamp = text.match(/Latest Values\s*\/[^\d]{0,80}(\d{2})\/(\d{2})\/(20\d{2}) (\d{2}:\d{2})/i)
+  const gauge = html.match(/<span>Today's Rain<\/span>\s*<br\s*\/?>\s*<span>[^<]*<\/span>\s*<\/div>\s*<div class="lright">\s*<span>([^<]*)<\/span>/i)
+  if (!stamp || !gauge) throw Error('Unknown Observatory report format')
+  const at = zoned(`${stamp[3]}-${stamp[2]}-${stamp[1]}T${stamp[4]}`, 'Europe/Athens')
+  if (!at) throw Error('Invalid Observatory measurement time')
+  const result = row(`${station} gauge · ${elevation.toLocaleString('en-US')} m`, at)
+  result.zone = 'Europe/Athens'
+  const value = gauge[1].trim()
+  if (/^-+\s*mm$/.test(value)) return {readings:[]}
+  const measured = value.match(/^(\d+(?:\.\d+)?)\s*mm$/)
+  if (!measured) throw Error('Unknown rain gauge value or units')
+  put(result, 'rainToday', measured[1])
+  return {readings:[result]}
+}
+
 // This timestamp belongs to the weather/snow table. The later lift table has its own clock.
 export function hakubaSnow(html: string): Parsed {
   const section = html.match(/WEATHER&(?:amp;)?SNOW REPORT<\/h3>([\s\S]*?)<\/table>/i)?.[1]

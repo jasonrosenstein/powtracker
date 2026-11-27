@@ -218,7 +218,11 @@ a { color: var(--accent-ink); }
 
 .daily-grid { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px; margin: 10px -8px 0 0; }
 .daystrip { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: thin; padding-bottom: 4px; }
-.day, .daily-key { display: grid; grid-template-rows: 32px 59px 59px 38px auto; gap: 3px; align-items: center; justify-items: center; align-content: start; padding: 5px 0; border: 1px solid transparent; }
+.daily-grid { --daily-rows: 32px 59px [wind] 38px [temps] auto; }
+.daily-grid.has-rain { --daily-rows: 32px 59px 59px [wind] 38px [temps] auto; }
+.daily-grid .wind-row { grid-row: wind; }
+.daily-grid .temps { grid-row: temps; }
+.day, .daily-key { display: grid; grid-template-rows: var(--daily-rows); gap: 3px; align-items: center; justify-items: center; align-content: start; padding: 5px 0; border: 1px solid transparent; }
 .day { cursor: pointer; box-sizing: border-box; flex: 0 0 64px; background: none; border-radius: 10px; }
 .daily-key { justify-items: start; color: var(--ink-2); font-size: 12px; }
 .daily-grid small { font-size: 11px; color: var(--ink-3); }
@@ -230,7 +234,7 @@ a { color: var(--accent-ink); }
 .rain-key, .day .rain .bar { background: var(--rain); }
 .day .wind-row { font-size: 12px; white-space: nowrap; line-height: 1.5; }
 .daily-hint { margin-top: 7px; font-size: 11.5px; color: var(--ink-3); }
-.locked-day { grid-row: 2 / 5; display: grid; justify-items: center; gap: 3px; font-size: 12px; }
+.locked-day { grid-row: 2 / temps; display: grid; justify-items: center; gap: 3px; font-size: 12px; }
 @media (forced-colors: active) { .day .bar { border-inline-start: 8px solid CanvasText; } .day .rain .bar { border-inline-start-style: double; } }
 .day[aria-selected='true'] { background: var(--accent-soft); border-color: var(--accent); }
 .day:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }

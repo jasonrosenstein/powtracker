@@ -78,6 +78,16 @@ export function dailyRainAtLevel(h: HourlyModels, z: number, models: readonly st
   return Array.from({ length: FORECAST_DAYS }, (_, d) => windowSum(hourly, dayStartIndex(d) + 1, 24))
 }
 
+/** Show daily rain from 0.05 inches (1.27 mm), regardless of display units. */
+export const showsDailyRain = (mm: number | null): boolean => mm != null && mm >= 1.27
+
+function packRain(mm: number | null): number | null {
+  if (mm == null) return null
+  // Preserve traces, and don't let snapshot rounding turn a hidden amount into a visible one.
+  const rounded = mm > 0 && mm < 0.1 ? Number(mm.toPrecision(2)) : r1(mm)
+  return showsDailyRain(rounded) === showsDailyRain(mm) ? rounded : mm
+}
+
 export interface WindowTotal {
   /** Consensus total; null when the models do not reach the end of the window. */
   mean: number | null
@@ -119,8 +129,7 @@ export function summarise(h: HourlyModels, base: number, top: number, nowMs: num
       out.mm = models.map((_, mi) => totals.map((t) => r1(t.byModel[mi])))
     }
     out.d.push(Array.from({ length: FORECAST_DAYS }, (_, day) => r1(windowSum(snow.mean, dayStartIndex(day) + 1, 24))))
-    // Keep trace rainfall positive in the compact snapshot; rounding it to 0 would mean dry.
-    rain.push(dailyRainAtLevel(h, z, models).map(mm => mm != null && mm > 0 && mm < 0.1 ? Number(mm.toPrecision(2)) : r1(mm)))
+    rain.push(dailyRainAtLevel(h, z, models).map(packRain))
     out.p.push([24, 72].map((hours) => r1(windowSum(snow.mean, now - hours + 1, hours))))
   })
 

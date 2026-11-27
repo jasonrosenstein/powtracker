@@ -53,8 +53,8 @@ detail screen and the map animations; `npm run shots` saves screenshots of every
 5. **Measurements.** `scripts/ingest-obs.ts` pulls snow depth and measured snowfall from about
    12,900 official ground stations and matches each mountain to the nearest one within 10 km
    that stands between 200 m below its base and 300 m above its summit. Sources: NOAA NOHRSC
-   station reports (United States), JMA AMeDAS (Japan), SLF (Switzerland), GeoSphere Austria,
-   the avalanche services of Tirol, South Tyrol and Trentino, and British Columbia's snow
+   station reports and direct USDA NRCS SNOTEL (United States), JMA AMeDAS (Japan), SLF (Switzerland),
+   GeoSphere Austria, Météo-France's mountain observation network, the avalanche services of Tirol, South Tyrol and Trentino, and British Columbia's snow
    weather stations. Automated depth sensors fail in recognisable ways, so a deep reading is
    kept only if neighbouring stations support it. Where a station measured the last 24 or 72
    hours, that figure replaces the model estimate and is marked as measured. Each new source
@@ -62,7 +62,9 @@ detail screen and the map animations; `npm run shots` saves screenshots of every
 
 The same engine runs in the browser for a mountain's detail view, on a fresh fetch, so its charts
 are newer than the rankings snapshot and can differ from it slightly. In **Day by day**, the blue
-row shows new snow depth and the green row shows liquid rain. For each model we split the hourly
+row shows new snow depth and the green row shows liquid rain from 0.05 inches (1.27 mm) per day.
+If no displayed day at the selected elevation reaches that threshold, the rain row disappears.
+For each model we split the hourly
 precipitation at the selected elevation before averaging and summing each local day. The rows
 have separate scales. Wind is the strongest hourly 10 m wind in Open-Meteo's mid-mountain
 best-match forecast, with the direction it blows **from** at that hour (not a gust or a slope
@@ -169,12 +171,10 @@ allows commercial use, and makes tracking every ski area in OpenSkiMap (about 4,
   combined and as their parts (Les Trois Vallées and Val Thorens).
 - Models at 9 to 25 km cannot see a single ridge: totals are best read as a comparison between
   mountains and between models, and the 14-day column as a guide to the pattern.
-- About a third of mountains have a station close enough to measure them (two thirds in the
-  US, Austria and Switzerland; none yet in France, Norway or most of Canada). Elsewhere "last
-  24 / 72 hours" is a model estimate and there is no snow depth. Not yet connected: SNOTEL
-  directly (its server was down when this was built; many of its stations arrive through
-  NOAA), Météo-France's live observations (free key required; its open daily files run days
-  behind), MET Norway (free key required).
+- Station coverage depends on who reported within 72 hours and how close the station is in
+  distance and elevation. SNOTEL and NOAA can carry the same station: their depths are never
+  added together. Météo-France's open archive is updated daily, not in real time; its ground
+  depth is not new snow. Where no suitable station reports, past snowfall remains a model estimate.
 - Station measurements are not the resorts' own snow reports. Live lift and trail status is
   shown for about 100 mountains whose feed is open to other sites. The rest (Vail Resorts'
   mountains, Boyne, Powdr, most independents, Japan) publish theirs only on their own sites or
@@ -191,7 +191,9 @@ allows commercial use, and makes tracking every ski area in OpenSkiMap (about 4,
 Forecasts: Open-Meteo (CC BY 4.0), from ECMWF, NOAA, DWD, Environment Canada, JMA, the UK Met
 Office and Météo-France. Mountains: OpenSkiMap and OpenStreetMap contributors (ODbL). Basemap:
 OpenFreeMap, OpenMapTiles. Radar: RainViewer. Station measurements: NOAA National Operational
-Hydrologic Remote Sensing Center; Japan Meteorological Agency; WSL Institute for Snow and
+Hydrologic Remote Sensing Center; [USDA NRCS AWDB](https://wcc.sc.egov.usda.gov/awdbRestApi/swagger-ui/index.html)
+(hourly SNOTEL snow depth); [Météo-France's mountain observation archive](https://www.data.gouv.fr/datasets/archive-reseau-nivo-meteorologique/)
+(Licence Ouverte 2.0, station observation times shown in the app); Japan Meteorological Agency; WSL Institute for Snow and
 Avalanche Research SLF; GeoSphere Austria (CC BY 4.0); the avalanche warning services of Tirol,
 South Tyrol and Trentino via avalanche.report (CC BY 4.0); Government of British Columbia (Open
 Government Licence). Trail maps: OpenSkiMap, OpenStreetMap contributors (ODbL); terrain: Mapzen

@@ -13,6 +13,9 @@
 //
 // Usage: node scripts/ingest-obs.ts [source ...]     (no arguments: every source)
 import { readFileSync, renameSync, writeFileSync } from 'node:fs'
+import { gunzipSync } from 'node:zlib'
+import { franceNivo } from './lib/france-nivo.ts'
+import { feetToMetres, snotelReading, type SnotelSite, type SnotelRecord } from './lib/snotel.ts'
 import type { Observation, ObservationsFile, ResortsFile } from '../src/lib/types.ts'
 
 interface Reading {
@@ -45,7 +48,7 @@ const HOUR = 3_600_000
 const now = Date.now()
 
 async function get(url: string): Promise<Response> {
-  const res = await fetch(url, { signal: AbortSignal.timeout(90_000), headers: { 'user-agent': 'powtracker (snow forecast site)' } })
+  const res = await fetch(url, { signal: AbortSignal.timeout(90_000), headers: { 'user-agent': 'MountainObservationReader/1.0' } })
   if (!res.ok) throw new Error(`${url.slice(0, 100)}: HTTP ${res.status}`)
   return res
 }
@@ -288,12 +291,51 @@ async function bc(): Promise<Station[]> {
   return out
 }
 
+// Direct SNOTEL complements the reports relayed by NOAA. Only query stations that can
+// match a tracked US mountain; the app keeps the nearest reading, never sums both feeds.
+async function snotel(): Promise<Station[]> {
+  const api = 'https://wcc.sc.egov.usda.gov/awdbRestApi/services/v1'
+  const meta = await getJson<SnotelSite[]>(`${api}/stations?stationTriplets=*:*:SNTL&elements=SNWD&activeOnly=true`)
+  const us = resorts.filter(r => r.cc === 'US')
+  const sites = meta.filter(s => s.networkCode === 'SNTL' && /^[\w.-]+:[A-Z]{2}:SNTL$/.test(s.stationTriplet) && Number.isFinite(s.elevation) && us.some(r =>
+    feetToMetres(s.elevation) >= r.b-BELOW_BASE_M && feetToMetres(s.elevation) <= r.t+ABOVE_TOP_M && km(r.la,r.lo,s.latitude,s.longitude) <= MAX_KM))
+  const day = (t: number) => new Date(t).toISOString().slice(0,10)
+  const out: Station[] = []
+  for (let i=0; i<sites.length; i+=40) {
+    const batch = new Map(sites.slice(i,i+40).map(s=>[s.stationTriplet,s]))
+    const q = new URLSearchParams({stationTriplets:[...batch.keys()].join(','), elements:'SNWD', duration:'HOURLY',
+      beginDate:day(now-5*24*HOUR),endDate:day(now+24*HOUR),returnFlags:'true',returnSuspectData:'false'})
+    const records = await getJson<SnotelRecord[]>(`${api}/data?${q}`)
+    for (const r of records) {
+      const site = batch.get(r.stationTriplet), station = site && snotelReading(site, r, now)
+      if (station) out.push(station)
+    }
+  }
+  return out
+}
+
+// Météo-France republishes the current year's small gzip daily under Licence Ouverte 2.0.
+async function meteofrance(): Promise<Station[]> {
+  const archive = async (year: number) => {
+    const res = await get(`https://meteofrance.s3.sbg.io.cloud.ovh.net/data/OBS/NIVOSE/nivo_${year}.csv.gz`)
+    const csv = gunzipSync(Buffer.from(await res.arrayBuffer()), { maxOutputLength: 24 * 1024 * 1024 }).toString('utf8')
+    return franceNivo(csv, now, MAX_AGE_H)
+  }
+  const year = new Date(now).getUTCFullYear()
+  if (new Date(now - MAX_AGE_H * HOUR).getUTCFullYear() === year) return archive(year)
+  // The new year's file may not exist yet; the age filter still applies to December's readings.
+  const current = await archive(year).catch(() => [])
+  return current.length ? current : archive(year - 1)
+}
+
 const ADAPTERS: { id: string; credit: string; run: () => Promise<Station[]> }[] = [
   { id: 'nohrsc', credit: 'NOAA National Operational Hydrologic Remote Sensing Center (US)', run: nohrsc },
+  { id: 'snotel', credit: 'USDA Natural Resources Conservation Service, SNOTEL via AWDB', run: snotel },
   { id: 'jma', credit: 'Japan Meteorological Agency, AMeDAS', run: jma },
   { id: 'slf', credit: 'WSL Institute for Snow and Avalanche Research SLF (Switzerland)', run: slf },
   { id: 'geosphere', credit: 'GeoSphere Austria', run: geosphere },
   { id: 'albina', credit: 'Avalanche services of Tirol, South Tyrol and Trentino (avalanche.report)', run: albina },
+  { id: 'france', credit: 'Météo-France, observations du réseau nivo-météorologique (Licence Ouverte 2.0)', run: meteofrance },
   { id: 'bc', credit: 'Government of British Columbia, automated snow weather stations', run: bc },
 ]
 

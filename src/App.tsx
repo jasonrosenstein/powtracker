@@ -241,7 +241,7 @@ export function App() {
         <footer className="about">
           <details>
             <summary>How the numbers are made</summary>
-            <p>The resort snow report is separate from the forecast. Where available, it shows snowfall and surface conditions from the operator’s published report, with its own location, period, time and source link. Nearby LTS measuring points in Italy (CC0, South Tyrol Open Data Hub) and the National Observatory of Athens gauge at Seli are labelled as station reports. A missing rainfall amount is not zero.</p>
+            <p>The resort snow report is separate from the forecast. Where available, it shows snowfall and surface conditions from the operator’s published report, with its own location, period, time and source link. Nearby LTS measuring points in Italy (CC0, South Tyrol Open Data Hub) and National Observatory of Athens gauges at Greek ski centers are labelled as station reports. A missing rainfall amount is not zero.</p>
             <p>
               Every mountain gets the hourly precipitation and temperature forecast of {MODELS.length} independent weather models ({MODELS.map((m) => m.label).join(', ')}).
               Snowfall is worked out separately for the base, the middle and the summit: colder air higher up turns rain to snow and makes lighter, deeper snow from the
@@ -252,7 +252,7 @@ export function App() {
             <p>
               Forecast data: <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> (ECMWF, NOAA, DWD, Environment Canada, JMA, UK Met Office, Météo-France).
               Mountains and elevations: <a href="https://openskimap.org/" target="_blank" rel="noreferrer">OpenSkiMap</a>, OpenStreetMap contributors. Radar: RainViewer.
-              Snow measured on the ground comes from official stations within 10 km of a mountain and at its height: NOAA (United States), the Japan Meteorological
+              Snow measured on the ground comes from official stations within 10 km of a mountain and at its height: NOAA and USDA NRCS SNOTEL (United States), <a href="https://www.data.gouv.fr/datasets/archive-reseau-nivo-meteorologique/" target="_blank" rel="noreferrer">Météo-France mountain stations</a> (Licence Ouverte 2.0), the Japan Meteorological
               Agency, SLF (Switzerland), GeoSphere Austria, the avalanche services of Tirol, South Tyrol and Trentino, and British Columbia's snow weather stations. Readings
               that no neighbouring station supports are left out. Pass rosters are checked against each pass's own listing; confirm with the pass before you travel.
             </p>

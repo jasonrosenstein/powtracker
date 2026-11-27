@@ -16,7 +16,13 @@ try {
     await page.route('**/v1/forecast?**', route => {
       const q = new URL(route.request().url()).searchParams
       if (!q.has('models')) return route.fulfill({json:{hourly:{time:windHours, wind_speed_10m:windHours.map((_, i) => i % 24 === 9 ? 32 : 3), wind_direction_10m:windHours.map((_, i) => i % 24 === 9 ? 270 : 0)}}})
-      const hourly = {time:hours, precipitation_ecmwf_ifs:hours.map(() => 1), temperature_2m_ecmwf_ifs:hours.map(() => 1)}
+      // At mid elevation half falls as rain. First two local days: 1.26 and exactly 1.27 mm.
+      const precip = hours.map((_, i) => {
+        const hour = i - PAST_DAYS * 24 - 1, day = Math.floor(hour / 24)
+        if (day === 0 || day === 1) return hour % 24 === 0 ? (day === 0 ? 2.52 : 2.54) : 0
+        return day === 2 ? null : 1
+      })
+      const hourly = {time:hours, precipitation_ecmwf_ifs:precip, temperature_2m_ecmwf_ifs:hours.map(() => 1)}
       return route.fulfill({json:{hourly,elevation:Number(q.get('elevation')),utc_offset_seconds:0}})
     })
     await page.goto(url.href)
@@ -27,12 +33,23 @@ try {
     assert.equal(await days.count(),14)
     assert(await card.locator('.snow .bar').first().evaluate(el => el.clientHeight > 0))
     assert(await card.locator('.rain .bar').first().evaluate(el => el.clientHeight > 0 && /^rgb\((21, 129, 79|39, 162, 105)\)$/.test(getComputedStyle(el).backgroundColor)))
+    assert.equal(await days.first().locator('.rain').count(),0)
+    assert.doesNotMatch(await days.first().getAttribute('aria-label') ?? '',/rain/i)
+    assert.doesNotMatch(await card.locator('.day-detail').innerText(),/rain/i)
+    assert.equal(await days.nth(1).locator('.rain .amt').innerText(),metric ? '1.3' : '0.05')
+    assert.equal(await days.nth(2).locator('.rain .amt').innerText(),'–')
+    const windY = (i: number) => days.nth(i).locator('.wind-row').evaluate(el => el.getBoundingClientRect().top)
+    assert.equal(await windY(0),await windY(1))
+    await card.getByText('Daily forecast table').click()
+    assert.equal(await card.locator('tbody tr').first().locator('td').nth(1).innerText(),'')
     await days.last().click(); assert.equal(await days.last().getAttribute('aria-selected'),'true')
     assert((await card.locator('.day-detail').innerText()).includes(`${speed} from W`))
     assert.equal(await page.locator('.detail').evaluate(el => el.scrollWidth - el.clientWidth),0)
     await page.getByRole('button',{name:/^Summit/}).last().click()
-    assert.equal(await days.last().locator('.rain .amt').innerText(),'0')
-    await card.getByText('Daily forecast table').click(); assert.equal(await card.locator('tbody tr').count(),14)
+    assert.equal(await card.locator('.rain, .rain-key').count(),0)
+    assert.equal(await card.getByRole('columnheader',{name:/rain/i}).count(),0)
+    assert.doesNotMatch(await card.innerText(),/rain/i)
+    assert.equal(await card.locator('tbody tr').count(),14)
     assert.deepEqual(errors,[]); console.log(`PASS phone ${metric ? 'metric / light' : 'imperial / dark'}: mixed bars, peak wind from west, swipe, units, summit and table`)
     await page.close()
   }

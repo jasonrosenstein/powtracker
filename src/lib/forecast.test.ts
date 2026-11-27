@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { dayStartIndex, nowIndex, parseHourly, snowAtLevel, summarise, timeAt, windowTotal, type OpenMeteoLocation } from './forecast.ts'
+import { dayStartIndex, nowIndex, parseHourly, showsDailyRain, snowAtLevel, summarise, timeAt, windowTotal, type OpenMeteoLocation } from './forecast.ts'
 import { MODEL_IDS, PAST_DAYS } from './models.ts'
 import { levelView, snapshotDays } from './live.ts'
 
@@ -93,6 +93,13 @@ describe('summarise', () => {
     expect(levelView(live, 2000).days.map(d => d.rainMm)).toEqual(snapshot.map(d => d.rainMm))
     expect(snapshot.slice(0, 2).map(d => d.rainMm)).toEqual([3, 0])
     expect(snapshotDays(f.d0, f.d[1])[0].rainMm).toBeNull()
+  })
+  it('keeps the inclusive 0.05 inch cutoff consistent before and after packing daily totals', () => {
+    const mm = [0, 1.2699, 1.27, 1.2701]
+    const h = parseHourly(location({ a: { temp: () => 5, precip: i => i % 24 === 1 ? mm[Math.floor((i - dayStartIndex(0)) / 24)] ?? 0 : 0 } }), ['a'])
+    const packed = summarise(h, 2000, 2000, NOW, ['a']).rain![1].slice(0, mm.length)
+    expect(mm.map(showsDailyRain)).toEqual([false, false, true, true])
+    expect(packed.map(showsDailyRain)).toEqual(mm.map(showsDailyRain))
   })
   it('does not call an incomplete model day dry, even with precipitation but no temperatures', () => {
     const h = parseHourly(location({ a: { precip: () => 0, temp: i => i <= dayStartIndex(1) ? 3 : null } }), ['a'])
